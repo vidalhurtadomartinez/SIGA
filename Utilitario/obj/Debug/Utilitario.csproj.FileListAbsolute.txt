@@ -1,0 +1,10 @@
+D:\MAPIRISOFT\MapitiSoft\MODULOS_UTEPSA\SIGAA\Utilitario\bin\Debug\Utilitario.dll
+D:\MAPIRISOFT\MapitiSoft\MODULOS_UTEPSA\SIGAA\Utilitario\bin\Debug\Utilitario.pdb
+D:\MAPIRISOFT\MapitiSoft\MODULOS_UTEPSA\SIGAA\Utilitario\obj\Debug\Utilitario.csprojResolveAssemblyReference.cache
+D:\MAPIRISOFT\MapitiSoft\MODULOS_UTEPSA\SIGAA\Utilitario\obj\Debug\Utilitario.dll
+D:\MAPIRISOFT\MapitiSoft\MODULOS_UTEPSA\SIGAA\Utilitario\obj\Debug\Utilitario.pdb
+D:\ROGER\Sistemas WEB\SIGAA V2\Utilitario\bin\Debug\Utilitario.dll
+D:\ROGER\Sistemas WEB\SIGAA V2\Utilitario\bin\Debug\Utilitario.pdb
+D:\ROGER\Sistemas WEB\SIGAA V2\Utilitario\obj\Debug\Utilitario.csprojResolveAssemblyReference.cache
+D:\ROGER\Sistemas WEB\SIGAA V2\Utilitario\obj\Debug\Utilitario.dll
+D:\ROGER\Sistemas WEB\SIGAA V2\Utilitario\obj\Debug\Utilitario.pdb

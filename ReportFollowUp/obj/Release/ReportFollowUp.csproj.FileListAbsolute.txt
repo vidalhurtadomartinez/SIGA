@@ -1,0 +1,49 @@
+D:\ROGER\Sistemas WEB\MapiriSoftSeguimiento\ReportFollowUp\bin\Release\ReportFollowUp.dll.config
+D:\ROGER\Sistemas WEB\MapiriSoftSeguimiento\ReportFollowUp\bin\Release\ReportFollowUp.dll
+D:\ROGER\Sistemas WEB\MapiriSoftSeguimiento\ReportFollowUp\bin\Release\ReportFollowUp.pdb
+D:\ROGER\Sistemas WEB\MapiriSoftSeguimiento\ReportFollowUp\bin\Release\es-ES\ReportFollowUp.resources.dll
+D:\ROGER\Sistemas WEB\MapiriSoftSeguimiento\ReportFollowUp\bin\Release\Telerik.Reporting.dll
+D:\ROGER\Sistemas WEB\MapiriSoftSeguimiento\ReportFollowUp\bin\Release\Telerik.Reporting.pdb
+D:\ROGER\Sistemas WEB\MapiriSoftSeguimiento\ReportFollowUp\bin\Release\Telerik.Reporting.xml
+D:\ROGER\Sistemas WEB\MapiriSoftSeguimiento\ReportFollowUp\obj\Release\ReportFollowUp.rptFormularioDetalleRespuesta.resources
+D:\ROGER\Sistemas WEB\MapiriSoftSeguimiento\ReportFollowUp\obj\Release\ReportFollowUp.rptDocumentoHistorico.resources
+D:\ROGER\Sistemas WEB\MapiriSoftSeguimiento\ReportFollowUp\obj\Release\ReportFollowUp.rptDocumentoPromedio.resources
+D:\ROGER\Sistemas WEB\MapiriSoftSeguimiento\ReportFollowUp\obj\Release\ReportFollowUp.rptDocumentoDetalleRespuesta.resources
+D:\ROGER\Sistemas WEB\MapiriSoftSeguimiento\ReportFollowUp\obj\Release\ReportFollowUp.rptFormularioPromedioRespuesta.resources
+D:\ROGER\Sistemas WEB\MapiriSoftSeguimiento\ReportFollowUp\obj\Release\ReportFollowUp.rptDocumentoPromedioRespuesta.resources
+D:\ROGER\Sistemas WEB\MapiriSoftSeguimiento\ReportFollowUp\obj\Release\ReportFollowUp.rptFormularioTipoProceso.resources
+D:\ROGER\Sistemas WEB\MapiriSoftSeguimiento\ReportFollowUp\obj\Release\ReportFollowUp.rptDocumentoTipoProceso.resources
+D:\ROGER\Sistemas WEB\MapiriSoftSeguimiento\ReportFollowUp\obj\Release\ReportFollowUp.rptFormularioProceso.resources
+D:\ROGER\Sistemas WEB\MapiriSoftSeguimiento\ReportFollowUp\obj\Release\ReportFollowUp.rptDocumentoProceso.resources
+D:\ROGER\Sistemas WEB\MapiriSoftSeguimiento\ReportFollowUp\obj\Release\ReportFollowUp.rptFormularioDetalleRespuesta.es-ES.resources
+D:\ROGER\Sistemas WEB\MapiriSoftSeguimiento\ReportFollowUp\obj\Release\ReportFollowUp.rptDocumentoDetalleRespuesta.es-ES.resources
+D:\ROGER\Sistemas WEB\MapiriSoftSeguimiento\ReportFollowUp\obj\Release\ReportFollowUp.csproj.GenerateResource.Cache
+D:\ROGER\Sistemas WEB\MapiriSoftSeguimiento\ReportFollowUp\obj\Release\ReportFollowUp.dll.licenses
+D:\ROGER\Sistemas WEB\MapiriSoftSeguimiento\ReportFollowUp\obj\Release\es-ES\ReportFollowUp.resources.dll
+D:\ROGER\Sistemas WEB\MapiriSoftSeguimiento\ReportFollowUp\obj\Release\ReportFollowUp.dll
+D:\ROGER\Sistemas WEB\MapiriSoftSeguimiento\ReportFollowUp\obj\Release\ReportFollowUp.pdb
+D:\ROGER\Sistemas WEB\SIGAA V2\ReportFollowUp\bin\Release\ReportFollowUp.dll.config
+D:\ROGER\Sistemas WEB\SIGAA V2\ReportFollowUp\bin\Release\ReportFollowUp.dll
+D:\ROGER\Sistemas WEB\SIGAA V2\ReportFollowUp\bin\Release\ReportFollowUp.pdb
+D:\ROGER\Sistemas WEB\SIGAA V2\ReportFollowUp\bin\Release\es-ES\ReportFollowUp.resources.dll
+D:\ROGER\Sistemas WEB\SIGAA V2\ReportFollowUp\bin\Release\Telerik.Reporting.dll
+D:\ROGER\Sistemas WEB\SIGAA V2\ReportFollowUp\bin\Release\Telerik.Reporting.pdb
+D:\ROGER\Sistemas WEB\SIGAA V2\ReportFollowUp\bin\Release\Telerik.Reporting.xml
+D:\ROGER\Sistemas WEB\SIGAA V2\ReportFollowUp\obj\Release\ReportFollowUp.csprojResolveAssemblyReference.cache
+D:\ROGER\Sistemas WEB\SIGAA V2\ReportFollowUp\obj\Release\ReportFollowUp.rptFormularioDetalleRespuesta.resources
+D:\ROGER\Sistemas WEB\SIGAA V2\ReportFollowUp\obj\Release\ReportFollowUp.rptDocumentoHistorico.resources
+D:\ROGER\Sistemas WEB\SIGAA V2\ReportFollowUp\obj\Release\ReportFollowUp.rptDocumentoPromedio.resources
+D:\ROGER\Sistemas WEB\SIGAA V2\ReportFollowUp\obj\Release\ReportFollowUp.rptDocumentoDetalleRespuesta.resources
+D:\ROGER\Sistemas WEB\SIGAA V2\ReportFollowUp\obj\Release\ReportFollowUp.rptFormularioPromedioRespuesta.resources
+D:\ROGER\Sistemas WEB\SIGAA V2\ReportFollowUp\obj\Release\ReportFollowUp.rptDocumentoPromedioRespuesta.resources
+D:\ROGER\Sistemas WEB\SIGAA V2\ReportFollowUp\obj\Release\ReportFollowUp.rptFormularioTipoProceso.resources
+D:\ROGER\Sistemas WEB\SIGAA V2\ReportFollowUp\obj\Release\ReportFollowUp.rptDocumentoTipoProceso.resources
+D:\ROGER\Sistemas WEB\SIGAA V2\ReportFollowUp\obj\Release\ReportFollowUp.rptFormularioProceso.resources
+D:\ROGER\Sistemas WEB\SIGAA V2\ReportFollowUp\obj\Release\ReportFollowUp.rptDocumentoProceso.resources
+D:\ROGER\Sistemas WEB\SIGAA V2\ReportFollowUp\obj\Release\ReportFollowUp.rptFormularioDetalleRespuesta.es-ES.resources
+D:\ROGER\Sistemas WEB\SIGAA V2\ReportFollowUp\obj\Release\ReportFollowUp.rptDocumentoDetalleRespuesta.es-ES.resources
+D:\ROGER\Sistemas WEB\SIGAA V2\ReportFollowUp\obj\Release\ReportFollowUp.csproj.GenerateResource.Cache
+D:\ROGER\Sistemas WEB\SIGAA V2\ReportFollowUp\obj\Release\ReportFollowUp.dll.licenses
+D:\ROGER\Sistemas WEB\SIGAA V2\ReportFollowUp\obj\Release\es-ES\ReportFollowUp.resources.dll
+D:\ROGER\Sistemas WEB\SIGAA V2\ReportFollowUp\obj\Release\ReportFollowUp.dll
+D:\ROGER\Sistemas WEB\SIGAA V2\ReportFollowUp\obj\Release\ReportFollowUp.pdb

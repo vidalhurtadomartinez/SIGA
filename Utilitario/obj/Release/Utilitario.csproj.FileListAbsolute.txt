@@ -1,0 +1,5 @@
+D:\ROGER\Sistemas WEB\SIGAA V2\Utilitario\bin\Release\Utilitario.dll
+D:\ROGER\Sistemas WEB\SIGAA V2\Utilitario\bin\Release\Utilitario.pdb
+D:\ROGER\Sistemas WEB\SIGAA V2\Utilitario\obj\Release\Utilitario.csprojResolveAssemblyReference.cache
+D:\ROGER\Sistemas WEB\SIGAA V2\Utilitario\obj\Release\Utilitario.dll
+D:\ROGER\Sistemas WEB\SIGAA V2\Utilitario\obj\Release\Utilitario.pdb
