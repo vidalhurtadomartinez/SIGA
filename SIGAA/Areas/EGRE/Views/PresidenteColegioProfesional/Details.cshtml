@@ -1,0 +1,13 @@
+﻿@model SIGAA.Areas.EGRE.Models.gatbl_PresidenteColegioProfesional
+
+@{
+    ViewBag.Title = "Detalle";
+}
+<h3><b>Información de Presidente de Colegio Profesional</b></h3>
+<hr />
+<div>
+    @Html.Partial("_DetailsDelete", Model)
+    @if (FrontUser.TienePermiso(RolesPermisos.EGRE_presidenteColProfesional_puedeEditar)) {
+    <a href="/EGRE/PresidenteColegioProfesional/Edit/@Model.iPresidenteColProfesional_id" class="btn btn-primary"><span class="glyphicon glyphicon-pencil"></span> Editar </a>}
+    <a href="/EGRE/PresidenteColegioProfesional/Index" class="btn btn-default"><span class="glyphicon glyphicon-list"></span> Ir a Lista </a>
+</div>

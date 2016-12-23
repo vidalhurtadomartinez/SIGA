@@ -1,0 +1,42 @@
+﻿@using MvcFlash.Core.Extensions
+@model SIGAA.Areas.EGRE.Models.gatbl_RectorUniversidadPublica
+
+@{
+    ViewBag.Title = "Editar";
+}
+<h3><b>Editar Rector Universidad</b></h3>
+<hr />
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.Flash()
+        @Html.HiddenFor(model => model.iRectorUnivPublica_id)
+
+       @Html.Partial("_CreateEdit", Model)
+
+        @*<div class="form-group">
+                @Html.LabelFor(model => model.iEstado_fl, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <div class="checkbox">
+                        @Html.EditorFor(model => model.iEstado_fl)
+                        @Html.ValidationMessageFor(model => model.iEstado_fl, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>*@
+
+        <hr />
+        <div class="col-md-offset-2">
+            <button type="submit" class="btn btn-primary" id="btnEditar"><span class="glyphicon glyphicon-edit"></span> Editar</button>
+            <a href="/EGRE/RectorUniversidadPublica/Index" class="btn btn-default"><span class="glyphicon glyphicon-list"></span> Ir a Lista </a>
+        </div>
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script src="~/Scripts/Observaciones/General/marcaCamposRequeridos.js"></script>
+}

@@ -1,0 +1,29 @@
+﻿@model IEnumerable<SIGAA.Areas.EGRE.Models.gatbl_RecepcionesTFG>
+
+@{
+    ViewBag.Title = "Indice";
+}
+<h3><b>INDICE :</b>  Recepciones T.F.G. de Tribunales</h3>
+<hr />
+<div class="row">
+    <div class="col-md-6">
+        <div class="text-left">
+            @if (FrontUser.TienePermiso(RolesPermisos.EGRE_recepcionTFGdelTribunal_puedeCrearNuevo)) {
+            <a href="/EGRE/RecepcionesTFG/Create" class="btn btn-primary"><span class="glyphicon glyphicon-plus-sign"></span> Nuevo </a>}
+        </div>
+    </div>
+    <div class="col-md-6">
+        @using (Ajax.BeginForm(new AjaxOptions { HttpMethod = "POST", InsertionMode = InsertionMode.Replace, UpdateTargetId = "listaRecepcionesTFG" }))
+        {
+            <div class="col-md-6 col-md-offset-6">
+                <div class="input-group">
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span>
+                    <input type="text" class="form-control" placeholder="Buscar" name="criterio" autofocus>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+<br />
+
+@Html.Partial("_Index")

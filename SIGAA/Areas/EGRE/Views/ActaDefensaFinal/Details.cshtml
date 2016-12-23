@@ -1,0 +1,13 @@
+﻿@model SIGAA.Areas.EGRE.Models.gatbl_ActaDefensaFinal
+
+@{
+    ViewBag.Title = "Detalle";
+}
+<h3><b>Información de Acta de Defensa Final</b></h3>
+<hr />
+<div>
+    @Html.Partial("_DetailsDelete", Model)
+    @if (FrontUser.TienePermiso(RolesPermisos.EGRE_actaDeDefensaFinal_puedeEditar))
+    {<a href="/EGRE/ActaDefensaFinal/Edit/@Model.iActaDefensaFinal_id" class="btn btn-primary"><span class="glyphicon glyphicon-pencil"></span> Editar </a>}
+    <a href="/EGRE/ActaDefensaFinal/Index" class="btn btn-default"><span class="glyphicon glyphicon-list"></span> Ir a Lista </a>
+</div>

@@ -1,0 +1,73 @@
+﻿@using MvcFlash.Core.Extensions
+@model IEnumerable<SIGAA.Areas.EGRE.Models.gatbl_RecepcionesTFG>
+
+<div id="listaRecepcionesTFG">
+    @Html.Flash()
+    <table class="table small">
+        <tr class="active">
+            <th class="col-md-1">Operaciones</th>
+            <th class="col-md-3">
+                @Html.DisplayName("Alumno (a)")
+            </th>
+            <th class="col-md-3">
+                @Html.DisplayName("Carrera")
+            </th>
+            <th class="col-md-2">
+                @Html.DisplayName("Fecha / Tribunal")
+            </th>
+            <th class="col-md-1">
+                @Html.DisplayName("Ejemplar")
+            </th>
+            <th class="col-md-1">
+                @Html.DisplayName("Estado Rec")
+            </th>
+            <th class="col-md-1">
+                @Html.DisplayName("Revisión")
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @if (FrontUser.TienePermiso(RolesPermisos.EGRE_recepcionTFGdelTribunal_puedeEditar)) {
+                    <a href="/EGRE/RecepcionesTFG/Edit/@item.iRecepcionTFG_id"><span class="glyphicon glyphicon-pencil" data-toggle="tooltip" data-original-title="Editar"></span></a>} |
+                    @if (FrontUser.TienePermiso(RolesPermisos.EGRE_recepcionTFGdelTribunal_puedeVerDetalle)) {
+                    <a href="/EGRE/RecepcionesTFG/Details/@item.iRecepcionTFG_id"><span class="glyphicon glyphicon-eye-open" data-toggle="tooltip" data-original-title="Ver detalle"></span></a>} |
+                    @if (FrontUser.TienePermiso(RolesPermisos.EGRE_recepcionTFGdelTribunal_puedeEliminar)) {
+                    <a href="/EGRE/RecepcionesTFG/Delete/@item.iRecepcionTFG_id"><span class="glyphicon glyphicon-trash" data-toggle="tooltip" data-original-title="Eliminar"></span></a>} |
+                    @if (FrontUser.TienePermiso(RolesPermisos.EGRE_accederAseguimientoDeEjemplaresTFG))
+                    {<a href="/EGRE/Perfil/IndexTFG/?criterio=@item.lEstudiante_id"><span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-original-title="Ver Detalle de Ejemplares"></span></a>}
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Alumno.Persona.NombreCompleto) <br />
+                    <b>@Html.DisplayFor(modelItem => item.lEstudiante_id)</b>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Alumno.Carrera.crr_descripcion)
+                </td>
+                <td>
+                    <b>@Html.DisplayFor(modelItem => item.dtRecepcion_dt)</b><br />
+                    @Html.DisplayFor(modelItem => item.EntregaTribunal.Tutor.sNombre_desc)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EntregaTribunal.EntregaTFG.sNumEjemplar)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.sRecepcionTFG_fl)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.sEstadoEntrega_fl)
+                </td>
+            </tr>
+        }
+    </table>
+</div>
+
+<script type="text/javascript">
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip({
+        placement : 'top'
+    });
+});
+</script>

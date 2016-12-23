@@ -1,0 +1,195 @@
+﻿@using MvcFlash.Core.Extensions
+@model SIGAA.Areas.EGRE.Models.gatbl_ComunicacionEst
+
+@{
+    ViewBag.Title = "Editar";
+}
+<h3><b>Editar Comunicación a Alumno</b></h3>
+<hr />
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.Flash()
+        @Html.HiddenFor(model => model.iComunicacionEst_id)
+        @Html.Partial("_CreateEdit", Model)
+
+        @*<div class="form-group form-group-sm">
+                @Html.LabelFor(model => model.iEstado_fl, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <div class="checkbox">
+                        @Html.EditorFor(model => model.iEstado_fl, new { htmlAttributes = new { @class = "control-label col-md-1" } })
+                        @Html.ValidationMessageFor(model => model.iEstado_fl, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>*@
+        <hr />
+        <div class="col-md-offset-2">
+            <button type="submit" class="btn btn-primary" id="btnEditar"><span class="glyphicon glyphicon-edit"></span> Editar</button>
+            <a href="/EGRE/ComunicacionEst/Index" class="btn btn-default"><span class="glyphicon glyphicon-list"></span> Ir a Lista </a>
+        </div>
+  
+}
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script src="~/Scripts/Observaciones/General/marcaCamposRequeridos.js"></script>
+    @*<link href="~/Content/autocompletar/jquery-ui.css" rel="stylesheet" />
+    <script src="~/Content/autocompletar/jquery-ui.js"></script>*@
+
+    <script type="text/javascript" language="javascript">
+        $(function () {
+            var tipo = $('#datos_TipoGraduacion').val();
+            if (tipo != 'EXAMEN DE GRADO') {
+                $(".esconder").hide();
+                $(".tituloPerfil").show();
+            } else {
+                $(".esconder").show();
+                $(".tituloPerfil").hide();
+            }
+        });
+    </script>
+
+    <script type="text/javascript" language="javascript">
+        $(function () {
+            var tipo = $("#sComunicacionEst_fl :selected").text().trim();
+            if (tipo == 'AUT_HABILITACION') {
+                $(".esconderSiHabilitadoDefensa").hide();
+            } else {
+                $(".esconderSiHabilitadoDefensa").show();
+            }
+        });
+    </script>
+
+
+
+    @* Cbo tipoComunicacion *@
+    <script type="text/javascript" language="javascript">
+        $("#sComunicacionEst_fl").change(function () {
+            var tipo = $("#sComunicacionEst_fl :selected").text().trim();
+            if ((tipo == 'AUT_HABILITACION')) {
+                $(".esconderSiHabilitadoDefensa").hide();
+
+                var modalidad = $("#TipoGraduacion").text();
+                if (modalidad == 'EXAMEN DE GRADO') {
+                    $(".esconder").hide();
+                }
+            } else {
+                var date = new Date();
+                var day = date.getDate();
+                var month = date.getMonth() + 1;
+                var fechaEnCadena1 = date.getFullYear() + '-' + (('' + month).length < 2 ? '0' : '') + month + '-' + (('' + day).length < 2 ? '0' : '') + day;
+                $("#dtDProgramada_dt").val(fechaEnCadena1);
+                var hora = date.getHours();
+                var minutos = date.getMinutes();
+                var horaMinuto = (('' + hora).length < 2 ? '0' : '') + hora + ':' + (('' + minutos).length < 2 ? '0' : '') + minutos;
+                $("#dtHProgramada_dt").val(horaMinuto);
+                $(".esconderSiHabilitadoDefensa").show();
+            }
+        });
+    </script>
+
+    @* alumno *@
+    <script type="text/javascript" language="javascript">
+        $(document).ready(function () {
+            $("#datos_nombreCompletoAlumno").autocomplete({
+                source: function (request, response) {
+                    $("#btnGuardar").attr('disabled', true);
+                    $.ajax({
+                        async: false,
+                        cache: false,
+                        type: "GET",
+                        url: "@(Url.Action("BuscarPorRegistro", "ComunicacionEst"))",
+                        dataType: "json",
+                        data: { "term": request.term },
+                        success: function (data) {
+                            response(data);
+                        }
+                    });
+                },
+                select: function (event, ui) {
+                    $.ajax({
+                        cache: false,
+                        async: false,
+                        type: "GET",
+                        url: "@(Url.Action("Buscar", "ComunicacionEst"))",
+                        dataType: "json",
+                        data: { "term": ui.item.value },
+
+                        success: function (data) {
+                            $("#lEstudiante_id").val(data.codigoAlumno)
+                            $("#datos_nombreAlumno").val(data.nombreAlumno)
+                            $("#datos_carrera").val(data.carrera)
+                            $("#datos_facultad").val(data.facultad)
+                            $("#datos_TituloPerfil").val(data.TituloPerfil)
+                            $("#iPerfil_id").val(data.iPerfil_id)
+                            $("#datos_TipoGraduacion").val(data.TipoGraduacion)
+
+                            if ($('#lEntregadoPor_id').val() != '') {
+                                $("#btnGuardar").attr('disabled', false);
+                            }
+
+                            if (data.TipoGraduacion != 'EXAMEN DE GRADO') {
+                                $(".esconder").hide();
+                                $(".tituloPerfil").show();
+                            } else {
+                                $(".esconder").show();
+                                $(".tituloPerfil").hide();
+                            };
+                            action = data.Action;
+                        },
+                        error: function (xhr, ajaxOptions, thrownError) {
+                            alert('falla al recibir estados.');
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+
+    @* persona *@
+    <script type="text/javascript" language="javascript">
+        $(document).ready(function () {
+            $("#EntregadoPor_nombrePersona").autocomplete({
+                source: function (request, response) {
+                    $("#btnEditar").attr('disabled', true);
+                    $.ajax({
+                        async: false,
+                        cache: false,
+                        type: "GET",
+                        url: "@(Url.Action("ListarNombresDePersonas_Json", "ComunicacionEst"))",
+                        dataType: "json",
+                        data: { "term": request.term },
+                        success: function (data) {
+                            response(data);
+                        }
+                    });
+                },
+                select: function (event, ui) {
+                    $.ajax({
+                        cache: false,
+                        async: false,
+                        type: "GET",
+                        url: "@(Url.Action("TraerInformacionDePersona_Json", "ComunicacionEst"))",
+                        dataType: "json",
+                        data: { "term": ui.item.value },
+                        success: function (data) {
+                            $('#lEntregadoPor_id').val(data.codigoPersona)
+
+                            if ($('#lEstudiante_id').val() != '') {
+                                $("#btnEditar").attr('disabled', false);
+                            }
+
+                            action = data.Action;
+                        },
+                        error: function (xhr, ajaxOptions, thrownError) {
+                            alert('Fallo al recibir estados.');
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+}

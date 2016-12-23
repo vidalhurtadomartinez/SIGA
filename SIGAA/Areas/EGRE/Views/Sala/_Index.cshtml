@@ -1,0 +1,83 @@
+﻿@using MvcFlash.Core.Extensions
+@model IEnumerable<SIGAA.Areas.EGRE.Models.gatbl_Salas>
+
+<div id="listaSalas">
+    @Html.Flash()
+    <table class="table small">
+        <tr class="active">
+            <th class="col-md-1">Operaciones</th>
+            <th class="col-md-2">
+                @Html.DisplayNameFor(model => model.sNombre_nm)
+            </th>
+            <th class="col-md-3">
+                @Html.DisplayNameFor(model => model.sUbicacion_desc)
+            </th>
+            <th class="col-md-2">
+                @Html.DisplayNameFor(model => model.sTelefono_desc)
+            </th>
+            <th class="col-md-5">
+                @Html.DisplayNameFor(model => model.sEncargado_nm)
+            </th>
+        </tr>
+        <tr class="active collapse" id="collapseExample">
+            <th class="col-md-1">Operaciones</th>
+            <th class="col-md-2">
+                @Html.DisplayNameFor(model => model.sNombre_nm)
+            </th>
+            <th class="col-md-3">
+                @Html.DisplayNameFor(model => model.sUbicacion_desc)
+            </th>
+            <th class="col-md-2">
+                @Html.DisplayNameFor(model => model.sTelefono_desc)
+            </th>
+            <th class="col-md-5">
+                @Html.DisplayNameFor(model => model.sEncargado_nm)
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @if (FrontUser.TienePermiso(RolesPermisos.EGRE_aulaSala_puedeEditar)) {
+                    <a href="/EGRE/Sala/Edit/@item.iSala_id"><span class="glyphicon glyphicon-pencil" data-toggle="tooltip" data-original-title="Editar"></span></a>} |
+                    @if (FrontUser.TienePermiso(RolesPermisos.EGRE_aulaSala_puedeVerDetalle)) {
+                    <a href="/EGRE/Sala/Details/@item.iSala_id"><span class="glyphicon glyphicon-eye-open" data-toggle="tooltip" data-original-title="Ver detalle"></span></a>} |
+                    @if (FrontUser.TienePermiso(RolesPermisos.EGRE_aulaSala_puedeEliminar))
+                    {<a href="/EGRE/Sala/Delete/@item.iSala_id"><span class="glyphicon glyphicon-trash" data-toggle="tooltip" data-original-title="Eliminar"></span></a>}
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.sNombre_nm)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.sUbicacion_desc)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.sTelefono_desc)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.sEncargado_nm)
+                </td>
+            </tr>
+        }
+
+    </table>
+
+
+    <ul class="pager small">
+        <li>@Ajax.ActionLink("Prim.", "Index", "Sala", new { id = 1 }, new AjaxOptions { UpdateTargetId = "listaSalas", InsertionMode = InsertionMode.Replace, HttpMethod = "GET" })</li>
+        <li>@Ajax.ActionLink("Ant.", "Index", "Sala", new { id = (ViewBag.indicePagina - 1 < 1) ? 1 : (ViewBag.indicePagina - 1) }, new AjaxOptions { UpdateTargetId = "listaSalas", InsertionMode = InsertionMode.Replace, HttpMethod = "GET" })</li>
+        <li><span><b>Página @ViewBag.indicePagina de @ViewBag.cantidadPaginas</b></span></li>
+        <li>@Ajax.ActionLink("Sig.", "Index", "Sala", new { id = (ViewBag.indicePagina + 1 > ViewBag.cantidadPaginas) ? ViewBag.cantidadPaginas : (ViewBag.indicePagina + 1) }, new AjaxOptions { UpdateTargetId = "listaSalas", InsertionMode = InsertionMode.Replace, HttpMethod = "GET" })</li>
+        <li>@Ajax.ActionLink("Ultimo", "Index", "Sala", new { id = ViewBag.cantidadPaginas }, new AjaxOptions { UpdateTargetId = "listaSalas", InsertionMode = InsertionMode.Replace, HttpMethod = "GET" })</li>
+    </ul>
+
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('[data-toggle="tooltip"]').tooltip({
+            placement: 'top'
+        });
+    });
+</script>

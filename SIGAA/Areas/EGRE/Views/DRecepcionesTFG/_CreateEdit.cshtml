@@ -1,0 +1,65 @@
+﻿@using MvcFlash.Core.Extensions
+@model SIGAA.Areas.EGRE.Models.gatbl_DRecepcionesTFG
+<div class="row">
+    <div class="form-horizontal col-md-7">
+
+    </div>
+    <div class="col-md-5">
+        <div class="panel panel-default">
+            <div class="panel-heading">INFORMACION DE ALUMNO</div>
+            <div class="panel-body">
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="form-group">
+    @Html.LabelFor(model => model.iObs_nro, htmlAttributes: new { @class = "control-label col-md-2" })
+    <div class="col-md-10">
+        @Html.EditorFor(model => model.iObs_nro, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.iObs_nro, "", new { @class = "text-danger" })
+    </div>
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(model => model.sTipoObs_fl, htmlAttributes: new { @class = "control-label col-md-2" })
+    <div class="col-md-10">
+        @Html.EnumDropDownListFor(model => model.sTipoObs_fl, htmlAttributes: new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.sTipoObs_fl, "", new { @class = "text-danger" })
+    </div>
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(model => model.sObsCorta, htmlAttributes: new { @class = "control-label col-md-2" })
+    <div class="col-md-10">
+        @Html.EditorFor(model => model.sObsCorta, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.sObsCorta, "", new { @class = "text-danger" })
+    </div>
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(model => model.sObsDetallada, htmlAttributes: new { @class = "control-label col-md-2" })
+    <div class="col-md-10">
+        @Html.EditorFor(model => model.sObsDetallada, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.sObsDetallada, "", new { @class = "text-danger" })
+    </div>
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(model => model.sSugerencias, htmlAttributes: new { @class = "control-label col-md-2" })
+    <div class="col-md-10">
+        @Html.EditorFor(model => model.sSugerencias, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.sSugerencias, "", new { @class = "text-danger" })
+    </div>
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(model => model.iRecepcionTFG_id, "iRecepcionTFG_id", htmlAttributes: new { @class = "control-label col-md-2" })
+    <div class="col-md-10">
+        @Html.DropDownList("iRecepcionTFG_id", null, htmlAttributes: new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.iRecepcionTFG_id, "", new { @class = "text-danger" })
+    </div>
+</div>

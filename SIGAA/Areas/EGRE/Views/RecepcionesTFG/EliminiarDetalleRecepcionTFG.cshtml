@@ -1,0 +1,61 @@
+﻿@model SIGAA.Areas.EGRE.Models.gatbl_DRecepcionesTFG
+@{
+    ViewBag.Title = "Eliminar Correccion";
+    Layout = null;
+}
+
+<h2>Esta seguro que desea eliminar la Corrección?</h2>
+<div>
+    <h4>¿Esta seguro que desea eliminar Detalle Recepcion TFG?</h4>
+    <hr />
+    <dl class="dl-horizontal small">
+        <dt>
+            Correlativo
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.iObs_nro)
+        </dd>
+        <dt>
+            Nro Recep TFG
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.iRecepcionTFG_id)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.sTipoObs_fl)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.sTipoObs_fl)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.sObsDetallada)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.sObsDetallada)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.sObsCorta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sObsCorta)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.sSugerencias)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sSugerencias)
+        </dd>
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Eliminar" class="btn btn-danger" /> |
+            @Html.ActionLink("Ir a Lista", "Index")
+        </div>
+    }
+</div>

@@ -1,0 +1,15 @@
+﻿@model SIGAA.Areas.EGRE.ViewModel.RecepcionTFGView
+
+@{
+    ViewBag.Title = "Detalle";
+}
+<h3><b>Información de Recepción T.F.G. de Tribunal</b></h3>
+<hr />
+<div>
+    @Html.Partial("_DetailsDelete", Model)
+    @if (FrontUser.TienePermiso(RolesPermisos.EGRE_recepcionTFGdelTribunal_puedeEditar)) {
+    <a href="/EGRE/RecepcionesTFG/Edit/@Model.RecepcionTFG.iRecepcionTFG_id" class="btn btn-primary"><span class="glyphicon glyphicon-pencil"></span> Editar </a>}
+    <a href="/EGRE/RecepcionesTFG/Index" class="btn btn-default"><span class="glyphicon glyphicon-list"></span> Ir a Lista </a>
+    @if (FrontUser.TienePermiso(RolesPermisos.EGRE_accederAseguimientoDeEjemplaresTFG))
+    {<a href="/EGRE/Perfil/IndexTFG/?criterio=@Model.lEstudiante_id" class="btn btn-warning"><span class="glyphicon glyphicon-info-sign"></span> Ejemplares</a>}
+</div>

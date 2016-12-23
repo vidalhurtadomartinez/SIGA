@@ -1,0 +1,165 @@
+﻿@model IEnumerable<SIGAA.Areas.OYM.Models.tblDocumentoHistorico>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.AprobadoPor.CodCargoNivel1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ControlCalidad.CodCargoNivel1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ElaboradoPor.CodCargoNivel1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EstadoDocumento.sDescripcion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OrigenDocumento.sDescripcion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RevisadoPor.CodCargoNivel1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tblDirectorio.sNombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tblDocumento.Titulo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tblPlantilla.Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tblTipoDocumento.sSigla)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tblTipoProceso.sSigla)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dtFechaRegistro_dt)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dtFechaCreacion_dt)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Titulo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.sCorrelativo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.sCodigo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lVersion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dtValidoDesde_dt)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dtUltimaActualizacion_dt)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NombreArchivo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UbicacionArchivo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.sComentarios)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.sISO)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.AprobadoPor.CodCargoNivel1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ControlCalidad.CodCargoNivel1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ElaboradoPor.CodCargoNivel1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EstadoDocumento.sDescripcion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OrigenDocumento.sDescripcion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RevisadoPor.CodCargoNivel1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tblDirectorio.sNombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tblDocumento.Titulo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tblPlantilla.Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tblTipoDocumento.sSigla)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tblTipoProceso.sSigla)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.dtFechaRegistro_dt)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.dtFechaCreacion_dt)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Titulo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.sCorrelativo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.sCodigo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lVersion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.dtValidoDesde_dt)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.dtUltimaActualizacion_dt)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NombreArchivo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UbicacionArchivo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.sComentarios)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.sISO)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.lDocumentoHistorico_id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.lDocumentoHistorico_id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.lDocumentoHistorico_id })
+        </td>
+    </tr>
+}
+
+</table>

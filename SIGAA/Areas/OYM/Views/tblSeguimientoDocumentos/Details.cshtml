@@ -1,0 +1,50 @@
+﻿@model SIGAA.Areas.OYM.Models.tblSeguimientoDocumento
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>tblSeguimientoDocumento</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.dtFechaRespuesta_dt)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dtFechaRespuesta_dt)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sComentario)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sComentario)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.lFormularioProceso_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.lFormularioProceso_id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.lEstadoRespuesta_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.lEstadoRespuesta_id)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.lSeguimientoDocumento_id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

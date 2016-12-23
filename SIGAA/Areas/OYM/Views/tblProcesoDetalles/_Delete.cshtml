@@ -1,0 +1,72 @@
+﻿@model SIGAA.Areas.OYM.Models.tblProcesoDetalle
+
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    <h4 class="modal-title" id="myModalLabel">Esta seguro que desea eliminar el registro?</h4>
+</div>
+
+<div class="modal-body">
+
+    <dl class="dl-horizontal">
+
+        <dt>
+            @Html.DisplayNameFor(model => model.lParticipante_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.vVistaPersonal.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.lCategoria_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblCategoria.sDescripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.lRolParticipante_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RolParticipante.sDescripcion)
+        </dd>        
+
+        <dt>
+            @Html.DisplayNameFor(model => model.lRevision1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.lRevision1)
+        </dd>
+
+        @*<dt>
+            @Html.DisplayNameFor(model => model.lRevision2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.lRevision2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.lRevision3)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.lRevision3)
+        </dd*@>
+    </dl>
+
+</div>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="modal-footer">
+        <button class="btn btn-default" type="button" data-dismiss="modal">Cancelar</button>
+        <input class="btn btn-danger" type="submit" value="Aceptar" />
+    </div>
+}

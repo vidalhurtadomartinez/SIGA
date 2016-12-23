@@ -1,0 +1,70 @@
+﻿@using MvcFlash.Core.Extensions
+@model SIGAA.Areas.EGRE.Models.gatbl_Tutores
+
+<div class="form-group form-group-sm">
+    @Html.LabelFor(model => model.sNombre_desc, htmlAttributes: new { @class = "control-label col-md-2" })
+    <div class="col-md-4">
+        @Html.EditorFor(model => model.sNombre_desc, new { htmlAttributes = new { @class = "form-control", @autofocus = "true" } })
+        @Html.ValidationMessageFor(model => model.sNombre_desc, "", new { @class = "text-danger" })
+    </div>
+</div>
+<div class="form-group form-group-sm">
+    @Html.LabelFor(model => model.sDireccion_desc, htmlAttributes: new { @class = "control-label col-md-2" })
+    <div class="col-md-4">
+        @Html.EditorFor(model => model.sDireccion_desc, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.sDireccion_desc, "", new { @class = "text-danger" })
+    </div>
+</div>
+<div class="form-group form-group-sm">
+    @Html.LabelFor(model => model.sTelefonos_desc, htmlAttributes: new { @class = "control-label col-md-2" })
+    <div class="col-md-4">
+        @Html.EditorFor(model => model.sTelefonos_desc, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.sTelefonos_desc, "", new { @class = "text-danger" })
+    </div>
+</div>
+<div class="form-group form-group-sm">
+    @Html.LabelFor(model => model.sObservacion_desc, htmlAttributes: new { @class = "control-label col-md-2" })
+    <div class="col-md-4">
+        @Html.EditorFor(model => model.sObservacion_desc, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.sObservacion_desc, "", new { @class = "text-danger" })
+    </div>
+</div>
+<div class="form-group form-group-sm">
+    @Html.LabelFor(model => model.sObs_fl, htmlAttributes: new { @class = "control-label col-md-2" })
+    <div class="col-md-4">
+        @Html.EnumDropDownListFor(model => model.sObs_fl, htmlAttributes: new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.sObs_fl, "", new { @class = "text-danger" })
+    </div>
+</div>
+<div class="form-group form-group-sm">
+    @Html.LabelFor(model => model.TipoTutor, htmlAttributes: new { @class = "control-label col-md-2" })
+    <div class="col-md-4">
+        @Html.EnumDropDownListFor(model => model.TipoTutor, htmlAttributes: new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.TipoTutor, "", new { @class = "text-danger" })
+    </div>
+</div>
+<div class="form-group form-group-sm">
+    @Html.LabelFor(model => model.EspecialidadTutor, htmlAttributes: new { @class = "control-label col-md-2" })
+    <div class="col-md-4">
+        @Html.EnumDropDownListFor(model => model.EspecialidadTutor, htmlAttributes: new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.EspecialidadTutor, "", new { @class = "text-danger" })
+    </div>
+</div>
+<div class="form-group form-group-sm">
+    @Html.LabelFor(model => model.iProfesion_id, "Profesión", htmlAttributes: new { @class = "control-label col-md-2" })
+    <div class="col-md-4">
+        @*@Html.DropDownList("iProfesion_id",null, htmlAttributes: new { @class = "form-control" })*@
+        @Html.DropDownListFor(model => model.iProfesion_id, null, htmlAttributes: new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.iProfesion_id, "", new { @class = "text-danger" })
+    </div>
+</div>
+
+<div class="form-group form-group-sm">
+    @Html.LabelFor(model => model.iCProfesional_id, "Colegio Profesional", htmlAttributes: new { @class = "control-label col-md-2" })
+    <div class="col-md-4">
+        @*@Html.DropDownList("iCProfesional_id", null, htmlAttributes: new { @class = "form-control" })*@
+
+        @Html.DropDownListFor(model => model.iCProfesional_id, null, htmlAttributes: new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.iCProfesional_id, "", new { @class = "text-danger" })
+    </div>
+</div>

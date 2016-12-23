@@ -1,0 +1,115 @@
+﻿@using MvcFlash.Core.Extensions
+@model SIGAA.Areas.EGRE.Models.gatbl_EntregaTribunales
+
+@{
+    ViewBag.Title = "Nuevo";
+}
+<h3><b>Crear nueva Entrega T.F.G. a Tribunal</b></h3>
+<hr />
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.Flash()
+        @Html.Partial("_CreateEdit", Model)        
+        <hr />
+        <div class="col-md-offset-2">
+            <button type="submit" class="btn btn-primary" id="btnGuardar" disabled="disabled"><span class="glyphicon glyphicon-saved"></span> Guardar </button>
+            <a href="/EGRE/EntregaTribunales/Index" class="btn btn-default"><span class="glyphicon glyphicon-list"></span> Ir a Lista </a>
+        </div>
+}
+
+@section Scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+    <script src="~/Scripts/Observaciones/General/marcaCamposRequeridos.js"></script>
+    @*<link href="~/Content/autocompletar/jquery-ui.css" rel="stylesheet" />
+    <script src="~/Content/autocompletar/jquery-ui.js"></script>*@
+
+    <script type="text/javascript" language="javascript">
+        $(document).ready(function () {
+            $("#Receptor_nombrePersona").autocomplete({
+                source: function (request, response) {
+                    $("#btnGuardar").attr('disabled', true);
+                    $.ajax({
+                        async: false,
+                        cache: false,
+                        type: "GET",
+                        url: "@(Url.Action("ListarNombresDePersonas_Json", "EntregaTribunales"))",
+                        dataType: "json",
+                        data: { "term": request.term },
+                        success: function (data) {
+                            response(data);
+                        }
+                    });
+                },
+                select: function (event, ui) {
+                    $.ajax({
+                        cache: false,
+                        async: false,
+                        type: "GET",
+                        url: "@(Url.Action("TraerInformacionDePersona_Json", "EntregaTribunales"))",
+                        dataType: "json",
+                        data: { "term": ui.item.value },
+                        success: function (data) {
+                            $('#lRecepciona_id').val(data.codigoPersona)
+
+                            if ($('#iEntrega_id').val() != '') {
+                                $("#btnGuardar").attr('disabled', false);
+                            }
+
+                            action = data.Action;
+                        },
+                        error: function (xhr, ajaxOptions, thrownError) {
+                            alert('Fallo al recibir estados.');
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+
+    <script type="text/javascript" language="javascript">
+        $(function () {
+
+            $('#iEntrega_id').change(function () {
+                var iETribunal_id = parseInt($("#iEntrega_id").val());
+                if (!isNaN(iETribunal_id)) {
+                    $.ajax({
+                        url: "@Url.Action("BuscarInformacionDeAlumno", "EntregaTribunales")",
+                        type: "GET",
+                        data: { term: iETribunal_id },
+                        dataType: "json",
+                        success: function (data) {
+
+                            $("#lEstudiante_id").val(data.registro)
+                            $("#datos_carrera").val(data.carrera)
+                            $("#datos_facultad").val(data.facultad)
+                            $("#datos_TituloPerfil").val(data.TituloPerfil)
+                            $("#datos_TipoGraduacion").val(data.TipoGraduacion)
+                            $("#datos_estadoRecepcionDelAlumno").val(data.estadoRecepcionDelAlumno)
+                            $("#datos_ejemplar").val(data.ejemplar)
+
+                            if ($('#lRecepciona_id').val() != '') {
+                                $("#btnGuardar").attr('disabled', false);
+                            }
+                            action = data.Action;
+                        },
+                        error: function () {
+                            alert("Error al conectarse.")
+                        }
+                    });
+                } else {
+                    $("#lEstudiante_id").val("")
+                    $("#datos_carrera").val("")
+                    $("#datos_facultad").val("")
+                    $("#datos_TituloPerfil").val("")
+                    $("#datos_TipoGraduacion").val("")
+                    $("#datos_estadoRecepcionDelAlumno").val("")
+                    $("#datos_ejemplar").val("")
+
+                    $("#btnGuardar").attr('disabled', true);
+                }
+            });
+        })
+    </script>
+}

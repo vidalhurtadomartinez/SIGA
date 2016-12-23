@@ -1,0 +1,67 @@
+﻿@model IEnumerable<SIGAA.Areas.OYM.Models.tblProcesoDetalle>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <strong>Lista de Participantes</strong>
+    </div>
+
+    @if (Model.Count() > 0)
+    {
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.lParticipante_id)
+                </th>
+                <th>
+                    Cargo
+                </th> 
+                <th>
+                    @Html.DisplayNameFor(model => model.lCategoria_id)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.lRolParticipante_id)
+                </th>                                
+                <th>
+                    @Html.DisplayNameFor(model => model.lRevision1)
+                </th>
+                @*<th>
+                    @Html.DisplayNameFor(model => model.lRevision2)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.lRevision3)
+                </th>*@
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.vVistaPersonal.Nombre)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.vVistaPersonal.DescCargoNivel2)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.tblCategoria.sDescripcion)
+                    </td> 
+                    <td>
+                        @Html.DisplayFor(modelItem => item.RolParticipante.sDescripcion)
+                    </td>                                       
+                    <td>
+                        @Html.DisplayFor(modelItem => item.lRevision1)
+                    </td>
+                    @*<td>
+                        @Html.DisplayFor(modelItem => item.lRevision2)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.lRevision3)
+                    </td>*@
+                </tr>
+            }
+        </table>
+    }
+    else
+    {
+        @: <div class="text-muted">&nbsp;No existen items detalles.</div>
+    }
+</div>

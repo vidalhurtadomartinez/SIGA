@@ -1,0 +1,202 @@
+﻿@model SIGAA.Areas.OYM.Models.tblDocumentoHistorico
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>tblDocumentoHistorico</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.AprobadoPor.CodCargoNivel1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AprobadoPor.CodCargoNivel1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ControlCalidad.CodCargoNivel1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ControlCalidad.CodCargoNivel1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ElaboradoPor.CodCargoNivel1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ElaboradoPor.CodCargoNivel1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EstadoDocumento.sDescripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EstadoDocumento.sDescripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OrigenDocumento.sDescripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OrigenDocumento.sDescripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RevisadoPor.CodCargoNivel1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RevisadoPor.CodCargoNivel1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tblDirectorio.sNombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblDirectorio.sNombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tblDocumento.Titulo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblDocumento.Titulo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tblPlantilla.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblPlantilla.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tblTipoDocumento.sSigla)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblTipoDocumento.sSigla)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tblTipoProceso.sSigla)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblTipoProceso.sSigla)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dtFechaRegistro_dt)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dtFechaRegistro_dt)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dtFechaCreacion_dt)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dtFechaCreacion_dt)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Titulo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Titulo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sCorrelativo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sCorrelativo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sCodigo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sCodigo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.lVersion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.lVersion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dtValidoDesde_dt)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dtValidoDesde_dt)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dtUltimaActualizacion_dt)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dtUltimaActualizacion_dt)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NombreArchivo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NombreArchivo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UbicacionArchivo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UbicacionArchivo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sComentarios)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sComentarios)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sISO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sISO)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.lDocumentoHistorico_id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

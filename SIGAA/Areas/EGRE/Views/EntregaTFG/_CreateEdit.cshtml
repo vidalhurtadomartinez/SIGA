@@ -1,0 +1,103 @@
+﻿@using MvcFlash.Core.Extensions
+@model SIGAA.Areas.EGRE.Models.gatbl_EntregaTFG
+<div class="row">
+    <div class="form-horizontal col-md-7">
+        <div class="form-group form-group-sm">
+            @Html.Label("Año / Periódo", htmlAttributes: new { @class = "control-label col-md-3" })
+            <div class="col-md-3">
+                @Html.EditorFor(model => model.sGestion_desc, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.sGestion_desc, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-4">
+                @Html.DropDownListFor(model => model.sPeriodo_desc, null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.sPeriodo_desc, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.Label("Alumno(A)", htmlAttributes: new { @class = "control-label col-md-3" })
+            <div class="col-md-7">
+                @Html.DropDownListFor(model => model.iPerfil_id, null, "[ Seleccionar.. ]", htmlAttributes: new { @class = "form-control", @autofocus = "true" })
+                @Html.ValidationMessageFor(model => model.iPerfil_id, "", new { @class = "text-danger" })
+            </div>
+        </div>
+   
+        <div class="form-group form-group-sm">
+            @Html.LabelFor(model => model.dtEntrega_dt, htmlAttributes: new { @class = "control-label col-md-3" })
+            <div class="col-md-7">
+                @Html.EditorFor(model => model.dtEntrega_dt, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.dtEntrega_dt, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group form-group-sm">
+            @Html.LabelFor(model => model.sNumEjemplar, htmlAttributes: new { @class = "control-label col-md-3" })
+            <div class="col-md-7">
+                @Html.EnumDropDownListFor(model => model.sNumEjemplar, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.sNumEjemplar, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group form-group-sm">
+            @Html.LabelFor(model => model.sEntrega_fl, htmlAttributes: new { @class = "control-label col-md-3" })
+            <div class="col-md-7">
+                @Html.EnumDropDownListFor(model => model.sEntrega_fl, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.sEntrega_fl, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.Label("Recepcionado por", htmlAttributes: new { @class = "control-label col-sm-3 small" })
+            <div class="col-md-7">
+                <div class="input-group">
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span>
+                    @Html.Editor("Receptor.nombrePersona", new { htmlAttributes = new { @class = "form-control", @placeholder = "Buscar nombre", @required = "required" } })
+                </div>
+            </div>
+            <div class="col-md-2 hidden">
+                @Html.EditorFor(model => model.lRecepciona_id, null, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                @Html.ValidationMessageFor(model => model.lRecepciona_id, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>
+    <div class="col-md-5">
+        <div class="panel panel-default">
+            <div class="panel-heading">INFORMACION COMPLEMENTARIA DE ALUMNO</div>
+            <div class="panel-body">
+                <div class="form-group form-group-sm">
+                    @Html.Label("Registro", htmlAttributes: new { @class = "control-label col-md-2 small" })
+                    <div class="col-md-9">
+                        @Html.EditorFor(model => model.lEstudiante_id, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                        @Html.ValidationMessageFor(model => model.lEstudiante_id, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group form-group-sm">
+                    @Html.Label("Carrera", htmlAttributes: new { @class = "control-label col-md-2 small" })
+                    <div class="col-md-9">
+                        @Html.Editor("datos.carrera", new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                    </div>
+                </div>
+                <div class="form-group form-group-sm">
+                    @Html.Label("Facultad", htmlAttributes: new { @class = "control-label col-md-2 small" })
+                    <div class="col-md-9">
+                        @Html.Editor("datos.facultad", new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                    </div>
+                </div>
+                <div class="form-group form-group-sm">
+                    @Html.Label("Tit Perfil", htmlAttributes: new { @class = "control-label col-md-2 small" })
+                    <div class="col-md-9">
+                        @Html.Editor("datos.TituloPerfil", new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                    </div>
+                </div>
+                <div class="form-group form-group-sm">
+                    @Html.Label("Est Perfil", htmlAttributes: new { @class = "control-label col-md-2 small" })
+                    <div class="col-md-9">
+                        @Html.Editor("datos.estadoPerfil", new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                    </div>
+                </div>
+                <div class="form-group form-group-sm">
+                    @Html.Label("Modalidad", htmlAttributes: new { @class = "control-label col-md-2 small" })
+                    <div class="col-md-9">
+                        @Html.Editor("datos.TipoGraduacion", new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

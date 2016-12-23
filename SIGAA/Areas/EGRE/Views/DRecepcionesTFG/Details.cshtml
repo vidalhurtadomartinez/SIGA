@@ -1,0 +1,15 @@
+﻿@model SIGAA.Areas.EGRE.Models.gatbl_DRecepcionesTFG
+
+@{
+    ViewBag.Title = "Detalle";
+}
+
+<h3><b>Información de Detalle Recepcion T.F.G.</b></h3>
+<hr />
+<div>
+    @Html.Partial("_DetailsDelete", Model)
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.iDRecepcionTFG_id }) |
+    @Html.ActionLink("Ir a Lista", "Index")
+</p>

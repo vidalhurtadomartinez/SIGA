@@ -1,0 +1,210 @@
+﻿@model SIGAA.Areas.OYM.Models.tblDocumentoHistorico
+
+@{
+    ViewBag.Title = "Publicar";
+}
+
+<h2>Publicar</h2>
+
+<div>
+    <h4>Documento</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.lOrigenDocumento_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OrigenDocumento.sDescripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.lTipoDocumento_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblTipoDocumento.sTipoDocumento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Titulo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Titulo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.lTipoProceso_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblTipoProceso.sDescripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sCorrelativo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sCorrelativo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sCodigo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sCodigo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.lVersion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.lVersion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dtValidoDesde_dt)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dtValidoDesde_dt)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dtUltimaActualizacion_dt)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dtUltimaActualizacion_dt)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NombreArchivo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NombreArchivo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UbicacionArchivo)
+        </dt>
+
+        <dd>
+            <a class="glyphicon glyphicon-link" href="~/@Model.UbicacionArchivo" target="_blank">
+                Mostrar
+            </a>
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.lPlantilla_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblPlantilla.Descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.lControlCalidad_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ControlCalidad.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Cargo Control de Calidad")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ControlCalidad.DescCargoNivel2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.lElaboradoPor_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ElaboradoPor.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Cargo Elaborado Por")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ElaboradoPor.DescCargoNivel2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.lRevisadoPor_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RevisadoPor.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Cargo Revisado Por")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RevisadoPor.DescCargoNivel2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.lAprobadoPor_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AprobadoPor.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Cargo Aprobado Por")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AprobadoPor.DescCargoNivel2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sComentarios)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sComentarios)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.lEstado_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EstadoDocumento.sDescripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sISO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sISO)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Publicar" class="btn btn-success" /> |
+            @Html.ActionLink("Ir a Lista", "Index", "tblDocumentos")
+        </div>
+    }
+</div>

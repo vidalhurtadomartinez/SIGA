@@ -1,0 +1,78 @@
+﻿@using SIGAA.Areas.OYM.Helpers
+@model IEnumerable<SIGAA.Areas.OYM.Models.tblDocumentoProceso>
+@{
+    ViewBag.Title = "Proceso de Documentos";
+}
+
+<h2>Proceso de Documentos</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            <div class="pull-left">
+                @Html.NoEncodeActionLink("<span class='glyphicon glyphicon-plus'></span>", "Crear Nuevo", "Create", "tblDocumentoProcesos", routeValues: null, htmlAttributes: new { @class = "btn btn-primary" })
+            </div>
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tblDocumento.Titulo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tblProceso.sNombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dtFechaRegistro_dt)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.sComentarios)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lDocumento_version)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dtFechaInicio_dt)
+        </th> 
+        <th>
+            @Html.DisplayNameFor(model => model.lCategoria_id)
+        </th>        
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td style="width:68px">
+            <div class="pull-left" style="width:68px">
+                @*@if (FrontUser.TienePermiso(RolesPermisos.OYM_procesoDocumentos_puedeEditar)) {
+                @Html.NoEncodeActionLink("<span class='glyphicon glyphicon-pencil'></span>", "Editar", "Edit", "tblDocumentoProcesos", routeValues: new { id = item.lDocumentoProceso_id }, htmlAttributes: new { data_modal = "", @class = "glyphicon" })}
+                &nbsp;*@
+                @if (FrontUser.TienePermiso(RolesPermisos.OYM_procesoDocumentos_puedeVerDetalle)) {
+                @Html.NoEncodeActionLink("<span class='glyphicon glyphicon-search'></span>", "Ver", "Details", "tblDocumentoProcesos", routeValues: new { id = item.lDocumentoProceso_id }, htmlAttributes: new { data_modal = "", @class = "glyphicon" })}
+                &nbsp;
+                @if (FrontUser.TienePermiso(RolesPermisos.OYM_procesoDocumentos_puedeEliminar)) {
+                @Html.NoEncodeActionLink("<span class='glyphicon glyphicon-remove-circle'></span>", "Anular", "Delete", "tblDocumentoProcesos", routeValues: new { id = item.lDocumentoProceso_id }, htmlAttributes: new { data_modal = "", @class = "glyphicon" })}
+            </div>
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tblDocumento.Titulo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tblProceso.sNombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.dtFechaRegistro_dt)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.sComentarios)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lDocumento_version)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.dtFechaInicio_dt)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tblCategoria.sDescripcion)
+        </td>        
+    </tr>
+}
+
+</table>

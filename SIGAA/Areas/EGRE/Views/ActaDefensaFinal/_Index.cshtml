@@ -1,0 +1,88 @@
+﻿@using MvcFlash.Core.Extensions
+@model IEnumerable<SIGAA.Areas.EGRE.Models.gatbl_ActaDefensaFinal>
+
+<div id="listaDefenasFinales">
+@Html.Flash()
+    <table class="table small">
+        <tr class="active">
+            <th class="col-md-2">Operaciones</th>
+            <th class="col-md-3">
+                @Html.DisplayName("Alumno(a)")
+            </th>
+            <th class="col-md-2">
+                @Html.DisplayName("Carrera")
+            </th>
+            <th class="col-md-2">
+                @Html.DisplayName("Tipo de Graduación")
+            </th>
+            <th>
+                @Html.DisplayName("Nro")
+            </th>
+            <th class="col-md-1">
+                @Html.DisplayNameFor(model => model.dtDefensa_dt)
+            </th>
+            <th class="col-md-1">
+                @Html.DisplayName("Nota")
+            </th>
+            <th class="col-md-1">
+                @Html.DisplayNameFor(model => model.sResultadoDefensa_fl)
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @if (FrontUser.TienePermiso(RolesPermisos.EGRE_actaDeDefensaFinal_puedeEditar)) {
+                    <a href="/EGRE/ActaDefensaFinal/Edit/@item.iActaDefensaFinal_id"><span class="glyphicon glyphicon-pencil" data-toggle="tooltip" data-original-title="Editar"></span></a>} |
+                    @if (FrontUser.TienePermiso(RolesPermisos.EGRE_actaDeDefensaFinal_puedeVerDetalle)) {
+                    <a href="/EGRE/ActaDefensaFinal/Details/@item.iActaDefensaFinal_id"><span class="glyphicon glyphicon-eye-open" data-toggle="tooltip" data-original-title="Ver detalle"></span></a>} |
+                    @if (FrontUser.TienePermiso(RolesPermisos.EGRE_actaDeDefensaFinal_puedeEliminar))
+                    {<a href="/EGRE/ActaDefensaFinal/Delete/@item.iActaDefensaFinal_id"><span class="glyphicon glyphicon-trash" data-toggle="tooltip" data-original-title="Eliminar"></span></a>} |
+                    @if (FrontUser.TienePermiso(RolesPermisos.EGRE_actaDeDefensaFinal_puedeImprimir))
+                    {<a href="/EGRE/ActaDefensaFinal/ImprimirActaDefensaFinal/@item.iActaDefensaFinal_id" target="_blank"><span class="glyphicon glyphicon-print" data-toggle="tooltip" data-original-title="Ver reporte"></span></a>} |
+                    @if (FrontUser.TienePermiso(RolesPermisos.EGRE_actaDeDefensaFinal_puedeVerActaDigitalizada))
+                    {
+                        if (item.bActa_digital != null)
+                        {
+                        <a href="/EGRE/ActaDefensaFinal/GetImage/@item.iActaDefensaFinal_id" target="_blank"><span class="glyphicon glyphicon-picture" data-toggle="tooltip" data-original-title="Ver digitalizado"></span></a>
+                        }
+                    }
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Alumno.Persona.NombreCompleto) <br />
+                   <b>@Html.DisplayFor(modelItem => item.alm_registro)</b>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Alumno.Carrera.crr_descripcion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Perfil.TipoGraduacion.tttg_descripcion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.iNumeracion_num)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.dtDefensa_dt)
+                    <b>@Html.DisplayFor(modelItem => item.dtHoraDefensa_dt)</b>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.sCalificacion_desc)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.sResultadoDefensa_fl)
+                </td>
+ 
+            </tr>
+        }
+
+    </table>
+</div>
+
+<script type="text/javascript">
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip({
+        placement : 'top'
+    });
+});
+</script>

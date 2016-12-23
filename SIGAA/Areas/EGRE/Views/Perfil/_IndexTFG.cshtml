@@ -1,0 +1,265 @@
+﻿@model SIGAA.Areas.EGRE.ViewModel.PerfilTFGView
+
+<div id="listaPerfilTFG">
+    <div class="jumbotron">
+        <div>
+            <dl class="dl-horizontal small">
+                <dt>
+                    @Html.DisplayName("Alumno(a)")
+                </dt>
+                <dd>
+                    <b>@Html.DisplayFor(modelItem => modelItem.Perfil.Alumno.Persona.NombreCompleto)</b> @Html.DisplayFor(modelItem => modelItem.Perfil.Alumno.alm_registro)
+                </dd>
+                <dt>
+                    @Html.DisplayName("Carrera")
+                </dt>
+                <dd>
+                    @Html.DisplayFor(modelItem => modelItem.Perfil.Alumno.Carrera.crr_descripcion)
+                </dd>
+                <dt>
+                    @Html.DisplayName("Titulo Perfil")
+                </dt>
+                <dd>
+                    @Html.DisplayFor(modelItem => modelItem.Perfil.sTitulo_tfg)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(modelItem => modelItem.Perfil.sPerfil_fl)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(modelItem => modelItem.Perfil.sPerfil_fl)
+                </dd>
+            </dl>
+        </div>
+        <div class="row">
+            <div class="col-md-6 alert alert-success">
+                <fieldset>
+                    @if (Model.EntregaTribuanalEjemplar1.Count > 0)
+                    {
+                        <legend class="md"><b>Copia 1 </b>(Tribunal: @Html.DisplayFor(modelItem => modelItem.EntregaTribuanalEjemplar1[0].Tutor.sNombre_desc))</legend>
+                    }
+                    else {
+                        <legend>Copia 1 <b> @Html.Display("Sin asignar tutor")</b></legend>
+                    }
+
+                    <table class="table small">
+                        <tr class="active">
+                            <th>
+                                @Html.DisplayName("Recep Alumno")
+                            </th>
+                            <th>
+                                @Html.DisplayName("Entr Tribunal")
+                            </th>
+                            <th>
+                                @Html.DisplayName("Recep Tribunal")
+                            </th>
+                            <th>
+                                @Html.DisplayName("Entr Alumno")
+                            </th>
+                        </tr>
+                        @if (Model.RecepcionesEstudianteEjemplar1.Count > 0)
+                        {
+                            var cantidad = Model.RecepcionesEstudianteEjemplar1.Count;
+                            for (int i = 0; i < cantidad; i++)
+                            {
+                                <tr>
+
+                                    @if (i < Model.RecepcionesEstudianteEjemplar1.Count)
+                                    {
+                                        if (Model.RecepcionesEstudianteEjemplar1[i].dtEntrega_dt != null)
+                                        {
+                                            <td>
+                                                @if (FrontUser.TienePermiso(RolesPermisos.EGRE_recepcionTFGdelAlumno_puedeVerDetalle))
+                                                {<a href="/EGRE/EntregaTFG/Details/@Model.RecepcionesEstudianteEjemplar1[i].iEntrega_id"><span class="glyphicon glyphicon-eye-open" data-toggle="tooltip" data-original-title="Ver detalle"></span></a>}
+                                                @Html.DisplayFor(modelItem => modelItem.RecepcionesEstudianteEjemplar1[i].dtEntrega_dt)
+                                            </td>
+
+                                            if (i < Model.EntregaTribuanalEjemplar1.Count)
+                                            {
+                                                if (Model.EntregaTribuanalEjemplar1[i].dtEntregaTribunal_dt != null)
+                                                {
+                                                    <td>
+                                                        @if (FrontUser.TienePermiso(RolesPermisos.EGRE_entregaTFGalTribunal_puedeVerDetalle)) { 
+                                                        <a href="/EGRE/EntregaTribunales/Details/@Model.EntregaTribuanalEjemplar1[i].iETribunal_id"><span class="glyphicon glyphicon-eye-open" data-toggle="tooltip" data-original-title="Ver detalle"></span></a>}
+                                                        @Html.DisplayFor(modelItem => modelItem.EntregaTribuanalEjemplar1[i].dtEntregaTribunal_dt)
+                                                    </td>
+
+                                                    if (i < Model.RecepcionTribunalEjemplar1.Count)
+                                                    {
+                                                        if (Model.RecepcionTribunalEjemplar1[i].dtRecepcion_dt != null)
+                                                        {
+                                                            <td>
+                                                                @if (FrontUser.TienePermiso(RolesPermisos.EGRE_recepcionTFGdelTribunal_puedeVerDetalle))
+                                                                {<a href="/EGRE/RecepcionesTFG/Details/@Model.RecepcionTribunalEjemplar1[i].iRecepcionTFG_id"><span class="glyphicon glyphicon-eye-open" data-toggle="tooltip" data-original-title="Ver detalle"></span></a>}
+                                                                @Html.DisplayFor(modelItem => modelItem.RecepcionTribunalEjemplar1[i].dtRecepcion_dt)
+                                                            </td>
+
+                                                            if (i < Model.EntregaEstudianteEjemplar1.Count)
+                                                            {
+                                                                if (Model.EntregaEstudianteEjemplar1[i].dtEntregaAlEst_dt != null)
+                                                                {
+                                                                    <td>
+                                                                        @if (FrontUser.TienePermiso(RolesPermisos.EGRE_entregaTFGalAlumno_puedeVerDetalle)) {
+                                                                        <a href="/EGRE/EntregaAlEst/Details/@Model.EntregaEstudianteEjemplar1[i].iEntregaAlEst_id"><span class="glyphicon glyphicon-eye-open" data-toggle="tooltip" data-original-title="Ver detalle"></span></a>}
+                                                                        @Html.DisplayFor(modelItem => modelItem.EntregaEstudianteEjemplar1[i].dtEntregaAlEst_dt)
+                                                                    </td>
+                                                                }
+                                                            }
+                                                            else {
+                                                                <td>
+                                                                    @if (FrontUser.TienePermiso(RolesPermisos.EGRE_entregaTFGalAlumno_puedeCrearNuevo)) {
+                                                                    <a href="/EGRE/EntregaAlEst/Create" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-plus-sign"></span> Nuevo </a>}
+                                                                </td>
+                                                            }
+                                                        }
+                                                    }
+                                                    else {
+                                                        <td>
+                                                            @if (FrontUser.TienePermiso(RolesPermisos.EGRE_recepcionTFGdelTribunal_puedeCrearNuevo)) {
+                                                            <a href="/EGRE/RecepcionesTFG/Create" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-plus-sign"></span> Nuevo </a>}
+                                                        </td>
+                                                    }
+                                                }
+                                            }
+                                            else {
+                                                <td>
+                                                    @if (FrontUser.TienePermiso(RolesPermisos.EGRE_entregaTFGalTribunal_puedeCrearNuevo)) {
+                                                    <a href="/EGRE/EntregaTribunales/Create" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-plus-sign"></span> Nuevo </a>}
+                                                </td>
+                                            }
+                                        }
+                                    }
+                                    else {
+                                        <td>
+                                            @if (FrontUser.TienePermiso(RolesPermisos.EGRE_recepcionTFGdelAlumno_puedeCrearNuevo))
+                                            {<a href="/EGRE/EntregaTFG/Create" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-plus-sign"></span> Nuevo </a>}
+                                        </td>
+                                    }
+                                </tr>
+                            }
+                        }
+                    </table>
+                </fieldset>
+            </div>
+
+            <div class="col-md-6 alert alert-info">
+                <fieldset>
+                    @if (Model.EntregaTribuanalEjemplar2.Count > 0)
+                    {
+                        <legend class="md"><b>Copia 2 </b> (Tribunal: @Html.DisplayFor(modelItem => modelItem.EntregaTribuanalEjemplar2[0].Tutor.sNombre_desc))</legend>
+                    }
+                    else {
+                        <legend>Copia 2 <b> @Html.Display("Sin asignar tutor")</b></legend>
+                    }
+                    <table class="table small">
+                        <tr class="active">
+                            <th>
+                                @Html.DisplayName("Recep Alumno")
+                            </th>
+                            <th>
+                                @Html.DisplayName("Entr Tribunal")
+                            </th>
+                            <th>
+                                @Html.DisplayName("Recep Tribunal")
+                            </th>
+                            <th>
+                                @Html.DisplayName("Entr Alumno")
+                            </th>
+                        </tr>
+                        @if (Model.RecepcionesEstudianteEjemplar2.Count > 0)
+                        {
+                            var cantidad = Model.RecepcionesEstudianteEjemplar2.Count;
+                            for (int i = 0; i < cantidad; i++)
+                            {
+                                <tr>
+
+                                    @if (i < Model.RecepcionesEstudianteEjemplar2.Count)
+                                    {
+                                        if (Model.RecepcionesEstudianteEjemplar2[i].dtEntrega_dt != null)
+                                        {
+                                            <td>
+                                                @if (FrontUser.TienePermiso(RolesPermisos.EGRE_recepcionTFGdelAlumno_puedeVerDetalle))
+                                                {<a href="/EGRE/EntregaTFG/Details/@Model.RecepcionesEstudianteEjemplar2[i].iEntrega_id"><span class="glyphicon glyphicon-eye-open" data-toggle="tooltip" data-original-title="Ver detalle"></span></a>}
+                                                @Html.DisplayFor(modelItem => modelItem.RecepcionesEstudianteEjemplar2[i].dtEntrega_dt)
+                                            </td>
+
+                                            if (i < Model.EntregaTribuanalEjemplar2.Count)
+                                            {
+                                                if (Model.EntregaTribuanalEjemplar2[i].dtEntregaTribunal_dt != null)
+                                                {
+                                                    <td>
+                                                        @if (FrontUser.TienePermiso(RolesPermisos.EGRE_entregaTFGalTribunal_puedeVerDetalle))
+                                                        {<a href="/EGRE/EntregaTribunales/Details/@Model.EntregaTribuanalEjemplar2[i].iETribunal_id"><span class="glyphicon glyphicon-eye-open" data-toggle="tooltip" data-original-title="Ver detalle"></span></a>}
+                                                        @Html.DisplayFor(modelItem => modelItem.EntregaTribuanalEjemplar2[i].dtEntregaTribunal_dt)
+                                                    </td>
+
+                                                    if (i < Model.RecepcionTribunalEjemplar2.Count)
+                                                    {
+                                                        if (Model.RecepcionTribunalEjemplar2[i].dtRecepcion_dt != null)
+                                                        {
+                                                            <td>
+                                                                @if (FrontUser.TienePermiso(RolesPermisos.EGRE_recepcionTFGdelTribunal_puedeVerDetalle))
+                                                                {<a href="/EGRE/RecepcionesTFG/Details/@Model.RecepcionTribunalEjemplar2[i].iRecepcionTFG_id"><span class="glyphicon glyphicon-eye-open" data-toggle="tooltip" data-original-title="Ver detalle"></span></a>}
+                                                                @Html.DisplayFor(modelItem => modelItem.RecepcionTribunalEjemplar2[i].dtRecepcion_dt)
+                                                            </td>
+
+                                                            if (i < Model.EntregaEstudianteEjemplar2.Count)
+                                                            {
+                                                                if (Model.EntregaEstudianteEjemplar2[i].dtEntregaAlEst_dt != null)
+                                                                {
+                                                                    <td>
+                                                                        @if (FrontUser.TienePermiso(RolesPermisos.EGRE_entregaTFGalAlumno_puedeVerDetalle))
+                                                                        {<a href="/EGRE/EntregaAlEst/Details/@Model.EntregaEstudianteEjemplar2[i].iEntregaAlEst_id"><span class="glyphicon glyphicon-eye-open" data-toggle="tooltip" data-original-title="Ver detalle"></span></a>}
+                                                                        @Html.DisplayFor(modelItem => modelItem.EntregaEstudianteEjemplar2[i].dtEntregaAlEst_dt)
+                                                                    </td>
+                                                                }
+                                                            }
+                                                            else {
+                                                                <td>
+                                                                    @if (FrontUser.TienePermiso(RolesPermisos.EGRE_entregaTFGalAlumno_puedeVerDetalle))
+                                                                    {<a href="/EGRE/EntregaAlEst/Create" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-plus-sign"></span> Nuevo </a>}
+                                                                </td>
+                                                            }
+                                                        }
+                                                    }
+                                                    else {
+                                                        <td>
+                                                            @if (FrontUser.TienePermiso(RolesPermisos.EGRE_recepcionTFGdelTribunal_puedeCrearNuevo))
+                                                            {<a href="/EGRE/RecepcionesTFG/Create" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-plus-sign"></span> Nuevo </a>}
+                                                        </td>
+                                                    }
+                                                }
+                                            }
+                                            else {
+                                                <td>
+                                                    @if (FrontUser.TienePermiso(RolesPermisos.EGRE_entregaTFGalTribunal_puedeCrearNuevo))
+                                                    {<a href="/EGRE/EntregaTribunales/Create" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-plus-sign"></span> Nuevo </a>}
+                                                </td>
+                                            }
+                                        }
+                                    }
+                                    else {
+                                        <td>
+                                            @if (FrontUser.TienePermiso(RolesPermisos.EGRE_recepcionTFGdelAlumno_puedeCrearNuevo))
+                                            {<a href="/EGRE/EntregaTFG/Create" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-plus-sign"></span> Nuevo </a>}
+                                        </td>
+                                    }
+                                </tr>
+                            }
+                        }
+                    </table>
+                </fieldset>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('[data-toggle="tooltip"]').tooltip({
+            placement: 'top'
+        });
+    });
+</script>

@@ -1,0 +1,144 @@
+﻿@model SIGAA.Areas.EGRE.Models.gatbl_ComunicacionInt
+
+<dl class="dl-horizontal small">
+    <dt>
+        @Html.DisplayNameFor(model => model.sGestion_desc)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.sGestion_desc)
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.sPeriodo_desc)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.sPeriodo_desc)
+    </dd>
+    <dt>
+        @Html.DisplayName("Reg Alumno")
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.lEstudiante_id)
+        @Html.Display("datos.nombreAlumno")
+    </dd>
+    <dt>
+        @Html.DisplayName("Titulo Perfil")
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.Perfil.sTitulo_tfg)
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.dtComunicacionInt_dt)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.dtComunicacionInt_dt)
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.sCopia1_nm)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.sCopia1_nm)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.sCopia2_nm)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.sCopia2_nm)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.sCopia3_nm)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.sCopia3_nm)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.sCopia4_nm)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.sCopia4_nm)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.sCopia5_nm)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.sCopia5_nm)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.sTipoCom_fl)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.sTipoCom_fl)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.dtDefensa_dt)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.dtDefensa_dt)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.dtHoraDefensa_dt)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.dtHoraDefensa_dt)
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.dtHoraEntregaCaso_dt)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.dtHoraEntregaCaso_dt)
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.sLugar_desc)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.sLugar_desc)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.sDescripcion_desc)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.sDescripcion_desc)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.sObs_desc)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.sObs_desc)
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.AreaAdministrativa.sNombre_nm)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.AreaAdministrativa.sNombre_nm)
+    </dd>
+    <dt>
+        @Html.DisplayName("Entregado Por")
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.Persona.NombreCompleto)
+    </dd>
+    <br />
+
+    <dt>
+        @Html.DisplayNameFor(model => model.dtHora_dt)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.dtHora_dt)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.dtSorteo_dt)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.dtSorteo_dt)
+    </dd>
+</dl>
+<hr />

@@ -1,0 +1,68 @@
+﻿@using MvcFlash.Core.Extensions
+@model IEnumerable<SIGAA.Areas.EGRE.Models.gatbl_ActaSorteoEG>
+
+<div id="listaActasSorteosEG">
+    @Html.Flash()
+    <table class="table small">
+        <tr class="active">
+            <th class="col-md-1">Operaciones</th>
+            <th class="col-md-3">
+                @Html.DisplayName("Alumno(a)")
+            </th>
+            <th class="col-md-2">
+                @Html.DisplayName("Carrera")
+            </th>
+            <th>
+                @Html.DisplayName("Nro")
+            </th>
+            <th class="col-md-2">
+                @Html.DisplayName("Fecha Hora Sorteo")
+            </th>
+            <th class="col-md-3">
+                @Html.DisplayNameFor(model => model.sBolos_desc)
+            </th>           
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @if(FrontUser.TienePermiso(RolesPermisos.EGRE_actaDeSorteo_puedeEditar)){
+                    <a href="/EGRE/ActaSorteoEG/Edit/@item.iActaSorteoEG_id"><span class="glyphicon glyphicon-pencil" data-toggle="tooltip" data-original-title="Editar"></span></a>} |
+                    @if(FrontUser.TienePermiso(RolesPermisos.EGRE_actaDeSorteo_puedeVerDetalle)){
+                    <a href="/EGRE/ActaSorteoEG/Details/@item.iActaSorteoEG_id"><span class="glyphicon glyphicon-eye-open" data-toggle="tooltip" data-original-title="Ver detalle"></span></a>} |
+                    @if(FrontUser.TienePermiso(RolesPermisos.EGRE_actaDeSorteo_puedeEliminar)) {
+                    <a href="/EGRE/ActaSorteoEG/Delete/@item.iActaSorteoEG_id"><span class="glyphicon glyphicon-trash" data-toggle="tooltip" data-original-title="Eliminar"></span></a>} |
+                    @if(FrontUser.TienePermiso(RolesPermisos.EGRE_actaDeSorteo_puedeImprimir)) {
+                    <a href="/EGRE/ActaSorteoEG/ImprimirActaDeSorteo/@item.iActaSorteoEG_id" target="_blank"><span class="glyphicon glyphicon-print" data-toggle="tooltip" data-original-title="Ver reporte"></span></a>}
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Alumno.Persona.NombreCompleto) <br />
+                   <b> @Html.DisplayFor(modelItem => item.alm_registro)</b> 
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Alumno.Carrera.crr_descripcion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.iNumeracion_num)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.dtSorteo_dt)
+                    <b> @Html.DisplayFor(modelItem => item.dtHora_dt)</b>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.sBolos_desc)
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>
+
+<script type="text/javascript">
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip({
+        placement : 'top'
+    });
+});
+</script>

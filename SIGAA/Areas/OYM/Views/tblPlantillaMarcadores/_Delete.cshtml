@@ -1,0 +1,40 @@
+﻿@model SIGAA.Areas.OYM.Models.tblPlantillaMarcador
+
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    <h4 class="modal-title" id="myModalLabel">Esta seguro que desea eliminar el registro?</h4>
+</div>
+
+<div class="modal-body">
+
+    <dl class="dl-horizontal">
+
+        <dt>
+            @Html.DisplayNameFor(model => model.lDocumentoCaracteristica_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblDocumentoCaracteristica.sTitulo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sMarcador)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sMarcador)
+        </dd>
+    </dl>
+
+</div>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="modal-footer">
+        <button class="btn btn-default" type="button" data-dismiss="modal">Cancelar</button>
+        <input class="btn btn-danger" type="submit" value="Aceptar" />
+    </div>
+}

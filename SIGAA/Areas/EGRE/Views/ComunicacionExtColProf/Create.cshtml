@@ -1,0 +1,185 @@
+﻿@using MvcFlash.Core.Extensions
+@model SIGAA.Areas.EGRE.Models.gatbl_ComunicacionExtColProf
+
+@{
+    ViewBag.Title = "Nuevo";
+}
+<h3><b>Crear nueva Comunicación Ext. a Colegio Profesional</b></h3>
+<hr />
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.Flash()
+        @Html.Partial("_CreateEdit", Model)
+        <hr />
+        <div class="col-md-offset-2">
+            <button type="submit" class="btn btn-primary" id="btnGuardar" disabled="disabled"><span class="glyphicon glyphicon-saved"></span> Guardar</button>
+            <a href="/EGRE/ComunicacionExtColProf/Index" class="btn btn-default"><span class="glyphicon glyphicon-list"></span> Ir a Lista </a>
+        </div>
+
+}
+
+@section Scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+<script src="~/Scripts/Observaciones/General/marcaCamposRequeridos.js"></script>
+    @*<link href="~/Content/autocompletar/jquery-ui.css" rel="stylesheet" />
+    <script src="~/Content/autocompletar/jquery-ui.js"></script>*@
+
+    @* Alumno *@
+    <script type="text/javascript" language="javascript">
+        $(document).ready(function () {
+            $("#datos_nombreCompletoAlumno").autocomplete({
+                source: function (request, response) {
+                    $("#btnGuardar").attr('disabled', true);
+                    $.ajax({
+                        async: false,
+                        cache: false,
+                        type: "GET",
+                        url: "@(Url.Action("BuscarPorRegistro", "ComunicacionExtColProf"))",
+                        dataType: "json",
+                        data: { "term": request.term },
+                        success: function (data) {
+                            $("#EntregadoPor_nombrePersona").removeAttr('readonly');
+                            response(data);
+                        }
+                    });
+                },
+                select: function (event, ui) {
+                    $.ajax({
+                        cache: false,
+                        async: false,
+                        type: "GET",
+                        url: "@(Url.Action("Buscar", "ComunicacionExtColProf"))",
+                        dataType: "json",
+                        data: { "term": ui.item.value },
+                        success: function (data) {
+
+                            $("#lEstudiante_id").val(data.codigoAlumno)
+                            $("#datos_nombreAlumno").val(data.nombreAlumno)
+                            $("#datos_carrera").val(data.carrera)
+                            $("#datos_facultad").val(data.facultad)
+                            $("#datos_TituloPerfil").val(data.TituloPerfil)
+                            $("#iPerfil_id").val(data.iPerfil_id)
+                            $("#datos_TipoGraduacion").val(data.TipoGraduacion)
+
+                            if ($('#lEntregadoPor_id').val() != '') {
+                                $("#btnGuardar").attr('disabled', false);
+                            }
+
+                            if (data.TipoGraduacion != 'EXAMEN DE GRADO') {
+                                $(".esconder").hide();
+                                $(".tituloPerfil").show();
+                            } else {
+                                $(".esconder").show();
+                                $(".tituloPerfil").hide();
+                            };
+
+                            traerFechasDeDefensaFinal(data.iPerfil_id);//invoca la funcion para traer las fechas
+
+                            action = data.Action;
+                        },
+                        error: function (xhr, ajaxOptions, thrownError) {
+                            alert('Failed to retrieve states.');
+                        }
+                    });
+                }
+            });
+        });
+
+        function traerFechasDeDefensaFinal(idPerfilValue) {
+            $.ajax({
+                cache: false,
+                async: false,
+                type: "GET",
+                url: "@(Url.Action("TraerInformacionDeFechaYlugarDeDefensaFinal_Json", "ComunicacionInt"))",
+                dataType: "json",
+            data: { "idPerfil": idPerfilValue },
+            success: function (data) {
+                $(".esconderSiNoExisteFechas").show();
+
+                var date = new Date(parseInt(data.fechaDefensaProgramada.substr(6)));
+                var day = date.getDate();
+                var month = date.getMonth() + 1;
+                var fechaEnCadena = date.getFullYear() + '-' + (('' + month).length < 2 ? '0' : '') + month + '-' + (('' + day).length < 2 ? '0' : '') + day;
+                $("#dtDefensa_dt").val(fechaEnCadena);
+
+                var horaObj = new Date(parseInt(data.horaDefensaProgramada.substr(6)));
+                var hora = horaObj.getHours();
+                var minutos = horaObj.getMinutes();
+                var horaMinutoEnCadena = (('' + hora).length < 2 ? '0' : '') + hora + ':' + (('' + minutos).length < 2 ? '0' : '') + minutos;
+                $("#dtHoraDefensa_dt").val(horaMinutoEnCadena);
+
+                var lugar = data.lugarDefensaProgramada;
+                $("#sLugar_desc").val(lugar);
+
+                var tipoGraduacion = $("#datos_TipoGraduacion").val();
+                if (tipoGraduacion == 'EXAMEN DE GRADO') {
+                    $(".esconder").show();
+                    $(".tituloPerfil").hide();
+
+                    var date = new Date(parseInt(data.fechaSorteo.substr(6)));
+                    var day = date.getDate();
+                    var month = date.getMonth() + 1;
+                    var fechaEnCadena = date.getFullYear() + '-' + (('' + month).length < 2 ? '0' : '') + month + '-' + (('' + day).length < 2 ? '0' : '') + day;
+                    $("#dtSorteo_dt").val(fechaEnCadena);
+
+                    var horaObj = new Date(parseInt(data.horaSorteo.substr(6)));
+                    var hora = horaObj.getHours();
+                    var minutos = horaObj.getMinutes();
+                    var horaMinutoEnCadena = (('' + hora).length < 2 ? '0' : '') + hora + ':' + (('' + minutos).length < 2 ? '0' : '') + minutos;
+                    $("#dtHora_dt").val(horaMinutoEnCadena);
+                }
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                $("#EntregadoPor_nombrePersona").attr('readonly', 'readonly');
+                $(".esconderSiNoExisteFechas").hide();
+                $(".esconder").hide();
+                alert('DEBE REALIZAR LA COMUNICACION AL ALUMNO INDICANDO LAS FECHAS DE SU DEFENSA FINAL, por favor verifique e intente nuevamente');
+            }
+        });
+        }
+    </script>
+    
+    @* personaEntregadoPor *@
+    <script type="text/javascript" language="javascript">
+        $(document).ready(function () {
+            $("#EntregadoPor_nombrePersona").autocomplete({
+                source: function (request, response) {
+                    $("#btnGuardar").attr('disabled', true);
+                    $.ajax({
+                        async: false,
+                        cache: false,
+                        type: "GET",
+                        url: "@(Url.Action("ListarNombresDePersonas_Json", "ComunicacionExtColProf"))",
+                        dataType: "json",
+                        data: { "term": request.term },
+                        success: function (data) {
+                            response(data);
+                        }
+                    });
+                },
+                select: function (event, ui) {
+                    $.ajax({
+                        cache: false,
+                        async: false,
+                        type: "GET",
+                        url: "@(Url.Action("TraerInformacionDePersona_Json", "ComunicacionExtColProf"))",
+                        dataType: "json",
+                        data: { "term": ui.item.value },
+                        success: function (data) {
+                            $('#lEntregadoPor_id').val(data.codigoPersona)
+                            if ($('#lEstudiante_id').val() != '') {
+                                $("#btnGuardar").attr('disabled', false);
+                            }
+                            action = data.Action;
+                        },
+                        error: function (xhr, ajaxOptions, thrownError) {
+                            alert('Fallo al recibir estados.');
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+}

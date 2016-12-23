@@ -1,0 +1,131 @@
+﻿@using SIGAA.Areas.OYM.Helpers
+@model IEnumerable<SIGAA.Areas.OYM.Models.tblFormulario>
+
+@{
+    ViewBag.Title = "Formularios";
+}
+
+<h2>Formularios</h2>
+
+<div id="content">
+    @(Html.Kendo().Grid<SIGAA.Areas.OYM.Models.tblDocumento>()
+        .Name("grid")
+        .Columns(columns =>
+        {
+        var menu = "";
+        if (FrontUser.TienePermiso(RolesPermisos.OYM_formularios_puedeEditar))
+        {
+            menu = menu + "<a class='k-button k-button-icon' href='" + Url.Action("Edit", "tblFormularios") + "/#=id#' title='Editar'><span class='k-icon k-edit'> </span></a>";
+        }
+        if (FrontUser.TienePermiso(RolesPermisos.OYM_formularios_puedeVerDetalle))
+        {
+            menu = menu + "<a class='k-button k-button-icon' href='" + Url.Action("Details", "tblFormularios") + "/#=id#' title='Ver'><span class='k-icon k-i-search'> </span></a>";
+        }
+        if (FrontUser.TienePermiso(RolesPermisos.OYM_procesoFormularios_puedeCrearNuevo))
+        {
+            menu = menu + "<a class='k-button k-button-icon' href='" + Url.Action("CreateProcess", "tblFormularioProcesos") + "/#=id#' title='Asignar Proceso'><span class='k-icon k-i-calendar'> </span></a>";
+        }
+        if (FrontUser.TienePermiso(RolesPermisos.OYM_formularios_puedeEliminar))
+        {
+            menu = menu + "<a class='k-button k-button-icon' href='" + Url.Action("Delete", "tblFormularios") + "/#=id#' title='Eliminar'><span class='k-icon k-delete'> </span></a>";
+        }
+        if (FrontUser.TienePermiso(RolesPermisos.OYM_formularios_puedeDescargarDocumento))
+        {
+            menu = menu + "<a class='k-button k-button-icon' href='" + Url.Content("~/#=UbicacionArchivo#") + "' target='_blank' title='Descargar formulario'><span class='k-icon k-i-seek-s'> </span></a>";
+        }
+
+        columns.Template(@<text></text>).ClientTemplate(menu)
+                                     .Width(185).Title("Edicion").Locked(true);
+
+        @*columns.Template(@<text></text>).ClientTemplate(
+                                    "<a class='k-button k-button-icon' href='" + Url.Action("Edit", "tblFormularios") + "/#=id#' title='Editar'><span class='k-icon k-edit'> </span></a>" +
+                                     "<a class='k-button k-button-icon' href='" + Url.Action("Details", "tblFormularios") + "/#=id#' title='Ver'><span class='k-icon k-i-search'> </span></a>" +
+                                     "<a class='k-button k-button-icon' href='" + Url.Action("CreateProcess", "tblFormularioProcesos") + "/#=id#' title='Asignar Proceso'><span class='k-icon k-i-calendar'> </span></a>" +
+                                     "<a class='k-button k-button-icon' href='" + Url.Action("Delete", "tblFormularios") + "/#=id#' title='Eliminar'><span class='k-icon k-delete'> </span></a>" +
+                                     "<a class='k-button k-button-icon' href='" + Url.Content("~/#=UbicacionArchivo#") + "' target='_blank' title='Descargar formulario'><span class='k-font-icon k-i-insert-file'> </span></a>"
+                                     )
+                                     .Width(180).Title("Edicion").Locked(true);*@
+
+            columns.Bound(o => o.sCodigo).ClientTemplate(@Html.ActionLink("#=sCodigo#", "Details", new { ID = "#=Id#" })
+            .ToHtmlString()).Width(100).Filterable(ftb => ftb.Cell(cell => cell.Operator("contains").ShowOperators(false))).Locked(true);
+            columns.Bound(p => p.Titulo).Width(250).Filterable(ftb => ftb.Cell(cell => cell.Operator("contains").ShowOperators(false))).Locked(true);
+            columns.Bound(p => p.OrigenDocumento.sDescripcion).Width(100).Filterable(ftb => ftb.Cell(cell => cell.Operator("contains").ShowOperators(false))).Title("Origen");
+            //columns.Bound(p => p.dtFechaCreacion_dt).Width(120).Filterable(ftb => ftb.Cell(cell => cell.Operator("contains").ShowOperators(false))).Format("{0:d}");
+            //columns.Bound(p => p.tblTipoDocumento.sTipoDocumento).Width(150).Filterable(ftb => ftb.Cell(cell => cell.Operator("contains").ShowOperators(false)));
+            columns.Bound(p => p.tblTipoProceso.sDescripcion).Width(250).Filterable(ftb => ftb.Cell(cell => cell.Operator("contains").ShowOperators(false))).Title("Tipo Proceso");
+            columns.Bound(p => p.sCorrelativo).Width(120).Filterable(ftb => ftb.Cell(cell => cell.Operator("contains").ShowOperators(false)));
+            columns.Bound(p => p.lVersion).Width(100).Filterable(ftb => ftb.Cell(cell => cell.Operator("contains").ShowOperators(false)));
+            columns.Bound(p => p.dtValidoDesde_dt).Width(120).Filterable(ftb => ftb.Cell(cell => cell.Operator("contains").ShowOperators(false))).Format("{0:d}");
+            columns.Bound(p => p.dtUltimaActualizacion_dt).Width(120).Filterable(ftb => ftb.Cell(cell => cell.Operator("contains").ShowOperators(false))).Format("{0:d}");
+            //columns.Bound(p => p.tblPlantilla.Nombre).Width(150).Filterable(ftb => ftb.Cell(cell => cell.Operator("contains").ShowOperators(false))).Title("Plantilla");
+            columns.Bound(p => p.EstadoDocumento.sDescripcion).Width(120).Filterable(ftb => ftb.Cell(cell => cell.Operator("contains").ShowOperators(false))).Title("Estado");
+
+        })
+        .ToolBar(toolBar =>
+        {
+        toolBar.Template(@<text>
+        <a class="k-button k-button-icontext" href=@Url.Action("Create", "tblFormularios")><span class="k-icon k-i-plus"></span>Crear Nuevo</a>
+        </text>);
+        })
+        .Editable(editable => editable.Mode(GridEditMode.InLine))
+        .Pageable()
+        //.Groupable()
+        .Sortable()
+        .Filterable()
+        .ColumnMenu()
+        .Scrollable(s => s.Height("auto"))
+        .HtmlAttributes(new { style = "height:100%" })
+        .Filterable(ftb => ftb.Mode(GridFilterMode.Row))
+        .Resizable(rsb => rsb.Columns(true))
+        .Reorderable(r => r.Columns(true))
+        .Pageable(pageable => pageable
+        .Refresh(true)
+        .PageSizes(true)
+        .ButtonCount(10)
+        .Messages(m => m
+            .ItemsPerPage("items por página")
+            )
+        )
+        .DataSource(dataSource => dataSource
+            .Ajax()
+            .PageSize(20)
+            .ServerOperation(false)
+            .Sort(p => p.Add("Id").Descending())
+        //.Group(group => group.Add(p => p.gatbl_Universidades.sNombre_desc))
+        //.Group(group => group.Add(p => p.gatbl_Facultades.sFacultad_nm))
+        .Model(model =>
+        {
+            model.Id(p => p.Id);
+            model.Field(p => p.Id).Editable(false);
+        })
+        .Read(read => read.Action("Index_Read", "tblFormularios"))
+        //.Create(create => create.Action("Create", "tblFormularios"))
+        //.Update(update => update.Action("Edit", "tblFormularios"))
+        //.Destroy(update => update.Action("Delete", "tblFormularios"))
+     )
+    )
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script>
+        $(document).ready(function () {
+            resizeContent();
+
+            $(window).resize(function () {
+                resizeContent();
+            });
+        });
+
+        function resizeContent() {
+            $height = $(window).height() - 210;
+            $('div#content').height($height);
+
+            var grid = $("#grid").data('kendoGrid');
+            if (grid != undefined) {
+                grid.resize();
+            }
+        }
+    </script>
+}

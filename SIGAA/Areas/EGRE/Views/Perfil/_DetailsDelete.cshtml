@@ -1,0 +1,90 @@
+﻿@model SIGAA.Areas.EGRE.Models.gatbl_Perfiles
+
+<dl class="dl-horizontal small">
+    <dt>
+        @Html.DisplayNameFor(model => model.sGestion_desc)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.sGestion_desc)
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.sPeriodo_desc)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.sPeriodo_desc)
+    </dd>
+    <dt>
+        @Html.DisplayName("Registro Alumno")
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.Alumno.alm_registro)
+        @Html.Display("datos.nombreAlumno")
+    </dd>
+    <dt>
+        @Html.DisplayName("Modalidad")
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.TipoGraduacion.tttg_descripcion)
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.sPerfil_fl)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.sPerfil_fl)
+    </dd>
+    @{var tipoGraduacion = Model.TipoGraduacion.tttg_descripcion.Trim();
+            if (tipoGraduacion != "EXAMEN DE GRADO" && tipoGraduacion != "GRADUACION POR EXCELENCIA")
+            {
+            <dt>
+                @Html.DisplayNameFor(model => model.sTitulo_tfg)
+            </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.sTitulo_tfg)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Tutor.sNombre_desc)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Tutor.sNombre_desc)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.dtSolicitud_dt)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.dtSolicitud_dt)
+                </dd>
+                <dt>
+                    @Html.DisplayName("Form Entregado por")
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.EntregadoPor.NombreCompleto)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.dtRevision_dt)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.dtRevision_dt)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.sObsRevision_desc)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.sObsRevision_desc)
+                </dd>
+        }
+    }
+
+    <dt>
+        @Html.DisplayNameFor(model => model.dtEntregado_dt)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.dtEntregado_dt)
+    </dd>
+    <dt>
+        @Html.DisplayName("Recepcionado por")
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.RecepcionadoPor.NombreCompleto)
+    </dd>
+</dl>
+<hr />

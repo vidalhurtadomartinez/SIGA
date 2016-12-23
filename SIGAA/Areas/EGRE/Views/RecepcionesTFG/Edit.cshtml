@@ -1,0 +1,151 @@
+﻿@using MvcFlash.Core.Extensions
+@model SIGAA.Areas.EGRE.ViewModel.RecepcionTFGView
+
+@{
+    ViewBag.Title = "Editar";
+}
+<h3><b>Editar Recepción T.F.G. de Tribunal</b></h3>
+<hr />
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.Flash()
+        @Html.HiddenFor(model => model.RecepcionTFG.iRecepcionTFG_id)
+       @Html.Partial("_CreateEdit", Model)
+
+        @*<div class="form-group form-group-sm">
+                @Html.LabelFor(model => model.RecepcionTFG.iEstado_fl, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-4">
+                    <div class="checkbox">
+                        @Html.EditorFor(model => model.RecepcionTFG.iEstado_fl, new { htmlAttributes = new { @class = "control-label col-md-1" } })
+                        @Html.ValidationMessageFor(model => model.RecepcionTFG.iEstado_fl, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>*@
+
+        <hr />
+        <div class="col-md-offset-2">
+            <button type="submit" class="btn btn-primary" id="btnEditar"><span class="glyphicon glyphicon-edit"></span> Editar </button>
+            <a id="btnAgregarObservacion" data-toggle="modal" href="#myModal" class="btn btn-info"><span class="glyphicon glyphicon-retweet"></span> Agregar Corrección</a>
+            <a href="/EGRE/RecepcionesTFG/Index" class="btn btn-default"><span class="glyphicon glyphicon-list"></span> Ir a Lista </a>
+        </div>
+
+    @Html.Partial("_Create")
+}
+
+<!-- Ventan Modal -->
+<div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModelLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            @*<div class="modal-header active">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModelLabel">Observacion / Correccion</h4>
+                </div>*@
+            <div class="modal-body">
+                <div id="modal-content">
+                    Cargando....
+                </div>
+            </div>
+            @*<div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>*@
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script src="~/Scripts/Observaciones/General/marcaCamposRequeridos.js"></script>
+    @*<link href="~/Content/autocompletar/jquery-ui.css" rel="stylesheet" />
+    <script src="~/Content/autocompletar/jquery-ui.js"></script>*@
+    <script src="~/Scripts/Observaciones/AgregarObservacion.js"></script>
+
+    <script type="text/javascript" language="javascript">
+        $(document).ready(function () {
+            $("#Receptor_nombrePersona").autocomplete({
+                source: function (request, response) {
+                    $("#btnEditar").attr('disabled', true);
+                    $.ajax({
+                        async: false,
+                        cache: false,
+                        type: "GET",
+                        url: "@(Url.Action("ListarNombresDePersonas_Json", "RecepcionesTFG"))",
+                        dataType: "json",
+                        data: { "term": request.term },
+                        success: function (data) {
+                            response(data);
+                        }
+                    });
+                },
+                select: function (event, ui) {
+                    $.ajax({
+                        cache: false,
+                        async: false,
+                        type: "GET",
+                        url: "@(Url.Action("TraerInformacionDePersona_Json", "RecepcionesTFG"))",
+                        dataType: "json",
+                        data: { "term": ui.item.value },
+                        success: function (data) {
+                            $('#RecepcionTFG_lRecepciona_id').val(data.codigoPersona)
+
+                            if ($('#RecepcionTFG_iETribunal_id').val() != '') {
+                                $("#btnEditar").attr('disabled', false);
+                            }
+
+                            action = data.Action;
+                        },
+                        error: function (xhr, ajaxOptions, thrownError) {
+                            alert('Fallo al recibir estados.');
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+
+    <script type="text/javascript" language="javascript">
+        $(function () {
+
+            $('#RecepcionTFG_iETribunal_id').change(function () {
+                var iETribunal_id = parseInt($("#RecepcionTFG_iETribunal_id").val());
+                if (!isNaN(iETribunal_id)) {
+                    $.ajax({
+                        url: "@Url.Action("BuscarInformacionDeAlumno", "RecepcionesTFG")",
+                        type: "GET",
+                        data: { term: iETribunal_id },
+                        dataType: "json",
+                        success: function (data) {
+                            $("#datos_nombreAlumno").val(data.nombreAlumno)
+                            $("#datos_carrera").val(data.carrera)
+                            $("#datos_TituloPerfil").val(data.TituloPerfil)
+                            $("#datos_TipoGraduacion").val(data.TipoGraduacion)
+                            $("#RecepcionTFG_lEstudiante_id").val(data.alm_registro)
+                            $("#datos_estadoEntregaATribunal").val(data.estadoEntregaATribunal)
+                            $("#datos_ejemplar").val(data.ejemplar)
+                            if ($('#RecepcionTFG_lRecepciona_id').val() != '') {
+                                $("#btnEditar").attr('disabled', false);
+                            }
+                            action = data.Action;
+                        },
+                        error: function () {
+                            alert("Error al conectarse.")
+                        }
+                    });
+                } else {
+                    $("#datos_nombreAlumno").val("")
+                    $("#datos_carrera").val("")
+                    $("#datos_TituloPerfil").val("")
+                    $("#datos_TipoGraduacion").val("")
+                    $("#RecepcionTFG_lEstudiante_id").val("")
+                    $("#datos_estadoEntregaATribunal").val("")
+                    $("#datos_ejemplar").val("")
+
+                    $("#btnEditar").attr('disabled', true);
+                }
+            });
+        })
+
+    </script>
+}

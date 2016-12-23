@@ -1,0 +1,10 @@
+﻿@using MvcFlash.Core.Extensions
+@model SIGAA.Areas.EGRE.Models.gatbl_Profesiones
+
+<div class="form-group form-group-sm">
+    @Html.LabelFor(model => model.sNombre_nm, htmlAttributes: new { @class = "control-label col-md-2" })
+    <div class="col-md-4">
+        @Html.EditorFor(model => model.sNombre_nm, new { htmlAttributes = new { @class = "form-control", @autofocus = "true" } })
+        @Html.ValidationMessageFor(model => model.sNombre_nm, "", new { @class = "text-danger" })
+    </div>
+</div>

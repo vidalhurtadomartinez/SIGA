@@ -1,0 +1,43 @@
+﻿@model SIGAA.Areas.OYM.Models.tblCategoria
+
+@{
+    ViewBag.Title = "Detalle";
+}
+
+<h2>Detalle</h2>
+
+<div>
+    <h4>Categoria</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.sDescripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sDescripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.lPrioridad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.lPrioridad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.bActivo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.bActivo)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @FrontUser.TienePermiso(RolesPermisos.OYM_categoriaDeParcipante_puedeEditar)){
+    @Html.ActionLink("Editar", "Edit", new { id = Model.lCategoria_id }, new { @class = "btn btn-warning" })} |
+    @Html.ActionLink("Ir a Lista", "Index")
+</p>

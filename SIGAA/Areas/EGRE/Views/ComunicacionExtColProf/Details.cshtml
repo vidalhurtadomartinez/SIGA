@@ -1,0 +1,15 @@
+﻿@model SIGAA.Areas.EGRE.Models.gatbl_ComunicacionExtColProf
+
+@{
+    ViewBag.Title = "Detalle";
+}
+<h3><b>Información de Comunicación Ext. a Colegio Profesional</b></h3>
+<hr />
+<div>
+    @Html.Partial("_DetailsDelete", Model)
+    @if (FrontUser.TienePermiso(RolesPermisos.EGRE_comunicacionExternaColProfesional_puedeEditar)) {
+    <a href="/EGRE/ComunicacionExtColProf/Edit/@Model.iComExtColProfesional_id" class="btn btn-primary"><span class="glyphicon glyphicon-pencil"></span> Editar </a>}
+    <a href="/EGRE/ComunicacionExtColProf/Index" class="btn btn-default"><span class="glyphicon glyphicon-list"></span> Ir a Lista </a>
+</div>
+
+

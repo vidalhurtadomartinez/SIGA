@@ -1,0 +1,52 @@
+﻿@model SIGAA.Areas.OYM.Models.tblPlantilla
+
+@{
+    ViewBag.Title = "Eliminar";
+}
+
+<h2>Eliminar</h2>
+
+<h3>Esta seguro que desea eliminar el registro?</h3>
+<div>
+    <h4>Plantilla</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sPathFormato)
+        </dt>
+
+        <dd>
+            <a class="glyphicon glyphicon-link" href="~/@Model.sPathFormato" target="_blank">
+                Mostrar
+            </a>
+        </dd>
+
+        <dt></dt>
+        <dd>@{ Html.RenderAction("List", "tblPlantillaMarcadores", new { id = Model.lPlantilla_id }); }</dd>
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Eliminar" class="btn btn-danger" /> |
+            @Html.ActionLink("Ir a Lista", "Index")
+        </div>
+    }
+</div>

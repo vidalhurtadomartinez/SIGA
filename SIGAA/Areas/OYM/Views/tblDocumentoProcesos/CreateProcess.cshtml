@@ -1,0 +1,211 @@
+﻿@model SIGAA.Areas.OYM.Models.tblDocumentoProceso
+
+@{
+    ViewBag.Title = "Nuevo";
+}
+
+<h2>Nuevo</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Proceso de Documento</h4>
+        @if (ViewBag.Error != null)
+        {
+            <div class="alert alert-dismissible alert-danger">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <strong>@ViewBag.Error</strong>
+            </div>
+        } 
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.lDocumento_id)
+
+        <div class="form-group">
+            @*@Html.LabelFor(model => model.lDocumento_id, htmlAttributes: new { @class = "control-label col-md-2" })*@
+            @Html.Label("Titulo Documento", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.tblDocumento.Titulo, new { @class = "form-control", @readonly = "readonly" })
+                @*@Html.DisplayFor(model => model.tblDocumento.Titulo)*@
+                @*@Html.DropDownList("lDocumento_id", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.lDocumento_id, "", new { @class = "text-danger" })*@
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Codigo Documento", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.tblDocumento.sCodigo, new { @class = "form-control", @readonly = "readonly" })                
+                @*@Html.DropDownList("lDocumento_id", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.lDocumento_id, "", new { @class = "text-danger" })*@
+            </div>
+        </div>
+
+        @*<div class="form-group">
+            @Html.LabelFor(model => model.lDocumento_id, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @(Html.Kendo().DropDownListFor(model => model.lDocumento_id)
+                  .DataTextField("Titulo")
+                  .DataValueField("Id")
+                  .HtmlAttributes(new { style = "width:280px", required = "required" })
+                  .Filter("contains")
+                  .AutoBind(true)
+                  .MinLength(3)
+                  .DataSource(source =>
+                  {
+                      source.Read(read =>
+                      {
+                          read.Action("ObtenerDocumentos", "tblDocumentoProcesos");
+                      })
+                      .ServerFiltering(true);
+                  })
+                  .Events(e =>
+                    {
+                        e.Select("onSelectDocument");
+                    })
+                )
+                @Html.ValidationMessageFor(model => model.lDocumento_id, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
+
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.lDocumento_version, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.lDocumento_version, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                @Html.ValidationMessageFor(model => model.lDocumento_version, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+                @Html.LabelFor(model => model.lProceso_id, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("lProceso_id", null, "Seleccionar Proceso", htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.lProceso_id, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+        @*<div class="form-group">
+            @Html.LabelFor(model => model.lProceso_id, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(m => m.lProceso_id,
+              new SelectList(ViewBag.ProcesoList, "lProceso_id", "sDescripcion"),
+              "Seleccionar Proceso",
+              new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.lProceso_id, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.dtFechaInicio_dt, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.dtFechaInicio_dt, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.dtFechaInicio_dt, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.sComentarios, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.sComentarios, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.sComentarios, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        @*<div class="form-group">
+                @Html.LabelFor(model => model.lEstadoProceso_id, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("lEstadoProceso_id", null, htmlAttributes: new { @class = "form-control", @readonly = "readonly" })
+                    @Html.ValidationMessageFor(model => model.lEstadoProceso_id, "", new { @class = "text-danger" })
+                </div>
+            </div>*@
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.lCategoria_id, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+
+                @Html.DropDownListFor(model => model.lCategoria_id, new SelectList(Enumerable.Empty<SelectListItem>(), "lCategoria_id", "sDescripcion"), "Seleccionar Categoria", new { id = "lCategoria_id", @class = "form-control", @readonly = "readonly" })
+                @Html.ValidationMessageFor(model => model.lCategoria_id, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                @if (ViewBag.Error != null)
+                {
+                    <input type="submit" value="Guardar" class="btn btn-success" disabled="disabled" />
+                }
+                else
+                {
+                    <input type="submit" value="Guardar" class="btn btn-success" />
+                }
+
+                @Html.ActionLink("Cancelar", null, null, null, new { href = Request.UrlReferrer, @class = "btn btn-warning" })
+                @*@Html.ActionLink("Cancelar", "Index", new { }, new { @class = "btn btn-warning" })*@
+            </div>
+        </div>
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+
+    <script type="text/javascript">
+        kendo.culture("es-ES");
+
+        $(document).ready(function () {
+            kendo.culture("es-ES");
+            $.validator.addMethod('date',
+                function (value, element) {
+                    var isValidDate = this.optional(element) || kendo.parseDate(value);
+
+                    return isValidDate
+                });
+        });
+
+        $(document).ready(function () {
+            //$("#lFacultad_id").prop("disabled", true);
+            $("#lProceso_id").change(function () {
+                var TipoProcesoId = $("#lProceso_id").val();
+                if (TipoProcesoId != null && TipoProcesoId != undefined && TipoProcesoId != '') {
+                    var CountryOptions = {};
+                    CountryOptions.url = '@Url.Action("CategoriaList", "tblDocumentoProcesos")';
+                    CountryOptions.type = "POST";
+                    CountryOptions.data = JSON.stringify({ id: TipoProcesoId });
+                    CountryOptions.datatype = "json";
+                    CountryOptions.contentType = "application/json";
+                    CountryOptions.success = function (facultades) {
+                        $("#lCategoria_id").empty();
+                        $.each(facultades, function (index, val) {
+                            $('#lCategoria_id')
+                            .append($("<option></option>")
+                            .attr("value", val.Value)
+                            .text(val.Text));
+                        });
+                    };
+                    CountryOptions.error = function () { alert("Error in Getting Documentos!!"); };
+                    $.ajax(CountryOptions);
+                }
+                else {
+                    $("#lCategoria_id").empty();
+                    //$("#lFacultad_id").prop("disabled", true);
+                }
+            });
+        });
+
+        $(function () {
+            $("form").kendoValidator();
+        });
+
+        $.validator.setDefaults({ ignore: '' });
+
+        function onSelectDocument(e) {
+            var dataItem = this.dataItem(e.item);
+            $("#lDocumento_version").val(dataItem.Version);
+        }
+    </script>
+}

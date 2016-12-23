@@ -1,0 +1,74 @@
+﻿@model SIGAA.Areas.OYM.Models.tblProceso
+
+@{
+    ViewBag.Title = "Eliminar";
+}
+
+<h2>Eliminar</h2>
+
+<h3>Esta seguro que desea eliminar el registro?</h3>
+<div>
+    <h4>Proceso</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.lTipoProceso_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TipoProceso.sDescripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sNombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sNombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sDescripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sDescripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dtFechaRegistro_dt)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dtFechaRegistro_dt)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.bActivo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.bActivo)
+        </dd>
+
+        @if (Model.lTipoProceso_id == 1)
+        {
+            <dt></dt>
+            <dd>@{ Html.RenderAction("List", "tblProcesoDetalleCategorias", new { id = Model.lProceso_id }); }</dd>
+        }
+        else
+        {
+            <dt></dt>
+            <dd>@{ Html.RenderAction("List", "tblProcesoDetalles", new { id = Model.lProceso_id }); }</dd>
+        }
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Eliminar" class="btn btn-danger" /> |
+            @Html.ActionLink("Ir a Lista", "Index")
+        </div>
+    }
+</div>

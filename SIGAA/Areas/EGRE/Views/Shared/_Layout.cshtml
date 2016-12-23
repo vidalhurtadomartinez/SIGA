@@ -1,0 +1,113 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - MP - EGRESADOS</title>
+    @Styles.Render("~/Content/css")@*css del bootstrap incluye CSS de Jquery UI*@
+    @Scripts.Render("~/bundles/jquery")@*js de de jquery y ajax*@
+    @Scripts.Render("~/bundles/jqueryui")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/modernizr")
+
+
+
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <b>@Html.ActionLink("MP-EGRE", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })</b>
+                
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    @if(FrontUser.TienePermiso(RolesPermisos.EGRE_perfil_puedeVerIndice))
+                    {<li>@Html.ActionLink("Perfiles", "Index", "Perfil", new { area = "EGRE" }, null)</li>}
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="10" data-close-others="false"> TFG <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            @if (FrontUser.TienePermiso(RolesPermisos.EGRE_recepcionTFGdelAlumno_puedeVerIndice))
+                            {<li>@Html.ActionLink("Recepciones de Alumno", "Index", "EntregaTFG", new { area = "EGRE" },null)</li>}
+                            @if (FrontUser.TienePermiso(RolesPermisos.EGRE_entregaTFGalTribunal_puedeVerIndice)) {
+                            <li>@Html.ActionLink("Entregas a Tribunal", "Index", "EntregaTribunales", new { area = "EGRE" }, null)</li>}
+                            @if (FrontUser.TienePermiso(RolesPermisos.EGRE_recepcionTFGdelTribunal_puedeVerIndice)) {
+                            <li>@Html.ActionLink("Recepciones de Tribunal", "Index", "RecepcionesTFG", new { area = "EGRE" }, null)</li>}
+                            @if (FrontUser.TienePermiso(RolesPermisos.EGRE_entregaTFGalAlumno_puedeVerIndice)) { 
+                            <li>@Html.ActionLink("Entregas a Alumno", "Index", "EntregaAlEst", new { area = "EGRE" }, null)</li>}
+                            <li role="separator" class="divider"></li>
+                            @if (FrontUser.TienePermiso(RolesPermisos.EGRE_accederAseguimientoDeEjemplaresTFG))
+                            {<li>@Html.ActionLink("Control de Copias", "IndexTFG", "Perfil", new { area = "EGRE" }, null)</li>}
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="10" data-close-others="false"> Correspondencia <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            @if (FrontUser.TienePermiso(RolesPermisos.EGRE_comunicacionAlAlumno_puedeVerIndice)) {
+                            <li>@Html.ActionLink("Comunicaciones a Alumnos", "Index", "ComunicacionEst", new { area = "EGRE" }, null)</li>}
+                            @if (FrontUser.TienePermiso(RolesPermisos.EGRE_comunicacionInterna_puedeVerIndice)) { 
+                            <li>@Html.ActionLink("Comunicaciones Internas", "Index", "ComunicacionInt", new { area = "EGRE" }, null)</li>}
+                            <li role="separator" class="divider"></li>
+                            @if (FrontUser.TienePermiso(RolesPermisos.EGRE_comunicacionExternaColProfesional_puedeVerIndice)) {
+                            <li>@Html.ActionLink("Com Externas Col Profesionales ", "Index", "ComunicacionExtColProf", new { area = "EGRE" }, null)</li>}
+                            @if (FrontUser.TienePermiso(RolesPermisos.EGRE_comunicacionExternaUnivPublica_puedeVerIndice)) {
+                            <li>@Html.ActionLink("Com Externas Univ Publicas", "Index", "ComunicacionExtUnivPublica", new { area = "EGRE" }, null)</li>}
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="10" data-close-others="false"> Actas <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            @if (FrontUser.TienePermiso(RolesPermisos.EGRE_actaDeSorteo_puedeVerIndice)) {
+                            <li>@Html.ActionLink("Actas de Sorteo", "Index", "ActaSorteoEG", new { area = "EGRE" }, null)</li>}
+                            @if (FrontUser.TienePermiso(RolesPermisos.EGRE_actaDeDefensaFinal_puedeVerIndice)) {
+                            <li>@Html.ActionLink("Actas de Defensa Final", "Index", "ActaDefensaFinal", new { area = "EGRE" }, null)</li>}
+                        </ul>
+                    </li>
+                    @if (FrontUser.TienePermiso(RolesPermisos.EGRE_tribunalTutor_puedeVerIndice)) {
+                    <li>@Html.ActionLink("Tutores / Tribunales", "Index", "Tutor", new { area = "EGRE" }, null)</li>}
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="10" data-close-others="false"> Parametros <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            @if (FrontUser.TienePermiso(RolesPermisos.EGRE_presidenteColProfesional_puedeVerIndice)) { 
+                            <li>@Html.ActionLink("Presidentes Colegio Prof", "Index", "PresidenteColegioProfesional", new { area = "EGRE" }, null)</li>}
+                            @if (FrontUser.TienePermiso(RolesPermisos.EGRE_rectorUniversidaPublica_puedeVerIndice)) {
+                            <li>@Html.ActionLink("Rectores Universidades", "Index", "RectorUniversidadPublica", new { area = "EGRE" }, null)</li>}
+                            <li role="separator" class="divider"></li>
+                            @if (FrontUser.TienePermiso(RolesPermisos.EGRE_profesionTutor_puedeVerIndice)) {
+                            <li>@Html.ActionLink("Profesiones de Tutores", "Index", "Profesiones", new { area = "EGRE" }, null)</li>}
+                            @if (FrontUser.TienePermiso(RolesPermisos.EGRE_colegioProfesional_puedeVerIndice)) {
+                            <li>@Html.ActionLink("Colegios Profesionales", "Index", "CProfesional", new { area = "EGRE" }, null)</li>}
+                            <li role="separator" class="divider"></li>
+                            @if(FrontUser.TienePermiso(RolesPermisos.EGRE_areaAdministrativa_puedeVerIndice)){
+                            <li>@Html.ActionLink("Areas Administrativas", "Index", "AreaAdministrativa", new { area = "EGRE" }, null)</li>}
+                            @if (FrontUser.TienePermiso(RolesPermisos.EGRE_aulaSala_puedeVerIndice)) {
+                            <li>@Html.ActionLink("Salas / Aulas", "Index", "Sala", new { area = "EGRE" }, null)</li>}
+                        </ul>
+                    </li>
+                </ul>
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        <br />
+        @RenderBody()
+        <br />
+        <br />
+        <footer class="panel-footer">
+            <p>&copy; @DateTime.Now.Year - By MapiriSoft</p>
+        </footer>
+    </div>
+
+
+    @Scripts.Render("~/bundles/bootstrap") @*js del bootstrap*@
+    @RenderSection("scripts", required: false)
+
+</body>
+</html>

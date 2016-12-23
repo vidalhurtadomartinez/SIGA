@@ -1,0 +1,130 @@
+﻿@model SIGAA.Areas.EGRE.Models.gatbl_ActaSorteoEG
+
+<dl class="dl-horizontal small">
+
+    <dt>
+        @Html.DisplayNameFor(model => model.sGestion_desc)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.sGestion_desc)
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.sPeriodo_desc)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.sPeriodo_desc)
+    </dd>
+    <dt>
+        @Html.DisplayName("Registro Alumno")
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.alm_registro)
+        @Html.Display("datos.nombreAlumno")
+    </dd>
+    <dt>
+        @Html.DisplayName("Carrera")
+    </dt>
+    <dd>
+        @Html.Display("datos.carrera")
+    </dd>
+    <dt>
+        @Html.DisplayName("Perfil")
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.Perfil.sTitulo_tfg)
+    </dd>
+    <dt>
+        @Html.DisplayName("Modalidad")
+    </dt>
+    <dd>
+        @Html.Display("datos.TipoGraduacion")
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.dtSorteo_dt)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.dtSorteo_dt)
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.dtHora_dt)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.dtHora_dt)
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.sBolos_desc)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.sBolos_desc)
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.sArea_desc)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.sArea_desc)
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.dtHoraFinalizacion_dt)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.dtHoraFinalizacion_dt)
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.sLugar_desc)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.sLugar_desc)
+    </dd>
+    <dt>
+        @Html.DisplayName("Presidente")
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.Presidente.NombreCompleto)
+    </dd>
+    <dt>
+        @Html.DisplayName("Secretario")
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.Secretario.NombreCompleto)
+    </dd>
+    <dt>
+        @Html.DisplayName("Evaluador Int 1")
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.Evaluador1I.NombreCompleto)
+    </dd>
+    <dt>
+        @Html.DisplayName("Evaluador Int 2")
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.Evaluador2I.NombreCompleto)
+    </dd>
+    <dt>
+        @Html.DisplayName("Evaluador Ext 1")
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.Evaluador1E.NombreCompleto)
+    </dd>
+    <dt>
+        @Html.DisplayName("Evaluador Ext 2")
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.Evaluador2E.NombreCompleto)
+    </dd>
+    <dt>
+        @Html.DisplayName("Realizado por")
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.RealizadoPor.NombreCompleto)
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.sObs_desc)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.sObs_desc)
+    </dd>
+</dl>
+<hr />

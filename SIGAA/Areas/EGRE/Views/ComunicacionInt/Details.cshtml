@@ -1,0 +1,13 @@
+﻿@model SIGAA.Areas.EGRE.Models.gatbl_ComunicacionInt
+
+@{
+    ViewBag.Title = "Detalle";
+}
+<h3><b>Información de Comunicación Interna</b></h3>
+<hr />
+<div>
+    @Html.Partial("_DetailsDelete", Model)
+    @if (FrontUser.TienePermiso(RolesPermisos.EGRE_comunicacionInterna_puedeEditar))
+    {<a href="/EGRE/ComunicacionInt/Edit/@Model.iComunicacionInt_id" class="btn btn-primary"><span class="glyphicon glyphicon-pencil"></span> Editar </a>}
+    <a href="/EGRE/ComunicacionInt/Index" class="btn btn-default"><span class="glyphicon glyphicon-list"></span> Ir a Lista </a>
+</div>

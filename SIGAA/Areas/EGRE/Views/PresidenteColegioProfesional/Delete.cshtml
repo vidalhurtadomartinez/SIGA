@@ -1,0 +1,15 @@
+﻿@model SIGAA.Areas.EGRE.Models.gatbl_PresidenteColegioProfesional
+
+@{
+    ViewBag.Title = "Eliminar";
+}
+<h3><b>Confirma eliminar Presidente de Colegio Profesional?</b></h3>
+<hr />
+<div>
+    @Html.Partial("_DetailsDelete", Model)
+    @using (Html.BeginForm())    {
+        @Html.AntiForgeryToken()
+            <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-trash"></span> Eliminar</button>
+            <a href="/EGRE/PresidenteColegioProfesional/Index" class="btn btn-default"><span class="glyphicon glyphicon-list"></span> Ir a Lista </a>
+    }
+</div>

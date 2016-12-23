@@ -1,0 +1,207 @@
+﻿@model SIGAA.Areas.OYM.ViewModels.FormularioSeguimiento
+
+@{
+    ViewBag.Title = "Detalle";
+}
+
+<h2>Detalle</h2>
+
+<div>
+    <h4>Formulario</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.tblFormulario.lOrigenDocumento_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblFormulario.OrigenDocumento.sDescripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tblFormulario.lDocumento_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblFormulario.tblDocumento.sCodigo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tblFormulario.Titulo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblFormulario.Titulo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tblFormulario.lTipoProceso_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblFormulario.tblTipoProceso.sDescripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tblFormulario.sCorrelativo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblFormulario.sCorrelativo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tblFormulario.sCodigo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblFormulario.sCodigo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tblFormulario.lVersion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblFormulario.lVersion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tblFormulario.dtValidoDesde_dt)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblFormulario.dtValidoDesde_dt)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tblFormulario.dtUltimaActualizacion_dt)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblFormulario.dtUltimaActualizacion_dt)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tblFormulario.NombreArchivo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblFormulario.NombreArchivo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tblFormulario.UbicacionArchivo)
+        </dt>
+
+        <dd>
+            <a class="glyphicon glyphicon-link" href="~/@Model.tblFormulario.UbicacionArchivo" target="_blank">
+                Mostrar
+            </a>
+        </dd>
+
+        @*<dt>
+            @Html.DisplayNameFor(model => model.lPlantilla_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblPlantilla.Descripcion)
+        </dd>*@
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tblFormulario.lControlCalidad_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblFormulario.ControlCalidad.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Cargo Control de Calidad")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblFormulario.ControlCalidad.DescCargoNivel2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tblFormulario.lElaboradoPor_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblFormulario.ElaboradoPor.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Cargo Elaborado Por")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblFormulario.ElaboradoPor.DescCargoNivel2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tblFormulario.lRevisadoPor_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblFormulario.RevisadoPor.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Cargo Revisado Por")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblFormulario.RevisadoPor.DescCargoNivel2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tblFormulario.lAprobadoPor_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblFormulario.AprobadoPor.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Cargo Aprobado Por")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblFormulario.AprobadoPor.DescCargoNivel2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tblFormulario.sComentarios)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblFormulario.sComentarios)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tblFormulario.lEstado_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblFormulario.EstadoDocumento.sDescripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tblFormulario.sISO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblFormulario.sISO)
+        </dd>
+
+        <dt></dt>
+        <dd>@{ Html.RenderAction("List", "tblFormularioRelacionados", new { id = Model.tblFormulario.Id }); }</dd>
+    </dl>
+</div>
+<p>
+    @if (FrontUser.TienePermiso(RolesPermisos.OYM_seguimientoFormularios_puedeEditarResponderAprobado) && FrontUser.TienePermiso(RolesPermisos.OYM_seguimientoFormularios_puedeEditarResponderRechazado))
+    {@Html.ActionLink("Responder", "Create", new { id = Model.tblFormularioProceso.lFormularioProceso_id }, new { @class = "btn btn-success" })} |
+    @Html.ActionLink("Ir a Lista", "Index")
+</p>

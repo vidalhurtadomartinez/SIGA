@@ -1,0 +1,134 @@
+﻿@using SIGAA.Areas.OYM.Helpers
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - O&M</title>
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/jqueryui")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Styles.Render("~/Content/kendo/css")
+    @Scripts.Render("~/bundles/kendo")
+    
+    
+    <link href="@Url.Content("~/Content/kendo/kendo.common.min.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/kendo/kendo.common-bootstrap.min.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/kendo/kendo.mobile.all.min.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/kendo/kendo.dataviz.min.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/kendo/kendo.bootstrap.min.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/kendo/kendo.dataviz.bootstrap.min.css")" rel="stylesheet" type="text/css" />
+    <script src="@Url.Content("~/Scripts/kendo/jquery.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/kendo/jszip.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/kendo/kendo.all.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/kendo/kendo.aspnetmvc.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/kendo.modernizr.custom.js")"></script>
+    <script src="@Url.Content("~/Scripts/kendo/cultures/kendo.culture.es-ES.min.js")"></script>
+
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("O&M", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            Registros
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Plantillas", "Index", "tblPlantillas")</li>
+                            <li role="menuitem" class="divider"></li>
+                            <li>@Html.ActionLink("Documentos", "Index", "tblDocumentos")</li>
+                            <li>@Html.ActionLink("Formularios", "Index", "tblFormularios")</li>
+                            <li role="menuitem" class="divider"></li>
+                            <li>@Html.ActionLink("Proceso documentos", "Index", "tblDocumentoProcesos")</li>
+                            <li>@Html.ActionLink("Proceso formularios", "Index", "tblFormularioProcesos")</li>
+                            <li role="menuitem" class="divider"></li>
+                            <li>@Html.ActionLink("Seguimiento de documentos", "Index", "tblSeguimientoDocumentos")</li>
+                            <li>@Html.ActionLink("Seguimiento de formularios", "Index", "tblSeguimientoFormularios")</li>
+                            <li role="menuitem" class="divider"></li>
+                            <li>@Html.ActionLink("Documentos Publicados", "FilterByDirectory", "tblDocumentoPublicados")</li>
+                            <li>@Html.ActionLink("Formularios Publicados", "FilterByDirectory", "tblFormularioPublicados")</li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            Parametros
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Directorio de Archivos", "Index", "tblDirectorios")</li>
+                            <li role="menuitem" class="divider"></li>
+                            <li>@Html.ActionLink("Tipos de Formas de documentos", "Index", "tblFormaDocumentoTipos")</li>
+                            <li>@Html.ActionLink("Formas de documentos", "Index", "tblFormaDocumentos")</li>
+                            <li>@Html.ActionLink("Tipos de documentos", "Index", "tblTipoDocumentos")</li>
+                            <li>@Html.ActionLink("Tipos de procesos", "Index", "tblTipoProcesos")</li>
+                            <li role="menuitem" class="divider"></li>
+                            <li>@Html.ActionLink("Categorias de participantes", "Index", "tblCategorias")</li>
+                            <li>@Html.ActionLink("Procesos", "Index", "tblProcesos")</li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            Reportes
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Documentos Por Tipo de Procesos", "DocumentoTipoProceso", "Reportes", null, new { target = "_blank" })</li>
+                            <li>@Html.ActionLink("Formularios Por Tipo de Procesos", "FormularioTipoProceso", "Reportes", null, new { target = "_blank" })</li>
+                            <li role="menuitem" class="divider"></li>
+                            <li>@Html.ActionLink("Promedio de Respuestas Por Procesos de Documentos", "DocumentoTiempoTipoProceso", "Reportes", null, new { target = "_blank" })</li>
+                            <li>@Html.ActionLink("Promedio de Respuestas Por Procesos de Formularios", "FormularioTiempoTipoProceso", "Reportes", null, new { target = "_blank" })</li>
+                            <li role="menuitem" class="divider"></li>
+                            <li>@Html.ActionLink("Detalle de Respuestas Por Procesos de Documentos", "DocumentoDetalleRespuestaTipoProceso", "Reportes", null, new { target = "_blank" })</li>
+                            <li>@Html.ActionLink("Detalle de Respuestas Por Procesos de Formularios", "FormularioDetalleRespuestaTipoProceso", "Reportes", null, new { target = "_blank" })</li>
+                        </ul>
+                    </li>                   
+                </ul>
+                @Html.Partial("_LoginPartial")
+            </div>
+
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Copyright by MapiriSoft</p>
+        </footer>
+    </div>
+
+
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/jqueryui")
+    @*@Scripts.Render("~/bundles/kendo")*@
+    <script>
+        kendo.culture("es-ES");
+
+        $(function () {
+            $(".jqueryui-marker-datepicker").datepicker({
+                dateformat: "dd/MM/yyyy",
+                changeYear: true,
+                language: "es"
+                //showOn: "button"
+            }).css("display", "inline-block").next("button").button({
+                icons: { primary: "btn ui-icon-calendar" },
+                //label: "",
+                text: false
+            });
+        });
+    </script>
+    @RenderSection("scripts", required: false)
+</body>
+</html>

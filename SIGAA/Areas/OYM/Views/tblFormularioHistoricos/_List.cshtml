@@ -1,0 +1,74 @@
+﻿@using SIGAA.Areas.OYM.Helpers
+@model IEnumerable<SIGAA.Areas.OYM.Models.tblFormularioHistorico>
+
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <strong>Historico de Versiones</strong>
+    </div>
+
+    @if (Model.Count() > 0)
+    {
+        <table class="table">
+            <tr>
+                <th></th>
+                <th>
+                    @Html.DisplayNameFor(model => model.dtFechaRegistro_dt)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.sCodigo)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Titulo)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.lVersion)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.UbicacionArchivo)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.dtFechaPublicacion_dt)
+                </th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td style="width:30px">
+                        <div class="pull-left">
+                            @if (item.dtFechaPublicacion_dt == null)
+                            {
+                                @Html.NoEncodeActionLink("<span class='glyphicon glyphicon-globe'></span>", "Publicar formulario", "PublicarFormulario", "tblFormularioHistoricos", routeValues: new { id = item.lFormularioHistorico_id }, htmlAttributes: new { data_modal = "", @class = "glyphicon" })
+                            }
+                        </div>
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.dtFechaRegistro_dt)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.sCodigo)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Titulo)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.lVersion)
+                    </td>
+                    <td>
+                        <a class="glyphicon glyphicon-zoom-in glyphicon-link" href="~/@item.UbicacionArchivo" target="_blank">
+                            Mostrar
+                        </a>
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.dtFechaPublicacion_dt)
+                    </td>
+                </tr>
+            }
+        </table>
+    }
+    else
+    {
+        @: <div class="text-muted">&nbsp;No existe historial de versiones para este formulario.</div>
+    }
+</div>

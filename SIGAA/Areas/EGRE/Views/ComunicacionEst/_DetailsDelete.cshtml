@@ -1,0 +1,121 @@
+﻿@model SIGAA.Areas.EGRE.Models.gatbl_ComunicacionEst
+
+<dl class="dl-horizontal small">
+
+    <dt>
+        @Html.DisplayNameFor(model => model.sGestion_desc)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.sGestion_desc)
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.sPeriodo_desc)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.sPeriodo_desc)
+    </dd>
+    <dt>
+        @Html.DisplayName("Registro Alumno")
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.lEstudiante_id)
+        @Html.Display("datos.nombreAlumno")
+    </dd>
+    <dt>
+        @Html.DisplayName("Carrera")
+    </dt>
+    <dd>
+        @Html.Display("datos.carrera")
+    </dd>
+    <dt>
+        @Html.DisplayName("Perfil")
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.Perfil.sTitulo_tfg)
+    </dd>
+    <dt>
+        @Html.DisplayName("Modalidad")
+    </dt>
+    <dd>
+        @Html.Display("datos.TipoGraduacion")
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.dtComunicacionEst_dt)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.dtComunicacionEst_dt)
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.dtDProgramada_dt)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.dtDProgramada_dt)
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.dtHProgramada_dt)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.dtHProgramada_dt)
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.sLugarDefensa_desc)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.sLugarDefensa_desc)
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.dtSorteoArea_dt)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.dtSorteoArea_dt)
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.dtHoraSorteo_dt)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.dtHoraSorteo_dt)
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.sLugarSorteo_desc)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.sLugarSorteo_desc)
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.dtHoraEntrega_dt)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.dtHoraEntrega_dt)
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.sLugarEntrega_desc)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.sLugarEntrega_desc)
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.sDescripcion_desc)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.sDescripcion_desc)
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.sObs_desc)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.sObs_desc)
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.sComunicacionEst_fl)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.sComunicacionEst_fl)
+    </dd>
+    <dt>
+        @Html.DisplayName("Entregado Por")
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.Persona.NombreCompleto)
+    </dd>
+</dl>
+<hr />

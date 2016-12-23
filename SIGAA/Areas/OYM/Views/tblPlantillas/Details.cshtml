@@ -1,0 +1,47 @@
+﻿@model SIGAA.Areas.OYM.Models.tblPlantilla
+
+@{
+    ViewBag.Title = "Detalle";
+}
+
+<h2>Detalle</h2>
+
+<div>
+    <h4>Plantilla</h4>
+    <hr />
+    <dl class="dl-horizontal">        
+        <dt>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Descripcion)
+        </dd>
+        
+        <dt>
+            @Html.DisplayNameFor(model => model.sPathFormato)
+        </dt>
+
+        <dd>            
+            <a class="glyphicon glyphicon-link" href="~/@Model.sPathFormato" target="_blank">
+                Mostrar
+            </a>
+        </dd>
+
+        <dt></dt>
+        <dd>@{ Html.RenderAction("List", "tblPlantillaMarcadores", new { id = Model.lPlantilla_id }); }</dd>
+    </dl>
+</div>
+<div>
+    @if(FrontUser.TienePermiso(RolesPermisos.OYM_plantillas_puedeEditar)){
+    @Html.ActionLink("Editar", "Edit", new { id = Model.lPlantilla_id }, new { @class = "btn btn-warning" })} |
+    @Html.ActionLink("Ir a Lista", "Index")
+</div>

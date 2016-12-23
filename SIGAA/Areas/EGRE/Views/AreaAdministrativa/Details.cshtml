@@ -1,0 +1,13 @@
+﻿@model SIGAA.Areas.EGRE.Models.gatbl_AreasAdministrativas
+
+@{
+    ViewBag.Title = "Detalles";
+}
+<h3><b>Información de Area Administrativa</b></h3>
+<hr />
+<div>
+    @Html.Partial("_DetailsDelete", Model)
+    @if (FrontUser.TienePermiso(RolesPermisos.EGRE_areaAdministrativa_puedeEditar)) {
+    <a href="/EGRE/AreaAdministrativa/Edit/@Model.iAreaAdministrativa_id" class="btn btn-primary"><span class="glyphicon glyphicon-pencil"></span> Editar </a>}
+    <a href="/EGRE/AreaAdministrativa/Index" class="btn btn-default"><span class="glyphicon glyphicon-list"></span> Ir a Lista </a>
+</div>

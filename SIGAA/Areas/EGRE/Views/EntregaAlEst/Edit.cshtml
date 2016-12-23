@@ -1,0 +1,127 @@
+﻿@using MvcFlash.Core.Extensions
+@model SIGAA.Areas.EGRE.Models.gatbl_EntregaAlEst
+
+@{
+    ViewBag.Title = "Editar";
+}
+<h3><b>Editar Entrega T.F.G. a Estudiante</b></h3>
+<hr />
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.Flash()
+        @Html.HiddenFor(model => model.iEntregaAlEst_id)
+
+       @Html.Partial("_CreateEdit", Model)
+
+        @*<div class="form-group form-group-sm">
+                @Html.LabelFor(model => model.iEstado_fl, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-4">
+                    <div class="checkbox">
+                        @Html.EditorFor(model => model.iEstado_fl, new { htmlAttributes = new { @class = "control-label col-md-1" } })
+                        @Html.ValidationMessageFor(model => model.iEstado_fl, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>*@
+        <hr />
+        <div class="col-md-offset-2">
+            <button type="submit" class="btn btn-primary" id="btnEditar"><span class="glyphicon glyphicon-edit"></span> Editar</button>
+            <a href="/EGRE/EntregaAlEst/Index" class="btn btn-default"><span class="glyphicon glyphicon-list"></span> Ir a Lista </a>
+        </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script src="~/Scripts/Observaciones/General/marcaCamposRequeridos.js"></script>
+    @*<link href="~/Content/autocompletar/jquery-ui.css" rel="stylesheet" />
+    <script src="~/Content/autocompletar/jquery-ui.js"></script>*@
+
+    <script type="text/javascript" language="javascript">
+        $(document).ready(function () {
+            $("#Receptor_nombrePersona").autocomplete({
+                source: function (request, response) {
+                    $("#btnEditar").attr('disabled', true);
+                    $.ajax({
+                        async: false,
+                        cache: false,
+                        type: "GET",
+                        url: "@(Url.Action("ListarNombresDePersonas_Json", "EntregaAlEst"))",
+                        dataType: "json",
+                        data: { "term": request.term },
+                        success: function (data) {
+                            response(data);
+                        }
+                    });
+                },
+                select: function (event, ui) {
+                    $.ajax({
+                        cache: false,
+                        async: false,
+                        type: "GET",
+                        url: "@(Url.Action("TraerInformacionDePersona_Json", "EntregaAlEst"))",
+                        dataType: "json",
+                        data: { "term": ui.item.value },
+                        success: function (data) {
+                            $('#lEntregadoPor_id').val(data.codigoPersona)
+
+                            if ($('#iRecepcionTFG_id').val() != '') {
+                                $("#btnEditar").attr('disabled', false);
+                            }
+
+                            action = data.Action;
+                        },
+                        error: function (xhr, ajaxOptions, thrownError) {
+                            alert('Fallo al recibir estados.');
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+
+
+    <script type="text/javascript" language="javascript">
+        $(function () {
+
+            $('#iRecepcionTFG_id').change(function () {
+                var iETribunal_id = parseInt($("#iRecepcionTFG_id").val());
+                if (!isNaN(iETribunal_id)) {
+                    $.ajax({
+                        url: "@Url.Action("BuscarInformacionDeAlumno", "EntregaAlEst")",
+                        type: "GET",
+                        data: { term: iETribunal_id },
+                        dataType: "json",
+                        success: function (data) {
+                            $("#datos_carrera").val(data.carrera)
+                            $("#datos_TituloPerfil").val(data.TituloPerfil)
+                            $("#datos_TipoGraduacion").val(data.TipoGraduacion)
+                            $("#lEstudiante_id").val(data.alm_registro)
+                            $("#datos_nombreTutor").val(data.nombreTutor)
+                            $("#datos_estadoRecepcionDeTribunal").val(data.estadoRecepcionDeTribunal)
+                            $("#datos_ejemplar").val(data.ejemplar)
+                            if ($('#lEntregadoPor_id').val() != '') {
+                                $("#btnEditar").attr('disabled', false);
+                            }
+                            action = data.Action;
+                        },
+                        error: function () {
+                            alert("Error al conectarse.")
+                        }
+                    });
+                } else {
+                    $("#datos_carrera").val("")
+                    $("#datos_TituloPerfil").val("")
+                    $("#datos_TipoGraduacion").val("")
+                    $("#lEstudiante_id").val("")
+                    $("#datos_nombreTutor").val("")
+                    $("#datos_estadoRecepcionDeTribunal").val("")
+                    $("#datos_ejemplar").val("")
+
+                    $("#btnEditar").attr('disabled', true);
+                }
+            });
+        })
+
+    </script>
+}

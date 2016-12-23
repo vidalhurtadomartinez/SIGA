@@ -1,0 +1,113 @@
+﻿@using MvcFlash.Core.Extensions
+@model SIGAA.Areas.EGRE.ViewModel.RecepcionTFGView
+
+<div class="row">
+    <div class="form-horizontal col-md-7">
+        <div class="form-group form-group-sm">
+            @Html.Label("Año / Periódo", htmlAttributes: new { @class = "control-label col-md-3" })
+            <div class="col-md-3">
+                @Html.EditorFor(model => model.RecepcionTFG.sGestion_desc, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.RecepcionTFG.sGestion_desc, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-4">
+                @Html.DropDownListFor(model => model.RecepcionTFG.sPeriodo_desc, @ViewBag.sPeriodo_desc as SelectList, null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.RecepcionTFG.sPeriodo_desc, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.Label("Nombre Tribunal", htmlAttributes: new { @class = "control-label col-md-3" })
+            <div class="col-md-7">
+                @Html.DropDownListFor(model => model.RecepcionTFG.iETribunal_id, @ViewBag.iETribunal_id as SelectList, "[ Seleccionar.. ]", htmlAttributes: new { @class = "form-control", @autofocus = "true" })
+                @Html.ValidationMessageFor(model => model.RecepcionTFG.iETribunal_id, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group form-group-sm">
+            @Html.LabelFor(model => model.RecepcionTFG.dtRecepcion_dt, htmlAttributes: new { @class = "control-label col-md-3" })
+            <div class="col-md-7">
+                @Html.EditorFor(model => model.RecepcionTFG.dtRecepcion_dt, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.RecepcionTFG.dtRecepcion_dt, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group form-group-sm">
+            @Html.LabelFor(model => model.RecepcionTFG.sRecepcionTFG_fl, htmlAttributes: new { @class = "control-label col-md-3" })
+            <div class="col-md-7">
+                @Html.EnumDropDownListFor(model => model.RecepcionTFG.sRecepcionTFG_fl, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.RecepcionTFG.sRecepcionTFG_fl, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group form-group-sm">
+            @Html.LabelFor(model => model.RecepcionTFG.sEstadoEntrega_fl, htmlAttributes: new { @class = "control-label col-md-3" })
+            <div class="col-md-7">
+                @Html.EnumDropDownListFor(model => model.RecepcionTFG.sEstadoEntrega_fl, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.RecepcionTFG.sEstadoEntrega_fl, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Recepcionado por", htmlAttributes: new { @class = "control-label col-md-3 small" })
+            <div class="col-md-7">
+                <div class="input-group">
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span>
+                    @Html.Editor("Receptor.nombrePersona", new { htmlAttributes = new { @class = "form-control", @placeholder = "Buscar nombre", @required = "required" } })
+                </div>
+            </div>
+            <div class="col-md-2 hidden">
+                @Html.EditorFor(model => model.RecepcionTFG.lRecepciona_id, null, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                @Html.ValidationMessageFor(model => model.RecepcionTFG.lRecepciona_id, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>
+    <div class="col-md-5">
+        <div class="panel panel-default">
+            <div class="panel-heading">INFORMACION COMPLEMENTARIA DEL ALUMNO</div>
+            <div class="panel-body">
+                <div class="form-group  form-group-sm">
+                    @Html.Label("Registro", htmlAttributes: new { @class = "control-label col-md-2 small" })
+                    <div class="col-md-9">
+                        @Html.EditorFor(model => model.RecepcionTFG.lEstudiante_id, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                        @Html.ValidationMessageFor(model => model.RecepcionTFG.lEstudiante_id, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group form-group-sm">
+                    @Html.Label("Alumno", htmlAttributes: new { @class = "control-label col-md-2 small" })
+                    <div class="col-md-9">
+                        @Html.Editor("datos.nombreAlumno", new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                    </div>
+                </div>
+                <div class="form-group form-group-sm">
+                    @Html.Label("Carrera", htmlAttributes: new { @class = "control-label col-md-2 small" })
+                    <div class="col-md-9">
+                        @Html.Editor("datos.carrera", new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                    </div>
+                </div>
+                <div class="form-group form-group-sm">
+                    @Html.Label("Tit Perf", htmlAttributes: new { @class = "control-label col-md-2 small" })
+                    <div class="col-md-9">
+                        @Html.Editor("datos.TituloPerfil", new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                    </div>
+                </div>
+                <div class="form-group form-group-sm">
+                    @Html.Label("Modalidad", htmlAttributes: new { @class = "control-label col-md-2 small" })
+                    <div class="col-md-9">
+                        @Html.Editor("datos.TipoGraduacion", new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                    </div>
+                </div>
+                <div class="form-group form-group-sm">
+                    @Html.Label("Ent Trib", htmlAttributes: new { @class = "control-label col-md-2 small" })
+                    <div class="col-md-9">
+                        @Html.Editor("datos.estadoEntregaATribunal", new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                    </div>
+                </div>
+                <div class="form-group form-group-sm">
+                    @Html.Label("Ejemplar", htmlAttributes: new { @class = "control-label col-md-2 small" })
+                    <div class="col-md-9">
+                        @Html.Editor("datos.ejemplar", new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+

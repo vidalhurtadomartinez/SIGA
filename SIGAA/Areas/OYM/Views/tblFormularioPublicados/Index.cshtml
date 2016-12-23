@@ -1,0 +1,261 @@
+﻿@model IEnumerable<SIGAA.Areas.OYM.Models.tblFormularioPublicado>
+
+@{
+    ViewBag.Title = "Formularios Publicados";
+}
+
+<h2>Formularios Publicados</h2>
+
+<div id="content">
+    @(Html.Kendo().Grid<SIGAA.Areas.OYM.Models.tblFormularioPublicado>()
+        .Name("grid")
+        .Columns(columns =>
+        {
+            columns.Template(@<text></text>).ClientTemplate(
+                                     "<a class='k-button k-button-icon' href='" + Url.Content("~/#=UbicacionArchivo#") + "' target='_blank' title='Descargar Documento'><span class='k-icon k-i-search'> </span></a>"
+                                     )
+                                     .Width(45).Locked(true).Visible(FrontUser.TienePermiso(RolesPermisos.OYM_formulariosPublicados_puedeVerDetalle));
+
+            //columns.Bound(o => o.sCodigo).ClientTemplate(@Html.ActionLink("#=sCodigo#", "Details", new { ID = "#=lFormularioPublicado_id#" })
+            //.ToHtmlString()).Width(100).Filterable(ftb => ftb.Cell(cell => cell.Operator("contains").ShowOperators(false))).Locked(true);
+            columns.Bound(p => p.sCodigo).Width(120).Filterable(ftb => ftb.Cell(cell => cell.Operator("contains").ShowOperators(false))).Locked(true);
+            columns.Bound(p => p.Titulo).Width(250).Filterable(ftb => ftb.Cell(cell => cell.Operator("contains").ShowOperators(false))).Locked(true);
+            columns.Bound(p => p.OrigenDocumento.sDescripcion).Width(100).Filterable(ftb => ftb.Cell(cell => cell.Operator("contains").ShowOperators(false))).Title("Origen");
+            columns.Bound(p => p.dtFechaCreacion_dt).Width(120).Filterable(ftb => ftb.Cell(cell => cell.Operator("contains").ShowOperators(false))).Format("{0:d}");
+            //columns.Bound(p => p.tblTipoDocumento.sTipoDocumento).Width(150).Filterable(ftb => ftb.Cell(cell => cell.Operator("contains").ShowOperators(false)));
+            columns.Bound(p => p.tblTipoProceso.sDescripcion).Width(250).Filterable(ftb => ftb.Cell(cell => cell.Operator("contains").ShowOperators(false))).Title("Tipo Proceso");
+            columns.Bound(p => p.sCorrelativo).Width(120).Filterable(ftb => ftb.Cell(cell => cell.Operator("contains").ShowOperators(false)));
+            columns.Bound(p => p.lVersion).Width(100).Filterable(ftb => ftb.Cell(cell => cell.Operator("contains").ShowOperators(false)));
+            columns.Bound(p => p.dtValidoDesde_dt).Width(120).Filterable(ftb => ftb.Cell(cell => cell.Operator("contains").ShowOperators(false))).Format("{0:d}");
+            columns.Bound(p => p.dtUltimaActualizacion_dt).Width(120).Filterable(ftb => ftb.Cell(cell => cell.Operator("contains").ShowOperators(false))).Format("{0:d}");
+            //columns.Bound(p => p.tblPlantilla.Nombre).Width(150).Filterable(ftb => ftb.Cell(cell => cell.Operator("contains").ShowOperators(false))).Title("Plantilla");
+            columns.Bound(p => p.EstadoDocumento.sDescripcion).Width(120).Filterable(ftb => ftb.Cell(cell => cell.Operator("contains").ShowOperators(false))).Title("Estado");
+
+        })
+        @*.ToolBar(toolBar =>
+            {
+            toolBar.Template(@<text>
+            <a class="k-button k-button-icontext" href=@Url.Action("Create", "tblDocumentos")><span class="k-icon k-i-plus"></span>Crear Nuevo</a>
+            </text>);
+            })*@
+        .Editable(editable => editable.Mode(GridEditMode.InLine))
+        .Pageable()
+        //.Groupable()
+        .Sortable()
+        .Filterable()
+        .ColumnMenu()
+        .Scrollable(s => s.Height("auto"))
+        .HtmlAttributes(new { style = "height:100%" })
+        .Filterable(ftb => ftb.Mode(GridFilterMode.Row))
+        .Resizable(rsb => rsb.Columns(true))
+        .Reorderable(r => r.Columns(true))
+        .Pageable(pageable => pageable
+        .Refresh(true)
+        .PageSizes(true)
+        .ButtonCount(10)
+        .Messages(m => m
+            .ItemsPerPage("items por página")
+            )
+        )
+        .DataSource(dataSource => dataSource
+            .Ajax()
+            .PageSize(20)
+            .ServerOperation(false)
+            .Sort(p => p.Add("lFormularioPublicado_id").Descending())
+        //.Group(group => group.Add(p => p.gatbl_Universidades.sNombre_desc))
+        //.Group(group => group.Add(p => p.gatbl_Facultades.sFacultad_nm))
+        .Model(model =>
+        {
+            model.Id(p => p.lFormularioPublicado_id);
+            model.Field(p => p.lFormularioPublicado_id).Editable(false);
+        })
+        .Read(read => read.Action("Index_Read", "tblFormularioPublicados"))
+        //.Create(create => create.Action("Create", "tblDocumentos"))
+        //.Update(update => update.Action("Edit", "tblDocumentos"))
+        //.Destroy(update => update.Action("Delete", "tblDocumentos"))
+     )
+    )
+</div>
+
+@*<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.AprobadoPor.CodCargoNivel1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ControlCalidad.CodCargoNivel1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ElaboradoPor.CodCargoNivel1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EstadoDocumento.sDescripcion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OrigenDocumento.sDescripcion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RevisadoPor.CodCargoNivel1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tblDirectorio.sNombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tblDocumento.Titulo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tblFormulario.Titulo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tblFormularioHistorico.Titulo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tblTipoProceso.sSigla)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dtFechaRegistro_dt)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dtFechaCreacion_dt)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Titulo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.sCorrelativo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.sCodigo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lVersion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dtValidoDesde_dt)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dtUltimaActualizacion_dt)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NombreArchivo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UbicacionArchivo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.sComentarios)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.sISO)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.AprobadoPor.CodCargoNivel1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ControlCalidad.CodCargoNivel1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ElaboradoPor.CodCargoNivel1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EstadoDocumento.sDescripcion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OrigenDocumento.sDescripcion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RevisadoPor.CodCargoNivel1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tblDirectorio.sNombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tblDocumento.Titulo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tblFormulario.Titulo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tblFormularioHistorico.Titulo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tblTipoProceso.sSigla)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.dtFechaRegistro_dt)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.dtFechaCreacion_dt)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Titulo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.sCorrelativo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.sCodigo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lVersion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.dtValidoDesde_dt)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.dtUltimaActualizacion_dt)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NombreArchivo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UbicacionArchivo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.sComentarios)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.sISO)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.lFormularioPublicado_id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.lFormularioPublicado_id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.lFormularioPublicado_id })
+        </td>
+    </tr>
+}
+
+</table>*@
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script>
+        $(document).ready(function () {
+            resizeContent();
+
+            $(window).resize(function () {
+                resizeContent();
+            });
+        });
+
+        function resizeContent() {
+            $height = $(window).height() - 210;
+            $('div#content').height($height);
+
+            var grid = $("#grid").data('kendoGrid');
+            if (grid != undefined) {
+                grid.resize();
+            }
+        }
+    </script>
+}

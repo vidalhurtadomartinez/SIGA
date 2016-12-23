@@ -1,0 +1,96 @@
+﻿@using MvcFlash.Core.Extensions
+@model IEnumerable<SIGAA.Areas.EGRE.Models.gatbl_PerfilesView>
+<div id="listaPerfiles">
+    @Html.Flash()
+    <table class="table small table-responsive">
+        <tr class="active">
+            <th class="col-md-1">Operaciones</th>
+            <th>#</th>
+            <th class="col-md-3">
+                @Html.DisplayName("Alumno(a)")
+            </th>
+            <th class="col-md-3">
+                @Html.DisplayName("Carrera")
+            </th>
+            <th class="col-md-2">
+                <a href="#" title="Buscar por rango de fechas de Defensa Final Programada" data-toggle="popover" data-content='<form action="/Perfil/BuscarPorRangoDeFechas" data-ajax="true" data-ajax-method="POST" data-ajax-mode="replace" data-ajax-update="#listaPerfiles" id="form0" method="post"><input type="date" class="form-control form-group-sm" placeholder="Fecha inicio" name="fechaInicio" autofocus><br /><input type="date" class="form-control form-group-sm" placeholder="Fecha final" name="fechaFinal"><br /><div class="text-center"><button type="submit" class="btn btn-primary" id="btnBuscarPorFechas"> Buscar</button></div></form>' data-html="true" data-placement="bottom" data-trigger="click">@Html.DisplayName("F Entrega/Defensa")</a>
+            </th>
+            <th class="col-md-2">
+                @Html.DisplayName("Modalidad")
+            </th>
+            <th class="col-md-1">
+                @Html.DisplayNameFor(model => model.sPerfil_fl)
+            </th>
+        </tr>
+        @{
+            var indice = 0;
+            foreach (var item in Model)
+            {
+                indice++;
+                <tr>
+                    <td class="affix">
+                        @if (FrontUser.TienePermiso(RolesPermisos.EGRE_perfil_puedeEditar)) {
+                        <a href="/EGRE/Perfil/Edit/@item.iPerfil_id"><span class="glyphicon glyphicon-pencil" data-toggle="tooltip" data-original-title="Editar"></span></a>} |
+                        @if (FrontUser.TienePermiso(RolesPermisos.EGRE_perfil_puedeVerDetalle)) {
+                        <a href="/EGRE/Perfil/Details/@item.iPerfil_id"><span class="glyphicon glyphicon-eye-open" data-toggle="tooltip" data-original-title="Ver detalle"></span></a>} |
+                        @if (FrontUser.TienePermiso(RolesPermisos.EGRE_perfil_puedeEliminar)) {
+                        <a href="/EGRE/Perfil/Delete/@item.iPerfil_id"><span class="glyphicon glyphicon-trash" data-toggle="tooltip" data-original-title="Eliminar"></span></a>} |
+                        @if (FrontUser.TienePermiso(RolesPermisos.EGRE_accederAseguimientoDeEjemplaresTFG))
+                        {
+                            if (item.TipoGraduacionS.Trim() == "PROYECTO DE GRADO" || item.TipoGraduacionS.Trim() == "PRACTICA EMPRESARIAL" || item.TipoGraduacionS.Trim() == "TESIS ")
+                            { <a href="/EGRE/Perfil/IndexTFG/?criterio=@item.lEstudiante_id"><span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-original-title="Ver Detalle de Ejemplares"></span></a>}
+                        }
+                    </td>
+                    <td><b>@indice.ToString()</b></td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NombreCompleto) <br />
+                        <b>@Html.DisplayFor(modelItem => item.lEstudiante_id)</b>
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Carrera)
+                    </td>
+                    <td>
+                        Ent: <b>@Html.DisplayFor(modelItem => item.dtEntregado_dt)</b>
+                        @if (item.dtDProgramada_dt.ToString() == "01/01/0001 0:00:00")
+                        {
+                            <p>Def: Sin definir</p>
+                        }
+                        else
+                        {
+                            <p>Def: <b>@Html.DisplayFor(modelItem => item.dtDProgramada_dt)</b></p>
+                        }
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TipoGraduacionS)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.sPerfil_fl)
+                    </td>
+                </tr>
+            }
+        }
+    </table>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('[data-toggle="tooltip"]').tooltip({
+            placement: 'top'
+        });
+    });
+</script>
+<script>
+    $(document).ready(function () {
+        $('[data-toggle="popover"]').popover();
+    });
+
+    $('body').on('click', function (e) {
+        $('[data-toggle="popover"]').each(function () {
+            //the 'is' for buttons that trigger popups
+            //the 'has' for icons within a button that triggers a popup
+            if (!$(this).is(e.target) && $(this).has(e.target).length === 0 && $('.popover').has(e.target).length === 0) {
+                $(this).popover('hide');
+            }
+        });
+    });
+</script>

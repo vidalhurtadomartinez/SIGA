@@ -1,0 +1,76 @@
+﻿@model SIGAA.Areas.EGRE.Models.gatbl_EntregaTFG
+
+<dl class="dl-horizontal small">
+    <dt>
+        @Html.DisplayNameFor(model => model.sGestion_desc)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.sGestion_desc)
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.sPeriodo_desc)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.sPeriodo_desc)
+    </dd>
+    <dt>
+        @Html.DisplayName("Registro Alumno")
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.lEstudiante_id)
+        @Html.Display("datos.nombreAlumno")
+    </dd>
+    <dt>
+        @Html.DisplayName("Carrera")
+    </dt>
+    <dd>
+        @Html.Display("datos.carrera")
+    </dd>
+    <dt>
+        @Html.DisplayName("Perfil")
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.Perfil.sTitulo_tfg)
+    </dd>
+    <dt>
+        @Html.DisplayName("Estado Perfil")
+    </dt>
+    <dd>
+        @Html.Display("datos.estadoPerfil")
+    </dd>
+    <dt>
+        @Html.DisplayName("Modalidad")
+    </dt>
+    <dd>
+        @Html.Display("datos.TipoGraduacion")
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.dtEntrega_dt)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.dtEntrega_dt)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.sNumEjemplar)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.sNumEjemplar)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.sEntrega_fl)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.sEntrega_fl)
+    </dd>
+    <dt>
+        @Html.DisplayName("Recepcionado Por")
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.Persona.NombreCompleto)
+    </dd>    
+</dl>
+<hr />

@@ -1,0 +1,78 @@
+﻿@using SIGAA.Areas.OYM.Helpers
+@model IEnumerable<SIGAA.Areas.OYM.Models.tblProceso>
+
+@{
+    ViewBag.Title = "Procesos";
+}
+
+<h2>Procesos</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @*<div class="pull-left">
+                @Html.NoEncodeActionLink("<span class='glyphicon glyphicon-plus'></span>", "Crear Nuevo", "Create", "tblProcesos", routeValues: new { Tipo = 1 }, htmlAttributes: new { @class = "btn btn-primary" })
+            </div>*@
+
+            <div class="btn-group">
+                <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class='glyphicon glyphicon-plus'></span>
+                </button>
+                <ul class="dropdown-menu">
+                    <li>@Html.ActionLink("Proceso general", "Create", "tblProcesos", routeValues: new { Tipo = 1 }, htmlAttributes: null)</li>
+                    <li>@Html.ActionLink("Proceso especifico", "Create", "tblProcesos", routeValues: new { Tipo = 2}, htmlAttributes: null)</li>                   
+                </ul>
+            </div>
+
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lTipoProceso_id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.sNombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.sDescripcion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dtFechaRegistro_dt)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.bActivo)
+        </th>        
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td style="width:68px">
+            <div class="pull-left" style="width:68px">
+                @if(FrontUser.TienePermiso(RolesPermisos.OYM_procesos_puedeEditar)){
+                @Html.NoEncodeActionLink("<span class='glyphicon glyphicon-pencil'></span>", "Editar", "Edit", "tblProcesos", routeValues: new { id = item.lProceso_id }, htmlAttributes: new { data_modal = "", @class = "glyphicon" })}
+                &nbsp;
+                @if(FrontUser.TienePermiso(RolesPermisos.OYM_procesos_puedeVerDetalle)){
+                @Html.NoEncodeActionLink("<span class='glyphicon glyphicon-search'></span>", "Ver", "Details", "tblProcesos", routeValues: new { id = item.lProceso_id }, htmlAttributes: new { data_modal = "", @class = "glyphicon" })}
+                &nbsp;
+                @if(FrontUser.TienePermiso(RolesPermisos.OYM_procesos_puedeEliminar)){
+                @Html.NoEncodeActionLink("<span class='glyphicon glyphicon-trash'></span>", "Eliminar", "Delete", "tblProcesos", routeValues: new { id = item.lProceso_id }, htmlAttributes: new { data_modal = "", @class = "glyphicon" })}
+            </div>
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TipoProceso.sDescripcion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.sNombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.sDescripcion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.dtFechaRegistro_dt)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.bActivo)
+        </td>        
+    </tr>
+}
+
+</table>

@@ -1,0 +1,65 @@
+﻿@model IEnumerable<SIGAA.Areas.EGRE.Models.gatbl_DRecepcionesTFG>
+
+@{
+    ViewBag.Title = "Index";
+}
+<h3><b>INDICE :</b>  Detalles Recepcion T.F.G.</h3>
+<hr />
+<p>
+    @Html.ActionLink("Crear Nuevo", "Create")
+</p>
+<table class="table small">
+    <tr class="active">
+        <th>
+            #
+        </th>
+        <th>
+            Nro Recep TFG
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.sObsDetallada)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.sSugerencias)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.sTipoObs_fl)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.iEstado_fl)
+        </th>
+
+        <th>Operaciones</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.iObs_nro)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.iRecepcionTFG_id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.sObsDetallada)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.sSugerencias)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.sTipoObs_fl)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.iEstado_fl)
+            </td>
+           
+            <td>
+                @Html.ActionLink("Editar", "Edit", new { id = item.iDRecepcionTFG_id }) |
+                @Html.ActionLink("Ver", "Details", new { id = item.iDRecepcionTFG_id }) |
+                @Html.ActionLink("Eliminar", "Delete", new { id = item.iDRecepcionTFG_id })
+            </td>
+        </tr>
+    }
+
+</table>

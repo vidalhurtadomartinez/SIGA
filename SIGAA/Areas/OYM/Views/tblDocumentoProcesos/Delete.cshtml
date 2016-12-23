@@ -1,0 +1,79 @@
+﻿@model SIGAA.Areas.OYM.Models.tblDocumentoProceso
+
+@{
+    ViewBag.Title = "Anular Proceso";
+}
+
+<h2>Anular Proceso</h2>
+
+<h3>Esta seguro que desea anular el registro?</h3>
+<div>
+    <h4>Proceso de documento</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.lDocumento_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblDocumento.Titulo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.lProceso_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblProceso.sNombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dtFechaRegistro_dt)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dtFechaRegistro_dt)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sComentarios)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sComentarios)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.lDocumento_version)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.lDocumento_version)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dtFechaInicio_dt)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dtFechaInicio_dt)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.lCategoria_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblCategoria.sDescripcion)
+        </dd>
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Anular proceso" class="btn btn-danger" /> |
+            @Html.ActionLink("Ir a Lista", "Index")
+        </div>
+    }
+</div>

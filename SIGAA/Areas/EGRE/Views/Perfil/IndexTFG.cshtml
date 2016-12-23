@@ -1,0 +1,80 @@
+﻿@model SIGAA.Areas.EGRE.ViewModel.PerfilTFGView
+@{
+    ViewBag.Title = "Segimiento ejemplar";
+}
+<br />
+<br />
+<div class="row">
+    <div class="col-md-6">
+        <div class="text-left">
+            <h3>.<b>Seguimiento de Ejemplares</b></h3>
+        </div>
+    </div>
+    <div class="col-md-6">
+        @using (Ajax.BeginForm(new AjaxOptions { HttpMethod = "GET", InsertionMode = InsertionMode.Replace, UpdateTargetId = "listaPerfilTFG" }))
+        {
+            <div class="col-md-8 col-md-offset-4">
+                <h4 class="input-group">
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span>
+                    <input type="text" class="form-control" placeholder="Por registro o nombre" id="criterio" name="criterio" autofocus>
+                </h4>
+            </div>
+        }
+    </div>
+</div>
+<hr />
+@Html.Partial("_IndexTFG")
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+    @*//autocomplete del buscador*@
+    <script type="text/javascript" language="javascript">
+        $(document).ready(function () {
+            $("#criterio").autocomplete({
+                source: function (request, response) {
+                    $.ajax({
+                        async: false,
+                        cache: false,
+                        type: "GET",
+                        url: "@(Url.Action("ListarAlumnosTFG_Json", "Perfil"))",
+                        dataType: "json",
+                        data: { "term": request.term },
+                        success: function (data) {
+                            response(data);
+                        }
+                    });
+                }
+                @*select: function (event, ui) {
+                    $.ajax({
+                        cache: false,
+                        async: false,
+                        type: "GET",
+                        url: "@(Url.Action("TraerInformacionDeAlumno_Jso", "Perfil"))",
+                        dataType: "json",
+                        data: { "term": ui.item.value },
+                        success: function (data) {
+                            //$("#lEstudiante_id").val(data.codigoAlumno)
+                            //$("#datos_nombreAlumno").val(data.nombreAlumno)
+                            //$("#datos_carrera").val(data.carrera)
+                            //$("#datos_facultad").val(data.facultad)
+
+                            //if ($('#lRecepciona_id').val() != '') {
+                            //    $("#btnGuardar").attr('disabled', false);
+                            //}
+                            action = data.Action;
+                        },
+                        error: function (xhr, ajaxOptions, thrownError) {
+                            alert('Failed to retrieve states.');
+                        }
+                    });
+                }*@
+            });
+        });
+    </script>
+}
+
+
+
+

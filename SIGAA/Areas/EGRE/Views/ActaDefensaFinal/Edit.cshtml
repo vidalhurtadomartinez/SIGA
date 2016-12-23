@@ -1,0 +1,515 @@
+﻿@using MvcFlash.Core.Extensions
+@model SIGAA.Areas.EGRE.Models.gatbl_ActaDefensaFinal
+
+@{
+    ViewBag.Title = "Editar";
+}
+<h3><b>Editar Acta de Defensa Final</b></h3>
+<hr />
+
+@using (Html.BeginForm("Edit", "ActaDefensaFinal", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.Flash()
+        @Html.HiddenFor(model => model.iActaDefensaFinal_id)
+       @Html.Partial("_CreateEdit", Model)
+
+        @*<div class="form-group form-group-sm">
+                @Html.LabelFor(model => model.iEstado_fl, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <div class="checkbox">
+                        @Html.EditorFor(model => model.iEstado_fl, new { htmlAttributes = new { @class = "control-label col-md-1" } })
+                    </div>
+                </div>
+            </div>*@
+        <hr />
+        <div class="col-md-offset-2">
+            <button type="submit" class="btn btn-primary" id="btnEditar"><span class="glyphicon glyphicon-edit"></span> Editar</button>
+            <a href="/EGRE/ActaDefensaFinal/Index" class="btn btn-default"><span class="glyphicon glyphicon-list"></span> Ir a Lista </a>
+        </div>
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+<script src="~/Scripts/Observaciones/General/marcaCamposRequeridos.js"></script>
+
+    <script type="text/javascript" language="javascript">
+        $(function () {
+            var tipo = $('#datos_TipoGraduacion').val();
+            if (tipo != 'EXAMEN DE GRADO') {
+                $(".esconder").hide();
+                $(".tituloPerfil").show();
+            } else {
+                $(".esconder").show();
+                $(".tituloPerfil").hide();
+            }
+        });
+    </script>
+
+    <link href="~/Content/autocompletar/jquery-ui.css" rel="stylesheet" />
+    <script src="~/Content/autocompletar/jquery-ui.js"></script>
+
+@* alumno *@
+@* alumno *@
+<script type="text/javascript" language="javascript">
+        $(document).ready(function () {
+            $("#datos_nombreCompletoAlumno").autocomplete({
+                source: function (request, response) {
+                    $("#btnGuardar").attr('disabled', true);
+                    $.ajax({
+                        async: false,
+                        cache: false,
+                        type: "GET",
+                        url: "@(Url.Action("BuscarPorRegistro", "ActaDefensaFinal"))",
+                        dataType: "json",
+                        data: { "term": request.term },
+                        success: function (data) {
+                           // $("#EntregadoPor_nombrePersona").removeAttr('readonly');
+                            response(data);
+                        }
+                    });
+                },
+                select: function (event, ui) {
+                    $.ajax({
+                        cache: false,
+                        async: false,
+                        type: "GET",
+                        url: "@(Url.Action("Buscar", "ActaDefensaFinal"))",
+                        dataType: "json",
+                        data: { "term": ui.item.value },
+                        success: function (data) {
+                            $("#alm_registro").val(data.codigoAlumno)
+                            $("#datos_nombreAlumno").val(data.nombreAlumno)
+                            $("#datos_carrera").val(data.carrera)
+                            $("#datos_facultad").val(data.facultad)
+                            $("#datos_TituloPerfil").val(data.TituloPerfil)
+                            $("#iPerfil_id").val(data.iPerfil_id)
+                            $("#datos_TipoGraduacion").val(data.TipoGraduacion)
+
+                            if ($('#lPresidente_id').val() != '' &&
+                              $('#lSecretario_id').val() != '' &&
+                              $('#lEvaluador1I_id').val() != '' &&
+                              $('#lEvaluador2I_id').val() != '' &&
+                              $('#lEvaluador1E_id').val() != '' &&
+                              $('#lEvaluador2E_id').val() != '' &&
+                              $('#lRepresentante_id').val() != '') {
+                                $("#btnGuardar").attr('disabled', false);
+                            }
+
+                            if (data.TipoGraduacion != 'EXAMEN DE GRADO') {
+                                $(".esconder").hide();
+                                $(".tituloPerfil").show();
+                            } else {
+                                $(".esconder").show();
+                                $(".tituloPerfil").hide();
+                            };
+                            traerFechasDeDefensaFinal(data.iPerfil_id);//invoca la funcion para traer las fechas
+                            action = data.Action;
+                        },
+                        error: function (xhr, ajaxOptions, thrownError) {
+                            alert('Failed to retrieve states.');
+                        }
+                    });
+                }
+            });
+        });
+        function traerFechasDeDefensaFinal(idPerfilValue) {
+            $.ajax({
+                cache: false,
+                async: false,
+                type: "GET",
+                url: "@(Url.Action("TraerInformacionDeFechaYlugarDeDefensaFinal_Json", "ActaDefensaFinal"))",
+                dataType: "json",
+            data: { "idPerfil": idPerfilValue },
+            success: function (data) {
+                $(".esconderSiNoExisteFechas").show();
+
+                var date = new Date(parseInt(data.fechaDefensaProgramada.substr(6)));
+                var day = date.getDate();
+                var month = date.getMonth() + 1;
+                var fechaEnCadena = date.getFullYear() + '-' + (('' + month).length < 2 ? '0' : '') + month + '-' + (('' + day).length < 2 ? '0' : '') + day;
+                $("#dtDefensa_dt").val(fechaEnCadena);
+
+                var horaObj = new Date(parseInt(data.horaDefensaProgramada.substr(6)));
+                var hora = horaObj.getHours();
+                var minutos = horaObj.getMinutes();
+                var horaMinutoEnCadena = (('' + hora).length < 2 ? '0' : '') + hora + ':' + (('' + minutos).length < 2 ? '0' : '') + minutos;
+                $("#dtHoraDefensa_dt").val(horaMinutoEnCadena);
+
+                var lugar = data.lugarDefensaProgramada;
+                $("#sLugar_desc").val(lugar);
+
+                var tipoGraduacion = $("#datos_TipoGraduacion").val();
+                if (tipoGraduacion == 'EXAMEN DE GRADO') {
+                    $(".esconder").show();
+                    $(".tituloPerfil").hide();
+
+                    var date = new Date(parseInt(data.fechaSorteo.substr(6)));
+                    var day = date.getDate();
+                    var month = date.getMonth() + 1;
+                    var fechaEnCadena = date.getFullYear() + '-' + (('' + month).length < 2 ? '0' : '') + month + '-' + (('' + day).length < 2 ? '0' : '') + day;
+                    $("#dtSorteo_dt").val(fechaEnCadena);
+
+                    var horaObj = new Date(parseInt(data.horaSorteo.substr(6)));
+                    var hora = horaObj.getHours();
+                    var minutos = horaObj.getMinutes();
+                    var horaMinutoEnCadena = (('' + hora).length < 2 ? '0' : '') + hora + ':' + (('' + minutos).length < 2 ? '0' : '') + minutos;
+                    $("#dtHora_dt").val(horaMinutoEnCadena);
+                }
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                $("#EntregadoPor_nombrePersona").attr('readonly', 'readonly');
+                $(".esconderSiNoExisteFechas").hide();
+                $(".esconder").hide();
+                alert('DEBE REALIZAR LA COMUNICACION AL ALUMNO INDICANDO LAS FECHAS DE SU DEFENSA FINAL, por favor verifique e intente nuevamente');
+            }
+        });
+        }
+</script>
+
+
+    @* presidente *@
+    <script type="text/javascript" language="javascript">
+        $(document).ready(function () {
+            $("#Presidente_nombrePersona").autocomplete({
+                source: function (request, response) {
+                    $("#btnGuardar").attr('disabled', true);
+                    $.ajax({
+                        async: false,
+                        cache: false,
+                        type: "GET",
+                        url: "@(Url.Action("ListarNombresDePersonas_Json", "ActaDefensaFinal"))",
+                        dataType: "json",
+                        data: { "term": request.term },
+                        success: function (data) {
+                            response(data);
+                        }
+                    });
+                },
+                select: function (event, ui) {
+                    $.ajax({
+                        cache: false,
+                        async: false,
+                        type: "GET",
+                        url: "@(Url.Action("TraerInformacionDePersona_Json", "ActaDefensaFinal"))",
+                        dataType: "json",
+                        data: { "term": ui.item.value },
+                        success: function (data) {
+                            $('#lPresidente_id').val(data.codigoPersona)
+
+                            if ($('#alm_registro').val() != '' &&
+                                $('#lSecretario_id').val() != '' &&
+                                $('#lEvaluador1I_id').val() != '' &&
+                                $('#lEvaluador2I_id').val() != '' &&
+                                $('#lEvaluador1E_id').val() != '' &&
+                                $('#lEvaluador2E_id').val() != '' &&
+                              $('#lRepresentante_id').val() != '') {
+                                $("#btnGuardar").attr('disabled', false);
+                            }
+
+                            action = data.Action;
+                        },
+                        error: function (xhr, ajaxOptions, thrownError) {
+                            alert('Fallo al recibir estados.');
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+    @* secretario *@
+    <script type="text/javascript" language="javascript">
+        $(document).ready(function () {
+            $("#Secretario_nombrePersona").autocomplete({
+                source: function (request, response) {
+                    $("#btnGuardar").attr('disabled', true);
+                    $.ajax({
+                        async: false,
+                        cache: false,
+                        type: "GET",
+                        url: "@(Url.Action("ListarNombresDePersonas_Json", "ActaDefensaFinal"))",
+                        dataType: "json",
+                        data: { "term": request.term },
+                        success: function (data) {
+                            response(data);
+                        }
+                    });
+                },
+                select: function (event, ui) {
+                    $.ajax({
+                        cache: false,
+                        async: false,
+                        type: "GET",
+                        url: "@(Url.Action("TraerInformacionDePersona_Json", "ActaDefensaFinal"))",
+                        dataType: "json",
+                        data: { "term": ui.item.value },
+                        success: function (data) {
+                            $('#lSecretario_id').val(data.codigoPersona)
+
+                            if ($('#alm_registro').val() != '' &&
+                                $('#lPresidente_id').val() != '' &&
+                                $('#lEvaluador1I_id').val() != '' &&
+                                $('#lEvaluador2I_id').val() != '' &&
+                                $('#lEvaluador1E_id').val() != '' &&
+                                $('#lEvaluador2E_id').val() != '' &&
+                              $('#lRepresentante_id').val() != '') {
+                                $("#btnGuardar").attr('disabled', false);
+                            }
+
+                            action = data.Action;
+                        },
+                        error: function (xhr, ajaxOptions, thrownError) {
+                            alert('Fallo al recibir estados.');
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+    @* evaluador interno 1 *@
+    <script type="text/javascript" language="javascript">
+        $(document).ready(function () {
+            $("#Evaluador1I_nombrePersona").autocomplete({
+                source: function (request, response) {
+                    $("#btnGuardar").attr('disabled', true);
+                    $.ajax({
+                        async: false,
+                        cache: false,
+                        type: "GET",
+                        url: "@(Url.Action("ListarNombresDePersonas_Json", "ActaDefensaFinal"))",
+                        dataType: "json",
+                        data: { "term": request.term },
+                        success: function (data) {
+                            response(data);
+                        }
+                    });
+                },
+                select: function (event, ui) {
+                    $.ajax({
+                        cache: false,
+                        async: false,
+                        type: "GET",
+                        url: "@(Url.Action("TraerInformacionDePersona_Json", "ActaDefensaFinal"))",
+                        dataType: "json",
+                        data: { "term": ui.item.value },
+                        success: function (data) {
+                            $('#lEvaluador1I_id').val(data.codigoPersona)
+
+                            if ($('#alm_registro').val() != '' &&
+                                $('#lSecretario_id').val() != '' &&
+                                $('#lPresidente_id').val() != '' &&
+                                $('#lEvaluador2I_id').val() != '' &&
+                                $('#lEvaluador1E_id').val() != '' &&
+                                $('#lEvaluador2E_id').val() != '' &&
+                              $('#lRepresentante_id').val() != '') {
+                                $("#btnGuardar").attr('disabled', false);
+                            }
+                            action = data.Action;
+                        },
+                        error: function (xhr, ajaxOptions, thrownError) {
+                            alert('Fallo al recibir estados.');
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+    @* evaluador interno 2 *@
+    <script type="text/javascript" language="javascript">
+        $(document).ready(function () {
+            $("#Evaluador2I_nombrePersona").autocomplete({
+                source: function (request, response) {
+                    $("#btnGuardar").attr('disabled', true);
+                    $.ajax({
+                        async: false,
+                        cache: false,
+                        type: "GET",
+                        url: "@(Url.Action("ListarNombresDePersonas_Json", "ActaDefensaFinal"))",
+                        dataType: "json",
+                        data: { "term": request.term },
+                        success: function (data) {
+                            response(data);
+                        }
+                    });
+                },
+                select: function (event, ui) {
+                    $.ajax({
+                        cache: false,
+                        async: false,
+                        type: "GET",
+                        url: "@(Url.Action("TraerInformacionDePersona_Json", "ActaDefensaFinal"))",
+                        dataType: "json",
+                        data: { "term": ui.item.value },
+                        success: function (data) {
+                            $('#lEvaluador2I_id').val(data.codigoPersona)
+
+                            if ($('#alm_registro').val() != '' &&
+                                $('#lSecretario_id').val() != '' &&
+                                $('#lPresidente_id').val() != '' &&
+                                $('#lEvaluador1I_id').val() != '' &&
+                                $('#lEvaluador1E_id').val() != '' &&
+                                $('#lEvaluador2E_id').val() != '' &&
+                              $('#lRepresentante_id').val() != '') {
+                                $("#btnGuardar").attr('disabled', false);
+                            }
+                            action = data.Action;
+                        },
+                        error: function (xhr, ajaxOptions, thrownError) {
+                            alert('Fallo al recibir estados.');
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+    @* evaluador externo 1 *@
+    <script type="text/javascript" language="javascript">
+        $(document).ready(function () {
+            $("#Evaluador1E_nombrePersona").autocomplete({
+                source: function (request, response) {
+                    $("#btnGuardar").attr('disabled', true);
+                    $.ajax({
+                        async: false,
+                        cache: false,
+                        type: "GET",
+                        url: "@(Url.Action("ListarNombresDePersonas_Json", "ActaDefensaFinal"))",
+                        dataType: "json",
+                        data: { "term": request.term },
+                        success: function (data) {
+                            response(data);
+                        }
+                    });
+                },
+                select: function (event, ui) {
+                    $.ajax({
+                        cache: false,
+                        async: false,
+                        type: "GET",
+                        url: "@(Url.Action("TraerInformacionDePersona_Json", "ActaDefensaFinal"))",
+                        dataType: "json",
+                        data: { "term": ui.item.value },
+                        success: function (data) {
+                            $('#lEvaluador1E_id').val(data.codigoPersona)
+
+                            if ($('#alm_registro').val() != '' &&
+                               $('#lSecretario_id').val() != '' &&
+                               $('#lPresidente_id').val() != '' &&
+                               $('#lEvaluador1I_id').val() != '' &&
+                               $('#lEvaluador2I_id').val() != '' &&
+                               $('#lEvaluador2E_id').val() != '' &&
+                              $('#lRepresentante_id').val() != '') {
+                                $("#btnGuardar").attr('disabled', false);
+                            }
+                            action = data.Action;
+                        },
+                        error: function (xhr, ajaxOptions, thrownError) {
+                            alert('Fallo al recibir estados.');
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+    @* evaluador externo 2 *@
+    <script type="text/javascript" language="javascript">
+        $(document).ready(function () {
+            $("#Evaluador2E_nombrePersona").autocomplete({
+                source: function (request, response) {
+                    $("#btnGuardar").attr('disabled', true);
+                    $.ajax({
+                        async: false,
+                        cache: false,
+                        type: "GET",
+                        url: "@(Url.Action("ListarNombresDePersonas_Json", "ActaDefensaFinal"))",
+                        dataType: "json",
+                        data: { "term": request.term },
+                        success: function (data) {
+                            response(data);
+                        }
+                    });
+                },
+                select: function (event, ui) {
+                    $.ajax({
+                        cache: false,
+                        async: false,
+                        type: "GET",
+                        url: "@(Url.Action("TraerInformacionDePersona_Json", "ActaDefensaFinal"))",
+                        dataType: "json",
+                        data: { "term": ui.item.value },
+                        success: function (data) {
+                            $('#lEvaluador2E_id').val(data.codigoPersona)
+
+                            if ($('#alm_registro').val() != '' &&
+                               $('#lSecretario_id').val() != '' &&
+                               $('#lPresidente_id').val() != '' &&
+                               $('#lEvaluador1I_id').val() != '' &&
+                               $('#lEvaluador2I_id').val() != '' &&
+                               $('#lEvaluador1E_id').val() != '' &&
+                              $('#lRepresentante_id').val() != '') {
+                                $("#btnGuardar").attr('disabled', false);
+                            }
+
+                            action = data.Action;
+                        },
+                        error: function (xhr, ajaxOptions, thrownError) {
+                            alert('Fallo al recibir estados.');
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+    @* Representante ministerio de educacion *@
+    <script type="text/javascript" language="javascript">
+        $(document).ready(function () {
+            $("#Representante_nombrePersona").autocomplete({
+                source: function (request, response) {
+                    $("#btnGuardar").attr('disabled', true);
+                    $.ajax({
+                        async: false,
+                        cache: false,
+                        type: "GET",
+                        url: "@(Url.Action("ListarNombresDePersonas_Json", "ActaDefensaFinal"))",
+                        dataType: "json",
+                        data: { "term": request.term },
+                        success: function (data) {
+                            response(data);
+                        }
+                    });
+                },
+                select: function (event, ui) {
+                    $.ajax({
+                        cache: false,
+                        async: false,
+                        type: "GET",
+                        url: "@(Url.Action("TraerInformacionDePersona_Json", "ActaDefensaFinal"))",
+                        dataType: "json",
+                        data: { "term": ui.item.value },
+                        success: function (data) {
+                            $('#lRepresentante_id').val(data.codigoPersona)
+
+                            if ($('#alm_registro').val() != '' &&
+                               $('#lSecretario_id').val() != '' &&
+                               $('#lPresidente_id').val() != '' &&
+                               $('#lEvaluador1I_id').val() != '' &&
+                               $('#lEvaluador2I_id').val() != '' &&
+                               $('#lEvaluador1E_id').val() != '' &&
+                              $('#lEvaluador2E_id').val() != '') {
+                                $("#btnGuardar").attr('disabled', false);
+                            }
+
+                            action = data.Action;
+                        },
+                        error: function (xhr, ajaxOptions, thrownError) {
+                            alert('Fallo al recibir estados.');
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+
+}

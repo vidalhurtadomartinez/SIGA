@@ -1,0 +1,83 @@
+﻿@model SIGAA.Areas.EGRE.ViewModel.RecepcionTFGView
+<div id="detalleObservaciones">
+    @if (Model.DetalleRecepcionesTFG != null && Model.DetalleRecepcionesTFG.Count > 0)
+    {
+         //var i = 0;
+        <h4>Detalle Correcciones</h4>
+        <table class="table small table-bordered">
+            <tr class="active">
+                <th>
+                    Nro
+                </th>
+                <th class="col-md-1">
+                    @Html.DisplayName("Tipo")
+                </th>
+                <th class="col-md-2">
+                    @Html.DisplayNameFor(model => model.DetalleRecepcionesTFG[0].sObsCorta)
+                </th>
+                <th class="col-md-4">
+                    @Html.DisplayNameFor(model => model.DetalleRecepcionesTFG[0].sObsDetallada)
+                </th>
+                <th class="col-md-4">
+                    @Html.DisplayNameFor(model => model.DetalleRecepcionesTFG[0].sSugerencias)
+                </th>
+                <th class="col-md-1"></th>
+            </tr>
+
+            @for (int i = 0; i < Model.DetalleRecepcionesTFG.Count; i++)
+                {
+                    var indice = (i + 1).ToString();
+                    <tr id="fila_@i">
+                        <td>
+                            @Html.DisplayFor(modelItem => modelItem.DetalleRecepcionesTFG[i].iObs_nro)
+                        </td>
+                        <td class="hidden">@Html.TextBox("DetalleRecepcionesTFG[" + i + "].iObs_nro", Model.DetalleRecepcionesTFG[i].iObs_nro)</td>
+                        <td>
+                            @Html.DisplayFor(modelItem => modelItem.DetalleRecepcionesTFG[i].sTipoObs_fl)
+                        </td>
+                        <td class="hidden">@Html.TextBox("DetalleRecepcionesTFG[" + i + "].sTipoObs_fl", Model.DetalleRecepcionesTFG[i].sTipoObs_fl)</td>
+                        <td>
+                            @Html.DisplayFor(modelItem => modelItem.DetalleRecepcionesTFG[i].sObsCorta)
+                        </td>
+                        <td class="hidden">@Html.TextBox("DetalleRecepcionesTFG[" + i + "].sObsCorta", Model.DetalleRecepcionesTFG[i].sObsCorta)</td>
+                        <td>
+                            @Html.DisplayFor(modelItem => modelItem.DetalleRecepcionesTFG[i].sObsDetallada)
+                        </td>
+                        <td class="hidden">@Html.TextBox("DetalleRecepcionesTFG[" + i + "].sObsDetallada", Model.DetalleRecepcionesTFG[i].sObsDetallada)</td>
+                        <td>
+                            @Html.DisplayFor(modelItem => modelItem.DetalleRecepcionesTFG[i].sSugerencias)
+                        </td>
+                        <td class="hidden">@Html.TextBox("DetalleRecepcionesTFG[" + i + "].sSugerencias", Model.DetalleRecepcionesTFG[i].sSugerencias)</td>
+                        <td>
+                            @if(Model.DetalleRecepcionesTFG.Count == i+1){
+                            <button type="button" class="btn btn-danger btn-sm" onclick="eliminarFila(@i);"><span class="glyphicon glyphicon-trash"></span> Eliminar</button>
+                            @*<button type="button" class="btn btn-danger btn-sm" onclick="EliminarCorreccion(@Model.DetalleRecepcionesTFG[i].iObs_nro);"><span class="glyphicon glyphicon-trash"></span> Eliminar</button>*@
+                            }
+                        </td>
+                    </tr>
+            }
+
+            @*@foreach (var item in Model.DetalleRecepcionesTFG)
+            {
+                <tr class="form-group  form-group-sm" id="fila_@i">
+
+                    <td>@Html.TextBox("DetalleRecepcionesTFG[" + i + "].iObs_nro", item.iObs_nro)</td>
+                    <td>@Html.TextBox("DetalleRecepcionesTFG[" + i + "].sTipoObs_fl", item.sTipoObs_fl)</td>
+                    <td>@Html.TextBox("DetalleRecepcionesTFG[" + i + "].sObsCorta", item.sObsCorta)</td>
+                    <td>@Html.TextBox("DetalleRecepcionesTFG[" + i + "].sObsDetallada", item.sObsDetallada)</td>
+                    <td>@Html.TextBox("DetalleRecepcionesTFG[" + i + "].sSugerencias", item.sSugerencias)</td>
+
+                    <td>
+                        <button type="button" class="btn btn-danger btn-sm" onclick="EliminarCorreccion(@i);">
+                            <span class="glyphicon glyphicon-trash"></span>Eliminar
+                        </button>
+                    </td>
+                </tr>
+                i++;
+            }*@
+        </table>
+    }
+    else {
+        <h4>No existe Correcciones</h4>
+    }
+</div>

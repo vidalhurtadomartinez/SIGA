@@ -1,0 +1,37 @@
+﻿@model IEnumerable<SIGAA.Areas.OYM.Models.tblPlantillaMarcador>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <strong>Lista de Marcadores</strong>
+    </div>
+
+    @if (Model.Count() > 0)
+    {
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.lDocumentoCaracteristica_id)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.sMarcador)
+                </th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.tblDocumentoCaracteristica.sTitulo)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.sMarcador)
+                    </td>
+                </tr>
+            }
+        </table>
+    }
+    else
+    {
+        @: <div class="text-muted">&nbsp;No existen marcadores.</div>
+    }
+</div>

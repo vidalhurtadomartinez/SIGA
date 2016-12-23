@@ -1,0 +1,112 @@
+﻿@model SIGAA.Areas.EGRE.Models.gatbl_ComunicacionExtColProf
+
+<dl class="dl-horizontal small">
+    <dt>
+        @Html.DisplayNameFor(model => model.sGestion_desc)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.sGestion_desc)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.sPeriodo_desc)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.sPeriodo_desc)
+    </dd>
+
+    <dt>
+        @Html.DisplayName("Reg Alumno")
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.lEstudiante_id)
+        @Html.Display("datos.nombreAlumno")
+    </dd>
+    <dt>
+        @Html.DisplayName("Titulo Perfil")
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.Perfil.sTitulo_tfg)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.PresidenteColegioProfesional.sNombreCompleto_desc)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.PresidenteColegioProfesional.sNombreCompleto_desc)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.iNumeracion_num)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.iNumeracion_num)
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.sTipoCom_fl)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.sTipoCom_fl)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.dtComunicacionExt_dt)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.dtComunicacionExt_dt)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.dtSorteo_dt)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.dtSorteo_dt)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.dtHora_dt)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.dtHora_dt)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.dtDefensa_dt)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.dtDefensa_dt)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.dtHoraDefensa_dt)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.dtHoraDefensa_dt)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.sLugar_desc)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.sLugar_desc)
+    </dd>
+
+    <dt>
+        @Html.DisplayName("Entregado Por")
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.Persona.NombreCompleto)
+    </dd>
+</dl>
+<hr />

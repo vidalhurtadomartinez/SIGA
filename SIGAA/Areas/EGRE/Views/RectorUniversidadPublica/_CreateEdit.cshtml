@@ -1,0 +1,59 @@
+﻿@using MvcFlash.Core.Extensions
+@model SIGAA.Areas.EGRE.Models.gatbl_RectorUniversidadPublica
+
+<div class="form-group form-group-sm">
+    @Html.LabelFor(model => model.sNombreCompleto_desc, htmlAttributes: new { @class = "control-label col-md-2" })
+    <div class="col-md-4">
+        @Html.EditorFor(model => model.sNombreCompleto_desc, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.sNombreCompleto_desc, "", new { @class = "text-danger" })
+    </div>
+</div>
+<div class="form-group form-group-sm">
+    @Html.LabelFor(model => model.sNroDocumento_desc, htmlAttributes: new { @class = "control-label col-md-2" })
+    <div class="col-md-4">
+        @Html.EditorFor(model => model.sNroDocumento_desc, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.sNroDocumento_desc, "", new { @class = "text-danger" })
+    </div>
+</div>
+<div class="form-group form-group-sm">
+    @Html.LabelFor(model => model.dtFefhaInicioCargo_dt, htmlAttributes: new { @class = "control-label col-md-2" })
+    <div class="col-md-4">
+        @Html.EditorFor(model => model.dtFefhaInicioCargo_dt, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.dtFefhaInicioCargo_dt, "", new { @class = "text-danger" })
+    </div>
+</div>
+<div class="form-group form-group-sm">
+    @Html.LabelFor(model => model.dtFechaFinCargo_dt, htmlAttributes: new { @class = "control-label col-md-2" })
+    <div class="col-md-4">
+        @Html.EditorFor(model => model.dtFechaFinCargo_dt, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.dtFechaFinCargo_dt, "", new { @class = "text-danger" })
+    </div>
+</div>
+<div class="form-group form-group-sm">
+    @Html.LabelFor(model => model.sEstadoActivo_fl, htmlAttributes: new { @class = "control-label col-md-2" })
+    <div class="col-md-4">
+        @Html.EnumDropDownListFor(model => model.sEstadoActivo_fl, htmlAttributes: new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.sEstadoActivo_fl, "", new { @class = "text-danger" })
+    </div>
+</div>
+<div class="form-group form-group-sm">
+    @Html.LabelFor(model => model.sTelefono_desc, htmlAttributes: new { @class = "control-label col-md-2" })
+    <div class="col-md-4">
+        @Html.EditorFor(model => model.sTelefono_desc, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.sTelefono_desc, "", new { @class = "text-danger" })
+    </div>
+</div>
+<div class="form-group form-group-sm">
+    @Html.LabelFor(model => model.sEmail_desc, htmlAttributes: new { @class = "control-label col-md-2" })
+    <div class="col-md-4">
+        @Html.EditorFor(model => model.sEmail_desc, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.sEmail_desc, "", new { @class = "text-danger" })
+    </div>
+</div>
+<div class="form-group form-group-sm">
+    @Html.Label("Universidad", null, htmlAttributes: new { @class = "control-label col-md-2" })
+    <div class="col-md-4">
+        @Html.DropDownListFor(model => model.unv_codigo, null, htmlAttributes: new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.unv_codigo, "", new { @class = "text-danger" })
+    </div>
+</div>

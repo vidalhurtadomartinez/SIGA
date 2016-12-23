@@ -1,0 +1,74 @@
+﻿@using MvcFlash.Core.Extensions
+@model IEnumerable<SIGAA.Areas.EGRE.Models.gatbl_ComunicacionEst>
+
+<div id="ListaComunicacionEstudintes">
+    @Html.Flash()
+    <table class="table small">
+        <tr class="active">
+            <th class="col-md-1">Operaciones</th>
+            <th class="col-sm-3">
+                @Html.DisplayName("Alumno(a)")
+            </th>
+            <th class="col-sm-2">
+                @Html.DisplayName("Carrera")
+            </th>
+            <th>
+                @Html.DisplayName("Nro")
+            </th>
+            <th class="col-sm-1">
+                @Html.DisplayName("Fecha com")
+            </th>
+            <th class="col-sm-2">
+                @Html.DisplayNameFor(model => model.sComunicacionEst_fl)
+            </th>
+            <th class="col-md-2">
+                @Html.DisplayName("Modadidad de Graduación")
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @if (FrontUser.TienePermiso(RolesPermisos.EGRE_comunicacionAlAlumno_puedeEditar)) {
+                    <a href="/EGRE/ComunicacionEst/Edit/@item.iComunicacionEst_id"><span class="glyphicon glyphicon-pencil" data-toggle="tooltip" data-original-title="Editar"></span></a>} |
+                    @if (FrontUser.TienePermiso(RolesPermisos.EGRE_comunicacionAlAlumno_puedeVerDetalle)) {
+                    <a href="/EGRE/ComunicacionEst/Details/@item.iComunicacionEst_id"><span class="glyphicon glyphicon-eye-open" data-toggle="tooltip" data-original-title="Ver detalle"></span></a>} |
+                    @if (FrontUser.TienePermiso(RolesPermisos.EGRE_comunicacionAlAlumno_puedeEliminar)) {
+                    <a href="/EGRE/ComunicacionEst/Delete/@item.iComunicacionEst_id"><span class="glyphicon glyphicon-trash" data-toggle="tooltip" data-original-title="Eliminar"></span></a>} |
+                    @if (FrontUser.TienePermiso(RolesPermisos.EGRE_comunicacionAlAlumno_puedeImprimir))
+                    {<a href="/EGRE/ComunicacionEst/ImprimirComunicacionAlEstudiante/@item.iComunicacionEst_id" target="_blank"><span class="glyphicon glyphicon-print" data-toggle="tooltip" data-original-title="Ver reporte"></span></a>}
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Alumno.Persona.NombreCompleto) <br />
+                    <b>@Html.DisplayFor(modelItem => item.lEstudiante_id)</b>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Alumno.Carrera.crr_descripcion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.iNumeracion_num)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.dtComunicacionEst_dt)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.sComunicacionEst_fl)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Perfil.TipoGraduacion.tttg_descripcion)
+                </td>
+               
+            </tr>
+        }
+    </table>
+</div>
+
+
+<script type="text/javascript">
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip({
+        placement : 'top'
+    });
+});
+</script>

@@ -1,0 +1,70 @@
+﻿@model SIGAA.Areas.OYM.Models.tblProceso
+
+@{
+    ViewBag.Title = "Detalle";
+}
+
+<h2>Detalle</h2>
+
+<div>
+    <h4>Proceso</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.lTipoProceso_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TipoProceso.sDescripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sNombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sNombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sDescripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sDescripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dtFechaRegistro_dt)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dtFechaRegistro_dt)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.bActivo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.bActivo)
+        </dd>
+
+        @if (Model.lTipoProceso_id == 1)
+        {
+            <dt></dt>
+            <dd>@{ Html.RenderAction("List", "tblProcesoDetalleCategorias", new { id = Model.lProceso_id }); }</dd>
+                }
+                else
+                {
+            <dt></dt>
+            <dd>@{ Html.RenderAction("List", "tblProcesoDetalles", new { id = Model.lProceso_id }); }</dd>
+                }
+        
+    </dl>
+</div>
+<p>
+    @if(FrontUser.TienePermiso(RolesPermisos.OYM_procesos_puedeEditar)){
+    @Html.ActionLink("Editar", "Edit", new { id = Model.lProceso_id }, new { @class = "btn btn-warning" })} |
+    @Html.ActionLink("Ir a Lista", "Index")
+</p>

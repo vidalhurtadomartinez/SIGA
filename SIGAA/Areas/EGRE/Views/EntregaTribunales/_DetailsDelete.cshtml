@@ -1,0 +1,72 @@
+﻿@model SIGAA.Areas.EGRE.Models.gatbl_EntregaTribunales
+
+<dl class="dl-horizontal small">
+    <dt>
+        @Html.DisplayNameFor(model => model.sGestion_desc)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.sGestion_desc)
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.sPeriodo_desc)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.sPeriodo_desc)
+    </dd>
+    <dt>
+        @Html.DisplayName("Registro Alumno")
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.lEstudiante_id)
+        @Html.Display("datos.nombreAlumno")
+    </dd>
+    <dt>
+        @Html.DisplayName("Carrera")
+    </dt>
+    <dd>
+        @Html.Display("datos.carrera")
+    </dd>
+    <dt>
+        @Html.DisplayName("Perfil")
+    </dt>
+    <dd>
+        @Html.Display("datos.TituloPerfil")
+    </dd>
+    <dt>
+        @Html.DisplayName("Modalidad")
+    </dt>
+    <dd>
+        @Html.Display("datos.TipoGraduacion")
+    </dd>
+    <dt>
+        @Html.DisplayName("Estado Recepción")
+    </dt>
+    <dd>
+        @Html.Display("datos.estadoRecepcionDelAlumno")
+    </dd>
+    <dt>
+        @Html.DisplayName("Nombre Tribunal")
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.Tutor.sNombre_desc)
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.sEntregaTribunal_fl)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.sEntregaTribunal_fl)
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.dtEntregaTribunal_dt)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.dtEntregaTribunal_dt)
+    </dd>
+    <dt>
+        @Html.DisplayName("Recepcionado por")
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.Persona.NombreCompleto)
+    </dd>
+</dl>
+<hr />

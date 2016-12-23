@@ -1,0 +1,407 @@
+﻿@using MvcFlash.Core.Extensions
+@model SIGAA.Areas.EGRE.Models.gatbl_ComunicacionInt
+
+@{
+    ViewBag.Title = "Nuevo";
+}
+<h3><b>Crear nueva Comunicación Interna</b></h3>
+<hr />
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.Flash()
+        @Html.Partial("_CreateEdit", Model)
+        <hr />
+        <div class="col-md-offset-2">
+            <button type="submit" class="btn btn-primary" id="btnGuardar" disabled="disabled"><span class="glyphicon glyphicon-saved"></span>Guardar</button>
+            <a href="/EGRE/ComunicacionInt/Index" class="btn btn-default"><span class="glyphicon glyphicon-list"></span> Ir a Lista </a>
+        </div>
+}
+
+@section Scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+<script src="~/Scripts/Observaciones/General/marcaCamposRequeridos.js"></script>
+    @*<link href="~/Content/autocompletar/jquery-ui.css" rel="stylesheet" />
+    <script src="~/Content/autocompletar/jquery-ui.js"></script>*@
+
+    @* Cbo tipoComunicacion *@
+    <script type="text/javascript" language="javascript">
+        $("#sTipoCom_fl").change(function () {
+            var tipo = $("#sTipoCom_fl :selected").text().trim();
+            if ((tipo == 'DESIG_TRIB_INT_REVISION')) {
+                $(".esconderSiTribRevision").hide();
+                var modalidad = $("#TipoGraduacion").text();
+                if (modalidad == 'EXAMEN DE GRADO') {
+                    $(".esconder").hide();
+                }
+            } else {
+                //capturar el idPerfil
+                var idPerfilValue = $("#iPerfil_id").val();
+                if (idPerfilValue == 0) {
+                    alert('DEBE SELECCIONAR UN ESTUDIANTE');
+                    $("#datos_nombreCompletoAlumno").focus();
+                    return;
+                }
+                $.ajax({
+                    cache: false,
+                    async: false,
+                    type: "GET",
+                    url: "@(Url.Action("TraerInformacionDeFechaYlugarDeDefensaFinal_Json", "ComunicacionInt"))",
+                    dataType: "json",
+                    data: { "idPerfil": idPerfilValue },
+                    success: function (data) {
+                        $(".esconderSiTribRevision").show();
+                        var date = new Date(parseInt(data.fechaDefensaProgramada.substr(6)));
+                        var day = date.getDate();
+                        var month = date.getMonth() + 1;
+                        var fechaEnCadena = date.getFullYear() + '-' + (('' + month).length < 2 ? '0' : '') + month + '-' + (('' + day).length < 2 ? '0' : '') + day;
+                        $("#dtDefensa_dt").val(fechaEnCadena);
+
+                        var horaObj = new Date(parseInt(data.horaDefensaProgramada.substr(6)));
+                        var hora = horaObj.getHours();
+                        var minutos = horaObj.getMinutes();
+                        var horaMinutoEnCadena = (('' + hora).length < 2 ? '0' : '') + hora + ':' + (('' + minutos).length < 2 ? '0' : '') + minutos;
+                        $("#dtHoraDefensa_dt").val(horaMinutoEnCadena);
+
+                        var lugar = data.lugarDefensaProgramada;
+                        $("#sLugar_desc").val(lugar);
+                        $(".esconderSiTribRevision").show();
+                    },
+                    error: function (xhr, ajaxOptions, thrownError) {
+                        $('#sTipoCom_fl> option[value="0"]').prop('selected', true)
+                        alert('DEBE REALIZAR LA COMUNICACION AL ALUMNO INDICANDO LAS FECHAS DE SU DEFENSA FINAL, por favor verifique e intente nuevamente');
+                        $(".esconderSiTribRevision").hide();
+                    }
+                });
+            }
+        });
+    </script>
+
+    @* Alumno *@
+    <script type="text/javascript" language="javascript">
+        $(document).ready(function () {
+            $("#datos_nombreCompletoAlumno").autocomplete({
+                source: function (request, response) {
+                    $("#btnGuardar").attr('disabled', true);
+                    $.ajax({
+                        async: false,
+                        cache: false,
+                        type: "GET",
+                        url: "@(Url.Action("BuscarPorRegistro", "ComunicacionInt"))",
+                        dataType: "json",
+                        data: { "term": request.term },
+                        success: function (data) {
+                            response(data);
+                        }
+                    });
+                },
+                select: function (event, ui) {
+                    $.ajax({
+                        cache: false,
+                        async: false,
+                        type: "GET",
+                        url: "@(Url.Action("Buscar", "ComunicacionInt"))",
+                        dataType: "json",
+                        data: { "term": ui.item.value },
+                        success: function (data) {
+                            $("#lEstudiante_id").val(data.codigoAlumno)
+                            $("#datos_nombreAlumno").val(data.nombreAlumno)
+                            $("#datos_carrera").val(data.carrera)
+                            $("#datos_facultad").val(data.facultad)
+                            $("#datos_TituloPerfil").val(data.TituloPerfil)
+                            $("#iPerfil_id").val(data.iPerfil_id)
+                            $("#datos_TipoGraduacion").val(data.TipoGraduacion)
+
+                            if ($('#lEntregadoPor_id').val() != '' && $('#sCopia1_nm').val() != '') {
+                                $("#btnGuardar").attr('disabled', false);
+                            }
+
+                            if (data.TipoGraduacion != 'EXAMEN DE GRADO') {
+                                $(".esconder").hide();
+                                $(".tituloPerfil").show();
+                                var tipo = $("#sTipoCom_fl :selected").text().trim();
+                                if ((tipo == 'DESIG_TRIB_INT_REVISION')) {
+                                    $(".esconderSiTribRevision").hide();
+                                    }
+                            } else {
+                                $(".esconder").show();
+                                $(".tituloPerfil").hide();
+                                var tipo = $("#sTipoCom_fl :selected").text().trim();
+                                if ((tipo == 'DESIG_TRIB_INT_REVISION')) {
+                                    $(".esconderSiTribRevision").hide();
+                                }
+                            };
+                            action = data.Action;
+                        },
+                        error: function (xhr, ajaxOptions, thrownError) {
+                            alert('Failed to retrieve states.');
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+
+    @* personaEntregadoPor *@
+    <script type="text/javascript" language="javascript">
+        $(document).ready(function () {
+            $("#EntregadoPor_nombrePersona").autocomplete({
+                source: function (request, response) {
+                    $("#btnGuardar").attr('disabled', true);
+                    $.ajax({
+                        async: false,
+                        cache: false,
+                        type: "GET",
+                        url: "@(Url.Action("ListarNombresDePersonas_Json", "ComunicacionInt"))",
+                        dataType: "json",
+                        data: { "term": request.term },
+                        success: function (data) {
+                            response(data);
+                        }
+                    });
+                },
+                select: function (event, ui) {
+                    $.ajax({
+                        cache: false,
+                        async: false,
+                        type: "GET",
+                        url: "@(Url.Action("TraerInformacionDePersona_Json", "ComunicacionInt"))",
+                        dataType: "json",
+                        data: { "term": ui.item.value },
+                        success: function (data) {
+                            $('#lEntregadoPor_id').val(data.codigoPersona)
+
+                            if ($('#lEstudiante_id').val() != '' && $('#sCopia1_nm').val() != '') {
+                                $("#btnGuardar").attr('disabled', false);
+                            }
+
+                            action = data.Action;
+                        },
+                        error: function (xhr, ajaxOptions, thrownError) {
+                            alert('Fallo al recibir estados.');
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+
+    @* personaCopia1 *@
+    <script type="text/javascript" language="javascript">
+        $(document).ready(function () {
+            $("#sCopia1_nm").autocomplete({
+                source: function (request, response) {
+                    $("#btnGuardar").attr('disabled', true);
+                    $.ajax({
+                        async: false,
+                        cache: false,
+                        type: "GET",
+                        url: "@(Url.Action("ListarNombresDePersonas_Json", "ComunicacionInt"))",
+                        dataType: "json",
+                        data: { "term": request.term },
+                        success: function (data) {
+                            response(data);
+                        }
+                    });
+                },
+                select: function (event, ui) {
+                    $.ajax({
+                        cache: false,
+                        async: false,
+                        type: "GET",
+                        url: "@(Url.Action("TraerInformacionDePersona_Json", "ComunicacionInt"))",
+                        dataType: "json",
+                        data: { "term": ui.item.value },
+                        success: function (data) {
+                            //$('#sCopia1_nm').val(data.codigoPersona)
+
+                            if ($('#lEstudiante_id').val() != '' && $('#lEntregadoPor_id').val() != '') {
+                                $("#btnGuardar").attr('disabled', false);
+                            }
+
+                            action = data.Action;
+                        },
+                        error: function (xhr, ajaxOptions, thrownError) {
+                            alert('Fallo al recibir estados.');
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+
+    @* personaCopia2 *@
+    <script type="text/javascript" language="javascript">
+        $(document).ready(function () {
+            $("#sCopia2_nm").autocomplete({
+                source: function (request, response) {
+                    $.ajax({
+                        async: false,
+                        cache: false,
+                        type: "GET",
+                        url: "@(Url.Action("ListarNombresDePersonas_Json", "ComunicacionInt"))",
+                        dataType: "json",
+                        data: { "term": request.term },
+                        success: function (data) {
+                            response(data);
+                        }
+                    });
+                },
+                select: function (event, ui) {
+                    $.ajax({
+                        cache: false,
+                        async: false,
+                        type: "GET",
+                        url: "@(Url.Action("TraerInformacionDePersona_Json", "ComunicacionInt"))",
+                        dataType: "json",
+                        data: { "term": ui.item.value },
+                        success: function (data) {
+                            if ($('#lEstudiante_id').val() != '' && $('#lEntregadoPor_id').val() != '' && $('#sCopia1_nm').val() != '') {
+                                $("#btnGuardar").attr('disabled', false);
+                            }
+                            action = data.Action;
+                        },
+                        error: function (xhr, ajaxOptions, thrownError) {
+                            alert('Fallo al recibir estados.');
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+
+    @* personaCopia3 *@
+    <script type="text/javascript" language="javascript">
+        $(document).ready(function () {
+            $("#sCopia3_nm").autocomplete({
+                source: function (request, response) {
+                    //$("#btnGuardar").attr('disabled', true);
+                    $.ajax({
+                        async: false,
+                        cache: false,
+                        type: "GET",
+                        url: "@(Url.Action("ListarNombresDePersonas_Json", "ComunicacionInt"))",
+                        dataType: "json",
+                        data: { "term": request.term },
+                        success: function (data) {
+                            response(data);
+                        }
+                    });
+                },
+                select: function (event, ui) {
+                    $.ajax({
+                        cache: false,
+                        async: false,
+                        type: "GET",
+                        url: "@(Url.Action("TraerInformacionDePersona_Json", "ComunicacionInt"))",
+                        dataType: "json",
+                        data: { "term": ui.item.value },
+                        success: function (data) {
+                            // $('#lEntregadoPor_id').val(data.codigoPersona)
+                            if ($('#lEstudiante_id').val() != '' && $('#lEntregadoPor_id').val() != '' && $('#sCopia1_nm').val() != '') {
+                                $("#btnGuardar").attr('disabled', false);
+                            }
+
+                            action = data.Action;
+                        },
+                        error: function (xhr, ajaxOptions, thrownError) {
+                            alert('Fallo al recibir estados.');
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+
+    @* personaCopia4 *@
+    <script type="text/javascript" language="javascript">
+        $(document).ready(function () {
+            $("#sCopia4_nm").autocomplete({
+                source: function (request, response) {
+                    //$("#btnGuardar").attr('disabled', true);
+                    $.ajax({
+                        async: false,
+                        cache: false,
+                        type: "GET",
+                        url: "@(Url.Action("ListarNombresDePersonas_Json", "ComunicacionInt"))",
+                        dataType: "json",
+                        data: { "term": request.term },
+                        success: function (data) {
+                            response(data);
+                        }
+                    });
+                },
+                select: function (event, ui) {
+                    $.ajax({
+                        cache: false,
+                        async: false,
+                        type: "GET",
+                        url: "@(Url.Action("TraerInformacionDePersona_Json", "ComunicacionInt"))",
+                        dataType: "json",
+                        data: { "term": ui.item.value },
+                        success: function (data) {
+                            // $('#lEntregadoPor_id').val(data.codigoPersona)
+
+                            if ($('#lEstudiante_id').val() != '' && $('#lEntregadoPor_id').val() != '' && $('#sCopia1_nm').val() != '') {
+                                $("#btnGuardar").attr('disabled', false);
+                            }
+
+                            action = data.Action;
+                        },
+                        error: function (xhr, ajaxOptions, thrownError) {
+                            alert('Fallo al recibir estados.');
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+
+    @* personaCopia5 *@
+    <script type="text/javascript" language="javascript">
+        $(document).ready(function () {
+            $("#sCopia5_nm").autocomplete({
+                source: function (request, response) {
+                    //$("#btnGuardar").attr('disabled', true);
+                    $.ajax({
+                        async: false,
+                        cache: false,
+                        type: "GET",
+                        url: "@(Url.Action("ListarNombresDePersonas_Json", "ComunicacionInt"))",
+                        dataType: "json",
+                        data: { "term": request.term },
+                        success: function (data) {
+                            response(data);
+                        }
+                    });
+                },
+                select: function (event, ui) {
+                    $.ajax({
+                        cache: false,
+                        async: false,
+                        type: "GET",
+                        url: "@(Url.Action("TraerInformacionDePersona_Json", "ComunicacionInt"))",
+                        dataType: "json",
+                        data: { "term": ui.item.value },
+                        success: function (data) {
+                            // $('#lEntregadoPor_id').val(data.codigoPersona)
+
+                            if ($('#lEstudiante_id').val() != '' && $('#lEntregadoPor_id').val() != '' && $('#sCopia1_nm').val() != '') {
+                                $("#btnGuardar").attr('disabled', false);
+                            }
+
+                            action = data.Action;
+                        },
+                        error: function (xhr, ajaxOptions, thrownError) {
+                            alert('Fallo al recibir estados.');
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+
+
+}

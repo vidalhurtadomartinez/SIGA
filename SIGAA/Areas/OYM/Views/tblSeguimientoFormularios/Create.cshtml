@@ -1,0 +1,65 @@
+﻿@model SIGAA.Areas.OYM.Models.tblSeguimientoFormulario
+
+@{
+    ViewBag.Title = "Respuesta";
+}
+
+<h2>Respuesta</h2>
+
+@using (Html.BeginForm("Create", "tblSeguimientoFormularios", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Seguimiento de formulario</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.sPathDocumento, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input class="form-control" type="file" id="Documento" name="Documentoupload" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.sComentario, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.sComentario, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.sComentario, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        @*<div class="form-group">
+                @Html.LabelFor(model => model.lFormularioProceso_id, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.lFormularioProceso_id, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.lFormularioProceso_id, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.lEstadoRespuesta_id, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.lEstadoRespuesta_id, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.lEstadoRespuesta_id, "", new { @class = "text-danger" })
+                </div>
+            </div>*@
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                @if (FrontUser.TienePermiso(RolesPermisos.OYM_seguimientoFormularios_puedeEditarResponderAprobado))
+                {<input type="submit" value="Aprobar" class="btn btn-success" />}
+                @if (FrontUser.TienePermiso(RolesPermisos.OYM_seguimientoFormularios_puedeEditarResponderRechazado))
+                {<input type="submit" value="Con Observaciones" class="btn btn-danger" />}
+                @Html.ActionLink("Cancelar", "Index", new { }, new { @class = "btn btn-warning" })
+            </div>
+        </div>
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+}

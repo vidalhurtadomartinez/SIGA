@@ -1,0 +1,30 @@
+﻿@using MvcFlash.Core.Extensions
+@model SIGAA.Areas.EGRE.Models.gatbl_DRecepcionesTFG
+
+@{
+    //ViewBag.Title = "Crear";
+    Layout = null;
+}
+
+<h3><b>Crear nuevo Detalle Recepcion TFG</b></h3>
+<hr />
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal small form-group-sm">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.Partial("_CreateEdit", Model)       
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Guardar" class="btn btn-success" />
+            </div>
+        </div>
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+<script src="~/Scripts/Observaciones/General/marcaCamposRequeridos.js"></script>
+}

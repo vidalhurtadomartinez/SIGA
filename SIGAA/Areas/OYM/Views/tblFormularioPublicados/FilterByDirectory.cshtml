@@ -1,0 +1,116 @@
+﻿@model IEnumerable<SIGAA.Areas.OYM.Models.tblFormularioPublicado>
+
+@{
+    ViewBag.Title = "Seleccionar Directorio de Busqueda";
+}
+
+<h2>Seleccionar Directorio de Busqueda</h2>
+
+<div id="content">
+    @(Html.Kendo().TreeList<SIGAA.Areas.OYM.Models.tblDirectorio>()
+    .Name("treelist")
+    //.Toolbar(toolbar => toolbar.Create().Text("Crear carpeta")
+    //    )
+    .Columns(columns =>
+    {
+        columns.Add().Template("<a href='" + Url.Action("IndexByDirectory", "tblFormularioPublicados") +
+            "/#=lDirectorio_id#' title='Ver Formularios Publicados de este Directorio'>#=sNombre#</a>").Title("Directorio").Width(220);
+        //columns.Add().Field(e => e.sNombre).Title("Nombre").Width(220);
+        columns.Add().Field(e => e.sDescripcion).Title("Descripcion").Width(500);
+
+
+        //columns.Add().Title("Edicion").Width(300).Command(c =>
+        //{
+        //    if (FrontUser.TienePermiso(RolesPermisos.OYM_directorioDeArchivos_puedeCrearNuevo))
+        //    {
+        //        c.CreateChild().Text("Nuevo").Click("NuevoItem");
+        //    }
+        //    if (FrontUser.TienePermiso(RolesPermisos.OYM_directorioDeArchivos_puedeEditar))
+        //    {
+        //        c.Edit().Text("Editar");
+        //    }
+        //    if (FrontUser.TienePermiso(RolesPermisos.OYM_directorioDeArchivos_puedeEliminar))
+        //    {
+        //        c.Destroy().Text("Eliminar");
+        //    }
+        //    //c.CreateChild().Text("Nuevo").Click("NuevoItem");
+        //    //c.Edit().Text("Editar");
+        //    //c.Destroy().Text("Eliminar");
+        //})
+        //.HtmlAttributes(new
+        //{
+        //    style = "text-align: center;"
+        //});
+    })
+    .Editable()
+    .Filterable(true)
+    .HtmlAttributes(new { style = "height:100%" })
+    .DataSource(dataSource => dataSource
+        .ServerOperation(false)
+        .Read(read => read.Action("GetDirectory", "tblFormularioPublicados"))
+        .Model(m =>
+        {
+            m.Id(f => f.lDirectorio_id);
+            m.ParentId(f => f.lDirectorioPadre_id);
+            //m.Expanded(true);
+            m.Field(f => f.sNombre);
+            m.Field(f => f.sDescripcion);
+            //m.Field(f => f.bActivo).DefaultValue(true);
+        })
+    )
+//.Height(450)
+    )
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script type="text/javascript">
+            kendo.culture("es-ES");
+
+            $(document).ready(function () {
+                kendo.culture("es-ES");
+                $.validator.addMethod('date',
+                    function (value, element) {
+                        var isValidDate = this.optional(element) || kendo.parseDate(value);
+
+                        return isValidDate
+                    });
+            });
+
+            $(function () {
+                $("form").kendoValidator();
+            });
+
+            $.validator.setDefaults({ ignore: '' });
+
+            $(document).ready(function () {
+                resizeContent();
+
+                $(window).resize(function () {
+                    resizeContent();
+                });
+            });
+
+            function resizeContent() {
+                $height = $(window).height() - 210;
+                $('div#content').height($height);
+
+                var grid = $("#treelist").data('kendoTreeList');
+                if (grid != undefined) {
+                    grid.resize();
+                }
+            }
+
+            $(function () {
+                $("[data-command='NuevoItem']").click(function () {
+                    // custom logic
+                    alert('Nuevo');
+                });
+            });
+
+            function NuevoItem() {
+                alert('Nuevo');
+            }
+    </script>
+}

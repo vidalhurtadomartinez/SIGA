@@ -1,0 +1,13 @@
+﻿@model SIGAA.Areas.EGRE.Models.gatbl_Tutores
+
+@{
+    ViewBag.Title = "Detalles";
+}
+<h3><b>Información de Tutor</b></h3>
+<hr />
+<div>
+    @Html.Partial("_DetailsDelete", Model)
+    @if (FrontUser.TienePermiso(RolesPermisos.EGRE_tribunalTutor_puedeEditar)) {
+    <a href="/EGRE/Tutor/Edit/@Model.iTutuor_id" class="btn btn-primary"><span class="glyphicon glyphicon-pencil"></span> Editar </a>}
+    <a href="/EGRE/Tutor/Index" class="btn btn-default"><span class="glyphicon glyphicon-list"></span> Ir a Lista </a>
+</div>

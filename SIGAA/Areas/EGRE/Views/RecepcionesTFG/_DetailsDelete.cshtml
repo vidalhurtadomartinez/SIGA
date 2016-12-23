@@ -1,0 +1,128 @@
+﻿@model SIGAA.Areas.EGRE.ViewModel.RecepcionTFGView
+<dl class="dl-horizontal small">
+    <dt>
+        @Html.DisplayNameFor(model => model.RecepcionTFG.sGestion_desc)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.RecepcionTFG.sGestion_desc)
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.RecepcionTFG.sPeriodo_desc)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.RecepcionTFG.sPeriodo_desc)
+    </dd>
+    <dt>
+        @Html.DisplayName("Registro Alumno")
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.RecepcionTFG.lEstudiante_id)
+        @Html.Display("datos.nombreAlumno")
+    </dd>
+    <dt>
+        @Html.DisplayName("Carrera")
+    </dt>
+    <dd>
+        @Html.Display("datos.carrera")
+    </dd>
+    <dt>
+        @Html.DisplayName("Perfil")
+    </dt>
+    <dd>
+        @Html.Display("datos.TituloPerfil")
+    </dd>
+    <dt>
+        @Html.DisplayName("Modalidad")
+    </dt>
+    <dd>
+        @Html.Display("datos.TipoGraduacion")
+    </dd>
+    <dt>
+        @Html.DisplayName("Est Entrega tribunal")
+    </dt>
+    <dd>
+        @Html.Display("datos.estadoEntregaATribunal")
+    </dd>
+    <dt>
+        @Html.DisplayName("Nombre Tribunal")
+    </dt>
+    <dd>
+        @Html.Display("datos.nombreTutor")
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.RecepcionTFG.dtRecepcion_dt)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.RecepcionTFG.dtRecepcion_dt)
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.RecepcionTFG.sRecepcionTFG_fl)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.RecepcionTFG.sRecepcionTFG_fl)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.RecepcionTFG.sEstadoEntrega_fl)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.RecepcionTFG.sEstadoEntrega_fl)
+    </dd>
+    <dt>
+        @Html.DisplayName("Recepcionado por")
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.RecepcionTFG.Persona.NombreCompleto)
+    </dd>
+</dl>
+<hr />
+@if (Model.DetalleRecepcionesTFG != null && Model.DetalleRecepcionesTFG.Count > 0)
+{
+    <fieldset>
+        <legend>Detalle Observaciones</legend>
+        <table class="table small table-bordered">
+            <tr class="active">
+                <th>
+                    @Html.DisplayName("#")
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DetalleRecepcionesTFG[0].sTipoObs_fl)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DetalleRecepcionesTFG[0].sObsCorta)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DetalleRecepcionesTFG[0].sObsDetallada)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DetalleRecepcionesTFG[0].sSugerencias)
+                </th>
+            </tr>
+            @for (int i = 0; i < Model.DetalleRecepcionesTFG.Count; i++)
+                {
+                    var indice = (i + 1).ToString();
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => modelItem.DetalleRecepcionesTFG[i].iObs_nro)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => modelItem.DetalleRecepcionesTFG[i].sTipoObs_fl)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => modelItem.DetalleRecepcionesTFG[i].sObsCorta)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => modelItem.DetalleRecepcionesTFG[i].sObsDetallada)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => modelItem.DetalleRecepcionesTFG[i].sSugerencias)
+                    </td>
+                </tr>
+            }
+        </table>
+
+    </fieldset>
+}
+else {
+    <h4>No hay Observaciones</h4>
+}

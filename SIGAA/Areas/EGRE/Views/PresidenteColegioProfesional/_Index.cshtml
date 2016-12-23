@@ -1,0 +1,66 @@
+﻿@using MvcFlash.Core.Extensions
+@model IEnumerable<SIGAA.Areas.EGRE.Models.gatbl_PresidenteColegioProfesional>
+<div id="listaPresidentes">
+    @Html.Flash()
+    <table class="table small">
+        <tr class="active">
+            <th class="col-md-1">
+                @Html.Display("Operaciones")
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.sNombreCompleto_desc)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.sEstadoActivo_fl)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.sTelefono_desc)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.sEmail_desc)
+            </th>
+            <th>
+                @Html.DisplayName("Colegio profesional")
+            </th>
+
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @if (FrontUser.TienePermiso(RolesPermisos.EGRE_presidenteColProfesional_puedeEditar)) {
+                    <a href="/EGRE/PresidenteColegioProfesional/Edit/@item.iPresidenteColProfesional_id"><span class="glyphicon glyphicon-pencil" data-toggle="tooltip" data-original-title="Editar"></span></a>} |
+                    @if (FrontUser.TienePermiso(RolesPermisos.EGRE_presidenteColProfesional_puedeVerDetalle)) { 
+                    <a href="/EGRE/PresidenteColegioProfesional/Details/@item.iPresidenteColProfesional_id"><span class="glyphicon glyphicon-eye-open" data-toggle="tooltip" data-original-title="Ver detalle"></span></a>} |
+                    @if (FrontUser.TienePermiso(RolesPermisos.EGRE_presidenteColProfesional_puedeEliminar))
+                    {<a href="/EGRE/PresidenteColegioProfesional/Delete/@item.iPresidenteColProfesional_id"><span class="glyphicon glyphicon-trash" data-toggle="tooltip" data-original-title="Eliminar"></span></a>}
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.sNombreCompleto_desc)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.sEstadoActivo_fl)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.sTelefono_desc)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.sEmail_desc)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ColegioProfesional.sNombre_nm)
+                </td>
+
+            </tr>
+        }
+    </table>
+</div>
+
+<script type="text/javascript">
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip({
+        placement : 'top'
+    });
+});
+</script>
