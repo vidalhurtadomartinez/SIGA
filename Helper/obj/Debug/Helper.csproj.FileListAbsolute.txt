@@ -1,0 +1,35 @@
+D:\Mi Trabajo\Tutoriales\asp.net-mvc\MiPrimerProyectoMVC\Helper\bin\Debug\Helper.dll
+D:\Mi Trabajo\Tutoriales\asp.net-mvc\MiPrimerProyectoMVC\Helper\bin\Debug\Helper.pdb
+D:\Mi Trabajo\Tutoriales\asp.net-mvc\MiPrimerProyectoMVC\Helper\obj\Debug\Helper.csprojResolveAssemblyReference.cache
+D:\Mi Trabajo\Tutoriales\asp.net-mvc\MiPrimerProyectoMVC\Helper\obj\Debug\Helper.dll
+D:\Mi Trabajo\Tutoriales\asp.net-mvc\MiPrimerProyectoMVC\Helper\obj\Debug\Helper.pdb
+G:\anexSoft\MiPrimerProyectoMVC\Helper\bin\Debug\Helper.dll
+G:\anexSoft\MiPrimerProyectoMVC\Helper\bin\Debug\Helper.pdb
+G:\anexSoft\MiPrimerProyectoMVC\Helper\obj\Debug\Helper.csprojResolveAssemblyReference.cache
+G:\anexSoft\MiPrimerProyectoMVC\Helper\obj\Debug\Helper.dll
+G:\anexSoft\MiPrimerProyectoMVC\Helper\obj\Debug\Helper.pdb
+D:\MAPIRISOFT\MapitiSoft\MODULOS_UTEPSA\ModuloEgresados\ProyectoV3\Helper\bin\Debug\Helper.dll
+D:\MAPIRISOFT\MapitiSoft\MODULOS_UTEPSA\ModuloEgresados\ProyectoV3\Helper\bin\Debug\Helper.pdb
+D:\MAPIRISOFT\MapitiSoft\MODULOS_UTEPSA\ModuloEgresados\ProyectoV3\Helper\obj\Debug\Helper.csprojResolveAssemblyReference.cache
+D:\MAPIRISOFT\MapitiSoft\MODULOS_UTEPSA\ModuloEgresados\ProyectoV3\Helper\obj\Debug\Helper.dll
+D:\MAPIRISOFT\MapitiSoft\MODULOS_UTEPSA\ModuloEgresados\ProyectoV3\Helper\obj\Debug\Helper.pdb
+D:\MAPIRISOFT\MapitiSoft\MODULOS_UTEPSA\ModuloEgresados\ProyectoV4\Helper\bin\Debug\Helper.dll
+D:\MAPIRISOFT\MapitiSoft\MODULOS_UTEPSA\ModuloEgresados\ProyectoV4\Helper\bin\Debug\Helper.pdb
+D:\MAPIRISOFT\MapitiSoft\MODULOS_UTEPSA\ModuloEgresados\ProyectoV4\Helper\obj\Debug\Helper.csprojResolveAssemblyReference.cache
+D:\MAPIRISOFT\MapitiSoft\MODULOS_UTEPSA\ModuloEgresados\ProyectoV4\Helper\obj\Debug\Helper.dll
+D:\MAPIRISOFT\MapitiSoft\MODULOS_UTEPSA\ModuloEgresados\ProyectoV4\Helper\obj\Debug\Helper.pdb
+D:\MAPIRISOFT\MapitiSoft\MODULOS_UTEPSA\SIGAA\Helper\bin\Debug\Helper.dll
+D:\MAPIRISOFT\MapitiSoft\MODULOS_UTEPSA\SIGAA\Helper\bin\Debug\Helper.pdb
+D:\MAPIRISOFT\MapitiSoft\MODULOS_UTEPSA\SIGAA\Helper\obj\Debug\Helper.csprojResolveAssemblyReference.cache
+D:\MAPIRISOFT\MapitiSoft\MODULOS_UTEPSA\SIGAA\Helper\obj\Debug\Helper.dll
+D:\MAPIRISOFT\MapitiSoft\MODULOS_UTEPSA\SIGAA\Helper\obj\Debug\Helper.pdb
+D:\Proyectos\MapiriSoft\SIGAA\Helper\bin\Debug\Helper.dll
+D:\Proyectos\MapiriSoft\SIGAA\Helper\bin\Debug\Helper.pdb
+D:\Proyectos\MapiriSoft\SIGAA\Helper\obj\Debug\Helper.csprojResolveAssemblyReference.cache
+D:\Proyectos\MapiriSoft\SIGAA\Helper\obj\Debug\Helper.dll
+D:\Proyectos\MapiriSoft\SIGAA\Helper\obj\Debug\Helper.pdb
+D:\MAPIRISOFT\MapitiSoft\MODULOS_UTEPSA\SIGAA V2\Helper\bin\Debug\Helper.dll
+D:\MAPIRISOFT\MapitiSoft\MODULOS_UTEPSA\SIGAA V2\Helper\bin\Debug\Helper.pdb
+D:\MAPIRISOFT\MapitiSoft\MODULOS_UTEPSA\SIGAA V2\Helper\obj\Debug\Helper.csprojResolveAssemblyReference.cache
+D:\MAPIRISOFT\MapitiSoft\MODULOS_UTEPSA\SIGAA V2\Helper\obj\Debug\Helper.dll
+D:\MAPIRISOFT\MapitiSoft\MODULOS_UTEPSA\SIGAA V2\Helper\obj\Debug\Helper.pdb

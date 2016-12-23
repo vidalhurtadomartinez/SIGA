@@ -1,0 +1,5 @@
+D:\ROGER\Sistemas WEB\SIGAA V2\Helper\bin\Release\Helper.dll
+D:\ROGER\Sistemas WEB\SIGAA V2\Helper\bin\Release\Helper.pdb
+D:\ROGER\Sistemas WEB\SIGAA V2\Helper\obj\Release\Helper.csprojResolveAssemblyReference.cache
+D:\ROGER\Sistemas WEB\SIGAA V2\Helper\obj\Release\Helper.dll
+D:\ROGER\Sistemas WEB\SIGAA V2\Helper\obj\Release\Helper.pdb
