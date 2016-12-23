@@ -1,0 +1,52 @@
+﻿@using MvcFlash.Core.Extensions
+@model IEnumerable<SIGAA.Models.PermisoDenegadoPorRol>
+<div id="ListaPermisosDenegadoPorRol">
+    @Html.Flash()
+    <table class="table small">
+        <tr class="active">
+            <td class="col-md-1">Operaciones</td>
+            <th>
+                @Html.DisplayNameFor(model => model.Rol.Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Permiso.Modulo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Permiso.Descripcion)
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @if (FrontUser.TienePermiso(RolesPermisos.SEGU_permisoDenegadoPorRol_puedeEditar)) {
+                    <a href="/PermisoDenegadoPorRol/Edit?Rol_id=@item.iRol_id&Permiso_id=@item.iPermiso_id.GetHashCode()"><span class="glyphicon glyphicon-pencil" data-toggle="tooltip" data-original-title="Editar"></span></a>} |
+                    @if (FrontUser.TienePermiso(RolesPermisos.SEGU_permisoDenegadoPorRol_puedeVerDetalle)) {
+                    <a href="/PermisoDenegadoPorRol/Details?Rol_id=@item.iRol_id&Permiso_id=@item.iPermiso_id.GetHashCode()"><span class="glyphicon glyphicon-eye-open" data-toggle="tooltip" data-original-title="Ver detalle"></span></a>} |
+                    @if (FrontUser.TienePermiso(RolesPermisos.SEGU_permisoDenegadoPorRol_puedeEliminar))
+                    {<a href="/PermisoDenegadoPorRol/Delete?Rol_id=@item.iRol_id&Permiso_id=@item.iPermiso_id.GetHashCode()"><span class="glyphicon glyphicon-trash" data-toggle="tooltip" data-original-title="Eliminar"></span></a>}
+
+
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Rol.Nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Permiso.Modulo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Permiso.Descripcion)
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('[data-toggle="tooltip"]').tooltip({
+            placement: 'top'
+        });
+    });
+</script>

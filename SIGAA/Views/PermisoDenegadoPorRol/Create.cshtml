@@ -1,0 +1,59 @@
+﻿@using MvcFlash.Core.Extensions
+@model SIGAA.Models.PermisoDenegadoPorRol
+
+@{
+    ViewBag.Title = "Nuevo";
+}
+<h3><b>Crear nueva Denegación de Permiso a Rol</b></h3>
+<hr />
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.Flash()
+        @Html.Partial("_CreateEdit", Model)
+        @*<hr />*@
+        <div class="col-md-offset-2">
+            <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-save"></span> Guardar</button>
+            <a href="/PermisoDenegadoPorRol/Index" class="btn btn-default"><span class="glyphicon glyphicon-list"></span> Ir a Lista </a>
+        </div>
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script language="javascript">
+        $(document).ready(function () {
+            $("#iRol_id").change(function () { 
+            var rolID = parseInt($("#iRol_id").val());
+            if(!isNaN(rolID)){
+                var ddPermiso = $("#iPermiso_id");
+                ddPermiso.empty();
+               // ddPermiso.append($('<option></option>').val('').html('seleccione un permiso'));
+                $.ajax({
+                    url: "@Url.Action("PermisosPorRol", "PermisoDenegadoPorRol")",
+                    type: "POST",
+                    async: false,
+                    //data: { rol_id: rolID },
+                    data: JSON.stringify({ rol_id: rolID }),
+                    dataType: "json",
+                    contentType: 'application/json;charset=utf-8',
+                    success: function (data) {
+                      //  alert('entro en success!');
+                        $.each(data, function (i, item) {
+                            ddPermiso.append($("<option></option>").val(item.iPermiso_id).html(item.Descripcion));
+                        });
+                    },
+                    error: function (xhr, textStatus, error) {
+                        alert(xhr.responseText);
+                        //alert(statusText);
+                        //alert(error);
+                    }
+                });
+            }
+            });
+        });
+
+    </script>
+}

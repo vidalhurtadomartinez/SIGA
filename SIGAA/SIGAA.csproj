@@ -1,0 +1,1377 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{572862A6-1FFC-4026-9A73-FA6E3473CCE1}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SIGAA</RootNamespace>
+    <AssemblyName>SIGAA</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="DocX, Version=1.0.0.22, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DocX.1.0.0.22\lib\net40\DocX.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Kendo.Mvc">
+      <HintPath>..\..\Proyecto OYM\MapiriSoftSeguimiento\lib\KENDOUIMVC\2016.1.112.545\Kendo.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Office.Interop.Word, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\packages\Microsoft.Office.Interop.Word.15.0.4797.1003\lib\net20\Microsoft.Office.Interop.Word.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MvcFlash.Core, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MvcFlash.Core.2.0.0\lib\net40\MvcFlash.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http.Formatting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.4.0.30506.0\lib\net40\System.Net.Http.Formatting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.Http.WebHost, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Reporting, Version=10.0.16.113, Culture=neutral, PublicKeyToken=a9d7983dfcc261be, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Proyecto OYM\MapiriSoftSeguimiento\MapiriSoftSeguimiento\bin\Telerik.Reporting.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Reporting.Service">
+      <HintPath>..\..\Proyecto OYM\MapiriSoftSeguimiento\MapiriSoftSeguimiento\bin\Telerik.Reporting.Service.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Reporting.Services.WebApi">
+      <HintPath>..\..\Proyecto OYM\MapiriSoftSeguimiento\MapiriSoftSeguimiento\bin\Telerik.Reporting.Services.WebApi.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Reporting.XpsRendering">
+      <HintPath>..\..\Proyecto OYM\MapiriSoftSeguimiento\MapiriSoftSeguimiento\bin\Telerik.Reporting.XpsRendering.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.ReportViewer.Html5.WebForms">
+      <HintPath>..\..\Proyecto OYM\MapiriSoftSeguimiento\MapiriSoftSeguimiento\bin\Telerik.ReportViewer.Html5.WebForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.ReportViewer.Mvc">
+      <HintPath>..\..\Proyecto OYM\MapiriSoftSeguimiento\MapiriSoftSeguimiento\bin\Telerik.ReportViewer.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.ReportViewer.WebForms">
+      <HintPath>..\..\Proyecto OYM\MapiriSoftSeguimiento\MapiriSoftSeguimiento\bin\Telerik.ReportViewer.WebForms.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\CONV\CONVAreaRegistration.cs" />
+    <Compile Include="Areas\EGRE\Controllers\ActaDefensaFinalController.cs" />
+    <Compile Include="Areas\EGRE\Controllers\ActaSorteoEGController.cs" />
+    <Compile Include="Areas\EGRE\Controllers\AreaAdministrativaController.cs" />
+    <Compile Include="Areas\EGRE\Controllers\ComunicacionEstController.cs" />
+    <Compile Include="Areas\EGRE\Controllers\ComunicacionExtColProfController.cs" />
+    <Compile Include="Areas\EGRE\Controllers\ComunicacionExtUnivPublicaController.cs" />
+    <Compile Include="Areas\EGRE\Controllers\ComunicacionIntController.cs" />
+    <Compile Include="Areas\EGRE\Controllers\CProfesionalController.cs" />
+    <Compile Include="Areas\EGRE\Controllers\DRecepcionesTFGController.cs" />
+    <Compile Include="Areas\EGRE\Controllers\EntregaAlEstController.cs" />
+    <Compile Include="Areas\EGRE\Controllers\EntregaTFGController.cs" />
+    <Compile Include="Areas\EGRE\Controllers\EntregaTribunalesController.cs" />
+    <Compile Include="Areas\EGRE\Controllers\HomeController.cs" />
+    <Compile Include="Areas\EGRE\Controllers\PerfilController.cs" />
+    <Compile Include="Areas\EGRE\Controllers\PresidenteColegioProfesionalController.cs" />
+    <Compile Include="Areas\EGRE\Controllers\ProfesionesController.cs" />
+    <Compile Include="Areas\EGRE\Controllers\RecepcionesTFGController.cs" />
+    <Compile Include="Areas\EGRE\Controllers\RectorUniversidadPublicaController.cs" />
+    <Compile Include="Areas\EGRE\Controllers\SalaController.cs" />
+    <Compile Include="Areas\EGRE\Controllers\TutorController.cs" />
+    <Compile Include="Areas\EGRE\EGREAreaRegistration.cs" />
+    <Compile Include="Areas\EGRE\Models\agenda.cs" />
+    <Compile Include="Areas\EGRE\Models\alumnos_agenda.cs" />
+    <Compile Include="Areas\EGRE\Models\BaseModelo.cs" />
+    <Compile Include="Areas\EGRE\Models\carreras.cs" />
+    <Compile Include="Areas\EGRE\Models\carrerasView.cs" />
+    <Compile Include="Areas\EGRE\Models\disciplinas_academicas.cs" />
+    <Compile Include="Areas\EGRE\Models\EgresadosContext.cs" />
+    <Compile Include="Areas\EGRE\Models\gatbl_ActaDefensaFinal.cs" />
+    <Compile Include="Areas\EGRE\Models\gatbl_ActaSorteoEG.cs" />
+    <Compile Include="Areas\EGRE\Models\gatbl_AreasAdministrativas.cs" />
+    <Compile Include="Areas\EGRE\Models\gatbl_ComunicacionEst.cs" />
+    <Compile Include="Areas\EGRE\Models\gatbl_ComunicacionExtColProf.cs" />
+    <Compile Include="Areas\EGRE\Models\gatbl_ComunicacionExtUnivPublica.cs" />
+    <Compile Include="Areas\EGRE\Models\gatbl_ComunicacionInt.cs" />
+    <Compile Include="Areas\EGRE\Models\gatbl_CProfesionales.cs" />
+    <Compile Include="Areas\EGRE\Models\gatbl_DRecepcionesTFG.cs" />
+    <Compile Include="Areas\EGRE\Models\gatbl_EntregaAlEst.cs" />
+    <Compile Include="Areas\EGRE\Models\gatbl_EntregaTFG.cs" />
+    <Compile Include="Areas\EGRE\Models\gatbl_EntregaTribunales.cs" />
+    <Compile Include="Areas\EGRE\Models\gatbl_Perfiles.cs" />
+    <Compile Include="Areas\EGRE\Models\gatbl_PerfilesView.cs" />
+    <Compile Include="Areas\EGRE\Models\gatbl_PresidenteColegioProfesional.cs" />
+    <Compile Include="Areas\EGRE\Models\gatbl_Profesiones.cs" />
+    <Compile Include="Areas\EGRE\Models\gatbl_RecepcionesTFG.cs" />
+    <Compile Include="Areas\EGRE\Models\gatbl_RectorUniversidadPublica.cs" />
+    <Compile Include="Areas\EGRE\Models\gatbl_Salas.cs" />
+    <Compile Include="Areas\EGRE\Models\gatbl_Tutores.cs" />
+    <Compile Include="Areas\EGRE\Models\Niveles_academicos.cs" />
+    <Compile Include="Areas\EGRE\Models\ParEspecialidadTutor.cs" />
+    <Compile Include="Areas\EGRE\Models\ParEstadoActivoPresidenteColProfesional.cs" />
+    <Compile Include="Areas\EGRE\Models\ParEstadoActivoRectorUnivPublica.cs" />
+    <Compile Include="Areas\EGRE\Models\ParEstadoComunicacionEst.cs" />
+    <Compile Include="Areas\EGRE\Models\ParEstadoEntregaAlEst.cs" />
+    <Compile Include="Areas\EGRE\Models\ParEstadoEntregaRecepcionesTFG.cs" />
+    <Compile Include="Areas\EGRE\Models\ParEstadoEntregaTFG.cs" />
+    <Compile Include="Areas\EGRE\Models\ParEstadoEntregaTribunales.cs" />
+    <Compile Include="Areas\EGRE\Models\ParEstadoObservacionTutor.cs" />
+    <Compile Include="Areas\EGRE\Models\ParEstadoPerfil.cs" />
+    <Compile Include="Areas\EGRE\Models\ParEstadoRecepcionesTFG.cs" />
+    <Compile Include="Areas\EGRE\Models\ParNumeroEjemplar.cs" />
+    <Compile Include="Areas\EGRE\Models\ParResultadoActaDefensaFinal.cs" />
+    <Compile Include="Areas\EGRE\Models\ParTipoComunicacionExt.cs" />
+    <Compile Include="Areas\EGRE\Models\ParTipoComunicacionInt.cs" />
+    <Compile Include="Areas\EGRE\Models\ParTipoObsDRecepcionesTFG.cs" />
+    <Compile Include="Areas\EGRE\Models\ParTipoTutor.cs" />
+    <Compile Include="Areas\EGRE\Models\secciones_academicas.cs" />
+    <Compile Include="Areas\EGRE\Models\secciones_academicasView.cs" />
+    <Compile Include="Areas\EGRE\Models\semestres.cs" />
+    <Compile Include="Areas\EGRE\Models\semestresView.cs" />
+    <Compile Include="Areas\EGRE\Models\Tipo_estado.cs" />
+    <Compile Include="Areas\EGRE\Models\tipo_graduacion.cs" />
+    <Compile Include="Areas\EGRE\Models\universidades.cs" />
+    <Compile Include="Areas\EGRE\Reportes\ActaDefensaFinalEG.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ActaDefensaFinalEG.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Areas\EGRE\Reportes\ActaDefensaFinalExcelencia.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ActaDefensaFinalExcelencia.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Areas\EGRE\Reportes\ActaDefensaFinalPG.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ActaDefensaFinalPG.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Areas\EGRE\Reportes\ActaDefensaFinalTG.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ActaDefensaFinalTG.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Areas\EGRE\Reportes\ActaDeSorteoEG.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ActaDeSorteoEG.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Areas\EGRE\Reportes\ComAlEstudiante_ActoDefensaEG.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ComAlEstudiante_ActoDefensaEG.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Areas\EGRE\Reportes\ComAlEstudiante_ActoDefensaExcelencia.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ComAlEstudiante_ActoDefensaExcelencia.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Areas\EGRE\Reportes\ComAlEstudiante_ActoDefensaPG.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ComAlEstudiante_ActoDefensaPG.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Areas\EGRE\Reportes\ComAlEstudiante_ActoDefensaTG.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ComAlEstudiante_ActoDefensaTG.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Areas\EGRE\Reportes\ComAlEstudiante_AutHabilitacionTG.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ComAlEstudiante_AutHabilitacionTG.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Areas\EGRE\Reportes\ComExterna_DefensaFinalColProfEG.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ComExterna_DefensaFinalColProfEG.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Areas\EGRE\Reportes\ComExterna_DefensaFinalColProfExcelencia.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ComExterna_DefensaFinalColProfExcelencia.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Areas\EGRE\Reportes\ComExterna_DefensaFinalColProPG.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ComExterna_DefensaFinalColProPG.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Areas\EGRE\Reportes\ComExterna_DefensaFinalUnivPubEG.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ComExterna_DefensaFinalUnivPubEG.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Areas\EGRE\Reportes\ComExterna_DefensaFinalUnivPubExcelencia.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ComExterna_DefensaFinalUnivPubExcelencia.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Areas\EGRE\Reportes\ComExterna_DefensaFinalUnivPubPG.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ComExterna_DefensaFinalUnivPubPG.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Areas\EGRE\Reportes\ComInterna_ActoDefensaFinalEG.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ComInterna_ActoDefensaFinalEG.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Areas\EGRE\Reportes\ComInterna_ActoDefensaFinalExcelencia.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ComInterna_ActoDefensaFinalExcelencia.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Areas\EGRE\Reportes\ComInterna_ActoDefensaFinalPG.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ComInterna_ActoDefensaFinalPG.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Areas\EGRE\Reportes\ComInterna_ActoDefensaFinalTG.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ComInterna_ActoDefensaFinalTG.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Areas\EGRE\Reportes\ComInterna_Desig_TribInterno_P_defensaFinal.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ComInterna_Desig_TribInterno_P_defensaFinal.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Areas\EGRE\Reportes\ComInterna_Desig_TribInterno_P_Revision.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ComInterna_Desig_TribInterno_P_Revision.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Areas\EGRE\Reportes\ComInterna_DevolucionCarpetas.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ComInterna_DevolucionCarpetas.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Areas\EGRE\Reportes\FormularioAprobacionPerfil.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FormularioAprobacionPerfil.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Areas\EGRE\Reportes\ReporteNoDefinido.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReporteNoDefinido.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Areas\EGRE\ViewModel\PerfilTFGView.cs" />
+    <Compile Include="Areas\EGRE\ViewModel\RecepcionTFGView.cs" />
+    <Compile Include="Areas\OYM\Controllers\HomeController.cs" />
+    <Compile Include="Areas\OYM\Controllers\ReportesController.cs" />
+    <Compile Include="Areas\OYM\Controllers\ReportsController.cs" />
+    <Compile Include="Areas\OYM\Controllers\tblCargoAgendasController.cs" />
+    <Compile Include="Areas\OYM\Controllers\tblCargosController.cs" />
+    <Compile Include="Areas\OYM\Controllers\tblCategoriasController.cs" />
+    <Compile Include="Areas\OYM\Controllers\tblDirectoriosController.cs" />
+    <Compile Include="Areas\OYM\Controllers\tblDocumentoHistoricosController.cs" />
+    <Compile Include="Areas\OYM\Controllers\tblDocumentoProcesosController.cs" />
+    <Compile Include="Areas\OYM\Controllers\tblDocumentoPublicadosController.cs" />
+    <Compile Include="Areas\OYM\Controllers\tblDocumentoRelacionadosController.cs" />
+    <Compile Include="Areas\OYM\Controllers\tblDocumentosController.cs" />
+    <Compile Include="Areas\OYM\Controllers\tblFormaDocumentosController.cs" />
+    <Compile Include="Areas\OYM\Controllers\tblFormaDocumentoTiposController.cs" />
+    <Compile Include="Areas\OYM\Controllers\tblFormularioHistoricosController.cs" />
+    <Compile Include="Areas\OYM\Controllers\tblFormularioProcesosController.cs" />
+    <Compile Include="Areas\OYM\Controllers\tblFormularioPublicadosController.cs" />
+    <Compile Include="Areas\OYM\Controllers\tblFormularioRelacionadosController.cs" />
+    <Compile Include="Areas\OYM\Controllers\tblFormulariosController.cs" />
+    <Compile Include="Areas\OYM\Controllers\tblPlantillaMarcadoresController.cs" />
+    <Compile Include="Areas\OYM\Controllers\tblPlantillasController.cs" />
+    <Compile Include="Areas\OYM\Controllers\tblProcesoDetalleCategoriasController.cs" />
+    <Compile Include="Areas\OYM\Controllers\tblProcesoDetallesController.cs" />
+    <Compile Include="Areas\OYM\Controllers\tblProcesosController.cs" />
+    <Compile Include="Areas\OYM\Controllers\tblSeguimientoDocumentosController.cs" />
+    <Compile Include="Areas\OYM\Controllers\tblSeguimientoFormulariosController.cs" />
+    <Compile Include="Areas\OYM\Controllers\tblTipoDocumentosController.cs" />
+    <Compile Include="Areas\OYM\Controllers\tblTipoProcesosController.cs" />
+    <Compile Include="Areas\OYM\Helpers\MyHelpers.cs" />
+    <Compile Include="Areas\OYM\Models\agenda.cs" />
+    <Compile Include="Areas\OYM\Models\DataDb.cs" />
+    <Compile Include="Areas\OYM\Models\EstadoDocumento.cs" />
+    <Compile Include="Areas\OYM\Models\EstadoProceso.cs" />
+    <Compile Include="Areas\OYM\Models\FormatoNumeracionPlantilla.cs" />
+    <Compile Include="Areas\OYM\Models\LugarNumeracionPlantilla.cs" />
+    <Compile Include="Areas\OYM\Models\OrigenDocumento.cs" />
+    <Compile Include="Areas\OYM\Models\RolParticipante.cs" />
+    <Compile Include="Areas\OYM\Models\tblCargo.cs" />
+    <Compile Include="Areas\OYM\Models\tblCargoAgenda.cs" />
+    <Compile Include="Areas\OYM\Models\tblCategoria.cs" />
+    <Compile Include="Areas\OYM\Models\tblDirectorio.cs" />
+    <Compile Include="Areas\OYM\Models\tblDocumento.cs" />
+    <Compile Include="Areas\OYM\Models\tblDocumentoAprobacion.cs" />
+    <Compile Include="Areas\OYM\Models\tblDocumentoCaracteristica.cs" />
+    <Compile Include="Areas\OYM\Models\tblDocumentoHistorico.cs" />
+    <Compile Include="Areas\OYM\Models\tblDocumentoProceso.cs" />
+    <Compile Include="Areas\OYM\Models\tblDocumentoPublicado.cs" />
+    <Compile Include="Areas\OYM\Models\tblDocumentoRelacionado.cs" />
+    <Compile Include="Areas\OYM\Models\tblFormaDocumento.cs" />
+    <Compile Include="Areas\OYM\Models\tblFormaDocumentoTipo.cs" />
+    <Compile Include="Areas\OYM\Models\tblFormulario.cs" />
+    <Compile Include="Areas\OYM\Models\tblFormularioHistorico.cs" />
+    <Compile Include="Areas\OYM\Models\tblFormularioProceso.cs" />
+    <Compile Include="Areas\OYM\Models\tblFormularioPublicado.cs" />
+    <Compile Include="Areas\OYM\Models\tblFormularioRelacionado.cs" />
+    <Compile Include="Areas\OYM\Models\tblPlantilla.cs" />
+    <Compile Include="Areas\OYM\Models\tblPlantillaMarcador.cs" />
+    <Compile Include="Areas\OYM\Models\tblProceso.cs" />
+    <Compile Include="Areas\OYM\Models\tblProcesoDetalle.cs" />
+    <Compile Include="Areas\OYM\Models\tblProcesoDetalleCategoria.cs" />
+    <Compile Include="Areas\OYM\Models\tblSeguimientoDocumento.cs" />
+    <Compile Include="Areas\OYM\Models\tblSeguimientoFormulario.cs" />
+    <Compile Include="Areas\OYM\Models\tblTipoDocumento.cs" />
+    <Compile Include="Areas\OYM\Models\tblTipoProceso.cs" />
+    <Compile Include="Areas\OYM\Models\TipoParticipante.cs" />
+    <Compile Include="Areas\OYM\Models\TipoProceso.cs" />
+    <Compile Include="Areas\OYM\Models\UbicacionPlantilla.cs" />
+    <Compile Include="Areas\OYM\Models\vVistaPersonal.cs" />
+    <Compile Include="Areas\OYM\OYMAreaRegistration.cs" />
+    <Compile Include="Areas\OYM\ViewModels\Documento.cs" />
+    <Compile Include="Areas\OYM\ViewModels\DocumentoSeguimiento.cs" />
+    <Compile Include="Areas\OYM\ViewModels\Formulario.cs" />
+    <Compile Include="Areas\OYM\ViewModels\FormularioSeguimiento.cs" />
+    <Compile Include="Areas\OYM\ViewModels\Plantilla.cs" />
+    <Compile Include="Areas\OYM\ViewModels\Proceso.cs" />
+    <Compile Include="Commons\FrontUser.cs" />
+    <Compile Include="Commons\RolesPermisos.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PermisoController.cs" />
+    <Compile Include="Controllers\PermisoDenegadoPorRolController.cs" />
+    <Compile Include="Controllers\RolController.cs" />
+    <Compile Include="Controllers\UsuarioController.cs" />
+    <Compile Include="Etiquetas\AutenticadoAtrribute.cs" />
+    <Compile Include="Etiquetas\PermisoAttribute.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\agenda.cs" />
+    <Compile Include="Models\BaseModel.cs" />
+    <Compile Include="Models\PermisoDenegadoPorRol.cs" />
+    <Compile Include="Models\ResponseModel.cs" />
+    <Compile Include="Models\SeguridadContext.cs" />
+    <Compile Include="Models\Permiso.cs" />
+    <Compile Include="Models\Rol.cs" />
+    <Compile Include="Models\Usuario.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\CambioContrasenaWiewModel.cs" />
+    <Compile Include="ViewModels\LoginViewModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\OYM\Adjunto\Chrysanthemum.jpg" />
+    <Content Include="Areas\OYM\Adjunto\Hydrangeas.jpg" />
+    <Content Include="Areas\OYM\Adjunto\imagen34.jpg" />
+    <Content Include="Areas\OYM\Adjunto\IMG_0163.JPG" />
+    <Content Include="Areas\OYM\Adjunto\Jellyfish.jpg" />
+    <Content Include="Areas\OYM\Adjunto\Koala.jpg" />
+    <Content Include="Areas\OYM\Adjunto\Lighthouse.jpg" />
+    <Content Include="Areas\OYM\Adjunto\LogoUtepsaPlantilla.gif" />
+    <Content Include="Areas\OYM\Adjunto\MVI_0047.MOV" />
+    <Content Include="Areas\OYM\Adjunto\MVI_0048.MOV" />
+    <Content Include="Areas\OYM\Adjunto\Penguins.jpg" />
+    <Content Include="Areas\OYM\Adjunto\Tulips.jpg" />
+    <Content Include="Areas\OYM\Content\bootstrap.css" />
+    <Content Include="Areas\OYM\Content\kendo\Bootstrap\editor.png" />
+    <Content Include="Areas\OYM\Content\kendo\Bootstrap\imagebrowser.png" />
+    <Content Include="Areas\OYM\Content\kendo\Bootstrap\indeterminate.gif" />
+    <Content Include="Areas\OYM\Content\kendo\Bootstrap\loading-image.gif" />
+    <Content Include="Areas\OYM\Content\kendo\Bootstrap\loading.gif" />
+    <Content Include="Areas\OYM\Content\kendo\Bootstrap\loading_2x.gif" />
+    <Content Include="Areas\OYM\Content\kendo\Bootstrap\markers.png" />
+    <Content Include="Areas\OYM\Content\kendo\Bootstrap\markers_2x.png" />
+    <Content Include="Areas\OYM\Content\kendo\Bootstrap\slider-h.gif" />
+    <Content Include="Areas\OYM\Content\kendo\Bootstrap\slider-v.gif" />
+    <Content Include="Areas\OYM\Content\kendo\Bootstrap\sprite.png" />
+    <Content Include="Areas\OYM\Content\kendo\Bootstrap\sprite_2x.png" />
+    <Content Include="Areas\OYM\Content\kendo\Bootstrap\sprite_kpi.png" />
+    <Content Include="Areas\OYM\Content\kendo\Bootstrap\sprite_kpi_2x.png" />
+    <Content Include="Areas\OYM\Content\kendo\images\back.png" />
+    <Content Include="Areas\OYM\Content\kendo\images\kendoui.svg" />
+    <Content Include="Areas\OYM\Content\kendo\images\wp8_icons.png" />
+    <Content Include="Areas\OYM\Content\kendo\images\wp8_inverseicons.png" />
+    <Content Include="Areas\OYM\Content\kendo\kendo.bootstrap.min.css" />
+    <Content Include="Areas\OYM\Content\kendo\kendo.common-bootstrap.min.css" />
+    <Content Include="Areas\OYM\Content\kendo\kendo.common.min.css" />
+    <Content Include="Areas\OYM\Content\kendo\kendo.dataviz.bootstrap.min.css" />
+    <Content Include="Areas\OYM\Content\kendo\kendo.dataviz.min.css" />
+    <Content Include="Areas\OYM\Content\kendo\kendo.mobile.all.min.css" />
+    <Content Include="Areas\OYM\Content\Site.css" />
+    <Content Include="Areas\OYM\Content\themes\base\accordion.css" />
+    <Content Include="Areas\OYM\Content\themes\base\all.css" />
+    <Content Include="Areas\OYM\Content\themes\base\autocomplete.css" />
+    <Content Include="Areas\OYM\Content\themes\base\base.css" />
+    <Content Include="Areas\OYM\Content\themes\base\button.css" />
+    <Content Include="Areas\OYM\Content\themes\base\core.css" />
+    <Content Include="Areas\OYM\Content\themes\base\datepicker.css" />
+    <Content Include="Areas\OYM\Content\themes\base\dialog.css" />
+    <Content Include="Areas\OYM\Content\themes\base\draggable.css" />
+    <Content Include="Areas\OYM\Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Areas\OYM\Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Areas\OYM\Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Areas\OYM\Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Areas\OYM\Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Areas\OYM\Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Areas\OYM\Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Areas\OYM\Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Areas\OYM\Content\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Areas\OYM\Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Areas\OYM\Content\themes\base\images\ui-icons_444444_256x240.png" />
+    <Content Include="Areas\OYM\Content\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Areas\OYM\Content\themes\base\images\ui-icons_555555_256x240.png" />
+    <Content Include="Areas\OYM\Content\themes\base\images\ui-icons_777620_256x240.png" />
+    <Content Include="Areas\OYM\Content\themes\base\images\ui-icons_777777_256x240.png" />
+    <Content Include="Areas\OYM\Content\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Areas\OYM\Content\themes\base\images\ui-icons_cc0000_256x240.png" />
+    <Content Include="Areas\OYM\Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Areas\OYM\Content\themes\base\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Areas\OYM\Content\themes\base\jquery-ui.css" />
+    <Content Include="Areas\OYM\Content\themes\base\jquery-ui.min.css" />
+    <Content Include="Areas\OYM\Content\themes\base\menu.css" />
+    <Content Include="Areas\OYM\Content\themes\base\progressbar.css" />
+    <Content Include="Areas\OYM\Content\themes\base\resizable.css" />
+    <Content Include="Areas\OYM\Content\themes\base\selectable.css" />
+    <Content Include="Areas\OYM\Content\themes\base\selectmenu.css" />
+    <Content Include="Areas\OYM\Content\themes\base\slider.css" />
+    <Content Include="Areas\OYM\Content\themes\base\sortable.css" />
+    <Content Include="Areas\OYM\Content\themes\base\spinner.css" />
+    <Content Include="Areas\OYM\Content\themes\base\tabs.css" />
+    <Content Include="Areas\OYM\Content\themes\base\theme.css" />
+    <Content Include="Areas\OYM\Content\themes\base\tooltip.css" />
+    <Content Include="Areas\OYM\Content\tmp\bootstrap.css" />
+    <Content Include="Areas\OYM\Content\tmp\bootstrap.min.css" />
+    <Content Include="Areas\OYM\Content\tmp\Site.css" />
+    <Content Include="Areas\OYM\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Areas\OYM\Images\LogoUtepsaPlantilla.gif" />
+    <Content Include="Areas\OYM\Scripts\kendo\cultures\kendo.culture.es-ES.min.js" />
+    <Content Include="Content\kendo\Bootstrap\editor.png" />
+    <Content Include="Content\kendo\Bootstrap\imagebrowser.png" />
+    <Content Include="Content\kendo\Bootstrap\indeterminate.gif" />
+    <Content Include="Content\kendo\Bootstrap\loading-image.gif" />
+    <Content Include="Content\kendo\Bootstrap\loading.gif" />
+    <Content Include="Content\kendo\Bootstrap\loading_2x.gif" />
+    <Content Include="Content\kendo\Bootstrap\markers.png" />
+    <Content Include="Content\kendo\Bootstrap\markers_2x.png" />
+    <Content Include="Content\kendo\Bootstrap\slider-h.gif" />
+    <Content Include="Content\kendo\Bootstrap\slider-v.gif" />
+    <Content Include="Content\kendo\Bootstrap\sprite.png" />
+    <Content Include="Content\kendo\Bootstrap\sprite_2x.png" />
+    <Content Include="Content\kendo\Bootstrap\sprite_kpi.png" />
+    <Content Include="Content\kendo\Bootstrap\sprite_kpi_2x.png" />
+    <Content Include="Content\kendo\images\back.png" />
+    <Content Include="Content\kendo\images\kendoui.svg" />
+    <Content Include="Content\kendo\images\wp8_icons.png" />
+    <Content Include="Content\kendo\images\wp8_inverseicons.png" />
+    <Content Include="Content\kendo\kendo.bootstrap.min.css" />
+    <Content Include="Content\kendo\kendo.common-bootstrap.min.css" />
+    <Content Include="Content\kendo\kendo.common.min.css" />
+    <Content Include="Content\kendo\kendo.dataviz.bootstrap.min.css" />
+    <Content Include="Content\kendo\kendo.dataviz.min.css" />
+    <Content Include="Content\kendo\kendo.mobile.all.min.css" />
+    <Content Include="Content\themes\base\accordion.css" />
+    <Content Include="Content\themes\base\all.css" />
+    <Content Include="Content\themes\base\autocomplete.css" />
+    <Content Include="Content\themes\base\base.css" />
+    <Content Include="Content\themes\base\button.css" />
+    <Content Include="Content\themes\base\core.css" />
+    <Content Include="Content\themes\base\datepicker.css" />
+    <Content Include="Content\themes\base\dialog.css" />
+    <Content Include="Content\themes\base\draggable.css" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_444444_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_555555_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_777620_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_777777_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cc0000_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Content\themes\base\jquery-ui.css" />
+    <Content Include="Content\themes\base\jquery-ui.min.css" />
+    <Content Include="Content\themes\base\menu.css" />
+    <Content Include="Content\themes\base\progressbar.css" />
+    <Content Include="Content\themes\base\resizable.css" />
+    <Content Include="Content\themes\base\selectable.css" />
+    <Content Include="Content\themes\base\selectmenu.css" />
+    <Content Include="Content\themes\base\slider.css" />
+    <Content Include="Content\themes\base\sortable.css" />
+    <Content Include="Content\themes\base\spinner.css" />
+    <Content Include="Content\themes\base\tabs.css" />
+    <Content Include="Content\themes\base\theme.css" />
+    <Content Include="Content\themes\base\tooltip.css" />
+    <Content Include="Content\tmp\bootstrap.css" />
+    <Content Include="Content\tmp\bootstrap.min.css" />
+    <Content Include="Content\tmp\Site.css" />
+    <Content Include="ReportViewer\js\kendo.subset.2015.3.930.min.js" />
+    <Content Include="ReportViewer\js\telerikReportViewer-10.0.16.113.min.js" />
+    <Content Include="Areas\OYM\Scripts\bootstrap.js" />
+    <Content Include="Areas\OYM\Scripts\bootstrap.min.js" />
+    <Content Include="Areas\OYM\Scripts\jquery-ui-1.12.0.js" />
+    <Content Include="Areas\OYM\Scripts\jquery-ui-1.12.0.min.js" />
+    <Content Include="Areas\OYM\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Areas\OYM\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Areas\OYM\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Areas\OYM\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Areas\OYM\Content\tmp\bootstrap.css.map" />
+    <Content Include="Areas\OYM\Content\tmp\bootstrap.min.css.map" />
+    <Content Include="Areas\OYM\Content\kendo\kendo.common-bootstrap.min.css.map" />
+    <Content Include="Areas\OYM\Content\kendo\kendo.dataviz.bootstrap.min.css.map" />
+    <Content Include="Areas\OYM\Content\kendo\kendo.dataviz.min.css.map" />
+    <Content Include="Areas\OYM\Content\kendo\kendo.mobile.all.min.css.map" />
+    <Content Include="Areas\OYM\Content\kendo\kendo.bootstrap.min.css.map" />
+    <Content Include="Areas\OYM\Content\kendo\images\kendoui.ttf" />
+    <Content Include="Areas\OYM\Content\kendo\images\kendoui.woff" />
+    <Content Include="Areas\OYM\Content\kendo\kendo.common.min.css.map" />
+    <None Include="Areas\OYM\Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Areas\OYM\Scripts\jquery.validate.js" />
+    <Content Include="Areas\OYM\Scripts\jquery.validate.min.js" />
+    <Content Include="Areas\OYM\Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Areas\OYM\Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Areas\OYM\Scripts\kendo\jquery.min.js" />
+    <Content Include="Areas\OYM\Scripts\kendo\kendo.all.min.js" />
+    <Content Include="Areas\OYM\Scripts\kendo\kendo.aspnetmvc.min.js" />
+    <Content Include="Areas\OYM\Scripts\kendo\kendo.culture.es-ES.min.js" />
+    <Content Include="Areas\OYM\Scripts\kendo\kendo.modernizr.custom.js" />
+    <Content Include="Areas\OYM\Scripts\modalform.js" />
+    <Content Include="Areas\OYM\Scripts\modernizr-2.7.2.js" />
+    <Content Include="Areas\OYM\Scripts\respond.js" />
+    <Content Include="Areas\OYM\Scripts\respond.min.js" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\jquery-ui.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Areas\EGRE\Views\web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Areas\CONV\Views\web.config" />
+    <Content Include="Areas\EGRE\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\EGRE\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\EGRE\Views\ActaDefensaFinal\Create.cshtml" />
+    <Content Include="Areas\EGRE\Views\ActaDefensaFinal\Delete.cshtml" />
+    <Content Include="Areas\EGRE\Views\ActaDefensaFinal\Details.cshtml" />
+    <Content Include="Areas\EGRE\Views\ActaDefensaFinal\Edit.cshtml" />
+    <Content Include="Areas\EGRE\Views\ActaDefensaFinal\Index.cshtml" />
+    <Content Include="Areas\EGRE\Views\ActaDefensaFinal\_CreateEdit.cshtml" />
+    <Content Include="Areas\EGRE\Views\ActaDefensaFinal\_DetailsDelete.cshtml" />
+    <Content Include="Areas\EGRE\Views\ActaDefensaFinal\_Index.cshtml" />
+    <Content Include="Areas\EGRE\Views\ActaSorteoEG\Create.cshtml" />
+    <Content Include="Areas\EGRE\Views\ActaSorteoEG\Delete.cshtml" />
+    <Content Include="Areas\EGRE\Views\ActaSorteoEG\Details.cshtml" />
+    <Content Include="Areas\EGRE\Views\ActaSorteoEG\Edit.cshtml" />
+    <Content Include="Areas\EGRE\Views\ActaSorteoEG\Index.cshtml" />
+    <Content Include="Areas\EGRE\Views\ActaSorteoEG\_CreateEdit.cshtml" />
+    <Content Include="Areas\EGRE\Views\ActaSorteoEG\_DetailsDelete.cshtml" />
+    <Content Include="Areas\EGRE\Views\ActaSorteoEG\_Index.cshtml" />
+    <Content Include="Areas\EGRE\Views\AreaAdministrativa\Create.cshtml" />
+    <Content Include="Areas\EGRE\Views\AreaAdministrativa\Delete.cshtml" />
+    <Content Include="Areas\EGRE\Views\AreaAdministrativa\Details.cshtml" />
+    <Content Include="Areas\EGRE\Views\AreaAdministrativa\Edit.cshtml" />
+    <Content Include="Areas\EGRE\Views\AreaAdministrativa\Index.cshtml" />
+    <Content Include="Areas\EGRE\Views\AreaAdministrativa\_CreateEdit.cshtml" />
+    <Content Include="Areas\EGRE\Views\AreaAdministrativa\_DetailsDelete.cshtml" />
+    <Content Include="Areas\EGRE\Views\AreaAdministrativa\_Index.cshtml" />
+    <Content Include="Areas\EGRE\Views\ComunicacionEst\Create.cshtml" />
+    <Content Include="Areas\EGRE\Views\ComunicacionEst\Delete.cshtml" />
+    <Content Include="Areas\EGRE\Views\ComunicacionEst\Details.cshtml" />
+    <Content Include="Areas\EGRE\Views\ComunicacionEst\Edit.cshtml" />
+    <Content Include="Areas\EGRE\Views\ComunicacionEst\Index.cshtml" />
+    <Content Include="Areas\EGRE\Views\ComunicacionEst\_CreateEdit.cshtml" />
+    <Content Include="Areas\EGRE\Views\ComunicacionEst\_DetailsDelete.cshtml" />
+    <Content Include="Areas\EGRE\Views\ComunicacionEst\_Index.cshtml" />
+    <Content Include="Areas\EGRE\Views\ComunicacionExtColProf\Create.cshtml" />
+    <Content Include="Areas\EGRE\Views\ComunicacionExtColProf\Delete.cshtml" />
+    <Content Include="Areas\EGRE\Views\ComunicacionExtColProf\Details.cshtml" />
+    <Content Include="Areas\EGRE\Views\ComunicacionExtColProf\Edit.cshtml" />
+    <Content Include="Areas\EGRE\Views\ComunicacionExtColProf\Index.cshtml" />
+    <Content Include="Areas\EGRE\Views\ComunicacionExtColProf\_CreateEdit.cshtml" />
+    <Content Include="Areas\EGRE\Views\ComunicacionExtColProf\_DetailsDelete.cshtml" />
+    <Content Include="Areas\EGRE\Views\ComunicacionExtColProf\_Index.cshtml" />
+    <Content Include="Areas\EGRE\Views\ComunicacionExtUnivPublica\Create.cshtml" />
+    <Content Include="Areas\EGRE\Views\ComunicacionExtUnivPublica\Delete.cshtml" />
+    <Content Include="Areas\EGRE\Views\ComunicacionExtUnivPublica\Details.cshtml" />
+    <Content Include="Areas\EGRE\Views\ComunicacionExtUnivPublica\Edit.cshtml" />
+    <Content Include="Areas\EGRE\Views\ComunicacionExtUnivPublica\Index.cshtml" />
+    <Content Include="Areas\EGRE\Views\ComunicacionExtUnivPublica\_CreateEdit.cshtml" />
+    <Content Include="Areas\EGRE\Views\ComunicacionExtUnivPublica\_DetailsDelete.cshtml" />
+    <Content Include="Areas\EGRE\Views\ComunicacionExtUnivPublica\_Index.cshtml" />
+    <Content Include="Areas\EGRE\Views\ComunicacionInt\Create.cshtml" />
+    <Content Include="Areas\EGRE\Views\ComunicacionInt\Delete.cshtml" />
+    <Content Include="Areas\EGRE\Views\ComunicacionInt\Details.cshtml" />
+    <Content Include="Areas\EGRE\Views\ComunicacionInt\Edit.cshtml" />
+    <Content Include="Areas\EGRE\Views\ComunicacionInt\Index.cshtml" />
+    <Content Include="Areas\EGRE\Views\ComunicacionInt\_CreateEdit.cshtml" />
+    <Content Include="Areas\EGRE\Views\ComunicacionInt\_DetailsDelete.cshtml" />
+    <Content Include="Areas\EGRE\Views\ComunicacionInt\_Index.cshtml" />
+    <Content Include="Areas\EGRE\Views\CProfesional\Create.cshtml" />
+    <Content Include="Areas\EGRE\Views\CProfesional\Delete.cshtml" />
+    <Content Include="Areas\EGRE\Views\CProfesional\Details.cshtml" />
+    <Content Include="Areas\EGRE\Views\CProfesional\Edit.cshtml" />
+    <Content Include="Areas\EGRE\Views\CProfesional\Index.cshtml" />
+    <Content Include="Areas\EGRE\Views\CProfesional\_CreateEdit.cshtml" />
+    <Content Include="Areas\EGRE\Views\CProfesional\_DetailsDelete.cshtml" />
+    <Content Include="Areas\EGRE\Views\CProfesional\_Index.cshtml" />
+    <Content Include="Areas\EGRE\Views\DRecepcionesTFG\Create.cshtml" />
+    <Content Include="Areas\EGRE\Views\DRecepcionesTFG\Delete.cshtml" />
+    <Content Include="Areas\EGRE\Views\DRecepcionesTFG\Details.cshtml" />
+    <Content Include="Areas\EGRE\Views\DRecepcionesTFG\Edit.cshtml" />
+    <Content Include="Areas\EGRE\Views\DRecepcionesTFG\Index.cshtml" />
+    <Content Include="Areas\EGRE\Views\DRecepcionesTFG\_CreateEdit.cshtml" />
+    <Content Include="Areas\EGRE\Views\DRecepcionesTFG\_DetailsDelete.cshtml" />
+    <Content Include="Areas\EGRE\Views\EntregaAlEst\Create.cshtml" />
+    <Content Include="Areas\EGRE\Views\EntregaAlEst\Delete.cshtml" />
+    <Content Include="Areas\EGRE\Views\EntregaAlEst\Details.cshtml" />
+    <Content Include="Areas\EGRE\Views\EntregaAlEst\Edit.cshtml" />
+    <Content Include="Areas\EGRE\Views\EntregaAlEst\Index.cshtml" />
+    <Content Include="Areas\EGRE\Views\EntregaAlEst\_CreateEdit.cshtml" />
+    <Content Include="Areas\EGRE\Views\EntregaAlEst\_DetailsDelete.cshtml" />
+    <Content Include="Areas\EGRE\Views\EntregaAlEst\_Index.cshtml" />
+    <Content Include="Areas\EGRE\Views\EntregaTFG\Create.cshtml" />
+    <Content Include="Areas\EGRE\Views\EntregaTFG\Delete.cshtml" />
+    <Content Include="Areas\EGRE\Views\EntregaTFG\Details.cshtml" />
+    <Content Include="Areas\EGRE\Views\EntregaTFG\Edit.cshtml" />
+    <Content Include="Areas\EGRE\Views\EntregaTFG\Index.cshtml" />
+    <Content Include="Areas\EGRE\Views\EntregaTFG\_CreateEdit.cshtml" />
+    <Content Include="Areas\EGRE\Views\EntregaTFG\_DetailsDelete.cshtml" />
+    <Content Include="Areas\EGRE\Views\EntregaTFG\_Index.cshtml" />
+    <Content Include="Areas\EGRE\Views\EntregaTribunales\Create.cshtml" />
+    <Content Include="Areas\EGRE\Views\EntregaTribunales\Delete.cshtml" />
+    <Content Include="Areas\EGRE\Views\EntregaTribunales\Details.cshtml" />
+    <Content Include="Areas\EGRE\Views\EntregaTribunales\Edit.cshtml" />
+    <Content Include="Areas\EGRE\Views\EntregaTribunales\Index.cshtml" />
+    <Content Include="Areas\EGRE\Views\EntregaTribunales\_CreateEdit.cshtml" />
+    <Content Include="Areas\EGRE\Views\EntregaTribunales\_DetailsDelete.cshtml" />
+    <Content Include="Areas\EGRE\Views\EntregaTribunales\_Index.cshtml" />
+    <Content Include="Areas\EGRE\Views\Home\About.cshtml" />
+    <Content Include="Areas\EGRE\Views\Home\Contact.cshtml" />
+    <Content Include="Areas\EGRE\Views\Home\Index.cshtml" />
+    <Content Include="Areas\EGRE\Views\Perfil\Create.cshtml" />
+    <Content Include="Areas\EGRE\Views\Perfil\Delete.cshtml" />
+    <Content Include="Areas\EGRE\Views\Perfil\Details.cshtml" />
+    <Content Include="Areas\EGRE\Views\Perfil\Edit.cshtml" />
+    <Content Include="Areas\EGRE\Views\Perfil\Index.cshtml" />
+    <Content Include="Areas\EGRE\Views\Perfil\IndexTFG.cshtml" />
+    <Content Include="Areas\EGRE\Views\Perfil\_CreateEdit.cshtml" />
+    <Content Include="Areas\EGRE\Views\Perfil\_DetailsDelete.cshtml" />
+    <Content Include="Areas\EGRE\Views\Perfil\_Index.cshtml" />
+    <Content Include="Areas\EGRE\Views\Perfil\_IndexTFG.cshtml" />
+    <Content Include="Areas\EGRE\Views\PresidenteColegioProfesional\Create.cshtml" />
+    <Content Include="Areas\EGRE\Views\PresidenteColegioProfesional\Delete.cshtml" />
+    <Content Include="Areas\EGRE\Views\PresidenteColegioProfesional\Details.cshtml" />
+    <Content Include="Areas\EGRE\Views\PresidenteColegioProfesional\Edit.cshtml" />
+    <Content Include="Areas\EGRE\Views\PresidenteColegioProfesional\Index.cshtml" />
+    <Content Include="Areas\EGRE\Views\PresidenteColegioProfesional\_CreateEdit.cshtml" />
+    <Content Include="Areas\EGRE\Views\PresidenteColegioProfesional\_DetailsDelete.cshtml" />
+    <Content Include="Areas\EGRE\Views\PresidenteColegioProfesional\_Index.cshtml" />
+    <Content Include="Areas\EGRE\Views\Profesiones\Create.cshtml" />
+    <Content Include="Areas\EGRE\Views\Profesiones\Delete.cshtml" />
+    <Content Include="Areas\EGRE\Views\Profesiones\Details.cshtml" />
+    <Content Include="Areas\EGRE\Views\Profesiones\Edit.cshtml" />
+    <Content Include="Areas\EGRE\Views\Profesiones\Index.cshtml" />
+    <Content Include="Areas\EGRE\Views\Profesiones\_CreateEdit.cshtml" />
+    <Content Include="Areas\EGRE\Views\Profesiones\_DetailsDelete.cshtml" />
+    <Content Include="Areas\EGRE\Views\Profesiones\_Index.cshtml" />
+    <Content Include="Areas\EGRE\Views\RecepcionesTFG\AgregarEditarDetalleRecepcionTFG.cshtml" />
+    <Content Include="Areas\EGRE\Views\RecepcionesTFG\CrearDetalleRecepcionTFG.cshtml" />
+    <Content Include="Areas\EGRE\Views\RecepcionesTFG\Create.cshtml" />
+    <Content Include="Areas\EGRE\Views\RecepcionesTFG\Delete.cshtml" />
+    <Content Include="Areas\EGRE\Views\RecepcionesTFG\Details.cshtml" />
+    <Content Include="Areas\EGRE\Views\RecepcionesTFG\Edit.cshtml" />
+    <Content Include="Areas\EGRE\Views\RecepcionesTFG\EliminiarDetalleRecepcionTFG.cshtml" />
+    <Content Include="Areas\EGRE\Views\RecepcionesTFG\Index.cshtml" />
+    <Content Include="Areas\EGRE\Views\RecepcionesTFG\_Create.cshtml" />
+    <Content Include="Areas\EGRE\Views\RecepcionesTFG\_CreateEdit.cshtml" />
+    <Content Include="Areas\EGRE\Views\RecepcionesTFG\_DetailsDelete.cshtml" />
+    <Content Include="Areas\EGRE\Views\RecepcionesTFG\_Index.cshtml" />
+    <Content Include="Areas\EGRE\Views\RectorUniversidadPublica\Create.cshtml" />
+    <Content Include="Areas\EGRE\Views\RectorUniversidadPublica\Delete.cshtml" />
+    <Content Include="Areas\EGRE\Views\RectorUniversidadPublica\Details.cshtml" />
+    <Content Include="Areas\EGRE\Views\RectorUniversidadPublica\Edit.cshtml" />
+    <Content Include="Areas\EGRE\Views\RectorUniversidadPublica\Index.cshtml" />
+    <Content Include="Areas\EGRE\Views\RectorUniversidadPublica\_CreateEdit.cshtml" />
+    <Content Include="Areas\EGRE\Views\RectorUniversidadPublica\_DetailsDelete.cshtml" />
+    <Content Include="Areas\EGRE\Views\RectorUniversidadPublica\_Index.cshtml" />
+    <Content Include="Areas\EGRE\Views\Sala\Create.cshtml" />
+    <Content Include="Areas\EGRE\Views\Sala\Delete.cshtml" />
+    <Content Include="Areas\EGRE\Views\Sala\Details.cshtml" />
+    <Content Include="Areas\EGRE\Views\Sala\Edit.cshtml" />
+    <Content Include="Areas\EGRE\Views\Sala\Index.cshtml" />
+    <Content Include="Areas\EGRE\Views\Sala\_CreateEdit.cshtml" />
+    <Content Include="Areas\EGRE\Views\Sala\_DetailsDelete.cshtml" />
+    <Content Include="Areas\EGRE\Views\Sala\_Index.cshtml" />
+    <Content Include="Areas\EGRE\Views\Tutor\Create.cshtml" />
+    <Content Include="Areas\EGRE\Views\Tutor\Delete.cshtml" />
+    <Content Include="Areas\EGRE\Views\Tutor\Details.cshtml" />
+    <Content Include="Areas\EGRE\Views\Tutor\Edit.cshtml" />
+    <Content Include="Areas\EGRE\Views\Tutor\Index.cshtml" />
+    <Content Include="Areas\EGRE\Views\Tutor\_CreateEdit.cshtml" />
+    <Content Include="Areas\EGRE\Views\Tutor\_DetailsDelete.cshtml" />
+    <Content Include="Areas\EGRE\Views\Tutor\_Index.cshtml" />
+    <Content Include="Areas\EGRE\Views\Shared\DisplayTemplates\MessageBase.cshtml" />
+    <Content Include="Areas\EGRE\Views\Shared\DisplayTemplates\SimpleMessage.cshtml" />
+    <Content Include="Areas\EGRE\Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Areas\OYM\Views\web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Areas\OYM\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\OYM\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\OYM\Views\Home\About.cshtml" />
+    <Content Include="Areas\OYM\Views\Home\Contact.cshtml" />
+    <Content Include="Areas\OYM\Views\Home\Index.cshtml" />
+    <Content Include="Areas\OYM\Views\Reportes\DocumentoDetalleRespuestaTipoProceso.cshtml" />
+    <Content Include="Areas\OYM\Views\Reportes\DocumentoTiempoTipoProceso.cshtml" />
+    <Content Include="Areas\OYM\Views\Reportes\DocumentoTipoProceso.cshtml" />
+    <Content Include="Areas\OYM\Views\Reportes\FormularioDetalleRespuestaTipoProceso.cshtml" />
+    <Content Include="Areas\OYM\Views\Reportes\FormularioTiempoTipoProceso.cshtml" />
+    <Content Include="Areas\OYM\Views\Reportes\FormularioTipoProceso.cshtml" />
+    <Content Include="Areas\OYM\Views\Reportes\GetReport.cshtml" />
+    <Content Include="Areas\OYM\Views\Reports\rpvDocumentoTipoProceso.cshtml" />
+    <Content Include="Areas\OYM\Views\tblCargoAgendas\Create.cshtml" />
+    <Content Include="Areas\OYM\Views\tblCargoAgendas\Delete.cshtml" />
+    <Content Include="Areas\OYM\Views\tblCargoAgendas\Details.cshtml" />
+    <Content Include="Areas\OYM\Views\tblCargoAgendas\Edit.cshtml" />
+    <Content Include="Areas\OYM\Views\tblCargoAgendas\Index.cshtml" />
+    <Content Include="Areas\OYM\Views\tblCargos\Create.cshtml" />
+    <Content Include="Areas\OYM\Views\tblCargos\Delete.cshtml" />
+    <Content Include="Areas\OYM\Views\tblCargos\Details.cshtml" />
+    <Content Include="Areas\OYM\Views\tblCargos\Edit.cshtml" />
+    <Content Include="Areas\OYM\Views\tblCargos\Index.cshtml" />
+    <Content Include="Areas\OYM\Views\tblCategorias\Create.cshtml" />
+    <Content Include="Areas\OYM\Views\tblCategorias\Delete.cshtml" />
+    <Content Include="Areas\OYM\Views\tblCategorias\Details.cshtml" />
+    <Content Include="Areas\OYM\Views\tblCategorias\Edit.cshtml" />
+    <Content Include="Areas\OYM\Views\tblCategorias\Index.cshtml" />
+    <Content Include="Areas\OYM\Views\tblDirectorios\Create.cshtml" />
+    <Content Include="Areas\OYM\Views\tblDirectorios\Delete.cshtml" />
+    <Content Include="Areas\OYM\Views\tblDirectorios\Details.cshtml" />
+    <Content Include="Areas\OYM\Views\tblDirectorios\Edit.cshtml" />
+    <Content Include="Areas\OYM\Views\tblDirectorios\Index.cshtml" />
+    <Content Include="Areas\OYM\Views\tblDocumentoHistoricos\Create.cshtml" />
+    <Content Include="Areas\OYM\Views\tblDocumentoHistoricos\Delete.cshtml" />
+    <Content Include="Areas\OYM\Views\tblDocumentoHistoricos\Details.cshtml" />
+    <Content Include="Areas\OYM\Views\tblDocumentoHistoricos\Edit.cshtml" />
+    <Content Include="Areas\OYM\Views\tblDocumentoHistoricos\Index.cshtml" />
+    <Content Include="Areas\OYM\Views\tblDocumentoHistoricos\PublicarDocumento.cshtml" />
+    <Content Include="Areas\OYM\Views\tblDocumentoHistoricos\_List.cshtml" />
+    <Content Include="Areas\OYM\Views\tblDocumentoProcesos\Create.cshtml" />
+    <Content Include="Areas\OYM\Views\tblDocumentoProcesos\CreateProcess.cshtml" />
+    <Content Include="Areas\OYM\Views\tblDocumentoProcesos\Delete.cshtml" />
+    <Content Include="Areas\OYM\Views\tblDocumentoProcesos\Details.cshtml" />
+    <Content Include="Areas\OYM\Views\tblDocumentoProcesos\Edit.cshtml" />
+    <Content Include="Areas\OYM\Views\tblDocumentoProcesos\Index.cshtml" />
+    <Content Include="Areas\OYM\Views\tblDocumentoPublicados\Create.cshtml" />
+    <Content Include="Areas\OYM\Views\tblDocumentoPublicados\Delete.cshtml" />
+    <Content Include="Areas\OYM\Views\tblDocumentoPublicados\Details.cshtml" />
+    <Content Include="Areas\OYM\Views\tblDocumentoPublicados\Edit.cshtml" />
+    <Content Include="Areas\OYM\Views\tblDocumentoPublicados\Index.cshtml" />
+    <Content Include="Areas\OYM\Views\tblDocumentoRelacionados\_Create.cshtml" />
+    <Content Include="Areas\OYM\Views\tblDocumentoRelacionados\_Delete.cshtml" />
+    <Content Include="Areas\OYM\Views\tblDocumentoRelacionados\_Edit.cshtml" />
+    <Content Include="Areas\OYM\Views\tblDocumentoRelacionados\_Index.cshtml" />
+    <Content Include="Areas\OYM\Views\tblDocumentoRelacionados\_List.cshtml" />
+    <Content Include="Areas\OYM\Views\tblDocumentos\Create.cshtml" />
+    <Content Include="Areas\OYM\Views\tblDocumentos\Delete.cshtml" />
+    <Content Include="Areas\OYM\Views\tblDocumentos\Details.cshtml" />
+    <Content Include="Areas\OYM\Views\tblDocumentos\Edit.cshtml" />
+    <Content Include="Areas\OYM\Views\tblDocumentos\Index.cshtml" />
+    <Content Include="Areas\OYM\Views\tblFormaDocumentos\Create.cshtml" />
+    <Content Include="Areas\OYM\Views\tblFormaDocumentos\Delete.cshtml" />
+    <Content Include="Areas\OYM\Views\tblFormaDocumentos\Details.cshtml" />
+    <Content Include="Areas\OYM\Views\tblFormaDocumentos\Edit.cshtml" />
+    <Content Include="Areas\OYM\Views\tblFormaDocumentos\Index.cshtml" />
+    <Content Include="Areas\OYM\Views\tblFormaDocumentoTipos\Create.cshtml" />
+    <Content Include="Areas\OYM\Views\tblFormaDocumentoTipos\Delete.cshtml" />
+    <Content Include="Areas\OYM\Views\tblFormaDocumentoTipos\Details.cshtml" />
+    <Content Include="Areas\OYM\Views\tblFormaDocumentoTipos\Edit.cshtml" />
+    <Content Include="Areas\OYM\Views\tblFormaDocumentoTipos\Index.cshtml" />
+    <Content Include="Areas\OYM\Views\tblFormularioHistoricos\Create.cshtml" />
+    <Content Include="Areas\OYM\Views\tblFormularioHistoricos\Delete.cshtml" />
+    <Content Include="Areas\OYM\Views\tblFormularioHistoricos\Details.cshtml" />
+    <Content Include="Areas\OYM\Views\tblFormularioHistoricos\Edit.cshtml" />
+    <Content Include="Areas\OYM\Views\tblFormularioHistoricos\Index.cshtml" />
+    <Content Include="Areas\OYM\Views\tblFormularioHistoricos\PublicarFormulario.cshtml" />
+    <Content Include="Areas\OYM\Views\tblFormularioHistoricos\_List.cshtml" />
+    <Content Include="Areas\OYM\Views\tblFormularioProcesos\Create.cshtml" />
+    <Content Include="Areas\OYM\Views\tblFormularioProcesos\CreateProcess.cshtml" />
+    <Content Include="Areas\OYM\Views\tblFormularioProcesos\Delete.cshtml" />
+    <Content Include="Areas\OYM\Views\tblFormularioProcesos\Details.cshtml" />
+    <Content Include="Areas\OYM\Views\tblFormularioProcesos\Edit.cshtml" />
+    <Content Include="Areas\OYM\Views\tblFormularioProcesos\Index.cshtml" />
+    <Content Include="Areas\OYM\Views\tblFormularioPublicados\Create.cshtml" />
+    <Content Include="Areas\OYM\Views\tblFormularioPublicados\Delete.cshtml" />
+    <Content Include="Areas\OYM\Views\tblFormularioPublicados\Details.cshtml" />
+    <Content Include="Areas\OYM\Views\tblFormularioPublicados\Edit.cshtml" />
+    <Content Include="Areas\OYM\Views\tblFormularioPublicados\Index.cshtml" />
+    <Content Include="Areas\OYM\Views\tblFormularioRelacionados\_Create.cshtml" />
+    <Content Include="Areas\OYM\Views\tblFormularioRelacionados\_Delete.cshtml" />
+    <Content Include="Areas\OYM\Views\tblFormularioRelacionados\_Edit.cshtml" />
+    <Content Include="Areas\OYM\Views\tblFormularioRelacionados\_Index.cshtml" />
+    <Content Include="Areas\OYM\Views\tblFormularioRelacionados\_List.cshtml" />
+    <Content Include="Areas\OYM\Views\tblFormularios\Create.cshtml" />
+    <Content Include="Areas\OYM\Views\tblFormularios\Delete.cshtml" />
+    <Content Include="Areas\OYM\Views\tblFormularios\Details.cshtml" />
+    <Content Include="Areas\OYM\Views\tblFormularios\Edit.cshtml" />
+    <Content Include="Areas\OYM\Views\tblFormularios\Index.cshtml" />
+    <Content Include="Areas\OYM\Views\tblPlantillaMarcadores\_Create.cshtml" />
+    <Content Include="Areas\OYM\Views\tblPlantillaMarcadores\_Delete.cshtml" />
+    <Content Include="Areas\OYM\Views\tblPlantillaMarcadores\_Edit.cshtml" />
+    <Content Include="Areas\OYM\Views\tblPlantillaMarcadores\_Index.cshtml" />
+    <Content Include="Areas\OYM\Views\tblPlantillaMarcadores\_List.cshtml" />
+    <Content Include="Areas\OYM\Views\tblPlantillas\Create.cshtml" />
+    <Content Include="Areas\OYM\Views\tblPlantillas\Delete.cshtml" />
+    <Content Include="Areas\OYM\Views\tblPlantillas\Details.cshtml" />
+    <Content Include="Areas\OYM\Views\tblPlantillas\Edit.cshtml" />
+    <Content Include="Areas\OYM\Views\tblPlantillas\Index.cshtml" />
+    <Content Include="Areas\OYM\Views\tblProcesoDetalleCategorias\_Create.cshtml" />
+    <Content Include="Areas\OYM\Views\tblProcesoDetalleCategorias\_Delete.cshtml" />
+    <Content Include="Areas\OYM\Views\tblProcesoDetalleCategorias\_Edit.cshtml" />
+    <Content Include="Areas\OYM\Views\tblProcesoDetalleCategorias\_Index.cshtml" />
+    <Content Include="Areas\OYM\Views\tblProcesoDetalleCategorias\_List.cshtml" />
+    <Content Include="Areas\OYM\Views\tblProcesoDetalles\_Create.cshtml" />
+    <Content Include="Areas\OYM\Views\tblProcesoDetalles\_Delete.cshtml" />
+    <Content Include="Areas\OYM\Views\tblProcesoDetalles\_Edit.cshtml" />
+    <Content Include="Areas\OYM\Views\tblProcesoDetalles\_Index.cshtml" />
+    <Content Include="Areas\OYM\Views\tblProcesoDetalles\_List.cshtml" />
+    <Content Include="Areas\OYM\Views\tblProcesos\Create.cshtml" />
+    <Content Include="Areas\OYM\Views\tblProcesos\Delete.cshtml" />
+    <Content Include="Areas\OYM\Views\tblProcesos\Details.cshtml" />
+    <Content Include="Areas\OYM\Views\tblProcesos\Edit.cshtml" />
+    <Content Include="Areas\OYM\Views\tblProcesos\Index.cshtml" />
+    <Content Include="Areas\OYM\Views\tblSeguimientoDocumentos\Create.cshtml" />
+    <Content Include="Areas\OYM\Views\tblSeguimientoDocumentos\Delete.cshtml" />
+    <Content Include="Areas\OYM\Views\tblSeguimientoDocumentos\Details.cshtml" />
+    <Content Include="Areas\OYM\Views\tblSeguimientoDocumentos\Edit.cshtml" />
+    <Content Include="Areas\OYM\Views\tblSeguimientoDocumentos\Index.cshtml" />
+    <Content Include="Areas\OYM\Views\tblSeguimientoDocumentos\Responder.cshtml" />
+    <Content Include="Areas\OYM\Views\tblSeguimientoFormularios\Create.cshtml" />
+    <Content Include="Areas\OYM\Views\tblSeguimientoFormularios\Delete.cshtml" />
+    <Content Include="Areas\OYM\Views\tblSeguimientoFormularios\Details.cshtml" />
+    <Content Include="Areas\OYM\Views\tblSeguimientoFormularios\Edit.cshtml" />
+    <Content Include="Areas\OYM\Views\tblSeguimientoFormularios\Index.cshtml" />
+    <Content Include="Areas\OYM\Views\tblSeguimientoFormularios\Responder.cshtml" />
+    <Content Include="Areas\OYM\Views\tblTipoDocumentos\Create.cshtml" />
+    <Content Include="Areas\OYM\Views\tblTipoDocumentos\Delete.cshtml" />
+    <Content Include="Areas\OYM\Views\tblTipoDocumentos\Details.cshtml" />
+    <Content Include="Areas\OYM\Views\tblTipoDocumentos\Edit.cshtml" />
+    <Content Include="Areas\OYM\Views\tblTipoDocumentos\Index.cshtml" />
+    <Content Include="Areas\OYM\Views\tblTipoProcesos\Create.cshtml" />
+    <Content Include="Areas\OYM\Views\tblTipoProcesos\Delete.cshtml" />
+    <Content Include="Areas\OYM\Views\tblTipoProcesos\Details.cshtml" />
+    <Content Include="Areas\OYM\Views\tblTipoProcesos\Edit.cshtml" />
+    <Content Include="Areas\OYM\Views\tblTipoProcesos\Index.cshtml" />
+    <Content Include="Areas\OYM\Adjunto\16112016143937_PO-GCA-100.docx" />
+    <Content Include="Areas\OYM\Adjunto\16112016150857_16112016143937_PO-GCA-100.docx" />
+    <Content Include="Areas\OYM\Adjunto\31082016120406_MA-PFC-001-1..pdf" />
+    <Content Include="Areas\OYM\Adjunto\access.rar" />
+    <Content Include="Areas\OYM\Adjunto\DocumentoRespuesta\25092016175557_PL-GES-101.docx" />
+    <Content Include="Areas\OYM\Adjunto\Documentos\Instructivos\IT-PFC-003.docx" />
+    <Content Include="Areas\OYM\Adjunto\Documentos\MA-GCA-002.docx" />
+    <Content Include="Areas\OYM\Adjunto\Documentos\MA-GCA-005.docx" />
+    <Content Include="Areas\OYM\Adjunto\Documentos\MA-GCA-100.docx" />
+    <Content Include="Areas\OYM\Adjunto\Documentos\MA-PFC-100.docx" />
+    <Content Include="Areas\OYM\Adjunto\Documentos\Manual de calidad\MA-PFC-001.docx" />
+    <Content Include="Areas\OYM\Adjunto\Documentos\PO-GCA-001.docx" />
+    <Content Include="Areas\OYM\Adjunto\Documentos\PO-GCA-100.docx" />
+    <Content Include="Areas\OYM\Adjunto\Documentos\Procedimientos\MA-PRE-100.docx" />
+    <Content Include="Areas\OYM\Adjunto\Documentos\Procedimientos\PO-INV-002.docx" />
+    <Content Include="Areas\OYM\Adjunto\Documentos\Procedimientos\PO-PFC-006.docx" />
+    <Content Include="Areas\OYM\Adjunto\Formularios\19092016181353_MA-GES-001-1..docx" />
+    <Content Include="Areas\OYM\Adjunto\Formularios\Gestion estrategica\19092016181501_MA-GES-001-2..docx" />
+    <Content Include="Areas\OYM\Adjunto\Formularios\Gestion estrategica\31082016115756_MA-PFC-001-1..docx" />
+    <Content Include="Areas\OYM\Adjunto\Formularios\Gestion estrategica\31082016120619_MA-PFC-001-1..pdf" />
+    <Content Include="Areas\OYM\Adjunto\IT-GES-005.docx" />
+    <Content Include="Areas\OYM\Adjunto\IT-GES-007.docx" />
+    <Content Include="Areas\OYM\Adjunto\MA-GES-008.docx" />
+    <Content Include="Areas\OYM\Adjunto\MA-GES-032.docx" />
+    <Content Include="Areas\OYM\Adjunto\MA-PRE-006.docx" />
+    <Content Include="Areas\OYM\Adjunto\Plantilla.dotx" />
+    <Content Include="Areas\OYM\Adjunto\PlantillaDocumento.dotx" />
+    <Content Include="Areas\OYM\Adjunto\PlantillaDocumento2.dotx" />
+    <Content Include="Areas\OYM\Adjunto\PlantillaDocumento3.dotx" />
+    <Content Include="Areas\OYM\Adjunto\Plantillas\16112016134249_Docplantilla.docx" />
+    <Content Include="Areas\OYM\Adjunto\Plantillas\16112016134544_21092016235512_PlantillaFormato.dotx" />
+    <Content Include="Areas\OYM\Adjunto\Plantillas\17092016044038_PlantillaDocumento.dotx" />
+    <Content Include="Areas\OYM\Adjunto\Plantillas\19092016162310_PlantillaDocumento.dotx" />
+    <Content Include="Areas\OYM\Adjunto\Plantillas\21092016151338_PlantillaFormato.dotx" />
+    <Content Include="Areas\OYM\Adjunto\Plantillas\21092016151351_PlantillaFormato.dotx" />
+    <Content Include="Areas\OYM\Adjunto\Plantillas\21092016151402_PlantillaFormato.dotx" />
+    <Content Include="Areas\OYM\Adjunto\Plantillas\21092016151416_PlantillaFormato.dotx" />
+    <Content Include="Areas\OYM\Adjunto\Plantillas\21092016235441_PlantillaFormato.dotx" />
+    <Content Include="Areas\OYM\Adjunto\Plantillas\21092016235451_PlantillaFormato.dotx" />
+    <Content Include="Areas\OYM\Adjunto\Plantillas\21092016235501_PlantillaFormato.dotx" />
+    <Content Include="Areas\OYM\Adjunto\Plantillas\21092016235512_PlantillaFormato.dotx" />
+    <Content Include="Areas\OYM\Adjunto\Plantillas\31082016063458_PlantillaDocumento2.dotx" />
+    <Content Include="Areas\OYM\Adjunto\Plantillas\31082016063513_PlantillaDocumento2.dotx" />
+    <Content Include="Areas\OYM\Adjunto\Plantillas\31082016063534_PlantillaDocumento3.dotx" />
+    <Content Include="Areas\OYM\Adjunto\Plantillas\31082016063648_PlantillaDocumento3.dotx" />
+    <Content Include="Areas\OYM\Adjunto\PO-GCA-001.docx" />
+    <Content Include="Areas\OYM\Adjunto\PO-PFC-005.docx" />
+    <Content Include="Areas\OYM\Adjunto\PO-RSU-005.docx" />
+    <Content Include="Areas\OYM\Adjunto\rptDocumentoProceso.pdf" />
+    <Content Include="Areas\OYM\Adjunto\rptDocumentoProceso.xls" />
+    <Content Include="Areas\OYM\Adjunto\rptRecibo.pdf" />
+    <Content Include="Areas\OYM\Adjunto\tablasCargosAgenda.xlsx" />
+    <Content Include="Areas\OYM\Adjunto\_ETOLOGIA %281%29.docx" />
+    <Content Include="Areas\OYM\Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Areas\OYM\Views\rptViewer.cshtml" />
+    <Content Include="Content\kendo\images\kendoui.ttf" />
+    <Content Include="Content\kendo\images\kendoui.woff" />
+    <Content Include="Content\kendo\kendo.bootstrap.min.css.map" />
+    <Content Include="Content\kendo\kendo.common-bootstrap.min.css.map" />
+    <Content Include="Content\kendo\kendo.common.min.css.map" />
+    <Content Include="Content\kendo\kendo.dataviz.bootstrap.min.css.map" />
+    <Content Include="Content\kendo\kendo.dataviz.min.css.map" />
+    <Content Include="Content\kendo\kendo.mobile.all.min.css.map" />
+    <Content Include="Content\tmp\bootstrap.css.map" />
+    <Content Include="Content\tmp\bootstrap.min.css.map" />
+    <Content Include="Areas\OYM\Views\Shared\EditorTemplates\Currency.cshtml" />
+    <Content Include="Areas\OYM\Views\Shared\EditorTemplates\Date.cshtml" />
+    <Content Include="Areas\OYM\Views\Shared\EditorTemplates\DateTime.cshtml" />
+    <Content Include="Areas\OYM\Views\Shared\EditorTemplates\Email.cshtml" />
+    <Content Include="Areas\OYM\Views\Shared\EditorTemplates\EmailAddress.cshtml" />
+    <Content Include="Areas\OYM\Views\Shared\EditorTemplates\GridForeignKey.cshtml" />
+    <Content Include="Areas\OYM\Views\Shared\EditorTemplates\Integer.cshtml" />
+    <Content Include="Areas\OYM\Views\Shared\EditorTemplates\Number.cshtml" />
+    <Content Include="Areas\OYM\Views\Shared\EditorTemplates\Password.cshtml" />
+    <Content Include="Areas\OYM\Views\Shared\EditorTemplates\String.cshtml" />
+    <Content Include="Areas\OYM\Views\Shared\EditorTemplates\Time.cshtml" />
+    <Content Include="Areas\OYM\Views\Shared\EditorTemplates\Url.cshtml" />
+    <Content Include="Areas\OYM\Views\tblDocumentoPublicados\FilterByDirectory.cshtml" />
+    <Content Include="Areas\OYM\Views\tblDocumentoPublicados\IndexByDirectory.cshtml" />
+    <Content Include="Areas\OYM\Views\tblFormularioPublicados\FilterByDirectory.cshtml" />
+    <Content Include="Areas\OYM\Views\tblFormularioPublicados\IndexByDirectory.cshtml" />
+    <None Include="Properties\PublishProfiles\SeguimientoSIGAA.pubxml" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery-ui-1.12.0.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\kendo\cultures\kendo.culture.es-ES.min.js" />
+    <Content Include="Scripts\kendo\jquery.min.js" />
+    <Content Include="Scripts\kendo\jszip.min.js" />
+    <Content Include="Scripts\kendo\kendo.all.min.js" />
+    <Content Include="Scripts\kendo\kendo.aspnetmvc.min.js" />
+    <Content Include="Scripts\kendo\kendo.culture.es-ES.min.js" />
+    <Content Include="Scripts\kendo\kendo.modernizr.custom.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\Observaciones\AgregarObservacion.js" />
+    <Content Include="Scripts\Observaciones\General\marcaCampoRequeridoComInterna.js" />
+    <Content Include="Scripts\Observaciones\General\marcaCamposRequeridos.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Views\Shared\EditorTemplates\Currency.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Date.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\DateTime.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Email.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\EmailAddress.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\GridForeignKey.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Integer.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Number.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Password.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\String.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Time.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Url.cshtml" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Login\_Autenticarse.cshtml" />
+    <Content Include="Views\Login\Autenticarse.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\SimpleMessage.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\MessageBase.cshtml" />
+    <Content Include="Views\Usuario\Create.cshtml" />
+    <Content Include="Views\Usuario\Delete.cshtml" />
+    <Content Include="Views\Usuario\Details.cshtml" />
+    <Content Include="Views\Usuario\Edit.cshtml" />
+    <Content Include="Views\Usuario\Index.cshtml" />
+    <Content Include="Views\Rol\Create.cshtml" />
+    <Content Include="Views\Rol\Delete.cshtml" />
+    <Content Include="Views\Rol\Details.cshtml" />
+    <Content Include="Views\Rol\Edit.cshtml" />
+    <Content Include="Views\Rol\Index.cshtml" />
+    <Content Include="Views\PermisoDenegadoPorRol\Create.cshtml" />
+    <Content Include="Views\PermisoDenegadoPorRol\Delete.cshtml" />
+    <Content Include="Views\PermisoDenegadoPorRol\Details.cshtml" />
+    <Content Include="Views\PermisoDenegadoPorRol\Edit.cshtml" />
+    <Content Include="Views\PermisoDenegadoPorRol\Index.cshtml" />
+    <Content Include="Views\Permiso\Create.cshtml" />
+    <Content Include="Views\Permiso\Delete.cshtml" />
+    <Content Include="Views\Permiso\Details.cshtml" />
+    <Content Include="Views\Permiso\Edit.cshtml" />
+    <Content Include="Views\Permiso\Index.cshtml" />
+    <Content Include="Views\Usuario\_CreateEdit.cshtml" />
+    <Content Include="Views\Usuario\_DetailsDelete.cshtml" />
+    <Content Include="Views\Usuario\_Index.cshtml" />
+    <Content Include="Views\Rol\_CreateEdit.cshtml" />
+    <Content Include="Views\Rol\_DetailsDelete.cshtml" />
+    <Content Include="Views\Rol\_Index.cshtml" />
+    <Content Include="Views\PermisoDenegadoPorRol\_CreateEdit.cshtml" />
+    <Content Include="Views\PermisoDenegadoPorRol\_DetailsDelete.cshtml" />
+    <Content Include="Views\PermisoDenegadoPorRol\_Index.cshtml" />
+    <Content Include="Views\Permiso\_CreateEdit.cshtml" />
+    <Content Include="Views\Permiso\_DetailsDelete.cshtml" />
+    <Content Include="Views\Permiso\_Index.cshtml" />
+    <Content Include="Views\Usuario\CambioDeContrasena.cshtml" />
+    <Content Include="Scripts\kendo\kendo.all.min.js.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Areas\CONV\Controllers\" />
+    <Folder Include="Areas\CONV\Models\" />
+    <Folder Include="Areas\CONV\Views\Shared\" />
+    <Folder Include="Areas\OYM\Adjunto\Documentos\Manual de calidad\Agosto\" />
+    <Folder Include="Areas\OYM\Adjunto\Documentos\Manual de calidad\Septiembre\" />
+    <Folder Include="Areas\OYM\Adjunto\FormularioRespuesta\" />
+    <Folder Include="Areas\OYM\Adjunto\Formularios\Instructivos\" />
+    <Folder Include="Scripts\PermisoDenegadoPorRol\" />
+    <Folder Include="Scripts\Permiso\" />
+    <Folder Include="Scripts\Rol\" />
+    <Folder Include="Scripts\Usuario\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="packages.config" />
+    <None Include="Project_Readme.html" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Helper\Helper.csproj">
+      <Project>{99eaecdf-a49c-492f-add1-f3765c14f686}</Project>
+      <Name>Helper</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ReportFollowUp\ReportFollowUp.csproj">
+      <Project>{b4df11ed-4bcb-4feb-a644-7d58fa324951}</Project>
+      <Name>ReportFollowUp</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Utilitario\Utilitario.csproj">
+      <Project>{b2bc614d-341f-4132-9051-63790420e952}</Project>
+      <Name>Utilitario</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Areas\EGRE\Reportes\ActaDefensaFinalEG.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ActaDefensaFinalEG.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\EGRE\Reportes\ActaDefensaFinalExcelencia.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ActaDefensaFinalExcelencia.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\EGRE\Reportes\ActaDefensaFinalPG.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ActaDefensaFinalPG.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\EGRE\Reportes\ActaDefensaFinalTG.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ActaDefensaFinalTG.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\EGRE\Reportes\ActaDeSorteoEG.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ActaDeSorteoEG.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\EGRE\Reportes\ComAlEstudiante_ActoDefensaEG.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ComAlEstudiante_ActoDefensaEG.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\EGRE\Reportes\ComAlEstudiante_ActoDefensaExcelencia.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ComAlEstudiante_ActoDefensaExcelencia.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\EGRE\Reportes\ComAlEstudiante_ActoDefensaPG.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ComAlEstudiante_ActoDefensaPG.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\EGRE\Reportes\ComAlEstudiante_ActoDefensaTG.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ComAlEstudiante_ActoDefensaTG.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\EGRE\Reportes\ComAlEstudiante_AutHabilitacionTG.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ComAlEstudiante_AutHabilitacionTG.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\EGRE\Reportes\ComExterna_DefensaFinalColProfEG.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ComExterna_DefensaFinalColProfEG.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\EGRE\Reportes\ComExterna_DefensaFinalColProfExcelencia.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ComExterna_DefensaFinalColProfExcelencia.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\EGRE\Reportes\ComExterna_DefensaFinalColProPG.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ComExterna_DefensaFinalColProPG.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\EGRE\Reportes\ComExterna_DefensaFinalUnivPubEG.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ComExterna_DefensaFinalUnivPubEG.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\EGRE\Reportes\ComExterna_DefensaFinalUnivPubExcelencia.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ComExterna_DefensaFinalUnivPubExcelencia.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\EGRE\Reportes\ComExterna_DefensaFinalUnivPubPG.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ComExterna_DefensaFinalUnivPubPG.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\EGRE\Reportes\ComInterna_ActoDefensaFinalEG.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ComInterna_ActoDefensaFinalEG.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\EGRE\Reportes\ComInterna_ActoDefensaFinalExcelencia.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ComInterna_ActoDefensaFinalExcelencia.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\EGRE\Reportes\ComInterna_ActoDefensaFinalPG.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ComInterna_ActoDefensaFinalPG.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\EGRE\Reportes\ComInterna_ActoDefensaFinalTG.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ComInterna_ActoDefensaFinalTG.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\EGRE\Reportes\ComInterna_Desig_TribInterno_P_defensaFinal.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ComInterna_Desig_TribInterno_P_defensaFinal.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\EGRE\Reportes\ComInterna_Desig_TribInterno_P_Revision.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ComInterna_Desig_TribInterno_P_Revision.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\EGRE\Reportes\ComInterna_DevolucionCarpetas.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ComInterna_DevolucionCarpetas.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\EGRE\Reportes\FormularioAprobacionPerfil.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>FormularioAprobacionPerfil.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\EGRE\Reportes\ReporteNoDefinido.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ReporteNoDefinido.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>51496</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:51496/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Este proyecto hace referencia a los paquetes NuGet que faltan en este equipo. Use la restauración de paquetes NuGet para descargarlos. Para obtener más información, consulte http://go.microsoft.com/fwlink/?LinkID=322105. El archivo que falta es {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

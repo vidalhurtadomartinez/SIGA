@@ -1,0 +1,2317 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+Este archivo es utilizado por el proceso de paquete/publicación de nuestro proyecto Web. Puede personalizar el comportamiento de este proceso
+editando este archivo MSBuild. Para conocer más acerca de esto, visite http://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <_PublishTargetUrl>D:\ROGER\Sistemas WEB\SIGAA V2\SIGAA\Areas\OYM\Publicado</_PublishTargetUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="Areas/CONV/Views/web.config">
+      <publishTime>11/28/2016 18:16:34</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/ActaDefensaFinal/Create.cshtml">
+      <publishTime>12/05/2016 16:12:32</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/ActaDefensaFinal/Delete.cshtml">
+      <publishTime>12/02/2016 16:03:15</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/ActaDefensaFinal/Details.cshtml">
+      <publishTime>12/07/2016 10:33:41</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/ActaDefensaFinal/Edit.cshtml">
+      <publishTime>12/05/2016 16:07:49</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/ActaDefensaFinal/Index.cshtml">
+      <publishTime>12/05/2016 15:01:29</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/ActaDefensaFinal/_CreateEdit.cshtml">
+      <publishTime>12/02/2016 15:04:32</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/ActaDefensaFinal/_DetailsDelete.cshtml">
+      <publishTime>12/02/2016 15:05:26</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/ActaDefensaFinal/_Index.cshtml">
+      <publishTime>12/05/2016 15:26:17</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/ActaSorteoEG/Create.cshtml">
+      <publishTime>12/02/2016 16:04:53</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/ActaSorteoEG/Delete.cshtml">
+      <publishTime>12/02/2016 16:04:53</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/ActaSorteoEG/Details.cshtml">
+      <publishTime>12/07/2016 10:34:50</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/ActaSorteoEG/Edit.cshtml">
+      <publishTime>12/02/2016 16:04:53</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/ActaSorteoEG/Index.cshtml">
+      <publishTime>12/06/2016 09:58:57</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/ActaSorteoEG/_CreateEdit.cshtml">
+      <publishTime>12/02/2016 15:07:47</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/ActaSorteoEG/_DetailsDelete.cshtml">
+      <publishTime>12/02/2016 15:07:47</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/ActaSorteoEG/_Index.cshtml">
+      <publishTime>12/06/2016 10:03:17</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/AreaAdministrativa/Create.cshtml">
+      <publishTime>12/02/2016 16:05:46</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/AreaAdministrativa/Delete.cshtml">
+      <publishTime>12/02/2016 16:05:46</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/AreaAdministrativa/Details.cshtml">
+      <publishTime>12/07/2016 10:38:48</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/AreaAdministrativa/Edit.cshtml">
+      <publishTime>12/02/2016 16:05:46</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/AreaAdministrativa/Index.cshtml">
+      <publishTime>12/06/2016 10:04:12</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/AreaAdministrativa/_CreateEdit.cshtml">
+      <publishTime>12/02/2016 15:07:47</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/AreaAdministrativa/_DetailsDelete.cshtml">
+      <publishTime>12/02/2016 15:07:47</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/AreaAdministrativa/_Index.cshtml">
+      <publishTime>12/06/2016 10:08:42</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/ComunicacionEst/Create.cshtml">
+      <publishTime>12/02/2016 16:06:36</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/ComunicacionEst/Delete.cshtml">
+      <publishTime>12/02/2016 16:06:36</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/ComunicacionEst/Details.cshtml">
+      <publishTime>12/07/2016 10:39:53</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/ComunicacionEst/Edit.cshtml">
+      <publishTime>12/02/2016 16:06:36</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/ComunicacionEst/Index.cshtml">
+      <publishTime>12/06/2016 10:09:43</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/ComunicacionEst/_CreateEdit.cshtml">
+      <publishTime>12/02/2016 15:08:52</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/ComunicacionEst/_DetailsDelete.cshtml">
+      <publishTime>12/02/2016 15:09:39</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/ComunicacionEst/_Index.cshtml">
+      <publishTime>12/06/2016 10:13:24</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/ComunicacionExtColProf/Create.cshtml">
+      <publishTime>12/02/2016 16:07:13</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/ComunicacionExtColProf/Delete.cshtml">
+      <publishTime>12/02/2016 16:07:13</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/ComunicacionExtColProf/Details.cshtml">
+      <publishTime>12/07/2016 10:41:09</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/ComunicacionExtColProf/Edit.cshtml">
+      <publishTime>12/02/2016 16:07:13</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/ComunicacionExtColProf/Index.cshtml">
+      <publishTime>12/06/2016 10:14:26</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/ComunicacionExtColProf/_CreateEdit.cshtml">
+      <publishTime>12/02/2016 15:10:45</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/ComunicacionExtColProf/_DetailsDelete.cshtml">
+      <publishTime>12/02/2016 15:10:45</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/ComunicacionExtColProf/_Index.cshtml">
+      <publishTime>12/06/2016 10:17:33</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/ComunicacionExtUnivPublica/Create.cshtml">
+      <publishTime>12/02/2016 16:08:47</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/ComunicacionExtUnivPublica/Delete.cshtml">
+      <publishTime>12/02/2016 16:08:47</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/ComunicacionExtUnivPublica/Details.cshtml">
+      <publishTime>12/07/2016 10:42:36</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/ComunicacionExtUnivPublica/Edit.cshtml">
+      <publishTime>12/02/2016 16:08:47</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/ComunicacionExtUnivPublica/Index.cshtml">
+      <publishTime>12/06/2016 10:19:25</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/ComunicacionExtUnivPublica/_CreateEdit.cshtml">
+      <publishTime>12/02/2016 15:11:51</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/ComunicacionExtUnivPublica/_DetailsDelete.cshtml">
+      <publishTime>12/02/2016 15:11:51</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/ComunicacionExtUnivPublica/_Index.cshtml">
+      <publishTime>12/06/2016 10:20:40</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/ComunicacionInt/Create.cshtml">
+      <publishTime>12/02/2016 16:08:47</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/ComunicacionInt/Delete.cshtml">
+      <publishTime>12/02/2016 16:08:47</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/ComunicacionInt/Details.cshtml">
+      <publishTime>12/07/2016 10:44:25</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/ComunicacionInt/Edit.cshtml">
+      <publishTime>12/02/2016 16:08:47</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/ComunicacionInt/Index.cshtml">
+      <publishTime>12/06/2016 10:21:35</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/ComunicacionInt/_CreateEdit.cshtml">
+      <publishTime>12/02/2016 15:12:26</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/ComunicacionInt/_DetailsDelete.cshtml">
+      <publishTime>12/02/2016 15:12:25</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/ComunicacionInt/_Index.cshtml">
+      <publishTime>12/06/2016 10:22:59</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/CProfesional/Create.cshtml">
+      <publishTime>12/02/2016 16:10:26</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/CProfesional/Delete.cshtml">
+      <publishTime>12/02/2016 16:10:26</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/CProfesional/Details.cshtml">
+      <publishTime>12/07/2016 10:45:29</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/CProfesional/Edit.cshtml">
+      <publishTime>12/02/2016 16:10:26</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/CProfesional/Index.cshtml">
+      <publishTime>12/06/2016 10:23:59</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/CProfesional/_CreateEdit.cshtml">
+      <publishTime>12/02/2016 15:14:25</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/CProfesional/_DetailsDelete.cshtml">
+      <publishTime>12/02/2016 15:14:25</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/CProfesional/_Index.cshtml">
+      <publishTime>12/06/2016 10:25:37</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/DRecepcionesTFG/Create.cshtml">
+      <publishTime>12/02/2016 15:17:36</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/DRecepcionesTFG/Delete.cshtml">
+      <publishTime>12/02/2016 15:17:44</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/DRecepcionesTFG/Details.cshtml">
+      <publishTime>12/02/2016 15:18:02</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/DRecepcionesTFG/Edit.cshtml">
+      <publishTime>12/02/2016 15:18:02</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/DRecepcionesTFG/Index.cshtml">
+      <publishTime>12/02/2016 15:18:02</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/DRecepcionesTFG/_CreateEdit.cshtml">
+      <publishTime>12/02/2016 15:17:19</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/DRecepcionesTFG/_DetailsDelete.cshtml">
+      <publishTime>12/02/2016 15:17:36</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/EntregaAlEst/Create.cshtml">
+      <publishTime>12/02/2016 16:11:52</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/EntregaAlEst/Delete.cshtml">
+      <publishTime>12/02/2016 16:11:52</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/EntregaAlEst/Details.cshtml">
+      <publishTime>12/07/2016 11:17:50</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/EntregaAlEst/Edit.cshtml">
+      <publishTime>12/02/2016 16:10:26</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/EntregaAlEst/Index.cshtml">
+      <publishTime>12/06/2016 10:29:19</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/EntregaAlEst/_CreateEdit.cshtml">
+      <publishTime>12/02/2016 15:19:08</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/EntregaAlEst/_DetailsDelete.cshtml">
+      <publishTime>12/02/2016 15:19:08</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/EntregaAlEst/_Index.cshtml">
+      <publishTime>12/07/2016 11:24:53</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/EntregaTFG/Create.cshtml">
+      <publishTime>12/02/2016 16:16:29</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/EntregaTFG/Delete.cshtml">
+      <publishTime>12/02/2016 16:16:29</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/EntregaTFG/Details.cshtml">
+      <publishTime>12/07/2016 11:18:54</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/EntregaTFG/Edit.cshtml">
+      <publishTime>12/02/2016 16:16:29</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/EntregaTFG/Index.cshtml">
+      <publishTime>12/06/2016 10:35:41</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/EntregaTFG/_CreateEdit.cshtml">
+      <publishTime>12/02/2016 15:20:12</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/EntregaTFG/_DetailsDelete.cshtml">
+      <publishTime>12/02/2016 15:20:12</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/EntregaTFG/_Index.cshtml">
+      <publishTime>12/07/2016 11:25:08</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/EntregaTribunales/Create.cshtml">
+      <publishTime>12/02/2016 16:17:58</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/EntregaTribunales/Delete.cshtml">
+      <publishTime>12/02/2016 16:17:58</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/EntregaTribunales/Details.cshtml">
+      <publishTime>12/07/2016 11:19:16</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/EntregaTribunales/Edit.cshtml">
+      <publishTime>12/02/2016 16:17:58</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/EntregaTribunales/Index.cshtml">
+      <publishTime>12/06/2016 10:38:48</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/EntregaTribunales/_CreateEdit.cshtml">
+      <publishTime>12/02/2016 15:20:39</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/EntregaTribunales/_DetailsDelete.cshtml">
+      <publishTime>12/02/2016 15:21:28</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/EntregaTribunales/_Index.cshtml">
+      <publishTime>12/07/2016 11:25:50</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/Home/About.cshtml">
+      <publishTime>03/08/2016 19:17:20</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/Home/Contact.cshtml">
+      <publishTime>01/19/2016 11:35:30</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/Home/Index.cshtml">
+      <publishTime>12/01/2016 12:32:00</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/Perfil/Create.cshtml">
+      <publishTime>12/02/2016 16:19:56</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/Perfil/Delete.cshtml">
+      <publishTime>12/02/2016 16:19:56</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/Perfil/Details.cshtml">
+      <publishTime>12/07/2016 10:53:02</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/Perfil/Edit.cshtml">
+      <publishTime>12/02/2016 16:18:59</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/Perfil/Index.cshtml">
+      <publishTime>12/06/2016 11:05:53</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/Perfil/IndexTFG.cshtml">
+      <publishTime>12/06/2016 10:40:10</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/Perfil/_CreateEdit.cshtml">
+      <publishTime>12/02/2016 15:22:32</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/Perfil/_DetailsDelete.cshtml">
+      <publishTime>12/02/2016 15:22:32</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/Perfil/_Index.cshtml">
+      <publishTime>12/07/2016 11:24:18</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/Perfil/_IndexTFG.cshtml">
+      <publishTime>12/06/2016 11:04:47</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/PresidenteColegioProfesional/Create.cshtml">
+      <publishTime>12/02/2016 16:21:31</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/PresidenteColegioProfesional/Delete.cshtml">
+      <publishTime>12/02/2016 16:21:31</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/PresidenteColegioProfesional/Details.cshtml">
+      <publishTime>12/07/2016 10:54:11</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/PresidenteColegioProfesional/Edit.cshtml">
+      <publishTime>12/02/2016 16:21:31</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/PresidenteColegioProfesional/Index.cshtml">
+      <publishTime>12/06/2016 11:10:50</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/PresidenteColegioProfesional/_CreateEdit.cshtml">
+      <publishTime>12/02/2016 15:27:21</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/PresidenteColegioProfesional/_DetailsDelete.cshtml">
+      <publishTime>12/02/2016 15:27:21</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/PresidenteColegioProfesional/_Index.cshtml">
+      <publishTime>12/06/2016 11:11:56</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/Profesiones/Create.cshtml">
+      <publishTime>12/02/2016 16:23:03</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/Profesiones/Delete.cshtml">
+      <publishTime>12/02/2016 16:23:03</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/Profesiones/Details.cshtml">
+      <publishTime>12/07/2016 10:55:10</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/Profesiones/Edit.cshtml">
+      <publishTime>12/02/2016 16:23:03</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/Profesiones/Index.cshtml">
+      <publishTime>12/06/2016 11:14:03</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/Profesiones/_CreateEdit.cshtml">
+      <publishTime>12/02/2016 15:28:25</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/Profesiones/_DetailsDelete.cshtml">
+      <publishTime>12/02/2016 15:28:25</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/Profesiones/_Index.cshtml">
+      <publishTime>12/06/2016 11:14:18</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/RecepcionesTFG/AgregarEditarDetalleRecepcionTFG.cshtml">
+      <publishTime>12/02/2016 15:32:53</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/RecepcionesTFG/CrearDetalleRecepcionTFG.cshtml">
+      <publishTime>12/06/2016 11:47:38</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/RecepcionesTFG/Create.cshtml">
+      <publishTime>12/07/2016 10:17:20</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/RecepcionesTFG/Delete.cshtml">
+      <publishTime>12/02/2016 16:24:43</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/RecepcionesTFG/Details.cshtml">
+      <publishTime>12/07/2016 11:19:39</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/RecepcionesTFG/Edit.cshtml">
+      <publishTime>12/02/2016 16:24:43</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/RecepcionesTFG/EliminiarDetalleRecepcionTFG.cshtml">
+      <publishTime>12/02/2016 15:32:53</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/RecepcionesTFG/Index.cshtml">
+      <publishTime>12/06/2016 11:17:32</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/RecepcionesTFG/_Create.cshtml">
+      <publishTime>12/02/2016 15:32:53</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/RecepcionesTFG/_CreateEdit.cshtml">
+      <publishTime>12/02/2016 15:32:53</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/RecepcionesTFG/_DetailsDelete.cshtml">
+      <publishTime>12/02/2016 15:31:25</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/RecepcionesTFG/_Index.cshtml">
+      <publishTime>12/07/2016 11:25:50</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/RectorUniversidadPublica/Create.cshtml">
+      <publishTime>12/02/2016 16:27:03</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/RectorUniversidadPublica/Delete.cshtml">
+      <publishTime>12/02/2016 16:27:03</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/RectorUniversidadPublica/Details.cshtml">
+      <publishTime>12/07/2016 10:58:06</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/RectorUniversidadPublica/Edit.cshtml">
+      <publishTime>12/02/2016 16:27:03</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/RectorUniversidadPublica/Index.cshtml">
+      <publishTime>12/06/2016 11:23:21</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/RectorUniversidadPublica/_CreateEdit.cshtml">
+      <publishTime>12/02/2016 15:33:58</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/RectorUniversidadPublica/_DetailsDelete.cshtml">
+      <publishTime>12/02/2016 15:33:58</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/RectorUniversidadPublica/_Index.cshtml">
+      <publishTime>12/06/2016 11:24:41</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/Sala/Create.cshtml">
+      <publishTime>12/02/2016 16:27:03</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/Sala/Delete.cshtml">
+      <publishTime>12/02/2016 16:27:03</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/Sala/Details.cshtml">
+      <publishTime>12/07/2016 10:58:54</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/Sala/Edit.cshtml">
+      <publishTime>12/02/2016 16:27:03</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/Sala/Index.cshtml">
+      <publishTime>12/06/2016 11:26:10</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/Sala/_CreateEdit.cshtml">
+      <publishTime>12/02/2016 15:35:43</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/Sala/_DetailsDelete.cshtml">
+      <publishTime>12/02/2016 15:35:43</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/Sala/_Index.cshtml">
+      <publishTime>12/06/2016 11:27:24</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/Shared/DisplayTemplates/MessageBase.cshtml">
+      <publishTime>06/19/2016 22:10:54</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/Shared/DisplayTemplates/SimpleMessage.cshtml">
+      <publishTime>06/19/2016 22:10:54</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/Shared/_Layout.cshtml">
+      <publishTime>12/09/2016 11:42:17</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/Shared/_LoginPartial.cshtml">
+      <publishTime>12/05/2016 11:44:46</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/Tutor/Create.cshtml">
+      <publishTime>12/02/2016 15:58:00</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/Tutor/Delete.cshtml">
+      <publishTime>12/02/2016 15:57:20</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/Tutor/Details.cshtml">
+      <publishTime>12/07/2016 10:59:46</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/Tutor/Edit.cshtml">
+      <publishTime>12/02/2016 15:56:52</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/Tutor/Index.cshtml">
+      <publishTime>12/06/2016 11:32:42</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/Tutor/_CreateEdit.cshtml">
+      <publishTime>12/02/2016 15:35:43</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/Tutor/_DetailsDelete.cshtml">
+      <publishTime>12/02/2016 15:35:43</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/Tutor/_Index.cshtml">
+      <publishTime>12/06/2016 11:32:28</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/web.config">
+      <publishTime>12/05/2016 10:42:45</publishTime>
+    </File>
+    <File Include="Areas/EGRE/Views/_ViewStart.cshtml">
+      <publishTime>12/02/2016 13:57:27</publishTime>
+    </File>
+    <File Include="Areas/OYM/Adjunto/16112016143937_PO-GCA-100.docx">
+      <publishTime>11/16/2016 14:55:58</publishTime>
+    </File>
+    <File Include="Areas/OYM/Adjunto/16112016150857_16112016143937_PO-GCA-100.docx">
+      <publishTime>11/16/2016 15:09:10</publishTime>
+    </File>
+    <File Include="Areas/OYM/Adjunto/31082016120406_MA-PFC-001-1..pdf">
+      <publishTime>08/31/2016 12:04:06</publishTime>
+    </File>
+    <File Include="Areas/OYM/Adjunto/access.rar">
+      <publishTime>08/12/2016 10:49:49</publishTime>
+    </File>
+    <File Include="Areas/OYM/Adjunto/Chrysanthemum.jpg">
+      <publishTime>08/08/2016 16:43:53</publishTime>
+    </File>
+    <File Include="Areas/OYM/Adjunto/DocumentoRespuesta/25092016175557_PL-GES-101.docx">
+      <publishTime>09/25/2016 17:55:57</publishTime>
+    </File>
+    <File Include="Areas/OYM/Adjunto/Documentos/Instructivos/IT-PFC-003.docx">
+      <publishTime>08/31/2016 12:10:51</publishTime>
+    </File>
+    <File Include="Areas/OYM/Adjunto/Documentos/MA-GCA-002.docx">
+      <publishTime>09/19/2016 19:21:04</publishTime>
+    </File>
+    <File Include="Areas/OYM/Adjunto/Documentos/MA-GCA-005.docx">
+      <publishTime>09/21/2016 16:02:06</publishTime>
+    </File>
+    <File Include="Areas/OYM/Adjunto/Documentos/MA-GCA-100.docx">
+      <publishTime>11/18/2016 09:53:13</publishTime>
+    </File>
+    <File Include="Areas/OYM/Adjunto/Documentos/MA-PFC-100.docx">
+      <publishTime>11/18/2016 09:51:31</publishTime>
+    </File>
+    <File Include="Areas/OYM/Adjunto/Documentos/Manual de calidad/MA-PFC-001.docx">
+      <publishTime>08/31/2016 11:34:07</publishTime>
+    </File>
+    <File Include="Areas/OYM/Adjunto/Documentos/PO-GCA-001.docx">
+      <publishTime>09/21/2016 16:10:00</publishTime>
+    </File>
+    <File Include="Areas/OYM/Adjunto/Documentos/PO-GCA-100.docx">
+      <publishTime>11/16/2016 13:46:25</publishTime>
+    </File>
+    <File Include="Areas/OYM/Adjunto/Documentos/Procedimientos/MA-PRE-100.docx">
+      <publishTime>11/17/2016 09:40:24</publishTime>
+    </File>
+    <File Include="Areas/OYM/Adjunto/Documentos/Procedimientos/PO-INV-002.docx">
+      <publishTime>08/31/2016 11:36:02</publishTime>
+    </File>
+    <File Include="Areas/OYM/Adjunto/Documentos/Procedimientos/PO-PFC-006.docx">
+      <publishTime>08/31/2016 16:31:18</publishTime>
+    </File>
+    <File Include="Areas/OYM/Adjunto/Formularios/19092016181353_MA-GES-001-1..docx">
+      <publishTime>09/19/2016 18:13:54</publishTime>
+    </File>
+    <File Include="Areas/OYM/Adjunto/Formularios/Gestion estrategica/19092016181501_MA-GES-001-2..docx">
+      <publishTime>09/19/2016 18:15:01</publishTime>
+    </File>
+    <File Include="Areas/OYM/Adjunto/Formularios/Gestion estrategica/31082016115756_MA-PFC-001-1..docx">
+      <publishTime>08/31/2016 11:58:19</publishTime>
+    </File>
+    <File Include="Areas/OYM/Adjunto/Formularios/Gestion estrategica/31082016120619_MA-PFC-001-1..pdf">
+      <publishTime>08/31/2016 12:06:19</publishTime>
+    </File>
+    <File Include="Areas/OYM/Adjunto/Hydrangeas.jpg">
+      <publishTime>08/08/2016 16:43:53</publishTime>
+    </File>
+    <File Include="Areas/OYM/Adjunto/imagen34.jpg">
+      <publishTime>09/15/2016 21:33:22</publishTime>
+    </File>
+    <File Include="Areas/OYM/Adjunto/IMG_0163.JPG">
+      <publishTime>09/22/2016 14:54:38</publishTime>
+    </File>
+    <File Include="Areas/OYM/Adjunto/IT-GES-005.docx">
+      <publishTime>08/31/2016 04:44:32</publishTime>
+    </File>
+    <File Include="Areas/OYM/Adjunto/IT-GES-007.docx">
+      <publishTime>08/31/2016 04:26:23</publishTime>
+    </File>
+    <File Include="Areas/OYM/Adjunto/Jellyfish.jpg">
+      <publishTime>08/08/2016 16:37:49</publishTime>
+    </File>
+    <File Include="Areas/OYM/Adjunto/Koala.jpg">
+      <publishTime>08/09/2016 04:36:23</publishTime>
+    </File>
+    <File Include="Areas/OYM/Adjunto/Lighthouse.jpg">
+      <publishTime>08/08/2016 16:37:49</publishTime>
+    </File>
+    <File Include="Areas/OYM/Adjunto/LogoUtepsaPlantilla.gif">
+      <publishTime>08/31/2016 03:26:30</publishTime>
+    </File>
+    <File Include="Areas/OYM/Adjunto/MA-GES-008.docx">
+      <publishTime>08/31/2016 04:32:23</publishTime>
+    </File>
+    <File Include="Areas/OYM/Adjunto/MA-GES-032.docx">
+      <publishTime>08/30/2016 21:41:15</publishTime>
+    </File>
+    <File Include="Areas/OYM/Adjunto/MA-PRE-006.docx">
+      <publishTime>08/31/2016 04:18:56</publishTime>
+    </File>
+    <File Include="Areas/OYM/Adjunto/MVI_0047.MOV">
+      <publishTime>09/22/2016 14:55:10</publishTime>
+    </File>
+    <File Include="Areas/OYM/Adjunto/MVI_0048.MOV">
+      <publishTime>09/22/2016 14:54:30</publishTime>
+    </File>
+    <File Include="Areas/OYM/Adjunto/Penguins.jpg">
+      <publishTime>08/08/2016 16:32:57</publishTime>
+    </File>
+    <File Include="Areas/OYM/Adjunto/Plantilla.dotx">
+      <publishTime>09/19/2016 18:12:57</publishTime>
+    </File>
+    <File Include="Areas/OYM/Adjunto/PlantillaDocumento.dotx">
+      <publishTime>08/31/2016 03:26:30</publishTime>
+    </File>
+    <File Include="Areas/OYM/Adjunto/PlantillaDocumento2.dotx">
+      <publishTime>08/31/2016 04:18:02</publishTime>
+    </File>
+    <File Include="Areas/OYM/Adjunto/PlantillaDocumento3.dotx">
+      <publishTime>08/31/2016 04:25:22</publishTime>
+    </File>
+    <File Include="Areas/OYM/Adjunto/Plantillas/16112016134249_Docplantilla.docx">
+      <publishTime>11/16/2016 13:42:49</publishTime>
+    </File>
+    <File Include="Areas/OYM/Adjunto/Plantillas/16112016134544_21092016235512_PlantillaFormato.dotx">
+      <publishTime>11/16/2016 13:45:44</publishTime>
+    </File>
+    <File Include="Areas/OYM/Adjunto/Plantillas/17092016044038_PlantillaDocumento.dotx">
+      <publishTime>09/17/2016 04:40:38</publishTime>
+    </File>
+    <File Include="Areas/OYM/Adjunto/Plantillas/19092016162310_PlantillaDocumento.dotx">
+      <publishTime>09/19/2016 16:23:11</publishTime>
+    </File>
+    <File Include="Areas/OYM/Adjunto/Plantillas/21092016151338_PlantillaFormato.dotx">
+      <publishTime>09/21/2016 15:13:38</publishTime>
+    </File>
+    <File Include="Areas/OYM/Adjunto/Plantillas/21092016151351_PlantillaFormato.dotx">
+      <publishTime>09/21/2016 15:13:51</publishTime>
+    </File>
+    <File Include="Areas/OYM/Adjunto/Plantillas/21092016151402_PlantillaFormato.dotx">
+      <publishTime>09/21/2016 15:14:02</publishTime>
+    </File>
+    <File Include="Areas/OYM/Adjunto/Plantillas/21092016151416_PlantillaFormato.dotx">
+      <publishTime>09/21/2016 15:14:16</publishTime>
+    </File>
+    <File Include="Areas/OYM/Adjunto/Plantillas/21092016235441_PlantillaFormato.dotx">
+      <publishTime>09/21/2016 23:54:41</publishTime>
+    </File>
+    <File Include="Areas/OYM/Adjunto/Plantillas/21092016235451_PlantillaFormato.dotx">
+      <publishTime>09/21/2016 23:54:51</publishTime>
+    </File>
+    <File Include="Areas/OYM/Adjunto/Plantillas/21092016235501_PlantillaFormato.dotx">
+      <publishTime>09/21/2016 23:55:01</publishTime>
+    </File>
+    <File Include="Areas/OYM/Adjunto/Plantillas/21092016235512_PlantillaFormato.dotx">
+      <publishTime>09/21/2016 23:55:12</publishTime>
+    </File>
+    <File Include="Areas/OYM/Adjunto/Plantillas/31082016063458_PlantillaDocumento2.dotx">
+      <publishTime>08/31/2016 06:34:58</publishTime>
+    </File>
+    <File Include="Areas/OYM/Adjunto/Plantillas/31082016063513_PlantillaDocumento2.dotx">
+      <publishTime>08/31/2016 06:35:13</publishTime>
+    </File>
+    <File Include="Areas/OYM/Adjunto/Plantillas/31082016063534_PlantillaDocumento3.dotx">
+      <publishTime>08/31/2016 06:35:34</publishTime>
+    </File>
+    <File Include="Areas/OYM/Adjunto/Plantillas/31082016063648_PlantillaDocumento3.dotx">
+      <publishTime>08/31/2016 06:36:48</publishTime>
+    </File>
+    <File Include="Areas/OYM/Adjunto/PO-GCA-001.docx">
+      <publishTime>08/31/2016 10:55:11</publishTime>
+    </File>
+    <File Include="Areas/OYM/Adjunto/PO-PFC-005.docx">
+      <publishTime>08/31/2016 04:03:58</publishTime>
+    </File>
+    <File Include="Areas/OYM/Adjunto/PO-RSU-005.docx">
+      <publishTime>08/31/2016 03:56:26</publishTime>
+    </File>
+    <File Include="Areas/OYM/Adjunto/rptDocumentoProceso.pdf">
+      <publishTime>09/15/2016 21:33:33</publishTime>
+    </File>
+    <File Include="Areas/OYM/Adjunto/rptDocumentoProceso.xls">
+      <publishTime>09/16/2016 17:03:05</publishTime>
+    </File>
+    <File Include="Areas/OYM/Adjunto/rptRecibo.pdf">
+      <publishTime>09/19/2016 18:10:54</publishTime>
+    </File>
+    <File Include="Areas/OYM/Adjunto/tablasCargosAgenda.xlsx">
+      <publishTime>08/12/2016 10:53:49</publishTime>
+    </File>
+    <File Include="Areas/OYM/Adjunto/Tulips.jpg">
+      <publishTime>08/08/2016 16:00:34</publishTime>
+    </File>
+    <File Include="Areas/OYM/Adjunto/_ETOLOGIA %281%29.docx">
+      <publishTime>08/24/2016 14:17:25</publishTime>
+    </File>
+    <File Include="Areas/OYM/Content/bootstrap.css">
+      <publishTime>09/07/2016 09:06:25</publishTime>
+    </File>
+    <File Include="Areas/OYM/Content/kendo/Bootstrap/editor.png">
+      <publishTime>12/09/2016 14:37:04</publishTime>
+    </File>
+    <File Include="Areas/OYM/Content/kendo/Bootstrap/imagebrowser.png">
+      <publishTime>12/09/2016 14:37:04</publishTime>
+    </File>
+    <File Include="Areas/OYM/Content/kendo/Bootstrap/indeterminate.gif">
+      <publishTime>12/09/2016 14:37:04</publishTime>
+    </File>
+    <File Include="Areas/OYM/Content/kendo/Bootstrap/loading-image.gif">
+      <publishTime>12/09/2016 14:37:04</publishTime>
+    </File>
+    <File Include="Areas/OYM/Content/kendo/Bootstrap/loading.gif">
+      <publishTime>12/09/2016 14:37:04</publishTime>
+    </File>
+    <File Include="Areas/OYM/Content/kendo/Bootstrap/loading_2x.gif">
+      <publishTime>12/09/2016 14:37:04</publishTime>
+    </File>
+    <File Include="Areas/OYM/Content/kendo/Bootstrap/markers.png">
+      <publishTime>12/09/2016 14:37:04</publishTime>
+    </File>
+    <File Include="Areas/OYM/Content/kendo/Bootstrap/markers_2x.png">
+      <publishTime>12/09/2016 14:37:04</publishTime>
+    </File>
+    <File Include="Areas/OYM/Content/kendo/Bootstrap/slider-h.gif">
+      <publishTime>12/09/2016 14:37:04</publishTime>
+    </File>
+    <File Include="Areas/OYM/Content/kendo/Bootstrap/slider-v.gif">
+      <publishTime>12/09/2016 14:37:04</publishTime>
+    </File>
+    <File Include="Areas/OYM/Content/kendo/Bootstrap/sprite.png">
+      <publishTime>12/09/2016 14:37:04</publishTime>
+    </File>
+    <File Include="Areas/OYM/Content/kendo/Bootstrap/sprite_2x.png">
+      <publishTime>12/09/2016 14:37:04</publishTime>
+    </File>
+    <File Include="Areas/OYM/Content/kendo/Bootstrap/sprite_kpi.png">
+      <publishTime>12/09/2016 14:37:04</publishTime>
+    </File>
+    <File Include="Areas/OYM/Content/kendo/Bootstrap/sprite_kpi_2x.png">
+      <publishTime>12/09/2016 14:37:04</publishTime>
+    </File>
+    <File Include="Areas/OYM/Content/kendo/images/back.png">
+      <publishTime>01/12/2016 16:42:22</publishTime>
+    </File>
+    <File Include="Areas/OYM/Content/kendo/images/kendoui.svg">
+      <publishTime>01/12/2016 16:42:22</publishTime>
+    </File>
+    <File Include="Areas/OYM/Content/kendo/images/kendoui.ttf">
+      <publishTime>01/12/2016 16:42:22</publishTime>
+    </File>
+    <File Include="Areas/OYM/Content/kendo/images/kendoui.woff">
+      <publishTime>01/12/2016 16:42:22</publishTime>
+    </File>
+    <File Include="Areas/OYM/Content/kendo/images/wp8_icons.png">
+      <publishTime>01/12/2016 16:42:22</publishTime>
+    </File>
+    <File Include="Areas/OYM/Content/kendo/images/wp8_inverseicons.png">
+      <publishTime>01/12/2016 16:42:22</publishTime>
+    </File>
+    <File Include="Areas/OYM/Content/kendo/kendo.bootstrap.min.css">
+      <publishTime>01/12/2016 16:42:22</publishTime>
+    </File>
+    <File Include="Areas/OYM/Content/kendo/kendo.bootstrap.min.css.map">
+      <publishTime>01/12/2016 16:42:22</publishTime>
+    </File>
+    <File Include="Areas/OYM/Content/kendo/kendo.common-bootstrap.min.css">
+      <publishTime>01/12/2016 16:42:22</publishTime>
+    </File>
+    <File Include="Areas/OYM/Content/kendo/kendo.common-bootstrap.min.css.map">
+      <publishTime>01/12/2016 16:42:22</publishTime>
+    </File>
+    <File Include="Areas/OYM/Content/kendo/kendo.common.min.css">
+      <publishTime>01/12/2016 16:42:22</publishTime>
+    </File>
+    <File Include="Areas/OYM/Content/kendo/kendo.common.min.css.map">
+      <publishTime>01/12/2016 16:42:22</publishTime>
+    </File>
+    <File Include="Areas/OYM/Content/kendo/kendo.dataviz.bootstrap.min.css">
+      <publishTime>01/12/2016 16:42:22</publishTime>
+    </File>
+    <File Include="Areas/OYM/Content/kendo/kendo.dataviz.bootstrap.min.css.map">
+      <publishTime>01/12/2016 16:42:22</publishTime>
+    </File>
+    <File Include="Areas/OYM/Content/kendo/kendo.dataviz.min.css">
+      <publishTime>01/12/2016 16:42:22</publishTime>
+    </File>
+    <File Include="Areas/OYM/Content/kendo/kendo.dataviz.min.css.map">
+      <publishTime>01/12/2016 16:42:22</publishTime>
+    </File>
+    <File Include="Areas/OYM/Content/kendo/kendo.mobile.all.min.css">
+      <publishTime>01/12/2016 16:42:22</publishTime>
+    </File>
+    <File Include="Areas/OYM/Content/kendo/kendo.mobile.all.min.css.map">
+      <publishTime>01/12/2016 16:42:22</publishTime>
+    </File>
+    <File Include="Areas/OYM/Content/Site.css">
+      <publishTime>03/31/2016 10:10:49</publishTime>
+    </File>
+    <File Include="Areas/OYM/Content/themes/base/accordion.css">
+      <publishTime>08/08/2016 23:50:58</publishTime>
+    </File>
+    <File Include="Areas/OYM/Content/themes/base/all.css">
+      <publishTime>08/08/2016 23:50:58</publishTime>
+    </File>
+    <File Include="Areas/OYM/Content/themes/base/autocomplete.css">
+      <publishTime>08/08/2016 23:50:58</publishTime>
+    </File>
+    <File Include="Areas/OYM/Content/themes/base/base.css">
+      <publishTime>08/08/2016 23:50:58</publishTime>
+    </File>
+    <File Include="Areas/OYM/Content/themes/base/button.css">
+      <publishTime>08/08/2016 23:50:58</publishTime>
+    </File>
+    <File Include="Areas/OYM/Content/themes/base/core.css">
+      <publishTime>08/08/2016 23:50:58</publishTime>
+    </File>
+    <File Include="Areas/OYM/Content/themes/base/datepicker.css">
+      <publishTime>08/08/2016 23:50:58</publishTime>
+    </File>
+    <File Include="Areas/OYM/Content/themes/base/dialog.css">
+      <publishTime>08/08/2016 23:50:58</publishTime>
+    </File>
+    <File Include="Areas/OYM/Content/themes/base/draggable.css">
+      <publishTime>08/08/2016 23:50:58</publishTime>
+    </File>
+    <File Include="Areas/OYM/Content/themes/base/images/ui-bg_flat_0_aaaaaa_40x100.png">
+      <publishTime>08/08/2016 23:50:58</publishTime>
+    </File>
+    <File Include="Areas/OYM/Content/themes/base/images/ui-bg_flat_75_ffffff_40x100.png">
+      <publishTime>08/08/2016 23:50:58</publishTime>
+    </File>
+    <File Include="Areas/OYM/Content/themes/base/images/ui-bg_glass_55_fbf9ee_1x400.png">
+      <publishTime>08/08/2016 23:50:58</publishTime>
+    </File>
+    <File Include="Areas/OYM/Content/themes/base/images/ui-bg_glass_65_ffffff_1x400.png">
+      <publishTime>08/08/2016 23:50:58</publishTime>
+    </File>
+    <File Include="Areas/OYM/Content/themes/base/images/ui-bg_glass_75_dadada_1x400.png">
+      <publishTime>08/08/2016 23:50:58</publishTime>
+    </File>
+    <File Include="Areas/OYM/Content/themes/base/images/ui-bg_glass_75_e6e6e6_1x400.png">
+      <publishTime>08/08/2016 23:50:58</publishTime>
+    </File>
+    <File Include="Areas/OYM/Content/themes/base/images/ui-bg_glass_95_fef1ec_1x400.png">
+      <publishTime>08/08/2016 23:50:58</publishTime>
+    </File>
+    <File Include="Areas/OYM/Content/themes/base/images/ui-bg_highlight-soft_75_cccccc_1x100.png">
+      <publishTime>08/08/2016 23:50:58</publishTime>
+    </File>
+    <File Include="Areas/OYM/Content/themes/base/images/ui-icons_222222_256x240.png">
+      <publishTime>08/08/2016 23:50:58</publishTime>
+    </File>
+    <File Include="Areas/OYM/Content/themes/base/images/ui-icons_2e83ff_256x240.png">
+      <publishTime>08/08/2016 23:50:58</publishTime>
+    </File>
+    <File Include="Areas/OYM/Content/themes/base/images/ui-icons_444444_256x240.png">
+      <publishTime>08/08/2016 23:50:58</publishTime>
+    </File>
+    <File Include="Areas/OYM/Content/themes/base/images/ui-icons_454545_256x240.png">
+      <publishTime>08/08/2016 23:50:58</publishTime>
+    </File>
+    <File Include="Areas/OYM/Content/themes/base/images/ui-icons_555555_256x240.png">
+      <publishTime>08/08/2016 23:50:58</publishTime>
+    </File>
+    <File Include="Areas/OYM/Content/themes/base/images/ui-icons_777620_256x240.png">
+      <publishTime>08/08/2016 23:50:58</publishTime>
+    </File>
+    <File Include="Areas/OYM/Content/themes/base/images/ui-icons_777777_256x240.png">
+      <publishTime>08/08/2016 23:50:58</publishTime>
+    </File>
+    <File Include="Areas/OYM/Content/themes/base/images/ui-icons_888888_256x240.png">
+      <publishTime>08/08/2016 23:50:58</publishTime>
+    </File>
+    <File Include="Areas/OYM/Content/themes/base/images/ui-icons_cc0000_256x240.png">
+      <publishTime>08/08/2016 23:50:58</publishTime>
+    </File>
+    <File Include="Areas/OYM/Content/themes/base/images/ui-icons_cd0a0a_256x240.png">
+      <publishTime>08/08/2016 23:50:58</publishTime>
+    </File>
+    <File Include="Areas/OYM/Content/themes/base/images/ui-icons_ffffff_256x240.png">
+      <publishTime>08/08/2016 23:50:58</publishTime>
+    </File>
+    <File Include="Areas/OYM/Content/themes/base/jquery-ui.css">
+      <publishTime>08/08/2016 23:50:58</publishTime>
+    </File>
+    <File Include="Areas/OYM/Content/themes/base/jquery-ui.min.css">
+      <publishTime>08/08/2016 23:50:58</publishTime>
+    </File>
+    <File Include="Areas/OYM/Content/themes/base/menu.css">
+      <publishTime>08/08/2016 23:50:58</publishTime>
+    </File>
+    <File Include="Areas/OYM/Content/themes/base/progressbar.css">
+      <publishTime>08/08/2016 23:50:58</publishTime>
+    </File>
+    <File Include="Areas/OYM/Content/themes/base/resizable.css">
+      <publishTime>08/08/2016 23:50:58</publishTime>
+    </File>
+    <File Include="Areas/OYM/Content/themes/base/selectable.css">
+      <publishTime>08/08/2016 23:50:58</publishTime>
+    </File>
+    <File Include="Areas/OYM/Content/themes/base/selectmenu.css">
+      <publishTime>08/08/2016 23:50:58</publishTime>
+    </File>
+    <File Include="Areas/OYM/Content/themes/base/slider.css">
+      <publishTime>08/08/2016 23:50:58</publishTime>
+    </File>
+    <File Include="Areas/OYM/Content/themes/base/sortable.css">
+      <publishTime>08/08/2016 23:50:58</publishTime>
+    </File>
+    <File Include="Areas/OYM/Content/themes/base/spinner.css">
+      <publishTime>08/08/2016 23:50:58</publishTime>
+    </File>
+    <File Include="Areas/OYM/Content/themes/base/tabs.css">
+      <publishTime>08/08/2016 23:50:58</publishTime>
+    </File>
+    <File Include="Areas/OYM/Content/themes/base/theme.css">
+      <publishTime>08/08/2016 23:50:58</publishTime>
+    </File>
+    <File Include="Areas/OYM/Content/themes/base/tooltip.css">
+      <publishTime>08/08/2016 23:50:58</publishTime>
+    </File>
+    <File Include="Areas/OYM/Content/tmp/bootstrap.css">
+      <publishTime>08/03/2016 05:09:57</publishTime>
+    </File>
+    <File Include="Areas/OYM/Content/tmp/bootstrap.css.map">
+      <publishTime>08/03/2016 05:09:57</publishTime>
+    </File>
+    <File Include="Areas/OYM/Content/tmp/bootstrap.min.css">
+      <publishTime>08/03/2016 05:09:57</publishTime>
+    </File>
+    <File Include="Areas/OYM/Content/tmp/bootstrap.min.css.map">
+      <publishTime>08/03/2016 05:09:57</publishTime>
+    </File>
+    <File Include="Areas/OYM/Content/tmp/Site.css">
+      <publishTime>06/14/2014 13:12:12</publishTime>
+    </File>
+    <File Include="Areas/OYM/fonts/glyphicons-halflings-regular.eot">
+      <publishTime>08/05/2016 18:18:35</publishTime>
+    </File>
+    <File Include="Areas/OYM/fonts/glyphicons-halflings-regular.svg">
+      <publishTime>08/05/2016 18:18:35</publishTime>
+    </File>
+    <File Include="Areas/OYM/fonts/glyphicons-halflings-regular.ttf">
+      <publishTime>08/05/2016 18:18:35</publishTime>
+    </File>
+    <File Include="Areas/OYM/fonts/glyphicons-halflings-regular.woff">
+      <publishTime>08/05/2016 18:18:35</publishTime>
+    </File>
+    <File Include="Areas/OYM/fonts/glyphicons-halflings-regular.woff2">
+      <publishTime>08/05/2016 18:18:35</publishTime>
+    </File>
+    <File Include="Areas/OYM/Images/LogoUtepsaPlantilla.gif">
+      <publishTime>08/26/2016 18:45:09</publishTime>
+    </File>
+    <File Include="Areas/OYM/Scripts/bootstrap.js">
+      <publishTime>08/05/2016 18:18:35</publishTime>
+    </File>
+    <File Include="Areas/OYM/Scripts/bootstrap.min.js">
+      <publishTime>08/05/2016 18:18:35</publishTime>
+    </File>
+    <File Include="Areas/OYM/Scripts/jquery-ui-1.12.0.js">
+      <publishTime>08/08/2016 23:50:58</publishTime>
+    </File>
+    <File Include="Areas/OYM/Scripts/jquery-ui-1.12.0.min.js">
+      <publishTime>08/08/2016 23:50:56</publishTime>
+    </File>
+    <File Include="Areas/OYM/Scripts/jquery.validate.js">
+      <publishTime>06/14/2014 13:12:12</publishTime>
+    </File>
+    <File Include="Areas/OYM/Scripts/jquery.validate.min.js">
+      <publishTime>06/14/2014 13:12:12</publishTime>
+    </File>
+    <File Include="Areas/OYM/Scripts/jquery.validate.unobtrusive.js">
+      <publishTime>06/14/2014 13:12:12</publishTime>
+    </File>
+    <File Include="Areas/OYM/Scripts/jquery.validate.unobtrusive.min.js">
+      <publishTime>06/14/2014 13:12:12</publishTime>
+    </File>
+    <File Include="Areas/OYM/Scripts/kendo/cultures/kendo.culture.es-ES.min.js">
+      <publishTime>01/12/2016 16:42:22</publishTime>
+    </File>
+    <File Include="Areas/OYM/Scripts/kendo/jquery.min.js">
+      <publishTime>12/09/2016 12:10:37</publishTime>
+    </File>
+    <File Include="Areas/OYM/Scripts/kendo/kendo.all.min.js">
+      <publishTime>01/12/2016 16:42:22</publishTime>
+    </File>
+    <File Include="Areas/OYM/Scripts/kendo/kendo.aspnetmvc.min.js">
+      <publishTime>12/09/2016 12:10:38</publishTime>
+    </File>
+    <File Include="Areas/OYM/Scripts/kendo/kendo.culture.es-ES.min.js">
+      <publishTime>01/12/2016 16:42:22</publishTime>
+    </File>
+    <File Include="Areas/OYM/Scripts/kendo/kendo.modernizr.custom.js">
+      <publishTime>08/09/2016 01:19:10</publishTime>
+    </File>
+    <File Include="Areas/OYM/Scripts/modalform.js">
+      <publishTime>02/23/2015 22:16:58</publishTime>
+    </File>
+    <File Include="Areas/OYM/Scripts/modernizr-2.7.2.js">
+      <publishTime>06/14/2014 13:12:12</publishTime>
+    </File>
+    <File Include="Areas/OYM/Scripts/respond.js">
+      <publishTime>06/14/2014 13:12:12</publishTime>
+    </File>
+    <File Include="Areas/OYM/Scripts/respond.min.js">
+      <publishTime>06/14/2014 13:12:12</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/Home/About.cshtml">
+      <publishTime>08/06/2016 00:13:47</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/Home/Contact.cshtml">
+      <publishTime>08/06/2016 00:13:32</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/Home/Index.cshtml">
+      <publishTime>06/14/2014 13:12:12</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/Reportes/DocumentoDetalleRespuestaTipoProceso.cshtml">
+      <publishTime>12/12/2016 16:50:48</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/Reportes/DocumentoTiempoTipoProceso.cshtml">
+      <publishTime>12/12/2016 16:30:38</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/Reportes/DocumentoTipoProceso.cshtml">
+      <publishTime>12/13/2016 14:29:15</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/Reportes/FormularioDetalleRespuestaTipoProceso.cshtml">
+      <publishTime>12/12/2016 16:30:38</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/Reportes/FormularioTiempoTipoProceso.cshtml">
+      <publishTime>12/12/2016 16:30:38</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/Reportes/FormularioTipoProceso.cshtml">
+      <publishTime>12/12/2016 16:34:38</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/Reportes/GetReport.cshtml">
+      <publishTime>12/12/2016 16:30:38</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/Reports/rpvDocumentoTipoProceso.cshtml">
+      <publishTime>12/12/2016 16:31:41</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/rptViewer.cshtml">
+      <publishTime>12/13/2016 13:54:58</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/Shared/EditorTemplates/Currency.cshtml">
+      <publishTime>01/12/2016 16:42:22</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/Shared/EditorTemplates/Date.cshtml">
+      <publishTime>01/12/2016 16:42:22</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/Shared/EditorTemplates/DateTime.cshtml">
+      <publishTime>01/12/2016 16:42:22</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/Shared/EditorTemplates/Email.cshtml">
+      <publishTime>01/12/2016 16:42:22</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/Shared/EditorTemplates/EmailAddress.cshtml">
+      <publishTime>01/12/2016 16:42:22</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/Shared/EditorTemplates/GridForeignKey.cshtml">
+      <publishTime>01/12/2016 16:42:22</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/Shared/EditorTemplates/Integer.cshtml">
+      <publishTime>01/12/2016 16:42:22</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/Shared/EditorTemplates/Number.cshtml">
+      <publishTime>01/12/2016 16:42:22</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/Shared/EditorTemplates/Password.cshtml">
+      <publishTime>01/12/2016 16:42:22</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/Shared/EditorTemplates/String.cshtml">
+      <publishTime>08/26/2016 12:56:58</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/Shared/EditorTemplates/Time.cshtml">
+      <publishTime>01/12/2016 16:42:22</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/Shared/EditorTemplates/Url.cshtml">
+      <publishTime>01/12/2016 16:42:22</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/Shared/_Layout.cshtml">
+      <publishTime>12/21/2016 16:58:17</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/Shared/_LoginPartial.cshtml">
+      <publishTime>12/12/2016 11:50:48</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/tblCargoAgendas/Create.cshtml">
+      <publishTime>12/08/2016 09:44:46</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/tblCargoAgendas/Delete.cshtml">
+      <publishTime>12/08/2016 09:44:47</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/tblCargoAgendas/Details.cshtml">
+      <publishTime>12/08/2016 09:44:47</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/tblCargoAgendas/Edit.cshtml">
+      <publishTime>12/08/2016 09:44:47</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/tblCargoAgendas/Index.cshtml">
+      <publishTime>12/09/2016 10:09:17</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/tblCargos/Create.cshtml">
+      <publishTime>12/08/2016 09:44:47</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/tblCargos/Delete.cshtml">
+      <publishTime>12/08/2016 09:44:47</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/tblCargos/Details.cshtml">
+      <publishTime>12/08/2016 09:44:47</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/tblCargos/Edit.cshtml">
+      <publishTime>12/08/2016 09:44:47</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/tblCargos/Index.cshtml">
+      <publishTime>12/09/2016 10:09:28</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/tblCategorias/Create.cshtml">
+      <publishTime>12/08/2016 09:44:47</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/tblCategorias/Delete.cshtml">
+      <publishTime>12/08/2016 09:44:47</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/tblCategorias/Details.cshtml">
+      <publishTime>12/12/2016 17:22:14</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/tblCategorias/Edit.cshtml">
+      <publishTime>12/08/2016 09:44:47</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/tblCategorias/Index.cshtml">
+      <publishTime>12/12/2016 17:33:13</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/tblDirectorios/Create.cshtml">
+      <publishTime>12/08/2016 09:44:47</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/tblDirectorios/Delete.cshtml">
+      <publishTime>12/08/2016 09:44:47</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/tblDirectorios/Details.cshtml">
+      <publishTime>12/08/2016 09:44:47</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/tblDirectorios/Edit.cshtml">
+      <publishTime>12/08/2016 09:44:47</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/tblDirectorios/Index.cshtml">
+      <publishTime>12/14/2016 16:45:03</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/tblDocumentoHistoricos/Create.cshtml">
+      <publishTime>12/08/2016 09:44:47</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/tblDocumentoHistoricos/Delete.cshtml">
+      <publishTime>12/08/2016 09:44:47</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/tblDocumentoHistoricos/Details.cshtml">
+      <publishTime>12/08/2016 09:44:47</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/tblDocumentoHistoricos/Edit.cshtml">
+      <publishTime>12/08/2016 09:44:47</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/tblDocumentoHistoricos/Index.cshtml">
+      <publishTime>12/08/2016 09:44:47</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/tblDocumentoHistoricos/PublicarDocumento.cshtml">
+      <publishTime>12/08/2016 09:44:47</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/tblDocumentoHistoricos/_List.cshtml">
+      <publishTime>12/12/2016 12:08:31</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/tblDocumentoProcesos/Create.cshtml">
+      <publishTime>12/08/2016 09:44:47</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/tblDocumentoProcesos/CreateProcess.cshtml">
+      <publishTime>12/08/2016 09:44:47</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/tblDocumentoProcesos/Delete.cshtml">
+      <publishTime>12/08/2016 09:44:47</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/tblDocumentoProcesos/Details.cshtml">
+      <publishTime>12/13/2016 16:26:54</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/tblDocumentoProcesos/Edit.cshtml">
+      <publishTime>12/08/2016 09:44:47</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/tblDocumentoProcesos/Index.cshtml">
+      <publishTime>12/13/2016 16:26:21</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/tblDocumentoPublicados/Create.cshtml">
+      <publishTime>12/08/2016 09:44:47</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/tblDocumentoPublicados/Delete.cshtml">
+      <publishTime>12/08/2016 09:44:47</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/tblDocumentoPublicados/Details.cshtml">
+      <publishTime>12/13/2016 16:43:37</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/tblDocumentoPublicados/Edit.cshtml">
+      <publishTime>12/08/2016 09:44:47</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/tblDocumentoPublicados/FilterByDirectory.cshtml">
+      <publishTime>12/21/2016 18:01:39</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/tblDocumentoPublicados/Index.cshtml">
+      <publishTime>12/14/2016 16:55:08</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/tblDocumentoPublicados/IndexByDirectory.cshtml">
+      <publishTime>12/22/2016 10:57:05</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/tblDocumentoRelacionados/_Create.cshtml">
+      <publishTime>12/08/2016 09:44:47</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/tblDocumentoRelacionados/_Delete.cshtml">
+      <publishTime>12/08/2016 09:44:47</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/tblDocumentoRelacionados/_Edit.cshtml">
+      <publishTime>12/08/2016 09:44:47</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/tblDocumentoRelacionados/_Index.cshtml">
+      <publishTime>12/09/2016 10:10:15</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/tblDocumentoRelacionados/_List.cshtml">
+      <publishTime>12/08/2016 09:44:47</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/tblDocumentos/Create.cshtml">
+      <publishTime>12/08/2016 09:44:47</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/tblDocumentos/Delete.cshtml">
+      <publishTime>12/08/2016 09:44:47</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/tblDocumentos/Details.cshtml">
+      <publishTime>12/08/2016 09:44:47</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/tblDocumentos/Edit.cshtml">
+      <publishTime>12/08/2016 09:44:47</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/tblDocumentos/Index.cshtml">
+      <publishTime>12/14/2016 15:56:36</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/tblFormaDocumentos/Create.cshtml">
+      <publishTime>12/08/2016 09:41:00</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/tblFormaDocumentos/Delete.cshtml">
+      <publishTime>12/08/2016 09:41:00</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/tblFormaDocumentos/Details.cshtml">
+      <publishTime>12/12/2016 17:34:24</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/tblFormaDocumentos/Edit.cshtml">
+      <publishTime>12/08/2016 09:41:00</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/tblFormaDocumentos/Index.cshtml">
+      <publishTime>12/12/2016 17:05:15</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/tblFormaDocumentoTipos/Create.cshtml">
+      <publishTime>12/08/2016 09:41:00</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/tblFormaDocumentoTipos/Delete.cshtml">
+      <publishTime>12/08/2016 09:41:00</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/tblFormaDocumentoTipos/Details.cshtml">
+      <publishTime>12/12/2016 17:00:58</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/tblFormaDocumentoTipos/Edit.cshtml">
+      <publishTime>12/08/2016 09:41:00</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/tblFormaDocumentoTipos/Index.cshtml">
+      <publishTime>12/12/2016 17:03:00</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/tblFormularioHistoricos/Create.cshtml">
+      <publishTime>12/08/2016 09:40:17</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/tblFormularioHistoricos/Delete.cshtml">
+      <publishTime>12/08/2016 09:40:17</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/tblFormularioHistoricos/Details.cshtml">
+      <publishTime>12/08/2016 09:40:17</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/tblFormularioHistoricos/Edit.cshtml">
+      <publishTime>12/08/2016 09:40:17</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/tblFormularioHistoricos/Index.cshtml">
+      <publishTime>12/08/2016 09:40:17</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/tblFormularioHistoricos/PublicarFormulario.cshtml">
+      <publishTime>12/08/2016 09:40:17</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/tblFormularioHistoricos/_List.cshtml">
+      <publishTime>12/12/2016 12:08:56</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/tblFormularioProcesos/Create.cshtml">
+      <publishTime>12/08/2016 09:40:17</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/tblFormularioProcesos/CreateProcess.cshtml">
+      <publishTime>12/08/2016 09:40:17</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/tblFormularioProcesos/Delete.cshtml">
+      <publishTime>12/08/2016 09:40:17</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/tblFormularioProcesos/Details.cshtml">
+      <publishTime>12/13/2016 09:54:19</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/tblFormularioProcesos/Edit.cshtml">
+      <publishTime>12/08/2016 09:40:17</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/tblFormularioProcesos/Index.cshtml">
+      <publishTime>12/13/2016 09:54:00</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/tblFormularioPublicados/Create.cshtml">
+      <publishTime>12/07/2016 15:24:16</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/tblFormularioPublicados/Delete.cshtml">
+      <publishTime>12/07/2016 15:24:16</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/tblFormularioPublicados/Details.cshtml">
+      <publishTime>12/07/2016 15:24:16</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/tblFormularioPublicados/Edit.cshtml">
+      <publishTime>12/07/2016 15:24:16</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/tblFormularioPublicados/Index.cshtml">
+      <publishTime>12/14/2016 16:22:29</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/tblFormularioRelacionados/_Create.cshtml">
+      <publishTime>12/07/2016 15:23:50</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/tblFormularioRelacionados/_Delete.cshtml">
+      <publishTime>12/07/2016 15:23:50</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/tblFormularioRelacionados/_Edit.cshtml">
+      <publishTime>12/07/2016 15:23:50</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/tblFormularioRelacionados/_Index.cshtml">
+      <publishTime>12/09/2016 10:12:23</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/tblFormularioRelacionados/_List.cshtml">
+      <publishTime>12/07/2016 15:23:50</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/tblFormularios/Create.cshtml">
+      <publishTime>12/07/2016 15:23:50</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/tblFormularios/Delete.cshtml">
+      <publishTime>12/07/2016 15:23:50</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/tblFormularios/Details.cshtml">
+      <publishTime>12/07/2016 15:23:50</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/tblFormularios/Edit.cshtml">
+      <publishTime>12/07/2016 15:23:50</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/tblFormularios/Index.cshtml">
+      <publishTime>12/14/2016 16:03:20</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/tblPlantillaMarcadores/_Create.cshtml">
+      <publishTime>12/07/2016 15:23:50</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/tblPlantillaMarcadores/_Delete.cshtml">
+      <publishTime>12/07/2016 15:23:50</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/tblPlantillaMarcadores/_Edit.cshtml">
+      <publishTime>12/07/2016 15:23:50</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/tblPlantillaMarcadores/_Index.cshtml">
+      <publishTime>12/09/2016 10:12:56</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/tblPlantillaMarcadores/_List.cshtml">
+      <publishTime>12/07/2016 15:23:50</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/tblPlantillas/Create.cshtml">
+      <publishTime>12/07/2016 15:22:37</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/tblPlantillas/Delete.cshtml">
+      <publishTime>12/07/2016 15:22:37</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/tblPlantillas/Details.cshtml">
+      <publishTime>12/13/2016 09:47:19</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/tblPlantillas/Edit.cshtml">
+      <publishTime>12/07/2016 15:22:37</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/tblPlantillas/Index.cshtml">
+      <publishTime>12/13/2016 09:49:35</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/tblProcesoDetalleCategorias/_Create.cshtml">
+      <publishTime>12/07/2016 15:22:37</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/tblProcesoDetalleCategorias/_Delete.cshtml">
+      <publishTime>12/07/2016 15:22:37</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/tblProcesoDetalleCategorias/_Edit.cshtml">
+      <publishTime>12/07/2016 15:22:37</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/tblProcesoDetalleCategorias/_Index.cshtml">
+      <publishTime>12/09/2016 10:13:19</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/tblProcesoDetalleCategorias/_List.cshtml">
+      <publishTime>12/07/2016 15:22:37</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/tblProcesoDetalles/_Create.cshtml">
+      <publishTime>12/07/2016 15:21:36</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/tblProcesoDetalles/_Delete.cshtml">
+      <publishTime>12/07/2016 15:21:36</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/tblProcesoDetalles/_Edit.cshtml">
+      <publishTime>12/07/2016 15:21:36</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/tblProcesoDetalles/_Index.cshtml">
+      <publishTime>12/09/2016 10:13:30</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/tblProcesoDetalles/_List.cshtml">
+      <publishTime>12/07/2016 15:21:36</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/tblProcesos/Create.cshtml">
+      <publishTime>12/07/2016 15:20:54</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/tblProcesos/Delete.cshtml">
+      <publishTime>12/07/2016 15:20:54</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/tblProcesos/Details.cshtml">
+      <publishTime>12/12/2016 17:32:30</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/tblProcesos/Edit.cshtml">
+      <publishTime>12/07/2016 15:20:54</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/tblProcesos/Index.cshtml">
+      <publishTime>12/12/2016 17:24:47</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/tblSeguimientoDocumentos/Create.cshtml">
+      <publishTime>12/13/2016 10:04:13</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/tblSeguimientoDocumentos/Delete.cshtml">
+      <publishTime>12/07/2016 15:20:23</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/tblSeguimientoDocumentos/Details.cshtml">
+      <publishTime>12/07/2016 15:20:23</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/tblSeguimientoDocumentos/Edit.cshtml">
+      <publishTime>12/07/2016 15:20:23</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/tblSeguimientoDocumentos/Index.cshtml">
+      <publishTime>12/13/2016 09:57:33</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/tblSeguimientoDocumentos/Responder.cshtml">
+      <publishTime>12/13/2016 10:02:38</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/tblSeguimientoFormularios/Create.cshtml">
+      <publishTime>12/13/2016 10:09:26</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/tblSeguimientoFormularios/Delete.cshtml">
+      <publishTime>12/07/2016 15:19:54</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/tblSeguimientoFormularios/Details.cshtml">
+      <publishTime>12/07/2016 15:19:54</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/tblSeguimientoFormularios/Edit.cshtml">
+      <publishTime>12/07/2016 15:19:54</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/tblSeguimientoFormularios/Index.cshtml">
+      <publishTime>12/13/2016 10:05:24</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/tblSeguimientoFormularios/Responder.cshtml">
+      <publishTime>12/13/2016 10:08:06</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/tblTipoDocumentos/Create.cshtml">
+      <publishTime>12/07/2016 15:19:54</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/tblTipoDocumentos/Delete.cshtml">
+      <publishTime>12/07/2016 15:19:54</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/tblTipoDocumentos/Details.cshtml">
+      <publishTime>12/12/2016 17:12:45</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/tblTipoDocumentos/Edit.cshtml">
+      <publishTime>12/07/2016 15:19:54</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/tblTipoDocumentos/Index.cshtml">
+      <publishTime>12/12/2016 17:34:09</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/tblTipoProcesos/Create.cshtml">
+      <publishTime>12/07/2016 15:14:48</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/tblTipoProcesos/Delete.cshtml">
+      <publishTime>12/07/2016 15:15:09</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/tblTipoProcesos/Details.cshtml">
+      <publishTime>12/12/2016 17:32:45</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/tblTipoProcesos/Edit.cshtml">
+      <publishTime>12/07/2016 15:15:14</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/tblTipoProcesos/Index.cshtml">
+      <publishTime>12/12/2016 17:15:17</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/web.config">
+      <publishTime>12/09/2016 13:41:08</publishTime>
+    </File>
+    <File Include="Areas/OYM/Views/_ViewStart.cshtml">
+      <publishTime>12/07/2016 14:14:09</publishTime>
+    </File>
+    <File Include="bin/Antlr3.Runtime.dll">
+      <publishTime>11/22/2016 10:20:18</publishTime>
+    </File>
+    <File Include="bin/Antlr3.Runtime.pdb">
+      <publishTime>11/22/2016 10:20:18</publishTime>
+    </File>
+    <File Include="bin/bg-BG/Kendo.Mvc.resources.dll">
+      <publishTime>01/12/2016 16:42:22</publishTime>
+    </File>
+    <File Include="bin/CrystalDecisions.CrystalReports.Engine.dll">
+      <publishTime>01/24/2016 06:25:40</publishTime>
+    </File>
+    <File Include="bin/CrystalDecisions.ReportAppServer.ClientDoc.dll">
+      <publishTime>01/24/2016 06:25:40</publishTime>
+    </File>
+    <File Include="bin/CrystalDecisions.ReportAppServer.CommLayer.dll">
+      <publishTime>01/24/2016 06:25:40</publishTime>
+    </File>
+    <File Include="bin/CrystalDecisions.ReportAppServer.CommonControls.dll">
+      <publishTime>01/24/2016 06:25:40</publishTime>
+    </File>
+    <File Include="bin/CrystalDecisions.ReportAppServer.CommonObjectModel.dll">
+      <publishTime>01/24/2016 06:25:40</publishTime>
+    </File>
+    <File Include="bin/CrystalDecisions.ReportAppServer.Controllers.dll">
+      <publishTime>01/24/2016 06:25:40</publishTime>
+    </File>
+    <File Include="bin/CrystalDecisions.ReportAppServer.CubeDefModel.dll">
+      <publishTime>01/24/2016 06:25:40</publishTime>
+    </File>
+    <File Include="bin/CrystalDecisions.ReportAppServer.DataDefModel.dll">
+      <publishTime>01/24/2016 06:25:40</publishTime>
+    </File>
+    <File Include="bin/CrystalDecisions.ReportAppServer.DataSetConversion.dll">
+      <publishTime>01/24/2016 06:25:40</publishTime>
+    </File>
+    <File Include="bin/CrystalDecisions.ReportAppServer.ObjectFactory.dll">
+      <publishTime>01/24/2016 06:25:40</publishTime>
+    </File>
+    <File Include="bin/CrystalDecisions.ReportAppServer.Prompting.dll">
+      <publishTime>01/24/2016 06:25:42</publishTime>
+    </File>
+    <File Include="bin/CrystalDecisions.ReportAppServer.ReportDefModel.dll">
+      <publishTime>01/24/2016 06:25:42</publishTime>
+    </File>
+    <File Include="bin/CrystalDecisions.ReportAppServer.XmlSerialize.dll">
+      <publishTime>01/24/2016 06:25:42</publishTime>
+    </File>
+    <File Include="bin/CrystalDecisions.ReportSource.dll">
+      <publishTime>01/24/2016 06:25:42</publishTime>
+    </File>
+    <File Include="bin/CrystalDecisions.Shared.dll">
+      <publishTime>01/24/2016 06:25:42</publishTime>
+    </File>
+    <File Include="bin/cs-CZ/Kendo.Mvc.resources.dll">
+      <publishTime>01/12/2016 16:42:22</publishTime>
+    </File>
+    <File Include="bin/da-DK/Kendo.Mvc.resources.dll">
+      <publishTime>01/12/2016 16:42:22</publishTime>
+    </File>
+    <File Include="bin/de-DE/Kendo.Mvc.resources.dll">
+      <publishTime>01/12/2016 16:42:22</publishTime>
+    </File>
+    <File Include="bin/DocX.dll">
+      <publishTime>12/08/2016 11:05:46</publishTime>
+    </File>
+    <File Include="bin/EntityFramework.dll">
+      <publishTime>11/22/2016 10:42:56</publishTime>
+    </File>
+    <File Include="bin/EntityFramework.SqlServer.dll">
+      <publishTime>11/22/2016 10:42:56</publishTime>
+    </File>
+    <File Include="bin/es-ES/Kendo.Mvc.resources.dll">
+      <publishTime>01/12/2016 16:42:22</publishTime>
+    </File>
+    <File Include="bin/es-ES/ReportFollowUp.resources.dll">
+      <publishTime>12/09/2016 11:17:46</publishTime>
+    </File>
+    <File Include="bin/es/System.Web.Helpers.resources.dll">
+      <publishTime>11/22/2016 10:41:28</publishTime>
+    </File>
+    <File Include="bin/es/System.Web.Mvc.resources.dll">
+      <publishTime>11/22/2016 10:41:28</publishTime>
+    </File>
+    <File Include="bin/es/System.Web.Optimization.resources.dll">
+      <publishTime>11/22/2016 10:41:28</publishTime>
+    </File>
+    <File Include="bin/es/System.Web.Razor.resources.dll">
+      <publishTime>11/22/2016 10:41:28</publishTime>
+    </File>
+    <File Include="bin/es/System.Web.WebPages.Deployment.resources.dll">
+      <publishTime>11/22/2016 10:41:28</publishTime>
+    </File>
+    <File Include="bin/es/System.Web.WebPages.Razor.resources.dll">
+      <publishTime>11/22/2016 10:41:28</publishTime>
+    </File>
+    <File Include="bin/es/System.Web.WebPages.resources.dll">
+      <publishTime>11/22/2016 10:41:28</publishTime>
+    </File>
+    <File Include="bin/fr-CA/Kendo.Mvc.resources.dll">
+      <publishTime>01/12/2016 16:42:22</publishTime>
+    </File>
+    <File Include="bin/fr-FR/Kendo.Mvc.resources.dll">
+      <publishTime>01/12/2016 16:42:22</publishTime>
+    </File>
+    <File Include="bin/Helper.dll">
+      <publishTime>12/12/2016 17:02:19</publishTime>
+    </File>
+    <File Include="bin/Helper.pdb">
+      <publishTime>12/12/2016 17:02:19</publishTime>
+    </File>
+    <File Include="bin/it-IT/Kendo.Mvc.resources.dll">
+      <publishTime>01/12/2016 16:42:22</publishTime>
+    </File>
+    <File Include="bin/Kendo.Mvc.dll">
+      <publishTime>01/12/2016 16:42:22</publishTime>
+    </File>
+    <File Include="bin/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll">
+      <publishTime>11/22/2016 10:20:22</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Web.Infrastructure.dll">
+      <publishTime>11/22/2016 10:20:18</publishTime>
+    </File>
+    <File Include="bin/MvcFlash.Core.dll">
+      <publishTime>11/24/2016 19:08:16</publishTime>
+    </File>
+    <File Include="bin/Newtonsoft.Json.dll">
+      <publishTime>11/22/2016 10:20:20</publishTime>
+    </File>
+    <File Include="bin/nl-NL/Kendo.Mvc.resources.dll">
+      <publishTime>01/12/2016 16:42:22</publishTime>
+    </File>
+    <File Include="bin/pl-PL/Kendo.Mvc.resources.dll">
+      <publishTime>01/12/2016 16:42:22</publishTime>
+    </File>
+    <File Include="bin/pt-BR/Kendo.Mvc.resources.dll">
+      <publishTime>01/12/2016 16:42:22</publishTime>
+    </File>
+    <File Include="bin/pt-PT/Kendo.Mvc.resources.dll">
+      <publishTime>01/12/2016 16:42:22</publishTime>
+    </File>
+    <File Include="bin/ReportFollowUp.dll">
+      <publishTime>12/09/2016 11:17:45</publishTime>
+    </File>
+    <File Include="bin/ReportFollowUp.pdb">
+      <publishTime>12/09/2016 11:17:45</publishTime>
+    </File>
+    <File Include="bin/ro-RO/Kendo.Mvc.resources.dll">
+      <publishTime>01/12/2016 16:42:22</publishTime>
+    </File>
+    <File Include="bin/roslyn/csc.exe">
+      <publishTime>11/22/2016 10:20:20</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.Build.Tasks.CodeAnalysis.dll">
+      <publishTime>11/22/2016 10:20:20</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.CSharp.dll">
+      <publishTime>11/22/2016 10:20:20</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.dll">
+      <publishTime>11/22/2016 10:20:22</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.VisualBasic.dll">
+      <publishTime>11/22/2016 10:20:22</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CSharp.Core.targets">
+      <publishTime>11/22/2016 10:20:22</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.VisualBasic.Core.targets">
+      <publishTime>11/22/2016 10:20:22</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Collections.Immutable.dll">
+      <publishTime>11/22/2016 10:20:22</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Reflection.Metadata.dll">
+      <publishTime>11/22/2016 10:20:22</publishTime>
+    </File>
+    <File Include="bin/roslyn/vbc.exe">
+      <publishTime>11/22/2016 10:20:22</publishTime>
+    </File>
+    <File Include="bin/roslyn/VBCSCompiler.exe">
+      <publishTime>11/22/2016 10:20:22</publishTime>
+    </File>
+    <File Include="bin/roslyn/VBCSCompiler.exe.config">
+      <publishTime>11/22/2016 10:20:22</publishTime>
+    </File>
+    <File Include="bin/ru-RU/Kendo.Mvc.resources.dll">
+      <publishTime>01/12/2016 16:42:22</publishTime>
+    </File>
+    <File Include="bin/SIGAA.dll">
+      <publishTime>12/22/2016 11:06:19</publishTime>
+    </File>
+    <File Include="bin/SIGAA.pdb">
+      <publishTime>12/22/2016 11:06:19</publishTime>
+    </File>
+    <File Include="bin/stdole.dll">
+      <publishTime>07/07/2015 00:51:38</publishTime>
+    </File>
+    <File Include="bin/sv-SE/Kendo.Mvc.resources.dll">
+      <publishTime>01/12/2016 16:42:22</publishTime>
+    </File>
+    <File Include="bin/System.Net.Http.Formatting.dll">
+      <publishTime>05/07/2013 13:09:16</publishTime>
+    </File>
+    <File Include="bin/System.Web.Helpers.dll">
+      <publishTime>11/22/2016 10:20:16</publishTime>
+    </File>
+    <File Include="bin/System.Web.Http.dll">
+      <publishTime>07/10/2012 21:51:54</publishTime>
+    </File>
+    <File Include="bin/System.Web.Http.WebHost.dll">
+      <publishTime>07/10/2012 21:51:54</publishTime>
+    </File>
+    <File Include="bin/System.Web.Mvc.dll">
+      <publishTime>11/22/2016 10:20:18</publishTime>
+    </File>
+    <File Include="bin/System.Web.Optimization.dll">
+      <publishTime>11/22/2016 10:20:16</publishTime>
+    </File>
+    <File Include="bin/System.Web.Razor.dll">
+      <publishTime>11/22/2016 10:20:16</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.Deployment.dll">
+      <publishTime>11/22/2016 10:20:16</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.dll">
+      <publishTime>11/22/2016 10:20:16</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.Razor.dll">
+      <publishTime>11/22/2016 10:20:16</publishTime>
+    </File>
+    <File Include="bin/Telerik.Reporting.dll">
+      <publishTime>01/13/2016 13:56:36</publishTime>
+    </File>
+    <File Include="bin/Telerik.Reporting.pdb">
+      <publishTime>01/13/2016 13:56:36</publishTime>
+    </File>
+    <File Include="bin/Telerik.Reporting.Service.dll">
+      <publishTime>01/13/2016 13:56:56</publishTime>
+    </File>
+    <File Include="bin/Telerik.Reporting.Service.pdb">
+      <publishTime>01/13/2016 13:56:56</publishTime>
+    </File>
+    <File Include="bin/Telerik.Reporting.Services.WebApi.dll">
+      <publishTime>01/13/2016 13:56:56</publishTime>
+    </File>
+    <File Include="bin/Telerik.Reporting.Services.WebApi.pdb">
+      <publishTime>01/13/2016 13:56:56</publishTime>
+    </File>
+    <File Include="bin/Telerik.Reporting.XpsRendering.dll">
+      <publishTime>01/13/2016 13:56:42</publishTime>
+    </File>
+    <File Include="bin/Telerik.Reporting.XpsRendering.pdb">
+      <publishTime>01/13/2016 13:56:42</publishTime>
+    </File>
+    <File Include="bin/Telerik.ReportViewer.Html5.WebForms.dll">
+      <publishTime>01/13/2016 13:57:16</publishTime>
+    </File>
+    <File Include="bin/Telerik.ReportViewer.Html5.WebForms.pdb">
+      <publishTime>01/13/2016 13:57:16</publishTime>
+    </File>
+    <File Include="bin/Telerik.ReportViewer.Mvc.dll">
+      <publishTime>01/13/2016 13:57:10</publishTime>
+    </File>
+    <File Include="bin/Telerik.ReportViewer.Mvc.pdb">
+      <publishTime>01/13/2016 13:57:10</publishTime>
+    </File>
+    <File Include="bin/Telerik.ReportViewer.WebForms.dll">
+      <publishTime>01/13/2016 13:57:02</publishTime>
+    </File>
+    <File Include="bin/Telerik.ReportViewer.WebForms.pdb">
+      <publishTime>01/13/2016 13:57:02</publishTime>
+    </File>
+    <File Include="bin/tr-TR/Kendo.Mvc.resources.dll">
+      <publishTime>01/12/2016 16:42:22</publishTime>
+    </File>
+    <File Include="bin/uk-UA/Kendo.Mvc.resources.dll">
+      <publishTime>01/12/2016 16:42:22</publishTime>
+    </File>
+    <File Include="bin/Utilitario.dll">
+      <publishTime>12/13/2016 12:10:17</publishTime>
+    </File>
+    <File Include="bin/Utilitario.pdb">
+      <publishTime>12/13/2016 12:10:17</publishTime>
+    </File>
+    <File Include="bin/WebGrease.dll">
+      <publishTime>11/22/2016 10:20:18</publishTime>
+    </File>
+    <File Include="bin/zh-CN/Kendo.Mvc.resources.dll">
+      <publishTime>01/12/2016 16:42:22</publishTime>
+    </File>
+    <File Include="Content/bootstrap-theme.css">
+      <publishTime>11/26/2016 22:21:00</publishTime>
+    </File>
+    <File Include="Content/jquery-ui.css">
+      <publishTime>08/08/2016 23:50:58</publishTime>
+    </File>
+    <File Include="Content/kendo/Bootstrap/editor.png">
+      <publishTime>12/20/2016 11:14:50</publishTime>
+    </File>
+    <File Include="Content/kendo/Bootstrap/imagebrowser.png">
+      <publishTime>12/20/2016 11:14:50</publishTime>
+    </File>
+    <File Include="Content/kendo/Bootstrap/indeterminate.gif">
+      <publishTime>12/20/2016 11:14:50</publishTime>
+    </File>
+    <File Include="Content/kendo/Bootstrap/loading-image.gif">
+      <publishTime>12/20/2016 11:14:50</publishTime>
+    </File>
+    <File Include="Content/kendo/Bootstrap/loading.gif">
+      <publishTime>12/20/2016 11:14:50</publishTime>
+    </File>
+    <File Include="Content/kendo/Bootstrap/loading_2x.gif">
+      <publishTime>12/20/2016 11:14:50</publishTime>
+    </File>
+    <File Include="Content/kendo/Bootstrap/markers.png">
+      <publishTime>12/20/2016 11:14:50</publishTime>
+    </File>
+    <File Include="Content/kendo/Bootstrap/markers_2x.png">
+      <publishTime>12/20/2016 11:14:50</publishTime>
+    </File>
+    <File Include="Content/kendo/Bootstrap/slider-h.gif">
+      <publishTime>12/20/2016 11:14:50</publishTime>
+    </File>
+    <File Include="Content/kendo/Bootstrap/slider-v.gif">
+      <publishTime>12/20/2016 11:14:50</publishTime>
+    </File>
+    <File Include="Content/kendo/Bootstrap/sprite.png">
+      <publishTime>12/20/2016 11:14:50</publishTime>
+    </File>
+    <File Include="Content/kendo/Bootstrap/sprite_2x.png">
+      <publishTime>12/20/2016 11:14:50</publishTime>
+    </File>
+    <File Include="Content/kendo/Bootstrap/sprite_kpi.png">
+      <publishTime>12/20/2016 11:14:50</publishTime>
+    </File>
+    <File Include="Content/kendo/Bootstrap/sprite_kpi_2x.png">
+      <publishTime>12/20/2016 11:14:50</publishTime>
+    </File>
+    <File Include="Content/kendo/images/back.png">
+      <publishTime>12/20/2016 11:14:50</publishTime>
+    </File>
+    <File Include="Content/kendo/images/kendoui.svg">
+      <publishTime>12/20/2016 11:14:50</publishTime>
+    </File>
+    <File Include="Content/kendo/images/kendoui.ttf">
+      <publishTime>12/20/2016 11:14:50</publishTime>
+    </File>
+    <File Include="Content/kendo/images/kendoui.woff">
+      <publishTime>12/20/2016 11:14:50</publishTime>
+    </File>
+    <File Include="Content/kendo/images/wp8_icons.png">
+      <publishTime>12/20/2016 11:14:50</publishTime>
+    </File>
+    <File Include="Content/kendo/images/wp8_inverseicons.png">
+      <publishTime>12/20/2016 11:14:50</publishTime>
+    </File>
+    <File Include="Content/kendo/kendo.bootstrap.min.css">
+      <publishTime>12/20/2016 11:14:50</publishTime>
+    </File>
+    <File Include="Content/kendo/kendo.bootstrap.min.css.map">
+      <publishTime>12/20/2016 11:14:50</publishTime>
+    </File>
+    <File Include="Content/kendo/kendo.common-bootstrap.min.css">
+      <publishTime>12/20/2016 11:14:50</publishTime>
+    </File>
+    <File Include="Content/kendo/kendo.common-bootstrap.min.css.map">
+      <publishTime>12/20/2016 11:14:50</publishTime>
+    </File>
+    <File Include="Content/kendo/kendo.common.min.css">
+      <publishTime>12/20/2016 11:14:50</publishTime>
+    </File>
+    <File Include="Content/kendo/kendo.common.min.css.map">
+      <publishTime>12/20/2016 11:14:50</publishTime>
+    </File>
+    <File Include="Content/kendo/kendo.dataviz.bootstrap.min.css">
+      <publishTime>12/20/2016 11:14:50</publishTime>
+    </File>
+    <File Include="Content/kendo/kendo.dataviz.bootstrap.min.css.map">
+      <publishTime>12/20/2016 11:14:50</publishTime>
+    </File>
+    <File Include="Content/kendo/kendo.dataviz.min.css">
+      <publishTime>12/20/2016 11:14:50</publishTime>
+    </File>
+    <File Include="Content/kendo/kendo.dataviz.min.css.map">
+      <publishTime>12/20/2016 11:14:50</publishTime>
+    </File>
+    <File Include="Content/kendo/kendo.mobile.all.min.css">
+      <publishTime>12/20/2016 11:14:50</publishTime>
+    </File>
+    <File Include="Content/kendo/kendo.mobile.all.min.css.map">
+      <publishTime>12/20/2016 11:14:50</publishTime>
+    </File>
+    <File Include="Content/Site.css">
+      <publishTime>11/24/2016 19:27:40</publishTime>
+    </File>
+    <File Include="Content/themes/base/accordion.css">
+      <publishTime>12/20/2016 11:14:50</publishTime>
+    </File>
+    <File Include="Content/themes/base/all.css">
+      <publishTime>12/20/2016 11:14:50</publishTime>
+    </File>
+    <File Include="Content/themes/base/autocomplete.css">
+      <publishTime>12/20/2016 11:14:50</publishTime>
+    </File>
+    <File Include="Content/themes/base/base.css">
+      <publishTime>12/20/2016 11:14:50</publishTime>
+    </File>
+    <File Include="Content/themes/base/button.css">
+      <publishTime>12/20/2016 11:14:50</publishTime>
+    </File>
+    <File Include="Content/themes/base/core.css">
+      <publishTime>12/20/2016 11:14:50</publishTime>
+    </File>
+    <File Include="Content/themes/base/datepicker.css">
+      <publishTime>12/20/2016 11:14:50</publishTime>
+    </File>
+    <File Include="Content/themes/base/dialog.css">
+      <publishTime>12/20/2016 11:14:50</publishTime>
+    </File>
+    <File Include="Content/themes/base/draggable.css">
+      <publishTime>12/20/2016 11:14:50</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-bg_flat_0_aaaaaa_40x100.png">
+      <publishTime>12/20/2016 11:14:50</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-bg_flat_75_ffffff_40x100.png">
+      <publishTime>12/20/2016 11:14:50</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-bg_glass_55_fbf9ee_1x400.png">
+      <publishTime>12/20/2016 11:14:50</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-bg_glass_65_ffffff_1x400.png">
+      <publishTime>12/20/2016 11:14:50</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-bg_glass_75_dadada_1x400.png">
+      <publishTime>12/20/2016 11:14:50</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-bg_glass_75_e6e6e6_1x400.png">
+      <publishTime>12/20/2016 11:14:50</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-bg_glass_95_fef1ec_1x400.png">
+      <publishTime>12/20/2016 11:14:50</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-bg_highlight-soft_75_cccccc_1x100.png">
+      <publishTime>12/20/2016 11:14:50</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-icons_222222_256x240.png">
+      <publishTime>12/20/2016 11:14:50</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-icons_2e83ff_256x240.png">
+      <publishTime>12/20/2016 11:14:50</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-icons_444444_256x240.png">
+      <publishTime>12/20/2016 11:14:50</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-icons_454545_256x240.png">
+      <publishTime>12/20/2016 11:14:50</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-icons_555555_256x240.png">
+      <publishTime>12/20/2016 11:14:50</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-icons_777620_256x240.png">
+      <publishTime>12/20/2016 11:14:50</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-icons_777777_256x240.png">
+      <publishTime>12/20/2016 11:14:50</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-icons_888888_256x240.png">
+      <publishTime>12/20/2016 11:14:50</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-icons_cc0000_256x240.png">
+      <publishTime>12/20/2016 11:14:50</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-icons_cd0a0a_256x240.png">
+      <publishTime>12/20/2016 11:14:50</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-icons_ffffff_256x240.png">
+      <publishTime>12/20/2016 11:14:50</publishTime>
+    </File>
+    <File Include="Content/themes/base/jquery-ui.css">
+      <publishTime>12/20/2016 11:14:50</publishTime>
+    </File>
+    <File Include="Content/themes/base/jquery-ui.min.css">
+      <publishTime>12/20/2016 11:14:50</publishTime>
+    </File>
+    <File Include="Content/themes/base/menu.css">
+      <publishTime>12/20/2016 11:14:50</publishTime>
+    </File>
+    <File Include="Content/themes/base/progressbar.css">
+      <publishTime>12/20/2016 11:14:50</publishTime>
+    </File>
+    <File Include="Content/themes/base/resizable.css">
+      <publishTime>12/20/2016 11:14:50</publishTime>
+    </File>
+    <File Include="Content/themes/base/selectable.css">
+      <publishTime>12/20/2016 11:14:50</publishTime>
+    </File>
+    <File Include="Content/themes/base/selectmenu.css">
+      <publishTime>12/20/2016 11:14:50</publishTime>
+    </File>
+    <File Include="Content/themes/base/slider.css">
+      <publishTime>12/20/2016 11:14:50</publishTime>
+    </File>
+    <File Include="Content/themes/base/sortable.css">
+      <publishTime>12/20/2016 11:14:50</publishTime>
+    </File>
+    <File Include="Content/themes/base/spinner.css">
+      <publishTime>12/20/2016 11:14:50</publishTime>
+    </File>
+    <File Include="Content/themes/base/tabs.css">
+      <publishTime>12/20/2016 11:14:50</publishTime>
+    </File>
+    <File Include="Content/themes/base/theme.css">
+      <publishTime>12/20/2016 11:14:50</publishTime>
+    </File>
+    <File Include="Content/themes/base/tooltip.css">
+      <publishTime>12/20/2016 11:14:50</publishTime>
+    </File>
+    <File Include="Content/tmp/bootstrap.css">
+      <publishTime>12/20/2016 11:14:50</publishTime>
+    </File>
+    <File Include="Content/tmp/bootstrap.css.map">
+      <publishTime>12/20/2016 11:14:50</publishTime>
+    </File>
+    <File Include="Content/tmp/bootstrap.min.css">
+      <publishTime>12/20/2016 11:14:50</publishTime>
+    </File>
+    <File Include="Content/tmp/bootstrap.min.css.map">
+      <publishTime>12/20/2016 11:14:50</publishTime>
+    </File>
+    <File Include="Content/tmp/Site.css">
+      <publishTime>12/20/2016 11:14:50</publishTime>
+    </File>
+    <File Include="favicon.ico">
+      <publishTime>11/22/2016 10:20:06</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.eot">
+      <publishTime>11/22/2016 10:20:10</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.svg">
+      <publishTime>11/22/2016 10:20:10</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.ttf">
+      <publishTime>11/22/2016 10:20:10</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.woff">
+      <publishTime>11/22/2016 10:20:10</publishTime>
+    </File>
+    <File Include="Global.asax">
+      <publishTime>11/22/2016 10:20:06</publishTime>
+    </File>
+    <File Include="packages.config">
+      <publishTime>12/13/2016 13:50:05</publishTime>
+    </File>
+    <File Include="ReportViewer/js/kendo.subset.2015.3.930.min.js">
+      <publishTime>09/06/2016 10:18:16</publishTime>
+    </File>
+    <File Include="ReportViewer/js/telerikReportViewer-10.0.16.113.min.js">
+      <publishTime>09/06/2016 10:18:06</publishTime>
+    </File>
+    <File Include="Scripts/bootstrap.js">
+      <publishTime>11/25/2016 14:06:02</publishTime>
+    </File>
+    <File Include="Scripts/bootstrap.min.js">
+      <publishTime>11/22/2016 10:20:10</publishTime>
+    </File>
+    <File Include="Scripts/jquery-1.10.2.js">
+      <publishTime>11/22/2016 10:20:12</publishTime>
+    </File>
+    <File Include="Scripts/jquery-1.10.2.min.js">
+      <publishTime>11/22/2016 10:20:12</publishTime>
+    </File>
+    <File Include="Scripts/jquery-1.10.2.min.map">
+      <publishTime>11/22/2016 10:20:12</publishTime>
+    </File>
+    <File Include="Scripts/jquery-ui-1.12.0.js">
+      <publishTime>08/08/2016 23:50:58</publishTime>
+    </File>
+    <File Include="Scripts/jquery.unobtrusive-ajax.min.js">
+      <publishTime>02/25/2016 12:22:12</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate.js">
+      <publishTime>11/22/2016 10:20:18</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate.min.js">
+      <publishTime>11/22/2016 10:20:18</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate.unobtrusive.js">
+      <publishTime>11/22/2016 10:20:18</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate.unobtrusive.min.js">
+      <publishTime>11/22/2016 10:20:18</publishTime>
+    </File>
+    <File Include="Scripts/kendo/cultures/kendo.culture.es-ES.min.js">
+      <publishTime>12/20/2016 11:15:39</publishTime>
+    </File>
+    <File Include="Scripts/kendo/jquery.min.js">
+      <publishTime>12/20/2016 11:15:39</publishTime>
+    </File>
+    <File Include="Scripts/kendo/jszip.min.js">
+      <publishTime>12/20/2016 11:15:39</publishTime>
+    </File>
+    <File Include="Scripts/kendo/kendo.all.min.js">
+      <publishTime>12/20/2016 11:15:41</publishTime>
+    </File>
+    <File Include="Scripts/kendo/kendo.all.min.js.map">
+      <publishTime>12/20/2016 11:15:41</publishTime>
+    </File>
+    <File Include="Scripts/kendo/kendo.aspnetmvc.min.js">
+      <publishTime>12/20/2016 11:15:41</publishTime>
+    </File>
+    <File Include="Scripts/kendo/kendo.culture.es-ES.min.js">
+      <publishTime>12/20/2016 11:15:41</publishTime>
+    </File>
+    <File Include="Scripts/kendo/kendo.modernizr.custom.js">
+      <publishTime>12/20/2016 11:15:41</publishTime>
+    </File>
+    <File Include="Scripts/modernizr-2.6.2.js">
+      <publishTime>11/22/2016 10:20:18</publishTime>
+    </File>
+    <File Include="Scripts/Observaciones/AgregarObservacion.js">
+      <publishTime>12/09/2016 10:53:55</publishTime>
+    </File>
+    <File Include="Scripts/Observaciones/General/marcaCampoRequeridoComInterna.js">
+      <publishTime>07/12/2016 15:59:12</publishTime>
+    </File>
+    <File Include="Scripts/Observaciones/General/marcaCamposRequeridos.js">
+      <publishTime>08/09/2016 13:28:03</publishTime>
+    </File>
+    <File Include="Scripts/respond.js">
+      <publishTime>11/22/2016 10:20:18</publishTime>
+    </File>
+    <File Include="Scripts/respond.min.js">
+      <publishTime>11/22/2016 10:20:18</publishTime>
+    </File>
+    <File Include="Scripts/_references.js">
+      <publishTime>12/20/2016 11:16:27</publishTime>
+    </File>
+    <File Include="Views/Home/Index.cshtml">
+      <publishTime>12/20/2016 11:25:37</publishTime>
+    </File>
+    <File Include="Views/Login/Autenticarse.cshtml">
+      <publishTime>11/30/2016 17:59:34</publishTime>
+    </File>
+    <File Include="Views/Login/_Autenticarse.cshtml">
+      <publishTime>11/30/2016 17:51:06</publishTime>
+    </File>
+    <File Include="Views/Permiso/Create.cshtml">
+      <publishTime>11/30/2016 16:50:38</publishTime>
+    </File>
+    <File Include="Views/Permiso/Delete.cshtml">
+      <publishTime>11/25/2016 16:53:08</publishTime>
+    </File>
+    <File Include="Views/Permiso/Details.cshtml">
+      <publishTime>11/25/2016 17:43:28</publishTime>
+    </File>
+    <File Include="Views/Permiso/Edit.cshtml">
+      <publishTime>11/30/2016 16:53:22</publishTime>
+    </File>
+    <File Include="Views/Permiso/Index.cshtml">
+      <publishTime>12/06/2016 13:54:51</publishTime>
+    </File>
+    <File Include="Views/Permiso/_CreateEdit.cshtml">
+      <publishTime>11/25/2016 16:58:58</publishTime>
+    </File>
+    <File Include="Views/Permiso/_DetailsDelete.cshtml">
+      <publishTime>11/25/2016 17:00:26</publishTime>
+    </File>
+    <File Include="Views/Permiso/_Index.cshtml">
+      <publishTime>12/06/2016 13:58:42</publishTime>
+    </File>
+    <File Include="Views/PermisoDenegadoPorRol/Create.cshtml">
+      <publishTime>12/02/2016 02:49:12</publishTime>
+    </File>
+    <File Include="Views/PermisoDenegadoPorRol/Delete.cshtml">
+      <publishTime>11/25/2016 16:36:58</publishTime>
+    </File>
+    <File Include="Views/PermisoDenegadoPorRol/Details.cshtml">
+      <publishTime>11/25/2016 23:21:34</publishTime>
+    </File>
+    <File Include="Views/PermisoDenegadoPorRol/Edit.cshtml">
+      <publishTime>12/02/2016 04:13:38</publishTime>
+    </File>
+    <File Include="Views/PermisoDenegadoPorRol/Index.cshtml">
+      <publishTime>12/06/2016 13:51:00</publishTime>
+    </File>
+    <File Include="Views/PermisoDenegadoPorRol/_CreateEdit.cshtml">
+      <publishTime>12/02/2016 04:09:48</publishTime>
+    </File>
+    <File Include="Views/PermisoDenegadoPorRol/_DetailsDelete.cshtml">
+      <publishTime>11/25/2016 23:15:48</publishTime>
+    </File>
+    <File Include="Views/PermisoDenegadoPorRol/_Index.cshtml">
+      <publishTime>12/06/2016 13:53:20</publishTime>
+    </File>
+    <File Include="Views/Rol/Create.cshtml">
+      <publishTime>11/30/2016 16:52:00</publishTime>
+    </File>
+    <File Include="Views/Rol/Delete.cshtml">
+      <publishTime>11/25/2016 16:16:04</publishTime>
+    </File>
+    <File Include="Views/Rol/Details.cshtml">
+      <publishTime>11/25/2016 16:31:36</publishTime>
+    </File>
+    <File Include="Views/Rol/Edit.cshtml">
+      <publishTime>11/30/2016 16:52:16</publishTime>
+    </File>
+    <File Include="Views/Rol/Index.cshtml">
+      <publishTime>12/06/2016 13:47:43</publishTime>
+    </File>
+    <File Include="Views/Rol/_CreateEdit.cshtml">
+      <publishTime>11/25/2016 16:27:14</publishTime>
+    </File>
+    <File Include="Views/Rol/_DetailsDelete.cshtml">
+      <publishTime>11/25/2016 16:33:08</publishTime>
+    </File>
+    <File Include="Views/Rol/_Index.cshtml">
+      <publishTime>12/06/2016 13:50:03</publishTime>
+    </File>
+    <File Include="Views/Shared/DisplayTemplates/MessageBase.cshtml">
+      <publishTime>11/28/2016 14:37:34</publishTime>
+    </File>
+    <File Include="Views/Shared/DisplayTemplates/SimpleMessage.cshtml">
+      <publishTime>11/28/2016 14:37:44</publishTime>
+    </File>
+    <File Include="Views/Shared/EditorTemplates/Currency.cshtml">
+      <publishTime>01/12/2016 16:42:22</publishTime>
+    </File>
+    <File Include="Views/Shared/EditorTemplates/Date.cshtml">
+      <publishTime>01/12/2016 16:42:22</publishTime>
+    </File>
+    <File Include="Views/Shared/EditorTemplates/DateTime.cshtml">
+      <publishTime>01/12/2016 16:42:22</publishTime>
+    </File>
+    <File Include="Views/Shared/EditorTemplates/Email.cshtml">
+      <publishTime>01/12/2016 16:42:22</publishTime>
+    </File>
+    <File Include="Views/Shared/EditorTemplates/EmailAddress.cshtml">
+      <publishTime>01/12/2016 16:42:22</publishTime>
+    </File>
+    <File Include="Views/Shared/EditorTemplates/GridForeignKey.cshtml">
+      <publishTime>01/12/2016 16:42:22</publishTime>
+    </File>
+    <File Include="Views/Shared/EditorTemplates/Integer.cshtml">
+      <publishTime>01/12/2016 16:42:22</publishTime>
+    </File>
+    <File Include="Views/Shared/EditorTemplates/Number.cshtml">
+      <publishTime>01/12/2016 16:42:22</publishTime>
+    </File>
+    <File Include="Views/Shared/EditorTemplates/Password.cshtml">
+      <publishTime>01/12/2016 16:42:22</publishTime>
+    </File>
+    <File Include="Views/Shared/EditorTemplates/String.cshtml">
+      <publishTime>08/26/2016 12:56:58</publishTime>
+    </File>
+    <File Include="Views/Shared/EditorTemplates/Time.cshtml">
+      <publishTime>01/12/2016 16:42:22</publishTime>
+    </File>
+    <File Include="Views/Shared/EditorTemplates/Url.cshtml">
+      <publishTime>01/12/2016 16:42:22</publishTime>
+    </File>
+    <File Include="Views/Shared/Error.cshtml">
+      <publishTime>11/22/2016 10:20:06</publishTime>
+    </File>
+    <File Include="Views/Shared/_Layout.cshtml">
+      <publishTime>12/20/2016 11:34:20</publishTime>
+    </File>
+    <File Include="Views/Shared/_LoginPartial.cshtml">
+      <publishTime>12/05/2016 11:45:10</publishTime>
+    </File>
+    <File Include="Views/Usuario/CambioDeContrasena.cshtml">
+      <publishTime>12/06/2016 13:44:25</publishTime>
+    </File>
+    <File Include="Views/Usuario/Create.cshtml">
+      <publishTime>12/01/2016 16:41:30</publishTime>
+    </File>
+    <File Include="Views/Usuario/Delete.cshtml">
+      <publishTime>12/06/2016 13:43:41</publishTime>
+    </File>
+    <File Include="Views/Usuario/Details.cshtml">
+      <publishTime>11/25/2016 16:02:02</publishTime>
+    </File>
+    <File Include="Views/Usuario/Edit.cshtml">
+      <publishTime>12/01/2016 16:47:06</publishTime>
+    </File>
+    <File Include="Views/Usuario/Index.cshtml">
+      <publishTime>12/06/2016 13:39:14</publishTime>
+    </File>
+    <File Include="Views/Usuario/_CreateEdit.cshtml">
+      <publishTime>12/01/2016 16:50:36</publishTime>
+    </File>
+    <File Include="Views/Usuario/_DetailsDelete.cshtml">
+      <publishTime>12/01/2016 15:18:16</publishTime>
+    </File>
+    <File Include="Views/Usuario/_Index.cshtml">
+      <publishTime>12/06/2016 13:39:14</publishTime>
+    </File>
+    <File Include="Views/Web.config">
+      <publishTime>12/13/2016 13:50:23</publishTime>
+    </File>
+    <File Include="Views/_ViewStart.cshtml">
+      <publishTime>11/22/2016 10:20:06</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>12/20/2016 11:27:36</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,29 @@
+﻿@model IEnumerable<SIGAA.Models.PermisoDenegadoPorRol>
+
+@{
+    ViewBag.Title = "Index";
+}
+<h3><b>INDICE :</b>  Permisos denegados por Rol</h3>
+<hr />
+<div class="row">
+    <div class="col-md-6">
+        <div class="text-left">
+            @if (FrontUser.TienePermiso(RolesPermisos.SEGU_permisoDenegadoPorRol_puedeCrearNuevo)) { 
+            <a href="/PermisoDenegadoPorRol/Create" class="btn btn-primary"><span class="glyphicon glyphicon-plus-sign"></span> Nuevo </a>}
+        </div>
+    </div>
+    <div class="col-md-6">
+        @using (Ajax.BeginForm(new AjaxOptions { HttpMethod = "GET", InsertionMode = InsertionMode.Replace, UpdateTargetId = "ListaPermisosDenegadoPorRol" }))
+        {
+            <div class="col-md-6 col-md-offset-6">
+                <div class="input-group">
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span>
+                    <input type="text" class="form-control" placeholder="Buscar" name="criterio" autofocus>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+<br />
+
+@Html.Partial("_Index")

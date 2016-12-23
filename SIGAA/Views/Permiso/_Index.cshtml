@@ -1,0 +1,50 @@
+﻿@using MvcFlash.Core.Extensions
+@model IEnumerable<SIGAA.Models.Permiso>
+<div id="listaPermisos">
+    @Html.Flash()
+    <table class="table small">
+        <tr class="active">
+            <th>Operaciones</th>
+            <th>
+                @Html.DisplayNameFor(model => model.Modulo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nemonico)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Descripcion)
+            </th>     
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @if (FrontUser.TienePermiso(RolesPermisos.SEGU_permiso_puedeEditar)) {
+                    <a href="/Permiso/Edit/@item.iPermiso_id"><span class="glyphicon glyphicon-pencil" data-toggle="tooltip" data-original-title="Editar"></span></a>} |
+                    @if (FrontUser.TienePermiso(RolesPermisos.SEGU_permiso_puedeVerDetalle)) {
+                    <a href="/Permiso/Details/@item.iPermiso_id"><span class="glyphicon glyphicon-eye-open" data-toggle="tooltip" data-original-title="Ver detalle"></span></a>} |
+                    @if (FrontUser.TienePermiso(RolesPermisos.SEGU_permiso_puedeEliminar))
+                    {<a href="/Permiso/Delete/@item.iPermiso_id"><span class="glyphicon glyphicon-trash" data-toggle="tooltip" data-original-title="Eliminar"></span></a>}
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Modulo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nemonico)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Descripcion)
+                </td>              
+            </tr>
+        }
+
+    </table>
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('[data-toggle="tooltip"]').tooltip({
+            placement: 'top'
+        });
+    });
+</script>

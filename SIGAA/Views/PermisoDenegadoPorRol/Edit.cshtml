@@ -1,0 +1,34 @@
+﻿@using MvcFlash.Core.Extensions
+@model SIGAA.Models.PermisoDenegadoPorRol
+@{
+    ViewBag.Title = "Editar";
+}
+<h3><b>Editar denagació de Permiso a Rol</b></h3>
+<hr />
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.Flash()
+
+        @Html.Partial("_CreateEdit", Model)
+
+        @Html.HiddenFor(model => model.iRol_id)
+        @*@Html.HiddenFor(model => model.iPermiso_id)*@
+        @*<hr />*@
+        <div class="col-md-offset-2">
+            <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-edit"></span> Editar</button>
+            <a href="/PermisoDenegadoPorRol/Index" class="btn btn-default"><span class="glyphicon glyphicon-list"></span> Ir a Lista </a>
+        </div>
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+<script type="text/javascript" language="javascript">
+    $(document).ready(function () {
+        $("#iRol_id").attr('disabled', true);
+    });
+ </script>
+}

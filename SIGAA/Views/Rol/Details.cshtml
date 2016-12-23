@@ -1,0 +1,12 @@
+﻿@model SIGAA.Models.Rol
+
+@{
+    ViewBag.Title = "Detalle";
+}
+<h3><b>Información de Rol</b></h3>
+<hr />
+<div>
+    @Html.Partial("_DetailsDelete", Model)
+    <a href="/Rol/Edit/@Model.iRol_id" class="btn btn-primary"><span class="glyphicon glyphicon-pencil"></span> Editar </a>
+    <a href="/Rol/Index" class="btn btn-default"><span class="glyphicon glyphicon-list"></span> Ir a Lista </a>
+</div>

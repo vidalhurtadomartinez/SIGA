@@ -1,0 +1,99 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - MP-SIG</title>
+    @Styles.Render("~/Content/css")   
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryui")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/modernizr")
+    @Styles.Render("~/Content/kendo/css")
+    @Scripts.Render("~/bundles/kendo")
+
+    <link href="@Url.Content("~/Content/kendo/kendo.common.min.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/kendo/kendo.common-bootstrap.min.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/kendo/kendo.mobile.all.min.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/kendo/kendo.dataviz.min.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/kendo/kendo.bootstrap.min.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/kendo/kendo.dataviz.bootstrap.min.css")" rel="stylesheet" type="text/css" />
+    <script src="@Url.Content("~/Scripts/kendo/jquery.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/kendo/jszip.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/kendo/kendo.all.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/kendo/kendo.aspnetmvc.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/kendo.modernizr.custom.js")"></script>
+    <script src="@Url.Content("~/Scripts/kendo/cultures/kendo.culture.es-ES.min.js")"></script>
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+               <b>@Html.ActionLink("MP - S.I.G", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })</b> 
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    @if(SessionHelper.ExisteUsuarioEnSession()) { 
+                    @*<li>@Html.ActionLink("Principal", "Index", "Home")</li>*@                   
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="10" data-close-others="false">Seguridad<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            @if(FrontUser.TienePermiso(RolesPermisos.SEGU_usuario_puedeCambiarContrasena)){
+                            <li>@Html.ActionLink("Cambio de contraseña", "CambioDeContrasena", "Usuario")</li>
+                            }
+                            <li role="separator" class="divider"></li>
+                            @if (FrontUser.TienePermiso(RolesPermisos.SEGU_usuario_puedeVerIndice)) { 
+                            <li>@Html.ActionLink("Usuarios", "Index", "Usuario")</li>
+                            }
+                            @if (FrontUser.TienePermiso(RolesPermisos.SEGU_permisoDenegadoPorRol_puedeVerIndice)) {
+                            <li>@Html.ActionLink("Denegar Permiso a Rol", "Index", "PermisoDenegadoPorRol")</li>
+                            }
+                            @if (FrontUser.TienePermiso(RolesPermisos.SEGU_permiso_puedeVerIndice)) {
+                            <li>@Html.ActionLink("Permisos", "Index", "Permiso")</li>
+                            }
+                            @if (FrontUser.TienePermiso(RolesPermisos.SEGU_rol_puedeVerIndice)) { 
+                            <li>@Html.ActionLink("Roles", "Index", "Rol")</li>
+                            }
+                        </ul>
+                    </li>
+                    }
+                </ul>
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - By Mapirisoft</p>
+        </footer>
+    </div>
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/jqueryui")
+    @*@Scripts.Render("~/bundles/kendo")*@
+    <script>
+        kendo.culture("es-ES");
+
+        $(function () {
+            $(".jqueryui-marker-datepicker").datepicker({
+                dateformat: "dd/MM/yyyy",
+                changeYear: true,
+                language: "es"
+                //showOn: "button"
+            }).css("display", "inline-block").next("button").button({
+                icons: { primary: "btn ui-icon-calendar" },
+                //label: "",
+                text: false
+            });
+        });
+    </script>
+    @RenderSection("scripts", required: false)
+</body>
+</html>

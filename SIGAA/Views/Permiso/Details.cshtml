@@ -1,0 +1,13 @@
+﻿@model SIGAA.Models.Permiso
+
+@{
+    ViewBag.Title = "Detalle";
+}
+<h3><b>Información de Permiso</b></h3>
+
+<hr />
+<div>
+    @Html.Partial("_DetailsDelete", Model)
+    <a href="/Permiso/Edit/@Model.iPermiso_id" class="btn btn-primary"><span class="glyphicon glyphicon-pencil"></span> Editar </a>
+    <a href="/Permiso/Index" class="btn btn-default"><span class="glyphicon glyphicon-list"></span> Ir a Lista </a>
+</div>
