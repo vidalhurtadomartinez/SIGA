@@ -1,0 +1,77 @@
+﻿@model IEnumerable<SIGAA.Areas.CONV.Models.gatbl_ConvalidacionesExternasPA>
+
+@{
+    ViewBag.Title = "Convalidaciones Externas";
+}
+
+<h2>Convalidaciones Externas</h2>
+
+<p>
+    @Html.ActionLink("Crear Nuevo", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.lEstudiante_id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.agenda.alumnos_agenda.carreras.sca_codigo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.agenda.alumnos_agenda.crr_codigo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dtConvalidacionExterna_dt)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.sFormulario_nro)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.sInforme_nro)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lResponsable_id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.sObs_desc)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.agenda.NombreCompleto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.secciones_academicas.sca_descripcion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.carreras.crr_descripcion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.dtConvalidacionExterna_dt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.sFormulario_nro)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.sInforme_nro)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Responsable.NombreCompleto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.sObs_desc)
+            </td>
+
+            <td>
+                @Html.ActionLink("Editar", "Edit", new { id = item.lConvalidacionExternaPA_id }) |
+                @Html.ActionLink("Ver", "Details", new { id = item.lConvalidacionExternaPA_id }) |
+                @Html.ActionLink("Eliminar", "Delete", new { id = item.lConvalidacionExternaPA_id })
+            </td>
+        </tr>
+    }
+
+</table>

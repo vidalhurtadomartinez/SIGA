@@ -1,0 +1,129 @@
+﻿@model SIGAA.Areas.CONV.Models.gatbl_Postulantes
+
+@{
+    ViewBag.Title = "Detalle";
+}
+
+<h2>Detalle</h2>
+
+<div>
+    <h4>Postulante</h4>
+    <hr />
+    <dl class="dl-horizontal">        
+        <dt>
+            @Html.DisplayNameFor(model => model.dtFecha_registro_dt)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dtFecha_registro_dt)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sApPaterno_desc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sApPaterno_desc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sApMaterno_desc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sApMaterno_desc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sNombre_desc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sNombre_desc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sNroRegistro)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sNroRegistro)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.lTipoDocumentoPersonal_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TipoDocumentoPersonal.sDescripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sDocumento_nro)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sDocumento_nro)
+        </dd> 
+        
+        <dt>
+            @Html.DisplayNameFor(model => model.lProcedencia_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Procedencia.sDescripcion)
+        </dd>
+        
+        <dt>
+            @Html.DisplayNameFor(model => model.sDepartamento_fl)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Departamento.sDescripcion)
+        </dd>
+        
+        <dt>
+            @Html.DisplayNameFor(model => model.lNacionalidad_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nacionalidad.sGentilicio)
+        </dd>       
+        
+        <dt>
+            @Html.DisplayNameFor(model => model.sDireccion_desc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sDireccion_desc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sTelefonos_desc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sTelefonos_desc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sMail_desc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sMail_desc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.lResponsable_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Responsables.NombreCompleto)
+        </dd>        
+    </dl>
+</div>
+<p>    
+    @Html.ActionLink("Editar", "Edit", new { id = Model.lPostulante_id }, new { @class = "btn btn-warning" }) |
+    @Html.ActionLink("Ir a Lista", "Index")
+</p>

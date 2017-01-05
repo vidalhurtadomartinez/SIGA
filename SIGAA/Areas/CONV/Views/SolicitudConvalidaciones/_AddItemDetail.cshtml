@@ -1,0 +1,35 @@
+﻿@model SIGAA.Areas.CONV.Models.gatbl_DPConvalidaciones
+
+@using (Html.BeginForm())
+{
+    <tr>
+        @*@Html.HiddenFor(m => m.lDPConvalicacion_id)*@
+        <td>
+             
+            @Html.DropDownList("lTipoDocumentoSolicitud_id", null, htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.lTipoDocumentoSolicitud_id, "", new { @class = "text-danger" })
+             
+        </td>
+        <td>
+            
+            @Html.DropDownList("sTipoPresentacion_fl", null, htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.sTipoPresentacion_fl, "", new { @class = "text-danger" })
+                
+        </td>                       
+        <td>
+            
+            @Html.EditorFor(model => model.sCantidad_nro, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.sCantidad_nro, "", new { @class = "text-danger" })
+             
+        </td>
+        <td>
+            @*@Html.ActionLink("Editar", "EditarDocumento", new { id = Model.lDPConvalicacion_id }) |
+            @Html.ActionLink("Eliminar", "Delete", new { id = Model.lDPConvalicacion_id })*@
+        </td>
+        @*<td>
+            <button type="button" class="delete" data-id="@Model.lDPConvalicacion_id">Eliminar</button>
+            @Html.HiddenFor(m => m.lDPConvalicacion_id)
+            @Html.HiddenFor(m => m.TipoDocumentoSolicitud.sDescripcion)
+        </td>*@
+    </tr>
+}

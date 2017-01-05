@@ -1,0 +1,198 @@
+﻿@model SIGAA.Areas.CONV.ViewModels.SolicitudConvalidacion
+@{
+    ViewBag.Title = "Eliminar";
+}
+
+<h2>Eliminar</h2>
+<h3>Esta seguro que desea eliminar el registro?</h3>
+
+<div>
+    <h4>Solicitud de Convalidacion</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.gatbl_PConvalidaciones.lNro_solucitud)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.gatbl_PConvalidaciones.lNro_solucitud)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.gatbl_PConvalidaciones.dtPostulacion_dt)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.gatbl_PConvalidaciones.dtPostulacion_dt)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.gatbl_PConvalidaciones.lPostulante_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.gatbl_PConvalidaciones.gatbl_Postulantes.sNombre_desc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.gatbl_PConvalidaciones.gatbl_Postulantes.sDocumento_nro)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.gatbl_PConvalidaciones.gatbl_Postulantes.sDocumento_nro)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.gatbl_PConvalidaciones.lUniversidadOrigen_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.gatbl_PConvalidaciones.gatbl_UniversidadesOrigen.sNombre_desc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.gatbl_PConvalidaciones.lCarreraOrigen_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.gatbl_PConvalidaciones.gatbl_CarrerasOrigen.sCarrera_nm)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.gatbl_PConvalidaciones.lUniversidadDestino_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.gatbl_PConvalidaciones.gatbl_UniversidadesDestino.sNombre_desc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.gatbl_PConvalidaciones.lCarreraDestino_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.gatbl_PConvalidaciones.gatbl_CarrerasDestino.sCarrera_nm)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.gatbl_PConvalidaciones.sObs_desc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.gatbl_PConvalidaciones.sObs_desc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.gatbl_PConvalidaciones.lResponsable_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.gatbl_PConvalidaciones.Responsables.NombreCompleto)
+        </dd>
+    </dl>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Eliminar" class="btn btn-danger" /> |
+            @Html.ActionLink("Ir a Lista", "Index")
+        </div>
+    }
+</div>
+
+<h2>Documentos para Evaluacion</h2>
+
+<div>
+
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation" class="active"><a href="#Documentos" aria-controls="home" role="tab" data-toggle="tab">Documentos</a></li>
+        <li role="presentation"><a href="#Certificados" aria-controls="profile" role="tab" data-toggle="tab">Certificados de Materia</a></li>
+    </ul>
+
+    <!-- Tab panes -->
+    <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active" id="Documentos">
+            <table class="table">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.gatbl_DPConvalidacion.lTipoDocumentoSolicitud_id)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.gatbl_DPConvalidacion.TipoPresentacionDocumento.sDescripcion)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.gatbl_DPConvalidacion.lCantidad_nro)
+                    </th>
+
+                </tr>
+                @for (int i = 0; i < Model.gatbl_DPConvalidaciones.Count; i++)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => Model.gatbl_DPConvalidaciones[i].TipoDocumentoSolicitud.sDescripcion)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => Model.gatbl_DPConvalidaciones[i].TipoPresentacionDocumento.sDescripcion)
+                        </td>
+
+                        <td>
+                            @Html.DisplayFor(modelItem => Model.gatbl_DPConvalidaciones[i].lCantidad_nro)
+                        </td>
+
+                    </tr>
+                }
+
+            </table>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="Certificados">
+            <div>
+                <table class="table">
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.gatbl_CertificadosMateria.lMateria_id)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.gatbl_CertificadosMateria.sTipoPresentacion_fl)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.gatbl_CertificadosMateria.dCalificacion)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.gatbl_CertificadosMateria.bHomologado)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.gatbl_CertificadosMateria.sDocumento_adjunto)
+                        </th>
+                        
+                    </tr>
+                    @for (int i = 0; i < Model.gatbl_CertificadosMaterias.Count; i++)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => Model.gatbl_CertificadosMaterias[i].gatbl_ProgramasAnaliticos.sMateria_desc)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => Model.gatbl_CertificadosMaterias[i].TipoPresentacionDocumento.sDescripcion)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => Model.gatbl_CertificadosMaterias[i].dCalificacion)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => Model.gatbl_CertificadosMaterias[i].bHomologado)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => Model.gatbl_CertificadosMaterias[i].sDocumento_adjunto)
+                            </td>
+                            
+                        </tr>
+                    }
+
+                </table>
+
+            </div>
+        </div>
+    </div>
+
+</div>

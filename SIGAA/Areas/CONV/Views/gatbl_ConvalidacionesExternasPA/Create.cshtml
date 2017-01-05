@@ -1,0 +1,212 @@
+﻿@model SIGAA.Areas.CONV.Models.gatbl_ConvalidacionesExternasPA
+
+@{
+    ViewBag.Title = "Nueva";
+}
+
+<h2>Nueva</h2>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Convalidacion Externa</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.lEstudiante_id, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @(Html.Kendo().DropDownListFor(model => model.lEstudiante_id)
+                  .DataTextField("agd_nombres")
+                  .DataValueField("agd_codigo")
+                  .HtmlAttributes(new { style = "width:280px" })
+                  //.OptionLabel("Buscar Postulante")
+                  .Filter("contains")
+                  .AutoBind(false)
+                  .MinLength(3)
+                  .DataSource(source =>
+                  {
+                      source.Read(read =>
+                      {
+                          read.Action("ObtenerPostulantes", "gatbl_ConvalidacionesExternasPA");
+                      })
+                      .ServerFiltering(true);
+                  })
+                  .Events(e =>
+                  {
+                      e.Select("onSelectPostulante");
+                  })
+                )
+                
+                @*@Html.DropDownList("lEstudiante_id", null, htmlAttributes: new { @class = "form-control" })*@
+                @Html.ValidationMessageFor(model => model.lEstudiante_id, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.dtConvalidacionExterna_dt, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @(Html.Kendo().DatePickerFor(model => model.dtConvalidacionExterna_dt)                
+                )
+                @*@Html.EditorFor(model => model.dtConvalidacionExterna_dt, new { htmlAttributes = new { @class = "form-control" } })*@
+                @Html.ValidationMessageFor(model => model.dtConvalidacionExterna_dt, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.sFormulario_nro, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.sFormulario_nro, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.sFormulario_nro, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.sInforme_nro, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.sInforme_nro, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.sInforme_nro, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.lResponsable_id, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @(Html.Kendo().DropDownListFor(model => model.lResponsable_id)
+                  .DataTextField("agd_nombres")
+                  .DataValueField("agd_codigo")
+                  .HtmlAttributes(new { style = "width:280px" })
+                  .Filter("contains")
+                  .AutoBind(false)
+                  .MinLength(3)
+                  .DataSource(source =>
+                  {
+                      source.Read(read =>
+                      {
+                          read.Action("ObtenerResponsables", "gatbl_ConvalidacionesExternasPA");
+                      })
+                      .ServerFiltering(true);
+                  })
+                )
+                @*@Html.DropDownList("lResponsable_id", null, htmlAttributes: new { @class = "form-control" })*@
+                @Html.ValidationMessageFor(model => model.lResponsable_id, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.sObs_desc, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.sObs_desc, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.sObs_desc, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Guardar Convalidacion" class="btn btn-success" />
+            </div>
+        </div>
+    </div>
+}
+<h2>Materias a Convalidar</h2>
+
+<div class="form-group">    
+    <h4>Origen</h4>
+    @(Html.Kendo().Grid<SIGAA.Areas.CONV.Models.gatbl_DConvalidacionesExternasPA>()
+        .Name("grid")
+        .Columns(columns =>
+        {
+            columns.Bound(e => e.lUniversidad_id).Width(110);
+            columns.Bound(e => e.lCarrera_id).Width(110);
+            columns.Bound(e => e.lEscalaCalificacion_id).Width(110);
+            columns.Bound(e => e.sObs_desc).Width(200);
+
+        })
+        .ToolBar(toolbar => toolbar.Create())
+        .Editable(editable => editable.Mode(GridEditMode.PopUp))
+        .Sortable()
+        .Pageable()
+        .Scrollable()
+        .ClientDetailTemplateId("template")
+        .HtmlAttributes(new { style = "height:400px; width=100%" })
+        .DataSource(dataSource => dataSource
+            .Ajax()
+            .PageSize(20)
+            .Events(events => events.Error("error_handler"))
+            .Model(model => model.Id(p => p.lDConvalidacionExternaPA_id))
+            .Create(update => update.Action("Create", "gatbl_ConvalidacionesExternasPA"))
+            .Read(read => read.Action("Create", "gatbl_ConvalidacionesExternasPA"))
+        //.Update(update => update.Action("EditingInline_Update", "Grid"))
+        //.Destroy(update => update.Action("EditingInline_Destroy", "Grid"))
+        )
+    //.DataSource(dataSource => dataSource
+    //    .Ajax()
+    //    .PageSize(10)
+    //    .Read(read => read.Action("HierarchyBinding_Universidades", "gatbl_ConvalidacionesExternasPA"))
+    //)
+    //.Events(events => events.DataBound("dataBound"))
+    )
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+<script id="template" type="text/kendo-tmpl">
+    @(Html.Kendo().Grid<SIGAA.Areas.CONV.Models.gatbl_MateriasConvalidadas>()
+            .Name("grid_#=lConvalidacionExternaPA_id#") // template expression, to be evaluated in the master context
+            .Columns(columns =>
+            {
+                columns.Bound(m => m.lMateria_id).Width(110);
+                columns.Bound(m => m.sNota_Origen).Width(110);
+                columns.Bound(m => m.sNota_destino).Width(110);                
+            })
+            .DataSource(dataSource => dataSource
+                .Ajax()
+                .PageSize(10)
+                .Read(read => read.Action("HierarchyBinding_Materias", "gatbl_ConvalidacionesExternasPA", new { id = "#=lConvalidacionExternaPA_id#" }))
+            )
+            .Pageable()
+            .Sortable()
+            .ToClientTemplate()
+    )
+</script>
+<script>
+    function dataBound() {
+        this.expandRow(this.tbody.find("tr.k-master-row").first());
+    }
+</script>
+
+    <script>
+        kendo.culture("es-ES");
+
+        $(document).ready(function () {
+            kendo.culture("es-ES");
+            $.validator.addMethod('date',
+                function (value, element) {
+                    var isValidDate = this.optional(element) || kendo.parseDate(value);
+
+                    return isValidDate
+                });
+        });
+
+
+        function onAdditionalData() {
+            return {
+                text: $("#productComboBox").text()
+            };
+        }
+
+        function onSelectPostulante(e) {
+            var dataItem = this.dataItem(e.item);
+            //$("#sAgenda_nro").val(dataItem.agd_codigo);
+            //$("#gatbl_PConvalidaciones_sDocumento_nro").val(dataItem.agd_docnro);
+        }
+
+        function onSelectCarrera(e) {
+            var dataItem = this.dataItem(e.item);
+            $("#gatbl_PConvalidaciones_secciones_academicas_sca_descripcion").val(dataItem.sca_descripcion);
+        }
+    </script>
+}

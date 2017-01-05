@@ -1,0 +1,109 @@
+﻿@model IEnumerable<SIGAA.Areas.CONV.Models.Pensum>
+
+@{
+    ViewBag.Title = "Pensums Academico";
+}
+
+<h2>Pensums Academico</h2>
+
+@(Html.Kendo().Grid<SIGAA.Areas.CONV.Models.Pensum>()
+    .Name("grid")
+    .Columns(columns =>
+    {
+        columns.Template(@<text></text>).ClientTemplate(
+                                "<a class='k-button k-button-icon' href='" + Url.Action("Edit", "Pensums") + "/#=lPensum_id#' title='Editar'><span class='k-icon k-edit'> </span></a>" +
+                                 "<a class='k-button k-button-icon' href='" + Url.Action("Details", "Pensums") + "/#=lPensum_id#' title='Ver'><span class='k-icon k-i-search'> </span></a>" +
+                                 "<a class='k-button k-button-icon' href='" + Url.Action("Delete", "Pensums") + "/#=lPensum_id#' title='Eliminar'><span class='k-icon k-delete'> </span></a>")
+                                 .Width(120).Title("Edicion");
+
+        columns.Bound(o => o.sDescripcion).ClientTemplate(@Html.ActionLink("#=sDescripcion#", "Details", new { ID = "#=lPensum_id#" })
+            .ToHtmlString()).Width(150).Filterable(ftb => ftb.Cell(cell => cell.Operator("contains").ShowOperators(false)));
+        columns.Bound(p => p.gatbl_Universidades.sNombre_desc).Width(150).Filterable(ftb => ftb.Cell(cell => cell.Operator("contains").ShowOperators(false)));
+        columns.Bound(p => p.gatbl_Carreras.sCarrera_nm).Filterable(ftb => ftb.Cell(cell => cell.Operator("contains").ShowOperators(true)));
+        columns.Bound(p => p.bActivo).ClientTemplate("<input type='checkbox' #= bActivo ? checked='checked' :'' # disabled='disabled' />").Width(100);
+
+    })
+    .ToolBar(toolBar =>
+    {
+    toolBar.Template(@<text>
+        <a class="k-button k-button-icontext" href=@Url.Action("Create", "Pensums")><span class="k-icon k-i-plus"></span>Crear Nuevo</a>
+    </text>);
+    })
+    .Editable(editable => editable.Mode(GridEditMode.InLine))
+    .Pageable()
+    .Groupable()
+    .Sortable()
+    .Filterable()
+    .ColumnMenu()
+    .Scrollable(s => s.Height("auto"))
+    .HtmlAttributes(new { style = "height:700px" })
+    .Filterable(ftb => ftb.Mode(GridFilterMode.Row))
+    .DataSource(dataSource => dataSource
+        .Ajax()
+        .PageSize(20)
+        .ServerOperation(false)
+        .Group(group => group.Add(p => p.gatbl_Universidades.sNombre_desc))
+        .Model(model =>
+        {
+            model.Id(p => p.lPensum_id);
+            model.Field(p => p.lPensum_id).Editable(false);
+        })
+        .Read(read => read.Action("Index_Read", "Pensums"))
+        .Create(create => create.Action("Create", "Pensums"))
+        .Update(update => update.Action("Edit", "Pensums"))
+        .Destroy(update => update.Action("Delete", "Pensums"))
+     )
+)
+
+@*<p>
+    @Html.ActionLink("Crear Nuevo", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.lUniversidad_id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lCarrera_id)
+        </th>        
+        <th>
+            @Html.DisplayNameFor(model => model.sDescripcion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.bActivo)
+        </th>        
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.gatbl_Universidades.sNombre_desc)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.gatbl_Carreras.sCarrera_nm)
+        </td>        
+        <td>
+            @Html.DisplayFor(modelItem => item.sDescripcion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.bActivo)
+        </td>        
+        <td>
+            <a href="@Url.Action("Edit", new { id = item.lPensum_id })">
+                <i class="glyphicon glyphicon-edit" title="Editar"></i>
+                <span class="sr-only">Editar</span>
+            </a>
+            <a href="@Url.Action("Details", new { id = item.lPensum_id })">
+                <i class="glyphicon glyphicon-search" title="Ver"></i>
+                <span class="sr-only">Ver</span>
+            </a>
+            <a href="@Url.Action("Delete", new { id = item.lPensum_id })">
+                <i class="glyphicon glyphicon-trash" title="Eliminar"></i>
+                <span class="sr-only">Eliminar</span>
+            </a>           
+        </td>
+    </tr>
+}
+
+</table>*@

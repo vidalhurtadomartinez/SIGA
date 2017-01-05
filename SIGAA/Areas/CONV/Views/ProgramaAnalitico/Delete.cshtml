@@ -1,0 +1,271 @@
+﻿@model SIGAA.Areas.CONV.ViewModels.ProgramaAnaliticoViewModels
+@{
+    ViewBag.Title = "Eliminar";
+}
+
+<h2>Eliminar</h2>
+<h3>Esta seguro que desea eliminar el registro?</h3>
+<div>
+    <h4>Programa Analitico</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.gatbl_ProgramasAnaliticos.dtRegistro_dt)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.gatbl_ProgramasAnaliticos.dtRegistro_dt)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.gatbl_ProgramasAnaliticos.sMateria_desc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.gatbl_ProgramasAnaliticos.sMateria_desc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.gatbl_ProgramasAnaliticos.lUniversidad_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.gatbl_ProgramasAnaliticos.gatbl_Universidades.sNombre_desc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.gatbl_ProgramasAnaliticos.lFacultad_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.gatbl_ProgramasAnaliticos.gatbl_Facultades.sFacultad_nm)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.gatbl_ProgramasAnaliticos.lCarrera_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.gatbl_ProgramasAnaliticos.gatbl_Carreras.sCarrera_nm)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.gatbl_ProgramasAnaliticos.lUNegocio_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.gatbl_ProgramasAnaliticos.UnidadNegocios.sDescripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.gatbl_ProgramasAnaliticos.sCodigo_nro)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.gatbl_ProgramasAnaliticos.sCodigo_nro)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.gatbl_ProgramasAnaliticos.sSigla_desc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.gatbl_ProgramasAnaliticos.sSigla_desc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.gatbl_ProgramasAnaliticos.sHorasPracticas_nro)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.gatbl_ProgramasAnaliticos.sHorasPracticas_nro)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.gatbl_ProgramasAnaliticos.sHorasTeoricas_nro)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.gatbl_ProgramasAnaliticos.sHorasTeoricas_nro)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.gatbl_ProgramasAnaliticos.sHorasSociales_nro)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.gatbl_ProgramasAnaliticos.sHorasSociales_nro)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.gatbl_ProgramasAnaliticos.sHorasAyudantia_nro)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.gatbl_ProgramasAnaliticos.sHorasAyudantia_nro)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.gatbl_ProgramasAnaliticos.sCreditos_nro)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.gatbl_ProgramasAnaliticos.sCreditos_nro)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.gatbl_ProgramasAnaliticos.lResponsable_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.gatbl_ProgramasAnaliticos.Responsables.NombreCompleto)
+        </dd>
+        
+        <dt>
+            @Html.DisplayNameFor(model => model.gatbl_ProgramasAnaliticos.sCarga_Horaria)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.gatbl_ProgramasAnaliticos.sCarga_Horaria)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.gatbl_ProgramasAnaliticos.lTipoCargaHoraria_fl)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.gatbl_ProgramasAnaliticos.TipoCargaHoraria.sDescripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.gatbl_ProgramasAnaliticos.lPensum_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.gatbl_ProgramasAnaliticos.Pensum.sDescripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.gatbl_ProgramasAnaliticos.CopiaDe)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.gatbl_ProgramasAnaliticos.gatbl_ProgramasAnaliticos_Copia.sMateria_desc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.gatbl_ProgramasAnaliticos.sVersion_nro)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.gatbl_ProgramasAnaliticos.sVersion_nro)
+        </dd>
+
+    </dl>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Eliminar" class="btn btn-danger" /> |
+            @Html.ActionLink("Ir a Lista", "Index")
+        </div>
+    }
+</div>
+
+<h2>Unidades y Temas del Programa Analitico</h2>
+
+
+@(Html.Kendo().TreeList<SIGAA.Areas.CONV.Models.gatbl_DetProgramasAnaliticos>()
+    .Name("treelist")
+    //.Toolbar(toolbar => toolbar.Create().Text("Crear Nuevo"))
+    .Columns(columns =>
+    {
+        columns.Add().Field(e => e.sNumero).Title("Numero").Width(100).Sortable();
+        columns.Add().Field(e => e.sDescripcion_desc).Title("Descripcion").Width(200);
+        columns.Add().Field(e => e.sContenido_gral).Title("Contenido General");
+
+
+        //columns.Add().Title("Edicion").Width(300).Command(c =>
+        //{
+        //    c.CreateChild().Text("Nuevo");
+        //    c.Edit().Text("Editar");
+        //    c.Destroy().Text("Eliminar");
+        //})
+        //.HtmlAttributes(new
+        // {
+        //     style = "text-align: center;"
+        // });
+    })
+    .Editable()
+    .Filterable(true)
+    .Sortable()
+    .HtmlAttributes(new { style = "height:500px" })
+    .DataSource(dataSource => dataSource
+        .ServerOperation(false)
+        //.Create(create => create.Action("CreateNew", "gatbl_DetProgramasAnaliticos"))
+        .Read(read => read.Action("All", "gatbl_DetProgramasAnaliticos"))
+        //.Update(update => update.Action("Update", "gatbl_DetProgramasAnaliticos"))
+        //.Destroy(delete => delete.Action("Destroy", "gatbl_DetProgramasAnaliticos"))
+        .Sort(p => p.Add("sNumero").Ascending())
+        .Model(m =>
+        {
+            m.Id(f => f.lDetProgramaAnalitico_id);
+            m.ParentId(f => f.lDetProgramaAnaliticoPadre_id);
+            m.Expanded(true);
+            m.Field(f => f.sNumero).DefaultValue(0);
+            m.Field(f => f.sDescripcion_desc);
+            m.Field(f => f.sContenido_gral);
+        })
+    )
+//.Height(450)
+)
+
+@*<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.gatbl_DProgramasAnalitico.sUnidad_nro)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.gatbl_DProgramasAnalitico.sUnidad_desc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.gatbl_DProgramasAnaliticosTema.sTema_desc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.gatbl_DProgramasAnalitico.sContenido_gral)
+        </th>
+    </tr>
+
+    @foreach (var unidad in Model.gatbl_DProgramasAnaliticos)
+    {
+        <tr class="active">
+            <td>
+                @Html.DisplayFor(modelItem => unidad.sUnidad_nro)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => unidad.sUnidad_desc)
+            </td>
+            <td></td>
+            <td>
+                @Html.DisplayFor(modelItem => unidad.sContenido_gral)
+            </td>
+        </tr>
+
+        foreach (var tema in Model.gatbl_DProgramasAnaliticosTemas.Where(t => t.lDProgramaAnalitico_id == unidad.lDProgramaAnalitico_id))
+        {
+            <tr>
+                <td class="default"></td>
+                <td class="default"></td>
+                <td>
+                    @Html.DisplayFor(modelItem => tema.sTema_desc)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => tema.sContenido_gral)
+                </td>
+            </tr>
+        }
+    }
+
+
+</table>*@

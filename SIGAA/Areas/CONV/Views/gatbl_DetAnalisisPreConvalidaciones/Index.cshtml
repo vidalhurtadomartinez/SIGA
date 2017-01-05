@@ -1,0 +1,81 @@
+﻿@model IEnumerable<SIGAA.Areas.CONV.Models.gatbl_DetAnalisisPreConvalidaciones>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.gatbl_AnalisisPreConvalidaciones.lResponsable_id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.gatbl_DestinoProgramasAnaliticos.sMateria_desc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.gatbl_OrigenProgramasAnaliticos.sMateria_desc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lNotaOrigen)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.sObservaciones)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.iEstado_fl)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.iEliminado_fl)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.sCreated_by)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.iConcurrencia_id)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.gatbl_AnalisisPreConvalidaciones.lResponsable_id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.gatbl_DestinoProgramasAnaliticos.sMateria_desc)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.gatbl_OrigenProgramasAnaliticos.sMateria_desc)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lNotaOrigen)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.sObservaciones)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.iEstado_fl)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.iEliminado_fl)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.sCreated_by)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.iConcurrencia_id)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.lDetAnalisisPreConvalidacion_id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.lDetAnalisisPreConvalidacion_id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.lDetAnalisisPreConvalidacion_id })
+        </td>
+    </tr>
+}
+
+</table>

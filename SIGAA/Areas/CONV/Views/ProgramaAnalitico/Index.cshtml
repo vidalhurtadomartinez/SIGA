@@ -1,0 +1,296 @@
+﻿@model IEnumerable<SIGAA.Areas.CONV.Models.gatbl_ProgramasAnaliticos>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Programas Analiticos</h2>
+
+<div id="content">
+    @(Html.Kendo().Grid<SIGAA.Areas.CONV.Models.gatbl_ProgramasAnaliticos>()
+        .Name("grid")
+        .Columns(columns =>
+        {
+            columns.Template(@<text></text>).ClientTemplate(
+                                    "<a class='k-button k-button-icon' href='" + Url.Action("Edit", "ProgramaAnalitico") + "/#=lProgramaAnalitico_id#' title='Editar'><span class='k-icon k-edit'> </span></a>" +
+                                     "<a class='k-button k-button-icon' href='" + Url.Action("Duplicate", "ProgramaAnalitico") + "/#=lProgramaAnalitico_id#' title='Duplicar'><span class='k-icon k-i-restore'> </span></a>" +
+                                     "<a class='k-button k-button-icon' href='" + Url.Action("ReportProgram", "ProgramaAnalitico") + "/#=lProgramaAnalitico_id#' title='Ver' target='_blank'><span class='k-icon k-i-search'> </span></a>" +
+                                     //"<a class='k-button k-button-icon' href='" + Url.Action("Details", "ProgramaAnalitico") + "/#=lProgramaAnalitico_id#' title='Ver'><span class='k-icon k-i-search'> </span></a>" +
+                                     "<a class='k-button k-button-icon' href='" + Url.Action("Delete", "ProgramaAnalitico") + "/#=lProgramaAnalitico_id#' title='Eliminar'><span class='k-icon k-delete'> </span></a>")
+                                     .Width(160).Title("Edicion").Locked(true);
+
+            columns.Group(group => group
+                .Title("Programa Analitico")
+                .Columns(programa =>
+                {
+                    programa.Bound(p => p.sCodigo_nro).ClientTemplate(@Html.ActionLink("#=sCodigo_nro#", "Details", new { ID = "#=lProgramaAnalitico_id#" })
+            .ToHtmlString()).Width(80).Filterable(ftb => ftb.Cell(cell => cell.Operator("eq").ShowOperators(false)));
+                    programa.Bound(p => p.sSigla_desc).Width(80).Filterable(ftb => ftb.Cell(cell => cell.Operator("contains")
+            .ShowOperators(false)));
+                    programa.Bound(p => p.sMateria_desc).Width(150).Filterable(ftb => ftb.Cell(cell => cell.Operator("contains")
+            .ShowOperators(false)));
+                }).Locked(true)
+            );
+
+            columns.Group(group => group
+                .Title("Referencia Academica")
+                .Columns(info =>
+                {
+                    info.Bound(p => p.gatbl_Universidades.sNombre_desc).Width(150).Filterable(ftb => ftb.Cell(cell => cell.Operator("contains")
+            .ShowOperators(false)));
+                    info.Bound(p => p.gatbl_Facultades.sFacultad_nm).Width(200).Filterable(ftb => ftb.Cell(cell => cell.Operator("contains")
+            .ShowOperators(false)));
+                    info.Bound(p => p.gatbl_Carreras.sCarrera_nm).Width(200).Filterable(ftb => ftb.Cell(cell => cell.Operator("contains")
+            .ShowOperators(false)));
+                })
+            );
+
+            columns.Group(group => group
+                .Title("Carga Horaria")
+                .Columns(horario =>
+                {
+
+                    horario.Bound(p => p.sHorasPracticas_nro).Width(70).Filterable(false).Title("Pra.");
+                    horario.Bound(p => p.sHorasTeoricas_nro).Width(70).Filterable(false).Title("Teo.");
+                    horario.Bound(p => p.sHorasSociales_nro).Width(70).Filterable(false).Title("Soc.");
+                    horario.Bound(p => p.sHorasAyudantia_nro).Width(70).Filterable(false).Title("Ayu.");
+                    horario.Bound(p => p.sCarga_Horaria).Width(80).Filterable(false).Title("Total Hr.");
+                    horario.Bound(p => p.TipoCargaHoraria.sDescripcion).Width(120).Filterable(false).Title("Tipo");
+                })
+            );
+
+            columns.Group(group => group
+                .Title("Programa Analitico")
+                .Columns(detprog =>
+                {
+                    detprog.Bound(p => p.dtRegistro_dt).Title("F. Registro").Width(120).Filterable(ftb => ftb.Cell(cell => cell.ShowOperators(false)))
+                .Format("{0:dd/MM/yyyy}");
+                    detprog.Bound(p => p.UnidadNegocios.sDescripcion).Width(150).Filterable(ftb => ftb.Cell(cell => cell.Operator("contains")
+            .ShowOperators(false)));
+                    detprog.Bound(p => p.sVersion_nro).Width(100).Filterable(ftb => ftb.Cell(cell => cell.Operator("contains")
+                    .ShowOperators(false)));
+                    detprog.Bound(p => p.Pensum.sDescripcion).Width(100).Filterable(ftb => ftb.Cell(cell => cell.Operator("contains")
+                    .ShowOperators(false))).Title("Pensum");
+                    detprog.Bound(p => p.sObs_desc).Width(250).Filterable(ftb => ftb.Cell(cell => cell.Operator("contains")
+            .ShowOperators(false)));
+                })
+            );
+
+            columns.Bound(p => p.Responsables.NombreCompleto).Width(200).Filterable(ftb => ftb.Cell(cell => cell.Operator("contains").ShowOperators(false))).Title("Responsable");
+
+
+        })
+        .ToolBar(toolBar =>
+        {
+        toolBar.Template(@<text>
+        <a class="k-button k-button-icontext" href=@Url.Action("Create", "ProgramaAnalitico")><span class="k-icon k-i-plus"></span>Crear Nuevo</a>
+        </text>);
+        })
+        .Editable(editable => editable.Mode(GridEditMode.InLine))
+        //.Pageable()
+        //.Groupable()
+        .Sortable()
+        .Filterable()
+        //.ColumnMenu()
+        .Scrollable(s => s.Height("auto"))
+        .HtmlAttributes(new { style = "height:100%" })
+        .Filterable(ftb => ftb.Mode(GridFilterMode.Row))
+
+
+        .Resizable(rsb => rsb.Columns(true))
+        .Reorderable(r => r.Columns(true))
+        .Pageable(pageable => pageable
+            .Refresh(true)
+            .PageSizes(true)
+            .ButtonCount(10)
+            .Input(false)
+            .Numeric(true)
+            .Messages(m => m
+                    .ItemsPerPage("items por página")
+                    )
+            )
+
+        .DataSource(dataSource => dataSource
+            .Ajax()
+            .PageSize(20)
+            .Sort(sort => sort.Add(p => p.sMateria_desc).Ascending())
+            .ServerOperation(false)
+        .Group(group => group.Add(p => p.gatbl_Universidades.sNombre_desc))
+        .Group(group => group.Add(p => p.gatbl_Carreras.sCarrera_nm))
+        .Group(group => group.Add(p => p.Pensum.sDescripcion))
+        .Model(model =>
+        {
+            model.Id(p => p.lProgramaAnalitico_id);
+            model.Field(p => p.lProgramaAnalitico_id).Editable(false);
+        })
+        .Read(read => read.Action("Index_Read", "ProgramaAnalitico"))
+        .Create(create => create.Action("Create", "ProgramaAnalitico"))
+        .Update(update => update.Action("Edit", "ProgramaAnalitico"))
+        .Destroy(update => update.Action("Delete", "ProgramaAnalitico"))
+     )
+    )
+</div>
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script>
+        $(document).ready(function () {
+            resizeContent();
+
+            $(window).resize(function () {
+                resizeContent();
+            });
+        });
+
+        function resizeContent() {
+            $height = $(window).height() - 210;
+            $('div#content').height($height);
+
+            var grid = $("#grid").data('kendoGrid');
+            if (grid != undefined) {
+                grid.resize();
+            }
+        }
+    </script>
+}
+
+@*<p>
+    @Html.ActionLink("Crear Nuevo", "Create")
+</p>
+
+<form action="" class="navbar-form navbar-right">
+    <div class="input-group">
+        <input type="Search" placeholder="Ingresar aqui para buscar..." class="form-control" />
+        <div class="input-group-btn">
+            <button class="btn btn-success">
+                <span class="glyphicon glyphicon-search"></span>
+            </button>
+        </div>
+    </div>
+</form>
+
+
+    <table class="table">
+        <tr>
+            <th></th>
+            <th>
+                @Html.DisplayNameFor(model => model.dtRegistro_dt)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.sMateria_desc)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.gatbl_Universidades.sNombre_desc)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.gatbl_Facultades.sFacultad_nm)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.gatbl_Carreras.sCarrera_nm)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.lResponsable_id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UnidadNegocios.sDescripcion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.sCodigo_nro)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.sSigla_desc)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.sHorasPracticas_nro)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.sHorasTeoricas_nro)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.sHorasSociales_nro)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.sHorasAyudantia_nro)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.sCreditos_nro)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.sVersion_nro)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <a href="@Url.Action("Details", new { id = item.lProgramaAnalitico_id })">
+                        <i class="glyphicon glyphicon-share" title="Duplicar materia"></i>
+                        <span class="sr-only">Ver</span>
+                    </a>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.dtRegistro_dt)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.sMateria_desc)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.gatbl_Universidades.sNombre_desc)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.gatbl_Facultades.sFacultad_nm)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.gatbl_Carreras.sCarrera_nm)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Responsables.NombreCompleto)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UnidadNegocios.sDescripcion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.sCodigo_nro)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.sSigla_desc)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.sHorasPracticas_nro)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.sHorasTeoricas_nro)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.sHorasSociales_nro)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.sHorasAyudantia_nro)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.sCreditos_nro)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.sVersion_nro)
+                </td>
+                <td>
+                    <a href="@Url.Action("Edit", new { id = item.lProgramaAnalitico_id })">
+                        <i class="glyphicon glyphicon-edit" title="Editar"></i>
+                        <span class="sr-only">Editar</span>
+                    </a>
+                    <a href="@Url.Action("Details", new { id = item.lProgramaAnalitico_id })">
+                        <i class="glyphicon glyphicon-search" title="Ver"></i>
+                        <span class="sr-only">Ver</span>
+                    </a>
+                    <a href="@Url.Action("Delete", new { id = item.lProgramaAnalitico_id })">
+                        <i class="glyphicon glyphicon-trash" title="Eliminar"></i>
+                        <span class="sr-only">Eliminar</span>
+                    </a>
+                </td>
+            </tr>
+        }
+
+    </table>*@

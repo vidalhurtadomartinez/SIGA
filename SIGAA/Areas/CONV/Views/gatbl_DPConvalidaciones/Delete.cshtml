@@ -1,0 +1,112 @@
+﻿@model SIGAA.Areas.CONV.Models.gatbl_DPConvalidaciones
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>gatbl_DPConvalidaciones</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.gatbl_Facultades.sFacultad_nm)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.gatbl_Facultades.sFacultad_nm)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.gatbl_PConvalidaciones.sGestion_desc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.gatbl_PConvalidaciones.sGestion_desc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.gatbl_Universidades.sOrigen_fl)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.gatbl_Universidades.sOrigen_fl)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tipo_documentos.doc_descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tipo_documentos.doc_descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TipoPresentacionDocumento.sDescripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TipoPresentacionDocumento.sDescripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sCantidad_nro)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sCantidad_nro)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sAprobados_nro)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sAprobados_nro)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.iEstado_fl)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.iEstado_fl)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.iEliminado_fl)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.iEliminado_fl)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sCreated_by)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sCreated_by)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.iConcurrencia_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.iConcurrencia_id)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Ir a Lista", "Index")
+        </div>
+    }
+</div>

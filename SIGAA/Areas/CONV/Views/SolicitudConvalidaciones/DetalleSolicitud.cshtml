@@ -1,0 +1,41 @@
+﻿@model SIGAA.Areas.CONV.ViewModels.SolicitudConvalidacion
+
+<h2>Documentos para Evaluacion</h2>
+
+<div>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.gatbl_DPConvalidacion.lTipoDocumentoSolicitud_id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.gatbl_DPConvalidacion.TipoPresentacionDocumento.sDescripcion)
+            </th>            
+            <th>
+                @Html.DisplayNameFor(model => model.gatbl_DPConvalidacion.sCantidad_nro)
+            </th>            
+            <th></th>
+        </tr>
+        @for (int i = 0; i < Model.gatbl_DPConvalidaciones.Count; i++)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => Model.gatbl_DPConvalidaciones[i].TipoDocumentoSolicitud.sDescripcion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => Model.gatbl_DPConvalidaciones[i].TipoPresentacionDocumento.sDescripcion)
+                </td>                
+                <td>
+                    @Html.DisplayFor(modelItem => Model.gatbl_DPConvalidaciones[i].sCantidad_nro)
+                </td>
+                
+                <td>
+                    @*@Html.ActionLink("Editar", "EditarDocumento", new { id = Model.gatbl_DPConvalidaciones[i].lDPConvalicacion_id }) |
+                    @Html.ActionLink("Eliminar", "Delete", new { id = Model.gatbl_DPConvalidaciones[i].lDPConvalicacion_id })*@
+                </td>
+            </tr>
+        }
+
+    </table>        
+</div>
+

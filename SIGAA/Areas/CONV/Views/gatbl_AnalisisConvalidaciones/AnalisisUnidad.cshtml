@@ -1,0 +1,480 @@
+﻿@model SIGAA.Areas.CONV.Models.gatbl_AnalisisConvalidacionesUnidad
+
+@{
+    ViewBag.Title = "Analisis";
+}
+
+<h2>Analisis</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Convalidacion</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.lDetAnalisisPreConvalidacion_id)
+        @Html.HiddenFor(model => model.lDetProgramaAnalitico_id)
+        @Html.HiddenFor(model => model.sCreated_by)       
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.gatbl_DetAnalisisPreConvalidaciones.gatbl_AnalisisPreConvalidaciones.gatbl_PConvalidaciones.lNro_solucitud, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.gatbl_DetAnalisisPreConvalidaciones.gatbl_AnalisisPreConvalidaciones.gatbl_PConvalidaciones.lNro_solucitud, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.gatbl_DetAnalisisPreConvalidaciones.gatbl_AnalisisPreConvalidaciones.gatbl_PConvalidaciones.gatbl_Postulantes.NombreCompleto, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.gatbl_DetAnalisisPreConvalidaciones.gatbl_AnalisisPreConvalidaciones.gatbl_PConvalidaciones.gatbl_Postulantes.NombreCompleto, new { @class = "form-control", @readonly = "readonly" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.gatbl_DetAnalisisPreConvalidaciones.gatbl_AnalisisPreConvalidaciones.gatbl_PConvalidaciones.lUniversidadOrigen_id, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.gatbl_DetAnalisisPreConvalidaciones.gatbl_AnalisisPreConvalidaciones.gatbl_PConvalidaciones.gatbl_UniversidadesOrigen.sNombre_desc, new { @class = "form-control", @readonly = "readonly" })
+                @*@Html.EditorFor(model => model.gatbl_PConvalidaciones.gatbl_UniversidadesOrigen.sNombre_desc, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })*@
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.gatbl_DetAnalisisPreConvalidaciones.gatbl_AnalisisPreConvalidaciones.gatbl_PConvalidaciones.lCarreraOrigen_id, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.gatbl_DetAnalisisPreConvalidaciones.gatbl_AnalisisPreConvalidaciones.gatbl_PConvalidaciones.gatbl_CarrerasOrigen.sCarrera_nm, new { @class = "form-control", @readonly = "readonly" })
+                @*@Html.EditorFor(model => model.gatbl_PConvalidaciones.gatbl_CarrerasOrigen.sCarrera_nm, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })*@
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.gatbl_DetAnalisisPreConvalidaciones.sMateriaOrigen_id, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.gatbl_DetAnalisisPreConvalidaciones.sMateriaOrigen, new { @class = "form-control", @readonly = "readonly" })
+                @*@Html.EditorFor(model => model.gatbl_PConvalidaciones.gatbl_CarrerasOrigen.sCarrera_nm, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })*@
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.gatbl_DetAnalisisPreConvalidaciones.gatbl_AnalisisPreConvalidaciones.gatbl_PConvalidaciones.lUniversidadDestino_id, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.gatbl_DetAnalisisPreConvalidaciones.gatbl_AnalisisPreConvalidaciones.gatbl_PConvalidaciones.gatbl_UniversidadesDestino.sNombre_desc, new { @class = "form-control", @readonly = "readonly" })
+                @*@Html.EditorFor(model => model.gatbl_PConvalidaciones.gatbl_UniversidadesDestino.sNombre_desc, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })*@
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.gatbl_DetAnalisisPreConvalidaciones.gatbl_AnalisisPreConvalidaciones.gatbl_PConvalidaciones.lCarreraDestino_id, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.gatbl_DetAnalisisPreConvalidaciones.gatbl_AnalisisPreConvalidaciones.gatbl_PConvalidaciones.gatbl_CarrerasDestino.sCarrera_nm, new { @class = "form-control", @readonly = "readonly" })
+                @*@Html.EditorFor(model => model.gatbl_PConvalidaciones.gatbl_CarrerasDestino.sCarrera_nm, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })*@
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.gatbl_DetAnalisisPreConvalidaciones.sMateriaDestino_id, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.gatbl_DetAnalisisPreConvalidaciones.sMateriaDestino, new { @class = "form-control", @readonly = "readonly" })
+                @*@Html.EditorFor(model => model.gatbl_PConvalidaciones.gatbl_CarrerasOrigen.sCarrera_nm, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })*@
+            </div>
+        </div>
+
+        @*<div class="form-group">
+            @Html.LabelFor(model => model.gatbl_DetAnalisisPreConvalidaciones.gatbl_AnalisisPreConvalidaciones.sVersion_nro, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.gatbl_DetAnalisisPreConvalidaciones.gatbl_AnalisisPreConvalidaciones.sVersion_nro, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                
+            </div>
+        </div>*@
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.dEquivalencia_Unidad, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @*@Html.EditorFor(model => model.dEquivalencia_Unidad, new { htmlAttributes = new { @class = "form-control" } })*@
+                @(Html.Kendo().NumericTextBoxFor(model => model.dEquivalencia_Unidad)
+                    //.Name("numeric")
+                    .Placeholder("Equivalencia")
+                //.HtmlAttributes(new { style = "width: 100%" })
+                )
+                @Html.ValidationMessageFor(model => model.dEquivalencia_Unidad, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.sObs_desc, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.sObs_desc, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.sObs_desc, "", new { @class = "text-danger" })
+            </div>
+        </div>        
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Guardar Analisis" class="btn btn-success" />
+                @Html.ActionLink("Ir a Lista de Unidades", null, null, null, new { href = Request.UrlReferrer, @class = "btn btn-warning" })
+                @*@Html.ActionLink("Ir a Unidades", "VerUnidades", new {id=Model.lAnalisisPreConvalidacion_id }, new { @class = "btn btn-warning" })*@
+            </div>
+        </div>
+    </div>
+}
+
+<h2>Materia/Unidad/Tema</h2>
+
+<div class="row">    
+    <div class="col-md-6">
+        <h4>Destino</h4>
+        @(Html.Kendo().TreeView()
+            .Name("treeviewDestino")
+            .DragAndDrop(true)
+            //.Checkboxes(checkboxes => checkboxes
+            //    .Name("checkedFiles")
+            //    .CheckChildren(false)
+            //)
+            .Events(events => events
+                .Check("onCheckDestino")
+            //.DragEnd("onDragEndDestino")
+            )
+            .ExpandAll(true)
+            .BindTo((IEnumerable<TreeViewItemModel>)ViewBag.MateriasDestino)
+        )
+    </div>
+
+    <div class="col-md-6">
+        <h4>Origen</h4>
+        @(Html.Kendo().TreeView()
+            .Name("treeviewOrigen")
+            .DragAndDrop(true)
+            .Checkboxes(checkboxes => checkboxes
+                .Name("checkedFiles")
+                .CheckChildren(true)
+            )
+            .Events(events => events
+            .Check("onCheckOrigen")
+            
+            //.Drag(
+            //.DragStart("onDragStartOrigen")
+            //.DragEnd("onDragEndOrigen")
+            )
+            .ExpandAll(true)
+            .BindTo((IEnumerable<TreeViewItemModel>)ViewBag.MateriasOrigen)
+        )
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script>
+    kendo.culture("es-ES");
+    $(document).ready(function () {
+        kendo.culture("es-ES");
+        $.validator.addMethod('date',
+           function (value, element) {
+               var isValidDate = this.optional(element) || kendo.parseDate(value);
+
+               return isValidDate
+           });
+    });
+
+
+    $(document).ready(function () {
+        $("#lUniversidad_origen").change(function () {
+            var univId = $("#lUniversidad_origen").val();
+            if (univId != null && univId != undefined && univId != '') {
+                var CountryOptions = {};
+                CountryOptions.url = '@Url.Action("CarreraList", "gatbl_AnalisisConvalidaciones")';
+                CountryOptions.type = "POST";
+                CountryOptions.data = JSON.stringify({ id: univId });
+                CountryOptions.datatype = "json";
+                CountryOptions.contentType = "application/json";
+                CountryOptions.success = function (facultades) {
+                    $("#lCarrera_Origen").empty();
+                    $.each(facultades, function (index, val) {
+                        $('#lCarrera_Origen')
+                        .append($("<option></option>")
+                        .attr("value", val.Value)
+                        .text(val.Text));
+                    });
+                };
+                CountryOptions.error = function () { alert("Error al obtener carreras!!"); };
+                $.ajax(CountryOptions);
+            }
+            else {
+                $("#lCarrera_Origen").empty();
+                //$("#lFacultad_id").prop("disabled", true);
+            }
+        });
+    });
+
+    $(document).ready(function () {
+        $("#lUniversidad_destino").change(function () {
+            var univId = $("#lUniversidad_destino").val();
+            if (univId != null && univId != undefined && univId != '') {
+                var CountryOptions = {};
+                CountryOptions.url = '@Url.Action("CarreraList", "gatbl_AnalisisConvalidaciones")';
+                CountryOptions.type = "POST";
+                CountryOptions.data = JSON.stringify({ id: univId });
+                CountryOptions.datatype = "json";
+                CountryOptions.contentType = "application/json";
+                CountryOptions.success = function (facultades) {
+                    $("#lCarrera_destino").empty();
+                    $.each(facultades, function (index, val) {
+                        $('#lCarrera_destino')
+                        .append($("<option></option>")
+                        .attr("value", val.Value)
+                        .text(val.Text));
+                    });
+                };
+                CountryOptions.error = function () { alert("Error al obtener carreras!!"); };
+                $.ajax(CountryOptions);
+            }
+            else {
+                $("#lCarrera_destino").empty();
+                //$("#lFacultad_id").prop("disabled", true);
+            }
+        });
+    });
+
+
+    // function that gathers IDs of checked nodes
+    function checkedNodeIds(nodes, checkedNodes) {
+        for (var i = 0; i < nodes.length; i++) {
+            if (nodes[i].checked && nodes[i].parentNode() != undefined) {
+
+                var nota = "";
+                if (nodes[i].parentNode().text.split(":").length > 1)
+                {
+                    nota = ":" + nodes[i].parentNode().text.split(":")[1];
+                }
+
+                if (!nodes[i].hasChildren)
+                {
+                    checkedNodes.push(nodes[i].id + nota);
+                }
+            }
+
+
+            if (nodes[i].hasChildren) {
+                checkedNodeIds(nodes[i].children.view(), checkedNodes);
+            }
+        }
+    }
+
+    function checkedNodeIdsForNote(nodes, checkedNodes) {
+        for (var i = 0; i < nodes.length; i++) {
+            if (nodes[i].parentNode() != undefined) {
+
+                var nota = "";
+
+                if (nodes[i].text.split(":").length > 1) {
+                    nota = nodes[i].text.split(":")[1];
+
+                    if (nodes[i].hasChildren) {
+                        checkedNodes.push(nota);
+                    }
+                }
+            }
+
+
+            if (nodes[i].hasChildren) {
+                checkedNodeIdsForNote(nodes[i].children.view(), checkedNodes);
+            }
+        }
+    }
+
+    // show checked node IDs on datasource change
+    function onCheckOrigen() {
+        var checkedNodes = [],
+            treeView = $("#treeviewOrigen").data("kendoTreeView"),
+            message;
+
+        checkedNodeIds(treeView.dataSource.view(), checkedNodes);
+
+        if (checkedNodes.length > 0) {
+            message = checkedNodes.join(",");
+        } else {
+            message = "";
+        }
+
+        $("#sCreated_by").val(message);
+    }
+
+    function onCheckDestino() {
+        var checkedNodes = [],
+            treeView = $("#treeviewDestino").data("kendoTreeView"),
+            message;
+
+        checkedNodeIds(treeView.dataSource.view(), checkedNodes);
+
+        if (checkedNodes.length > 0) {
+            message = checkedNodes.join(",");
+        } else {
+            message = "";
+        }
+
+        $("#sCreated_by").val(message);
+    }
+
+    function onCheckNote() {
+        var checkedNodes = [],
+            treeView = $("#treeviewDestino").data("kendoTreeView"),
+            message;
+
+        checkedNodeIdsForNote(treeView.dataSource.view(), checkedNodes);
+
+        if (checkedNodes.length > 0) {
+            message = checkedNodes.join(";");
+        } else {
+            message = "";
+        }
+
+        var Notas = message.split(';');
+        var promedio = 0;
+
+        for (var i = 0; i < Notas.length; i++) {
+            promedio += eval(Notas[i]);
+        }
+
+
+        $("#dEquivalencia_Promedio").val(eval(promedio / Notas.length));
+    }
+
+    function onDragStartOrigen(e) {
+        var treeView = $("#treeviewOrigen").data("kendoTreeView");
+
+        //var selectedNode = treeview.select();
+
+        //alert(selectedNode.text);
+
+        //treeview.enable(selectedNode, false);
+    }
+
+    $(document).ready(function () {
+        var treeview = $("#treeviewDestino").data("kendoTreeView"),
+            handleTextBox = function (callback) {
+                return function (e) {
+                    if (e.type != "keypress" || kendo.keys.ENTER == e.keyCode) {
+                        callback(e);
+                    }
+                };
+            };
+
+
+        $("#disableNode").click(function () {
+            var selectedNode = treeview.select();
+
+            treeview.enable(selectedNode, false);
+        });
+
+        $("#enableAllNodes").click(function () {
+            var selectedNode = treeview.select();
+
+            treeview.enable(".k-item");
+        });
+
+        $("#removeNode").click(function () {
+            var selectedNode = treeview.select();
+
+            treeview.remove(selectedNode);
+        });
+
+        $("#expandAllNodes").click(function () {
+            treeview.expand(".k-item");
+        });
+
+        $("#collapseAllNodes").click(function () {
+            treeview.collapse(".k-item");
+        });
+
+        var append = handleTextBox(function (e) {
+            var selectedNode = treeview.select();
+
+            // passing a falsy value as the second append() parameter
+            // will append the new node to the root group
+            if (selectedNode.length == 0) {
+                selectedNode = null;
+            }
+
+            var currentText = selectedNode.find('span.k-in').first().text();
+
+            var nota = $("#appendNodeText").val();
+
+            if (nota != undefined && nota != "") {
+                var newValue = currentText.split(":")[0] + ":" + nota;
+
+                treeview.text(selectedNode, newValue);
+
+                onCheckDestino();
+
+                onCheckNote();
+
+                $("#appendNodeText").val("");
+            }
+            else {
+                alert("Debe ingresar la calificacion.");
+            }
+
+
+
+
+
+
+            //treeview.append({
+            //    text: $("#appendNodeText").val()
+            //}, selectedNode);
+        });
+
+        $("#appendNodeToSelected").click(append);
+        $("#appendNodeText").keypress(append);
+
+        // datasource actions
+
+        var ascending = false;
+
+        $("#sortDataSource")
+            .text(ascending ? "Sort ascending" : "Sort descending")
+            .click(function () {
+                treeview.dataSource.sort({
+                    field: "text",
+                    dir: ascending ? "asc" : "desc"
+                });
+
+                ascending = !ascending;
+
+                $(this).text(ascending ? "Sort ascending" : "Sort descending")
+            });
+
+        var filter = handleTextBox(function (e) {
+            var filterText = $("#filterText").val();
+
+            if (filterText !== "") {
+                treeview.dataSource.filter({
+                    field: "text",
+                    operator: "contains",
+                    value: filterText
+                });
+            } else {
+                treeview.dataSource.filter({});
+            }
+        });
+
+        $("#filterDataSource").click(filter);
+        $("#filterText").keypress(filter);
+    });
+    </script>
+    @*<style>
+    #treeview .k-sprite {
+        background-image: url("@Url.Content("~/Content/web/treeview/coloricons-sprite.png")");
+    }
+
+    .rootfolder { background-position: 0 0; }
+    .folder     { background-position: 0 -16px; }
+    .pdf        { background-position: 0 -32px; }
+    .html       { background-position: 0 -48px; }
+    .image      { background-position: 0 -64px; }
+    </style>*@
+}
+
+

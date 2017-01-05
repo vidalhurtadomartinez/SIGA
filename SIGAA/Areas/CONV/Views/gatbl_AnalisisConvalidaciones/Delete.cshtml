@@ -1,0 +1,142 @@
+﻿@model SIGAA.Areas.CONV.Models.gatbl_AnalisisConvalidaciones
+
+@{
+    ViewBag.Title = "Eliminar";
+}
+
+<h2>Eliminar</h2>
+
+<h3>Esta seguro que desea eliminar el registro?</h3>
+<div>
+    <h4>Analisis de Convalidacion</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.sGestion_desc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sGestion_desc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sPeriodo_desc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sPeriodo_desc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.lUniversidad_origen)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.gatbl_Universidades_Origen.sNombre_desc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.lCarrera_Origen)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.gatbl_Carreras_Origen.sCarrera_nm)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.lUniversidad_destino)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.gatbl_Universidades_Destino.sNombre_desc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.lCarrera_destino)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.gatbl_Carreras_Destino.sCarrera_nm)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.lResponsable_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Responsables.NombreCompleto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sPensumDestino_desc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sPensumDestino_desc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sVersion_nro)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sVersion_nro)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dtAnalisisConvalidacion_dt)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dtAnalisisConvalidacion_dt)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sEquivalencia_porc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sEquivalencia_porc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sObs_desc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sObs_desc)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Eliminar" class="btn btn-danger" /> |
+            @Html.ActionLink("Ir a Lista", "Index")
+        </div>
+    }
+</div>
+
+<h2>Materias y Unidades</h2>
+<div class="row">
+    <div class="col-md-4">
+        <h4>Origen</h4>
+        @(Html.Kendo().TreeView()
+            .Name("treeviewOrigen")
+            .ExpandAll(true)
+            .BindTo((IEnumerable<TreeViewItemModel>)ViewBag.MateriasOrigen)
+        )
+    </div>
+
+    <div class="col-md-4">
+        <h4>Destino</h4>
+        @(Html.Kendo().TreeView()
+            .Name("treeviewDestino")
+            .ExpandAll(true)
+            .BindTo((IEnumerable<TreeViewItemModel>)ViewBag.MateriasDestino)
+        )
+    </div>
+
+</div>

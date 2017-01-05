@@ -1,0 +1,21 @@
+﻿@using Helper;
+@using SIGAA.Commons;
+@if (SessionHelper.ExistUserInSession())
+{
+    using (Html.BeginForm("CerrarSession", "Login", new { area = "" }, FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <ul class="nav navbar-nav navbar-right">
+
+            <li>@Html.ActionLink("Usuario : " + @FrontUser.Get().usr_login, "", "")</li>
+            <li><a href="javascript:document.getElementById('logoutForm').submit()"><b>CERRAR SESSION</b></a></li>
+        </ul>
+    }
+}
+else
+{
+    <ul class="nav navbar-nav navbar-right">
+        <li>@Html.ActionLink("Iniciar sesión", "Autenticarse", "Login", new { area = "" }, null)</li>
+    </ul>
+}

@@ -154,6 +154,8 @@ namespace SIGAA.Commons
         SEGU_usuario_puedeVerDetalle = 120,
         SEGU_usuario_puedeCambiarContrasena = 121,
 
+        SEGU_HistorialCambioRolDeUsuario_puedeVerIndice = 204,
+
         #endregion
         #region O&M
         OYM_plantillas_puedeVerIndice = 122,

@@ -1,0 +1,57 @@
+﻿@model SIGAA.Areas.CONV.Models.Pensum
+
+@{
+    ViewBag.Title = "Eliminar";
+}
+
+<h2>Eliminar</h2>
+
+<h3>Esta seguro que desea eliminar el registro?</h3>
+<div>
+    <h4>Pensum</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.lUniversidad_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.gatbl_Universidades.sNombre_desc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.lCarrera_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.gatbl_Carreras.sCarrera_nm)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sDescripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sDescripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.bActivo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.bActivo)
+        </dd>
+
+        
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Eliminar" class="btn btn-danger" /> |
+            @Html.ActionLink("Ir a Lista", "Index")
+        </div>
+    }
+</div>

@@ -1,0 +1,135 @@
+﻿@model IEnumerable<SIGAA.Areas.CONV.Models.gatbl_ProgramasAnaliticos>
+
+@{
+    ViewBag.Title = "Programas Analiticos";
+}
+
+<h2>Programas Analiticos</h2>
+
+<p>
+    @Html.ActionLink("Crear Nuevo", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.sPeriodo_desc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dtRegistro_dt)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.sMateria_desc)
+        </th>        
+        <th>
+            @Html.DisplayNameFor(model => model.gatbl_Universidades.sNombre_desc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.gatbl_Facultades.sFacultad_nm)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.gatbl_Carreras.sCarrera_nm)
+        </th>                
+        <th>
+            @Html.DisplayNameFor(model => model.NivelProgramaAnalitico.sDescripcion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OrigenProgramaAnalitico.sDescripcion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Responsables.NombreCompleto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UnidadNegocios.sDescripcion)
+        </th>                
+        <th>
+            @Html.DisplayNameFor(model => model.sCodigo_nro)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.sSigla_desc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.sHorasPracticas_nro)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.sHorasTeoricas_nro)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.sHorasSociales_nro)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.sHorasAyudantia_nro)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.sCreditos_nro)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.sVersion_nro)
+        </th>              
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.sPeriodo_desc)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.dtRegistro_dt)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.sMateria_desc)
+        </td>        
+        <td>
+            @Html.DisplayFor(modelItem => item.gatbl_Universidades.sNombre_desc)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.gatbl_Facultades.sFacultad_nm)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.gatbl_Carreras.sCarrera_nm)
+        </td>               
+        <td>
+            @Html.DisplayFor(modelItem => item.NivelProgramaAnalitico.sDescripcion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OrigenProgramaAnalitico.sDescripcion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Responsables.NombreCompleto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UnidadNegocios.sDescripcion)
+        </td>                
+        <td>
+            @Html.DisplayFor(modelItem => item.sCodigo_nro)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.sSigla_desc)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.sHorasPracticas_nro)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.sHorasTeoricas_nro)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.sHorasSociales_nro)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.sHorasAyudantia_nro)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.sCreditos_nro)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.sVersion_nro)
+        </td>            
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.lProgramaAnalitico_id }) |
+            @Html.ActionLink("Ver", "Details", new { id=item.lProgramaAnalitico_id }) |
+            @Html.ActionLink("Eliminar", "Delete", new { id=item.lProgramaAnalitico_id })
+        </td>
+    </tr>
+}
+
+</table>

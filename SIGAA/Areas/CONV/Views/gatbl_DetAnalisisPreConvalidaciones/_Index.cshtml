@@ -1,0 +1,98 @@
+﻿@using SIGAA.Areas.CONV.Helpers
+
+@model IEnumerable<SIGAA.Areas.CONV.Models.gatbl_DetAnalisisPreConvalidaciones>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <strong>Materias a Convalidar</strong>
+    </div>
+
+    <table class="table table-hover">
+        <tr>
+            <th>
+                @Html.NoEncodeActionLink("<span class='glyphicon glyphicon-plus'></span>", "Crear Nuevo", "Create", "gatbl_DetAnalisisPreConvalidaciones", routeValues: new { PreAnalisisID = ViewBag.PreAnalisisID }, htmlAttributes: new { data_modal = "", @class = "btn btn-primary pull-left" })
+            </th>            
+            <th>
+                @Html.DisplayNameFor(model => model.sMateriaDestino)
+            </th>             
+            <th>
+                @Html.DisplayNameFor(model => model.sMateriaOrigen)
+            </th>            
+            <th>
+                @Html.DisplayNameFor(model => model.sObservaciones)
+            </th>                                                            
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td style="width:40px">
+                    <div class="pull-left">
+                        @*@Html.NoEncodeActionLink("<span class='glyphicon glyphicon-pencil'></span>", "Editar", "Edit", "gatbl_DetAnalisisPreConvalidaciones", routeValues: new { id = item.lDetAnalisisPreConvalidacion_id }, htmlAttributes: new { data_modal = "", @class = "glyphicon" })
+                        &nbsp;*@
+                        @Html.NoEncodeActionLink("<span class='glyphicon glyphicon-trash'></span>", "Eliminar", "Delete", "gatbl_DetAnalisisPreConvalidaciones", routeValues: new { id = item.lDetAnalisisPreConvalidacion_id }, htmlAttributes: new { data_modal = "", @class = "glyphicon" })
+
+                    </div>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.sMateriaDestino)
+                </td>                                
+                <td>
+                    @Html.DisplayFor(modelItem => item.sMateriaOrigen)
+                </td>                
+                <td>
+                    @Html.DisplayFor(modelItem => item.sObservaciones)
+                </td>                                                                
+            </tr>
+        }
+    </table>
+
+</div>
+
+@* ! @Script.Render is not supported in partials - for extensions see: http://stackoverflow.com/a/13765578/209259
+
+    @Scripts.Render("~/bundles/modalform")
+
+*@
+
+<script type="text/javascript">
+
+
+    $(function () {
+        $.ajaxSetup({ cache: false });
+
+        $("a[data-modal]").on("click", function (e) {
+            // hide dropdown if any (this is used wehen invoking modal from link in bootstrap dropdown )
+            //$(e.target).closest('.btn-group').children('.dropdown-toggle').dropdown('toggle');
+
+            $('#myModalContent').load(this.href, function () {
+                $('#myModal').modal({
+                    /*backdrop: 'static',*/
+                    keyboard: true
+                }, 'show');
+                bindForm(this);
+            });
+            return false;
+        });
+    });
+
+    function bindForm(dialog) {
+        $('form', dialog).submit(function () {
+            $.ajax({
+                url: this.action,
+                type: this.method,
+                data: $(this).serialize(),
+                success: function (result) {
+                    if (result.success) {
+                        $('#myModal').modal('hide');
+                        $('#replacetarget').load(result.url); //  Load data from the server and place the returned HTML into the matched element
+                    } else {
+                        $('#myModalContent').html(result);
+                        bindForm(dialog);
+                    }
+                }
+            });
+            return false;
+        });
+    }
+</script>

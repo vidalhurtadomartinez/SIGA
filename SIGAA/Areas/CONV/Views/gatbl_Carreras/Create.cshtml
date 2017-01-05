@@ -1,0 +1,123 @@
+﻿@model SIGAA.Areas.CONV.Models.gatbl_Carreras
+
+@{
+    ViewBag.Title = "Nueva";
+}
+
+<h2>Nueva</h2>
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Carrera</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.lUniversidad_id, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(m => m.lUniversidad_id,
+              new SelectList(ViewBag.UniversidadList, "lUniversidad_id", "sNombre_desc"),
+              "Seleccionar Universidad",
+              new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.lUniversidad_id, "", new { @class = "text-danger" })
+            </div>            
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.lFacultad_id, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                
+                @Html.DropDownListFor(model => model.lFacultad_id, new SelectList(Enumerable.Empty<SelectListItem>(), "lFacultad_id", "sFacultad_nm"), "Seleccionar Facultad", new { id = "lFacultad_id", @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.lFacultad_id, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.sCarrera_nm, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.sCarrera_nm, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.sCarrera_nm, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.sResponsable_nm, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.sResponsable_nm, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.sResponsable_nm, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.sTelefono_desc, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.sTelefono_desc, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.sTelefono_desc, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.sMail_desc, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.sMail_desc, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.sMail_desc, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Guardar" class="btn btn-success" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Ir a Lista", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+
+
+<script>
+    $(document).ready(function () {
+        //$("#lFacultad_id").prop("disabled", true);
+        $("#lUniversidad_id").change(function () {
+            var univId = $("#lUniversidad_id").val();
+            if (univId != null && univId != undefined && univId != '') {
+                var CountryOptions = {};
+                CountryOptions.url = '@Url.Action("FacultadList", "gatbl_Carreras")';
+                CountryOptions.type = "POST";
+                CountryOptions.data = JSON.stringify({ id: univId });
+                CountryOptions.datatype = "json";
+                CountryOptions.contentType = "application/json";
+                CountryOptions.success = function (facultades) {
+                    $("#lFacultad_id").empty();
+                    $.each(facultades, function (index, val) {
+                        $('#lFacultad_id')
+                        .append($("<option></option>")
+                        .attr("value", val.Value)
+                        .text(val.Text));
+                    });
+                };
+                CountryOptions.error = function () { alert("Error in Getting Facultades!!"); };
+                $.ajax(CountryOptions);
+            }
+            else {
+                $("#lFacultad_id").empty();
+                //$("#lFacultad_id").prop("disabled", true);
+            }
+        });
+    });
+
+</script> 
+}

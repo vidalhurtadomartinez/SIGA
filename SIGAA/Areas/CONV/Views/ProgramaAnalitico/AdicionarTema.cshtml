@@ -1,0 +1,63 @@
+﻿@model SIGAA.Areas.CONV.ViewModels.ProgramaAnaliticoViewModels
+
+@{
+    ViewBag.Title = "Nuevo";
+}
+
+<h2>Nuevo</h2>
+<h3>@ViewBag.Error</h3>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Tema del Programa Analitico</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.gatbl_DProgramasAnaliticosTema.lDProgramaAnalitico_id, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("lDProgramaAnalitico_id", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.gatbl_DProgramasAnaliticosTema.lDProgramaAnalitico_id, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.gatbl_DProgramasAnaliticosTema.sTema_desc, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.gatbl_DProgramasAnaliticosTema.sTema_desc, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.gatbl_DProgramasAnaliticosTema.sTema_desc, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.gatbl_DProgramasAnaliticosTema.sContenido_gral, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @(Html.Kendo().EditorFor(model => model.gatbl_DProgramasAnaliticosTema.sContenido_gral)
+                  .Name("editor")
+                  .HtmlAttributes(new { style = "height:440px" })
+                  .Resizable(resizable => resizable.Content(true).Toolbar(true))
+                  .Encode(true)
+                
+                )
+                @*@Html.EditorFor(model => model.gatbl_DProgramasAnaliticosTema.sContenido_gral, new { htmlAttributes = new { @class = "form-control" } })*@
+                @Html.ValidationMessageFor(model => model.gatbl_DProgramasAnaliticosTema.sContenido_gral, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Guardar Tema" class="btn btn-success" />
+                @Html.ActionLink("Cancelar", null, null, null, new { href = Request.UrlReferrer, @class = "btn btn-warning" })
+                @*@Html.ActionLink("Cancelar", "Create", new { }, new { @class = "btn btn-warning" })*@
+
+            </div>
+        </div>
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,151 @@
+﻿@model SIGAA.Areas.CONV.ViewModels.ConvalidacionExternaViewModels
+
+@{
+    ViewBag.Title = "Adicionar Materia";
+}
+
+<h2>Adicionar Materia</h2>
+<h3>@ViewBag.Error</h3>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Materia a Convalidar</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.gatbl_DConvalidacionExternaPA.lUniversidad_id, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @(Html.Kendo().DropDownListFor(m => m.gatbl_DConvalidacionExternaPA.lUniversidad_id)
+                  .Name("lUniversidad_id")
+                  .HtmlAttributes(new { style = "width:280px" })
+                  .OptionLabel("Seleccionar Universidad")
+                  .DataTextField("sNombre_desc")
+                  .DataValueField("lUniversidad_id")                  
+                  .DataSource(source =>
+                  {
+                      source.Read(read =>
+                      {
+                          read.Action("UniversidadList", "ConvalidacionExterna");
+                      });
+                  })
+                  .Events(e =>
+                  {
+                      e.Select("onSelectUniversidad");
+                  })
+                )                
+                @Html.ValidationMessageFor(model => model.gatbl_DConvalidacionExternaPA.lUniversidad_id, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.gatbl_DConvalidacionExternaPA.lCarrera_id, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @(Html.Kendo().DropDownListFor(m => m.gatbl_DConvalidacionExternaPA.lCarrera_id)
+                  .Name("lCarrera_id")
+                  .HtmlAttributes(new { style = "width:280px" })
+                  .OptionLabel("Seleccionar Carrera")
+                  .DataTextField("sCarrera_nm")
+                  .DataValueField("lCarrera_id")                  
+                  .DataSource(source =>
+                  {
+                      source.Read(read =>
+                      {
+                          read.Action("CarreraList", "ConvalidacionExterna")
+                              .Data("filterCarrera");
+                      })
+                      .ServerFiltering(true);
+                  })
+                  .Enable(false)
+                  .AutoBind(false)
+                  .CascadeFrom("lUniversidad_id")
+                )
+                @*@Html.DropDownListFor(model => model.gatbl_DConvalidacionExternaPA.lCarrera_id, new SelectList(Enumerable.Empty<SelectListItem>(), "lCarrera_id", "sCarrera_nm"), "Seleccionar Carrera", new { id = "lCarrera_id", @class = "form-control" })*@
+                @Html.ValidationMessageFor(model => model.gatbl_DConvalidacionExternaPA.lCarrera_id, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.gatbl_MateriaConvalidada.lMateria_id, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @(Html.Kendo().DropDownListFor(model => model.gatbl_MateriaConvalidada.lMateria_id)
+                  .Name("lMateria_id")
+                  .HtmlAttributes(new { style = "width:280px" })
+                  .OptionLabel("Seleccionar Materia")
+                  .DataTextField("sMateria_desc")
+                  .DataValueField("lProgramaAnalitico_id")                  
+                  .DataSource(source =>
+                  {
+                      source.Read(read =>
+                      {
+                          read.Action("MateriaList", "ConvalidacionExterna")
+                              .Data("filterMateria");
+                      })
+                      .ServerFiltering(true);
+                  })
+                  .Enable(false)
+                  .AutoBind(false)
+                  .CascadeFrom("lCarrera_id")
+                )
+                @Html.ValidationMessageFor(model => model.gatbl_MateriaConvalidada.lMateria_id, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.gatbl_DConvalidacionExternaPA.lEscalaCalificacion_id, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.gatbl_DConvalidacionExternaPA.gatbl_EscalaCalificaciones.TipoEscalaEvaluacion.sDescripcion, new { htmlAttributes = new { id="EscalaDesc", @class = "form-control", @readonly = "readonly" } })
+                @Html.ValidationMessageFor(model => model.gatbl_DConvalidacionExternaPA.gatbl_EscalaCalificaciones.TipoEscalaEvaluacion.sDescripcion, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.gatbl_MateriaConvalidada.sNota_Origen, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.gatbl_MateriaConvalidada.sNota_Origen, new {id = "sNota_Origen", htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.gatbl_MateriaConvalidada.sNota_Origen, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.gatbl_MateriaConvalidada.sObs_desc, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.gatbl_MateriaConvalidada.sObs_desc, new {htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.gatbl_MateriaConvalidada.sObs_desc, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Guardar Documento" class="btn btn-success" />
+                @Html.ActionLink("Cancelar", "Create", new { }, new { @class = "btn btn-warning" })
+            </div>
+        </div>
+    </div>
+}
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script>
+        function onSelectUniversidad(e) {
+            var dataItem = this.dataItem(e.item);
+            $("#EscalaDesc").val(dataItem.TipoEscalaDesc);
+        }
+
+        function filterCarrera() {
+            return {
+                id: $("#lUniversidad_id").val()
+            };
+        }
+
+        function filterMateria() {
+            return {
+                id: $("#lCarrera_id").val()
+            };
+        }
+    </script>
+}

@@ -18,7 +18,7 @@ namespace SIGAA.Areas.CONV
                 "CONV_default",
                 "CONV/{controller}/{action}/{id}",
                 new { action = "Index", id = UrlParameter.Optional },
-                namespaces: new[] { "SIGAA.Areas.CONV.Controllers" }//agregado
+                namespaces: new[] { "SIGAA.Areas.CONV.Controllers" }
             );
         }
     }

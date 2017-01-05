@@ -1,0 +1,42 @@
+﻿@model SIGAA.Areas.CONV.Models.TipoPresentacionDocumento
+
+@{
+    ViewBag.Title = "Detalle";
+}
+
+<h2>Detalle</h2>
+
+<div>
+    <h4>Tipo de Presentacion de Documento</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.sTipoPresentacion_fl)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sTipoPresentacion_fl)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sDescripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sDescripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.bActivo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.bActivo)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.sTipoPresentacion_fl }) |
+    @Html.ActionLink("Ir a Lista", "Index")
+</p>

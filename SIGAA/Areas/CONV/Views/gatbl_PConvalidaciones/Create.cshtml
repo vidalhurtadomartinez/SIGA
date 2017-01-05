@@ -1,0 +1,217 @@
+﻿@model SIGAA.Areas.CONV.Models.gatbl_PConvalidaciones
+@using SIGAA.Areas.CONV.Extensions
+
+@{
+    ViewBag.Title = "Nueva";
+}
+
+<h2>Nueva</h2>
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery-ui.js"></script>
+<script src="~/Scripts/jquery-ui.min.js"></script>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Convalidacion Externa</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })        
+        <div class="form-group">
+            @Html.LabelFor(model => model.sPeriodo_desc, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @(Html.Kendo().MaskedTextBoxFor(model => model.sPeriodo_desc)
+                  .Mask("0000-0")                  
+                )
+                @Html.ValidationMessageFor(model => model.sPeriodo_desc, "", new { @class = "text-danger" })
+            </div>
+        </div>       
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.agd_codigo, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @(Html.Kendo().DropDownListFor(model => model.agd_codigo)
+                  .DataTextField("agd_nombres")
+                  .DataValueField("agd_codigo")
+                  .HtmlAttributes(new { style = "width:280px" })
+                  .Filter("contains")
+                  .AutoBind(false)
+                  .MinLength(3)
+                  .DataSource(source =>
+                  {
+                      source.Read(read =>
+                      {
+                          read.Action("ObtenerPostulantes", "gatbl_PConvalidaciones");
+                      })
+                      .ServerFiltering(true);
+                  })
+                  .Events(e =>
+                    {
+                        e.Select("onSelectPostulante");
+                    })
+                )
+                @*@(Html.Kendo().DropDownListFor(model => model.agd_codigo)
+                  .DataTextField("agd_nombres")
+                  .DataValueField("agd_codigo")
+                  .HtmlAttributes(new { style = "width:280px;" })
+                  .Filter("contains")
+                  .AutoBind(false)
+                  .MinLength(3)
+                  .DataSource(source =>
+                  {
+                      source.Read(read =>
+                      {
+                          read.Action("ObtenerPostulantes", "gatbl_PConvalidaciones");
+                      })
+                      .ServerFiltering(false);
+                  })
+                  .Events(e =>
+                    {
+                        e.Select("onSelectPostulante");
+                    })
+                )*@
+                @Html.ValidationMessageFor(model => model.agd_codigo, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.sAgenda_nro, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.sAgenda_nro, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                @Html.ValidationMessageFor(model => model.sAgenda_nro, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.sDocumento_nro, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.sDocumento_nro, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                @Html.ValidationMessageFor(model => model.sDocumento_nro, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.crr_codigo, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @(Html.Kendo().DropDownListFor(model => model.crr_codigo)
+                  .DataTextField("crr_descripcion")
+                  .DataValueField("crr_codigo")
+                  .HtmlAttributes(new { style = "width:280px;" })
+                  .Filter("contains")
+                  .AutoBind(false)
+                  .MinLength(3)
+                  .DataSource(source =>
+                  {
+                      source.Read(read =>
+                      {
+                          read.Action("ObtenerCarreras", "gatbl_PConvalidaciones");
+                      })
+                      .ServerFiltering(false);
+                  })
+                  .Events(e =>
+                    {
+                        e.Select("onSelectCarrera");
+                    })
+                )
+                @Html.ValidationMessageFor(model => model.crr_codigo, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.sca_codigo, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("sca_codigo", null, htmlAttributes: new { @class = "form-control", @readonly = "readonly" })
+                @Html.ValidationMessageFor(model => model.sca_codigo, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.dtPostulacion_dt, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @(Html.Kendo().DatePickerFor(model => model.dtPostulacion_dt))
+                @*@Html.EditorFor(model => model.dtPostulacion_dt, new { htmlAttributes = new { @class = "form-control" } })*@
+                @Html.ValidationMessageFor(model => model.dtPostulacion_dt, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.lResponsable_id, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @(Html.Kendo().DropDownListFor(model => model.lResponsable_id)
+                  .DataTextField("agd_nombres")
+                  .DataValueField("agd_codigo")
+                  .HtmlAttributes(new { style = "width:280px" })
+                  .Filter("contains")
+                  .AutoBind(false)
+                  .MinLength(3)
+                  .DataSource(source =>
+                  {
+                      source.Read(read =>
+                      {
+                          read.Action("ObtenerResponsables", "gatbl_PConvalidaciones");
+                      })
+                      .ServerFiltering(true);
+                  })                  
+                )
+                @*@(Html.Kendo().DropDownListFor(model => model.lResponsable_id)
+                    .HtmlAttributes(new { style = "width:280px;" })
+                    .DataTextField("agd_nombres")
+                    .Filter("contains")
+                    .AutoBind(false)
+                    .MinLength(3)
+                    .DataValueField("agd_codigo")
+                    .BindTo(@ViewBag.lResponsable_id)
+                )*@
+                @Html.ValidationMessageFor(model => model.lResponsable_id, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Guardar" class="btn btn-success" />
+            </div>
+        </div>
+    </div>
+    
+}
+
+<div>
+    @Html.ActionLink("Ir a Lista", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")  
+
+<script>
+    kendo.culture("es-ES");
+
+    $(document).ready(function () {
+        kendo.culture("es-ES");
+        $.validator.addMethod('date',
+           function (value, element) {
+               var isValidDate = this.optional(element) || kendo.parseDate(value);               
+               return isValidDate
+           });
+    });
+
+      function onAdditionalData() {
+          return {
+              text: $("#productComboBox").text()
+          };
+      }
+
+      function onSelectPostulante(e) {
+          var dataItem = this.dataItem(e.item);
+          $("#sAgenda_nro").val(dataItem.agd_codigo);
+          $("#sDocumento_nro").val(dataItem.agd_docnro);
+      }
+
+      function onSelectCarrera(e) {
+          var dataItem = this.dataItem(e.item);
+          $("#sca_codigo").val(dataItem.sca_codigo);
+      }
+</script>
+}

@@ -1,0 +1,115 @@
+﻿@model SIGAA.Areas.CONV.ViewModels.PromedioEquivalenciaMateria
+
+@{
+    ViewBag.Title = "Unidades a Convalidar";
+}
+
+<h2>Unidades a Convalidar</h2>
+
+<div>
+    <h4>Analisis Convalidacion</h4>
+    <hr />
+    
+    @Html.HiddenFor(model => model.gatbl_DetAnalisisPreConvalidaciones.lAnalisisPreConvalidacion_id)
+    
+    <dl class="dl-horizontal">  
+        <dt>
+            @Html.DisplayNameFor(model => model.gatbl_DetAnalisisPreConvalidaciones.gatbl_AnalisisPreConvalidaciones.gatbl_PConvalidaciones.lNro_solucitud)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.gatbl_DetAnalisisPreConvalidaciones.gatbl_AnalisisPreConvalidaciones.gatbl_PConvalidaciones.lNro_solucitud)
+        </dd>
+        
+        <dt>
+            @Html.DisplayNameFor(model => model.gatbl_DetAnalisisPreConvalidaciones.gatbl_AnalisisPreConvalidaciones.gatbl_PConvalidaciones.gatbl_Postulantes.NombreCompleto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.gatbl_DetAnalisisPreConvalidaciones.gatbl_AnalisisPreConvalidaciones.gatbl_PConvalidaciones.gatbl_Postulantes.NombreCompleto)
+        </dd>      
+        
+        <dt>
+            @Html.DisplayNameFor(model => model.gatbl_DetAnalisisPreConvalidaciones.gatbl_AnalisisPreConvalidaciones.gatbl_PConvalidaciones.lUniversidadOrigen_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.gatbl_DetAnalisisPreConvalidaciones.gatbl_AnalisisPreConvalidaciones.gatbl_PConvalidaciones.gatbl_UniversidadesOrigen.sNombre_desc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.gatbl_DetAnalisisPreConvalidaciones.gatbl_AnalisisPreConvalidaciones.gatbl_PConvalidaciones.lCarreraOrigen_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.gatbl_DetAnalisisPreConvalidaciones.gatbl_AnalisisPreConvalidaciones.gatbl_PConvalidaciones.gatbl_CarrerasOrigen.sCarrera_nm)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.gatbl_DetAnalisisPreConvalidaciones.sMateriaOrigen_id)
+        </dt>
+
+        <dd>    
+            <h5>
+                @Html.DisplayFor(model => model.gatbl_DetAnalisisPreConvalidaciones.sMateriaOrigen)
+                
+            </h5>        
+                      
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.gatbl_DetAnalisisPreConvalidaciones.gatbl_AnalisisPreConvalidaciones.gatbl_PConvalidaciones.lUniversidadDestino_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.gatbl_DetAnalisisPreConvalidaciones.gatbl_AnalisisPreConvalidaciones.gatbl_PConvalidaciones.gatbl_UniversidadesDestino.sNombre_desc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.gatbl_DetAnalisisPreConvalidaciones.gatbl_AnalisisPreConvalidaciones.gatbl_PConvalidaciones.lCarreraDestino_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.gatbl_DetAnalisisPreConvalidaciones.gatbl_AnalisisPreConvalidaciones.gatbl_PConvalidaciones.gatbl_CarrerasDestino.sCarrera_nm)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.gatbl_DetAnalisisPreConvalidaciones.sMateriaDestino_id)
+        </dt>
+
+        <dd>
+            <h5>
+                @Html.DisplayFor(model => model.gatbl_DetAnalisisPreConvalidaciones.sMateriaDestino)
+            </h5>
+            
+        </dd>
+        
+        <dt>
+            @Html.DisplayNameFor(model => model.gatbl_AnalisisConvalidacionesComplemento.PromedioEquivalencia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.gatbl_AnalisisConvalidacionesComplemento.PromedioEquivalencia)
+        </dd>        
+    </dl>
+
+    
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            @if (Model.gatbl_DetAnalisisPreConvalidaciones.iEstado_fl != "3")
+            {
+                <input type="submit" value="Confirmar Analisis" class="btn btn-success" />
+            }
+            
+            @Html.ActionLink("Ir a Lista de Materias a Convalidar", "MateriasAConvalidar", "gatbl_AnalisisConvalidaciones", new { id = Model.gatbl_DetAnalisisPreConvalidaciones.lAnalisisPreConvalidacion_id }, new { @class = "btn btn-warning" })
+        </div>
+    }
+
+    <p></p>
+
+    @{ Html.RenderAction("ListUnit", "gatbl_DetAnalisisPreConvalidaciones", new { id = Model.gatbl_DetAnalisisPreConvalidaciones.lDetAnalisisPreConvalidacion_id }); }
+</div>
+

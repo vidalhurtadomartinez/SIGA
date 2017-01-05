@@ -1,0 +1,52 @@
+﻿@model SIGAA.Areas.CONV.ViewModels.SolicitudConvalidacion
+
+<h2>Materias para Evaluacion</h2>
+
+<div>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.gatbl_CertificadosMateria.lMateria_id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.gatbl_CertificadosMateria.sTipoPresentacion_fl)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.gatbl_CertificadosMateria.dCalificacion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.gatbl_CertificadosMateria.bHomologado)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.gatbl_CertificadosMateria.sDocumento_adjunto)
+            </th>
+            <th></th>
+        </tr>
+        @for (int i = 0; i < Model.gatbl_CertificadosMaterias.Count; i++)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => Model.gatbl_CertificadosMaterias[i].gatbl_ProgramasAnaliticos.sMateria_desc)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => Model.gatbl_CertificadosMaterias[i].TipoPresentacionDocumento.sDescripcion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => Model.gatbl_CertificadosMaterias[i].dCalificacion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => Model.gatbl_CertificadosMaterias[i].bHomologado)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => Model.gatbl_CertificadosMaterias[i].sDocumento_adjunto)
+                </td>
+                <td>
+                    @Html.ActionLink("Editar", "EditCertificate", new { id = Model.gatbl_CertificadosMaterias[i].lDCertificado_id }) |
+                    @Html.ActionLink("Eliminar", "Delete", new { id = Model.gatbl_CertificadosMaterias[i].lDCertificado_id })
+                </td>
+            </tr>
+        }
+
+    </table>        
+
+</div>

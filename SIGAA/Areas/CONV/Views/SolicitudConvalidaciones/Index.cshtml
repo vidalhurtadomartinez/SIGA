@@ -1,0 +1,257 @@
+﻿@model IEnumerable<SIGAA.Areas.CONV.Models.gatbl_PConvalidaciones>
+
+@{
+    ViewBag.Title = "Solicitudes de Convalidaciones";
+}
+
+<h2>Solicitudes de Convalidaciones</h2>
+
+<div id="content">
+    @(Html.Kendo().Grid<SIGAA.Areas.CONV.Models.gatbl_PConvalidaciones>()
+            .Name("grid")
+            .Columns(columns =>
+            {
+            columns.Template(@<text></text>).ClientTemplate(
+                                        "<a class='k-button k-button-icon' href='" + Url.Action("Edit", "SolicitudConvalidaciones") + "/#=lPConvalidacion_id#' title='Editar'><span class='k-icon k-edit'> </span></a>" +
+                                        "<a class='k-button k-button-icon' href='" + Url.Action("Certificate", "SolicitudConvalidaciones") + "/#=lPConvalidacion_id#' title='Certificados'><span class='glyphicon glyphicon-education'> </span></a>" +
+                                         "<a class='k-button k-button-icon' href='" + Url.Action("Details", "SolicitudConvalidaciones") + "/#=lPConvalidacion_id#' title='Ver'><span class='k-icon k-i-search'> </span></a>" +
+                                         "<a class='k-button k-button-icon' href='" + Url.Action("Delete", "SolicitudConvalidaciones") + "/#=lPConvalidacion_id#' title='Eliminar'><span class='k-icon k-delete'> </span></a>")
+                                         .Width(160).Title("Edicion").Locked(true);
+
+                columns.Group(group => group
+                    .Title("Solicitud")
+                    .Columns(solicitud =>
+                    {
+                        solicitud.Bound(p => p.lNro_solucitud).ClientTemplate(@Html.ActionLink("#=lNro_solucitud#", "Details", new { ID = "#=lPConvalidacion_id#" })
+                .ToHtmlString()).Width(100).Filterable(ftb => ftb.Cell(cell => cell.Operator("eq").ShowOperators(false)))
+                .Title("Nro.");
+                        solicitud.Bound(p => p.dtPostulacion_dt).Title("F. Registro").Width(120).Filterable(ftb => ftb.Cell(cell => cell.ShowOperators(false)))
+            .Format("{0:dd/MM/yyyy}");
+
+                    }).Locked(true)
+                );
+
+                //columns.Bound(p => p.lNro_solucitud).ClientTemplate(@Html.ActionLink("#=lNro_solucitud#", "Details", new { ID = "#=lPConvalidacion_id#" })
+                //.ToHtmlString()).Width(100).Filterable(ftb => ftb.Cell(cell => cell.Operator("eq").ShowOperators(false)))
+                //.Locked(true).Title("Nro.");
+                //columns.Bound(p => p.gatbl_Postulantes.sNombre_desc).Width(200).Filterable(ftb => ftb.Cell(cell => cell.Operator("contains")
+                //.ShowOperators(false))).Title("Postulante");
+                //    columns.Bound(p => p.dtPostulacion_dt).Title("F. Registro").Width(120).Filterable(ftb => ftb.Cell(cell => cell.ShowOperators(false)))
+                //.Format("{0:dd/MM/yyyy}");
+                //columns.Bound(p => p.gatbl_Postulantes.sDocumento_nro).Width(120).Filterable(ftb => ftb.Cell(cell => cell.Operator("contains")
+                //.ShowOperators(false))).Title("Nro. Doc.");
+
+                columns.Group(group => group
+                        .Title("Postulante")
+                        .Columns(info =>
+                        {
+                            info.Bound(p => p.gatbl_Postulantes.NombreCompleto).Width(200).Filterable(ftb => ftb.Cell(cell => cell.Operator("contains")
+                    .ShowOperators(false)));
+                            info.Bound(p => p.gatbl_Postulantes.sDocumento_nro).Width(120).Filterable(ftb => ftb.Cell(cell => cell.Operator("contains")
+                    .ShowOperators(false))).Title("Nro. Doc.");
+                        })
+                    );
+
+                columns.Group(group => group
+                    .Title("Origen")
+                    .Columns(origen =>
+                    {
+
+                        origen.Bound(p => p.gatbl_UniversidadesOrigen.sNombre_desc).Width(150).Filterable(ftb => ftb.Cell(cell => cell.Operator("contains")
+                .ShowOperators(false))).Title("Universidad");
+                        origen.Bound(p => p.gatbl_CarrerasOrigen.sCarrera_nm).Width(200).Filterable(ftb => ftb.Cell(cell => cell.Operator("contains")
+                        .ShowOperators(false))).Title("Carrera");
+                    })
+                );
+
+                columns.Group(group => group
+                    .Title("Destino")
+                    .Columns(destino =>
+                    {
+
+                        destino.Bound(p => p.gatbl_UniversidadesDestino.sNombre_desc).Width(150).Filterable(ftb => ftb.Cell(cell => cell.Operator("contains")
+                .ShowOperators(false))).Title("Universidad");
+                        destino.Bound(p => p.gatbl_CarrerasDestino.sCarrera_nm).Width(200).Filterable(ftb => ftb.Cell(cell => cell.Operator("contains")
+                        .ShowOperators(false))).Title("Carrera");
+                        destino.Bound(p => p.Pensum.sDescripcion).Width(100).Filterable(ftb => ftb.Cell(cell => cell.Operator("contains")
+                        .ShowOperators(false))).Title("Pensum");
+                    })
+                );
+
+                //columns.Bound(p => p.gatbl_UniversidadesOrigen.sNombre_desc).Width(200).Filterable(ftb => ftb.Cell(cell => cell.Operator("contains")
+                //.ShowOperators(false))).Title("Universidad Origen");
+                //columns.Bound(p => p.gatbl_CarrerasOrigen.sCarrera_nm).Width(200).Filterable(ftb => ftb.Cell(cell => cell.Operator("contains")
+                //.ShowOperators(false))).Title("Carrera Origen");
+                //columns.Bound(p => p.gatbl_UniversidadesDestino.sNombre_desc).Width(200).Filterable(ftb => ftb.Cell(cell => cell.Operator("contains")
+                //.ShowOperators(false))).Title("Universidad Destino");
+                //columns.Bound(p => p.gatbl_CarrerasDestino.sCarrera_nm).Width(200).Filterable(ftb => ftb.Cell(cell => cell.Operator("contains")
+                //.ShowOperators(false))).Title("Carrera Destino");
+                columns.Bound(p => p.Responsables.NombreCompleto).Width(200).Filterable(ftb => ftb.Cell(cell => cell.Operator("contains").ShowOperators(false))).Title("Responsable");
+                columns.Bound(p => p.sObs_desc).Width(250).Filterable(ftb => ftb.Cell(cell => cell.Operator("contains")
+                .ShowOperators(false)));
+
+            })
+            .ToolBar(toolBar =>
+            {
+            toolBar.Template(@<text>
+        <a class="k-button k-button-icontext" href=@Url.Action("Create", "SolicitudConvalidaciones")><span class="k-icon k-i-plus"></span>Crear Nuevo</a>
+            </text>);
+            })
+            .Editable(editable => editable.Mode(GridEditMode.InLine))
+            //.Pageable()
+            //.Groupable()
+            .Sortable()
+            .Filterable()
+            .ColumnMenu()
+            .Scrollable(s => s.Height("auto"))
+            .HtmlAttributes(new { style = "height:100%" })
+            .Filterable(ftb => ftb.Mode(GridFilterMode.Row))
+            .Resizable(rsb => rsb.Columns(true))
+            .Reorderable(r => r.Columns(true))
+            .Pageable(pageable => pageable
+                .Refresh(true)
+                .PageSizes(true)
+                .ButtonCount(10)
+                .Messages(m => m
+                    .ItemsPerPage("items por página")
+                    )
+            )
+        .DataSource(dataSource => dataSource
+            .Ajax()
+            .PageSize(20)
+            .ServerOperation(false)
+            .Sort(p => p.Add("lNro_solucitud").Descending())
+        //.Group(group => group.Add(p => p.gatbl_UniversidadesOrigen.sNombre_desc))
+        .Model(model =>
+        {
+            model.Id(p => p.lPConvalidacion_id);
+            model.Field(p => p.lPConvalidacion_id).Editable(false);
+        })
+        .Read(read => read.Action("Index_Read", "SolicitudConvalidaciones"))
+        .Create(create => create.Action("Create", "SolicitudConvalidaciones"))
+        .Update(update => update.Action("Edit", "SolicitudConvalidaciones"))
+        .Destroy(update => update.Action("Delete", "SolicitudConvalidaciones"))
+     )
+    )
+</div>
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script>
+        $(document).ready(function () {
+            resizeContent();
+
+            $(window).resize(function () {
+                resizeContent();
+            });
+        });
+
+        function resizeContent() {
+            $height = $(window).height() - 210;
+            $('div#content').height($height);
+
+            var grid = $("#grid").data('kendoGrid');
+            if (grid != undefined) {
+                grid.resize();
+            }
+        }
+    </script>
+}
+
+
+
+
+@*<p>
+    @Html.ActionLink("Crear Nuevo", "Create")
+</p>
+
+<form action="" class="navbar-form navbar-right">
+    <div class="input-group">
+        <input type="Search" placeholder="Ingresar aqui para buscar..." class="form-control" />
+        <div class="input-group-btn">
+            <button class="btn btn-success">
+                <span class="glyphicon glyphicon-search"></span>
+            </button>
+        </div>
+    </div>
+</form>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.dtPostulacion_dt)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lPostulante_id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.gatbl_Postulantes.sDocumento_nro)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lUniversidadOrigen_id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lCarreraOrigen_id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lUniversidadDestino_id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lCarreraDestino_id)
+        </th>        
+        <th>
+            @Html.DisplayNameFor(model => model.lResponsable_id)
+        </th>
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.dtPostulacion_dt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.gatbl_Postulantes.sNombre_desc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.gatbl_Postulantes.sDocumento_nro)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.gatbl_UniversidadesOrigen.sNombre_desc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SolicitudConvalidacionesOrigen.sCarrera_nm)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.gatbl_UniversidadesDestino.sNombre_desc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SolicitudConvalidacionesDestino.sCarrera_nm)
+            </td>            
+            <td>
+                @Html.DisplayFor(modelItem => item.Responsables.NombreCompleto)
+            </td>
+
+            <td>
+                <a href="@Url.Action("Edit", new { id = item.lPConvalidacion_id })">
+                    <i class="glyphicon glyphicon-edit" title="Editar"></i>
+                    <span class="sr-only">Editar</span>
+                </a>
+                <a href="@Url.Action("Details", new { id = item.lPConvalidacion_id })">
+                    <i class="glyphicon glyphicon-search" title="Ver"></i>
+                    <span class="sr-only">Ver</span>
+                </a>
+                <a href="@Url.Action("Delete", new { id = item.lPConvalidacion_id })">
+                    <i class="glyphicon glyphicon-trash" title="Eliminar"></i>
+                    <span class="sr-only">Eliminar</span>
+                </a>
+            </td>
+        </tr>
+    }
+
+</table>*@
+

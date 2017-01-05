@@ -1,0 +1,40 @@
+﻿@model IEnumerable<SIGAA.Areas.CONV.Models.gatbl_DPConvalidaciones>
+
+    <h2>Documentos para Evaluacion</h2>
+
+    <div>
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.lTipoDocumentoSolicitud_id)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TipoPresentacionDocumento.sDescripcion)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.sCantidad_nro)
+                </th>
+                <th></th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TipoDocumentoSolicitud.sDescripcion)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TipoPresentacionDocumento.sDescripcion)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.sCantidad_nro)
+                    </td>
+
+                    <td>
+                        @*@Html.ActionLink("Editar", "EditarDocumento", new { id = Model.gatbl_DPConvalidaciones[i].lDPConvalicacion_id }) |
+                            @Html.ActionLink("Eliminar", "Delete", new { id = Model.gatbl_DPConvalidaciones[i].lDPConvalicacion_id })*@
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>

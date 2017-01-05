@@ -1,0 +1,240 @@
+﻿@model SIGAA.Areas.CONV.Models.gatbl_ProgramasAnaliticos
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>gatbl_ProgramasAnaliticos</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.gatbl_Carreras.sCarrera_nm)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.gatbl_Carreras.sCarrera_nm)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.gatbl_Facultades.sFacultad_nm)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.gatbl_Facultades.sFacultad_nm)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.gatbl_Universidades.sOrigen_fl)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.gatbl_Universidades.sOrigen_fl)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NivelProgramaAnalitico.sDescripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NivelProgramaAnalitico.sDescripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OrigenProgramaAnalitico.sDescripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OrigenProgramaAnalitico.sDescripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Responsables.tagd_codigo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Responsables.tagd_codigo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UnidadNegocios.sDescripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UnidadNegocios.sDescripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sGestion_desc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sGestion_desc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sPeriodo_desc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sPeriodo_desc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dtRegistro_dt)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dtRegistro_dt)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.lMateria_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.lMateria_id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sMateria_desc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sMateria_desc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.lInstitucion_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.lInstitucion_id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sInstitucion_desc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sInstitucion_desc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sCodigo_nro)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sCodigo_nro)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sSigla_desc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sSigla_desc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sHorasPracticas_nro)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sHorasPracticas_nro)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sHorasTeoricas_nro)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sHorasTeoricas_nro)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sHorasSociales_nro)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sHorasSociales_nro)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sHorasAyudantia_nro)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sHorasAyudantia_nro)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sCreditos_nro)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sCreditos_nro)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sVersion_nro)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sVersion_nro)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sObs_desc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sObs_desc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.iEstado_fl)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.iEstado_fl)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.iEliminado_fl)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.iEliminado_fl)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sCreated_by)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sCreated_by)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.iConcurrencia_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.iConcurrencia_id)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Ir a Lista", "Index")
+        </div>
+    }
+</div>

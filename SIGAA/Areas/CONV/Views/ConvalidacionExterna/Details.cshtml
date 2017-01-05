@@ -1,0 +1,155 @@
+﻿@model SIGAA.Areas.CONV.ViewModels.ConvalidacionExternaViewModels
+
+@{
+    ViewBag.Title = "Detalle";
+}
+
+<h2>Detalle</h2>
+
+<div>
+    <h4>Convalidacion Externa</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.gatbl_ConvalidacionesExternasPA.lEstudiante_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.gatbl_ConvalidacionesExternasPA.agenda.NombreCompleto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.gatbl_ConvalidacionesExternasPA.agenda.alumnos_agenda.carreras.sca_codigo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.gatbl_ConvalidacionesExternasPA.secciones_academicas.sca_descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.gatbl_ConvalidacionesExternasPA.agenda.alumnos_agenda.crr_codigo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.gatbl_ConvalidacionesExternasPA.carreras.crr_descripcion)
+        </dd>
+        
+        <dt>
+            @Html.DisplayNameFor(model => model.gatbl_ConvalidacionesExternasPA.dtConvalidacionExterna_dt)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.gatbl_ConvalidacionesExternasPA.dtConvalidacionExterna_dt)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.gatbl_ConvalidacionesExternasPA.sFormulario_nro)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.gatbl_ConvalidacionesExternasPA.sFormulario_nro)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.gatbl_ConvalidacionesExternasPA.sInforme_nro)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.gatbl_ConvalidacionesExternasPA.sInforme_nro)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.gatbl_ConvalidacionesExternasPA.lResponsable_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.gatbl_ConvalidacionesExternasPA.Responsable.NombreCompleto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.gatbl_ConvalidacionesExternasPA.sObs_desc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.gatbl_ConvalidacionesExternasPA.sObs_desc)
+        </dd>        
+    </dl>
+</div>
+
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.gatbl_ConvalidacionesExternasPA.lConvalidacionExternaPA_id }, new { @class = "btn btn-warning" }) |
+    @Html.ActionLink("Ir a Lista", "Index")
+</p>
+
+<h2>Materias a Convalidar</h2>
+<div class="row">
+    <div class="col-md-8">
+        <h4>Origen</h4>
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.gatbl_DConvalidacionExternaPA.lUniversidad_id)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.gatbl_DConvalidacionExternaPA.lCarrera_id)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.gatbl_MateriaConvalidada.lMateria_id)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.gatbl_DConvalidacionExternaPA.lEscalaCalificacion_id)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.gatbl_MateriaConvalidada.sNota_Origen)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.gatbl_MateriaConvalidada.sObs_desc)
+                </th>               
+            </tr>
+            @for (int i = 0; i < Model.gatbl_MateriasConvalidadasOrigen.Count; i++)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => Model.gatbl_MateriasConvalidadasOrigen[i].gatbl_DConvalidacionesExternasPA.gatbl_Universidades.sNombre_desc)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => Model.gatbl_MateriasConvalidadasOrigen[i].gatbl_DConvalidacionesExternasPA.gatbl_Carreras.sCarrera_nm)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => Model.gatbl_MateriasConvalidadasOrigen[i].gatbl_ProgramasAnaliticos.sMateria_desc)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => Model.gatbl_MateriasConvalidadasOrigen[i].gatbl_DConvalidacionesExternasPA.gatbl_EscalaCalificaciones.TipoEscalaEvaluacion.sDescripcion)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => Model.gatbl_MateriasConvalidadasOrigen[i].sNota_Origen)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => Model.gatbl_MateriasConvalidadasOrigen[i].sObs_desc)
+                    </td>                    
+                </tr>
+            }
+
+        </table>
+    </div>
+    <div class="col-md-4">
+        <h4>Destino</h4>
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.gatbl_MateriaConvalidada.lMateria_id)
+                </th>
+            </tr>
+            @for (int i = 0; i < Model.gatbl_ProgramasAnaliticos.Count; i++)
+            {
+                <tr class="active">
+                    <td>
+                        @Html.DisplayFor(modelItem => Model.gatbl_ProgramasAnaliticos[i].sMateria_desc)
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+
+</div>

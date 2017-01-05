@@ -1,0 +1,45 @@
+﻿@model IEnumerable<SIGAA.Areas.CONV.Models.gatbl_DProgramasAnaliticos>
+
+@{
+    ViewBag.Title = "Unidades del Programa Analitico";
+}
+
+<h2>Unidades del Programa Analitico</h2>
+
+<p>
+    @Html.ActionLink("Crear Nuevo", "Create")
+</p>
+<table class="table">
+    <tr>        
+        <th>
+            @Html.DisplayNameFor(model => model.sUnidad_nro)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.sUnidad_desc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.sContenido_gral)
+        </th>        
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>        
+        <td>
+            @Html.DisplayFor(modelItem => item.sUnidad_nro)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.sUnidad_desc)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.sContenido_gral)
+        </td>        
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.lDProgramaAnalitico_id }) |
+            @Html.ActionLink("Ver", "Details", new { id=item.lDProgramaAnalitico_id }) |
+            @Html.ActionLink("Eliminar", "Delete", new { id=item.lDProgramaAnalitico_id })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,213 @@
+﻿@model IEnumerable<SIGAA.Areas.CONV.Models.gatbl_AnalisisConvalidaciones>
+
+@{
+    ViewBag.Title = "Analisis de Programas Analiticos";
+}
+
+<h2>Analisis de Convalidaciones</h2>
+
+<div>
+
+    <!-- Nav tabs -->
+    <ul id="myTab" class="nav nav-tabs" role="tablist" data-tabs="tabs">
+        <li role="presentation" class="active"><a href="#Realizados" aria-controls="home" role="tab" data-toggle="tab">Realizados</a></li>        
+    </ul>
+
+    <!-- Tab panes -->
+    <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active" id="Realizados">
+
+            @(Html.Kendo().Grid<SIGAA.Areas.CONV.Models.gatbl_DetAnalisisPreConvalidaciones>()
+            .Name("grid")
+            .Columns(columns =>
+            {
+            columns.Template(@<text></text>).ClientTemplate(
+                                         "<a class='k-button k-button-icon' href='" + Url.Action("ReportsConvalidation", "gatbl_AnalisisConvalidaciones") + "/#=lDetAnalisisPreConvalidacion_id#' title='Ver' target='_self'><span class='k-icon k-i-pdf'> </span></a>"
+                                         //"<a class='k-button k-button-icon' href='" + Url.Action("Delete", "gatbl_AnalisisConvalidaciones") + "/#=lDetAnalisisPreConvalidacion_id#' title='Eliminar'><span class='k-icon k-delete'> </span></a>"
+                                         )
+                                         .Width(48).Title("Edicion").Locked(true);
+
+                columns.Group(group => group
+                    .Title("Solicitud")
+                    .Columns(solicitud =>
+                    {
+                        solicitud.Bound(p => p.gatbl_AnalisisPreConvalidaciones.gatbl_PConvalidaciones.lNro_solucitud).ClientTemplate(@Html.ActionLink("#=gatbl_AnalisisPreConvalidaciones.gatbl_PConvalidaciones.lNro_solucitud#", "VerUnidades", new { ID = "#=lDetAnalisisPreConvalidacion_id#" })
+                .ToHtmlString()).Width(100).Filterable(ftb => ftb.Cell(cell => cell.Operator("eq").ShowOperators(false)))
+                .Title("Nro.");
+                        //solicitud.Bound(p => p.gatbl_AnalisisPreConvalidaciones.dtAnalisisConvalidacion_dt).Title("F. Analisis").Width(250).Filterable(ftb => ftb.Cell(cell => cell.ShowOperators(false)));
+                        //            solicitud.Bound(p => p.gatbl_AnalisisPreConvalidaciones.gatbl_PConvalidaciones.dtPostulacion_dt).Title("F. Analisis").Width(120).Filterable(ftb => ftb.Cell(cell => cell.ShowOperators(false)))
+                        //.Format("{0:dd/MM/yyyy}");
+
+                        solicitud.Bound(p => p.gatbl_AnalisisPreConvalidaciones.gatbl_PConvalidaciones.dtPostulacion_dt).Width(120).Title("F. Analisis").Filterable(ftb => ftb.Cell(cell => cell.ShowOperators(false))).ClientTemplate("#= gatbl_AnalisisPreConvalidaciones.gatbl_PConvalidaciones.dtPostulacion_dt ? kendo.toString(kendo.parseDate(gatbl_AnalisisPreConvalidaciones.gatbl_PConvalidaciones.dtPostulacion_dt), 'dd/MM/yyyy') : '' #");
+
+                    }).Locked(true)
+                );
+
+                columns.Group(group => group
+                        .Title("Postulante")
+                        .Columns(info =>
+                        {
+                            info.Bound(p => p.gatbl_AnalisisPreConvalidaciones.gatbl_PConvalidaciones.gatbl_Postulantes.NombreCompleto).Width(200).Filterable(ftb => ftb.Cell(cell => cell.Operator("contains")
+                    .ShowOperators(false))).Title("Nombre Completo");
+                            info.Bound(p => p.gatbl_AnalisisPreConvalidaciones.gatbl_PConvalidaciones.gatbl_Postulantes.sDocumento_nro).Width(120).Filterable(ftb => ftb.Cell(cell => cell.Operator("contains")
+                    .ShowOperators(false))).Title("Nro. Doc.");
+                        })
+                    );
+
+                columns.Group(group => group
+                    .Title("Origen")
+                    .Columns(origen =>
+                    {
+
+                        origen.Bound(p => p.gatbl_AnalisisPreConvalidaciones.gatbl_PConvalidaciones.gatbl_UniversidadesOrigen.sNombre_desc).Width(150).Filterable(ftb => ftb.Cell(cell => cell.Operator("contains")
+                .ShowOperators(false))).Title("Universidad");
+                        origen.Bound(p => p.gatbl_AnalisisPreConvalidaciones.gatbl_PConvalidaciones.gatbl_CarrerasOrigen.sCarrera_nm).Width(200).Filterable(ftb => ftb.Cell(cell => cell.Operator("contains")
+                        .ShowOperators(false))).Title("Carrera");
+                        origen.Bound(p => p.sMateriaOrigen).Width(200).Filterable(ftb => ftb.Cell(cell => cell.Operator("contains")
+                        .ShowOperators(false))).Title("Materia");
+                    })
+                );
+
+                columns.Group(group => group
+                    .Title("Destino")
+                    .Columns(destino =>
+                    {
+
+                        destino.Bound(p => p.gatbl_AnalisisPreConvalidaciones.gatbl_PConvalidaciones.gatbl_UniversidadesDestino.sNombre_desc).Width(150).Filterable(ftb => ftb.Cell(cell => cell.Operator("contains")
+                .ShowOperators(false))).Title("Universidad");
+                        destino.Bound(p => p.gatbl_AnalisisPreConvalidaciones.gatbl_PConvalidaciones.gatbl_CarrerasDestino.sCarrera_nm).Width(200).Filterable(ftb => ftb.Cell(cell => cell.Operator("contains")
+                        .ShowOperators(false))).Title("Carrera");
+                        destino.Bound(p => p.sMateriaDestino).Width(200).Filterable(ftb => ftb.Cell(cell => cell.Operator("contains")
+.ShowOperators(false))).Title("Materia");
+                        destino.Bound(p => p.gatbl_AnalisisPreConvalidaciones.gatbl_PConvalidaciones.Pensum.sDescripcion).Width(100).Filterable(ftb => ftb.Cell(cell => cell.Operator("contains")
+                        .ShowOperators(false))).Title("Pensum");
+                    })
+                );
+
+                columns.Bound(p => p.gatbl_AnalisisPreConvalidaciones.sVersion_nro).Width(100).Filterable(ftb => ftb.Cell(cell => cell.Operator("contains").ShowOperators(false)));
+                columns.Bound(p => p.gatbl_AnalisisPreConvalidaciones.Responsables.NombreCompleto).Width(200).Filterable(ftb => ftb.Cell(cell => cell.Operator("contains").ShowOperators(false))).Title("Responsable");
+                columns.Bound(p => p.gatbl_AnalisisPreConvalidaciones.sObs_desc).Width(250).Filterable(ftb => ftb.Cell(cell => cell.Operator("contains")
+                .ShowOperators(false)));
+
+            })
+            @*.ToolBar(toolBar =>
+                {
+                toolBar.Template(@<text>
+                        <a class="k-button k-button-icontext" href=@Url.Action("Create", "gatbl_AnalisisPreConvalidaciones")><span class="k-icon k-i-plus"></span>Crear Nuevo</a>
+                </text>);
+                })*@
+            .Editable(editable => editable.Mode(GridEditMode.InLine))
+            //.Pageable()
+            //.Groupable()
+            .Sortable()
+            .Filterable()
+            .ColumnMenu()
+            .Scrollable(s => s.Height("auto"))
+            .HtmlAttributes(new { style = "height:100%" })
+            .Filterable(ftb => ftb.Mode(GridFilterMode.Row))
+
+            .Resizable(rsb => rsb.Columns(true))
+            .Reorderable(r => r.Columns(true))
+            .Pageable(pageable => pageable
+                .Refresh(true)
+                .PageSizes(true)
+                .ButtonCount(10)
+                .Messages(m => m
+                    .ItemsPerPage("items por página")
+                    )
+            )
+        .DataSource(dataSource => dataSource
+            .Ajax()
+            .PageSize(20)
+            .ServerOperation(false)
+        .Sort(p => p.Add("gatbl_AnalisisPreConvalidaciones.gatbl_PConvalidaciones.lNro_solucitud").Descending())
+        .Group(group => group.AddDescending(p => p.gatbl_AnalisisPreConvalidaciones.gatbl_PConvalidaciones.lNro_solucitud))
+        .Model(model =>
+        {
+            model.Id(p => p.lDetAnalisisPreConvalidacion_id);
+            model.Field(p => p.lDetAnalisisPreConvalidacion_id).Editable(false);
+        })
+        .Read(read => read.Action("Index_Read_Realizado", "gatbl_AnalisisConvalidaciones"))
+        //.Create(create => create.Action("Create", "gatbl_AnalisisPreConvalidaciones"))
+        //.Update(update => update.Action("Edit", "gatbl_AnalisisPreConvalidaciones"))
+        //.Destroy(update => update.Action("Delete", "gatbl_AnalisisPreConvalidaciones"))
+     )
+            )
+
+        </div>
+    </div>
+
+</div>
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script>
+        kendo.culture("es-ES");
+        $(document).ready(function () {
+            kendo.culture("es-ES");
+            $.validator.addMethod('date',
+                function (value, element) {
+                    var isValidDate = this.optional(element) || kendo.parseDate(value);
+
+                    return isValidDate
+                });
+        });
+
+        $(document).ready(function () {
+            resizeContent();
+
+            $(window).resize(function () {
+                resizeContent();
+            });
+        });
+
+        function resizeContent() {
+            $height = $(window).height() - 250;
+            $('div#Realizados').height($height);
+            $('div#Pendientes').height($height);
+
+            var grid = $("#grid").data('kendoGrid');
+            var grid2 = $("#grid2").data('kendoGrid');
+
+            if (grid != undefined) {
+                grid.resize();
+            }
+
+            if (grid2 != undefined) {
+                grid2.resize();
+            }
+        }
+
+        $(function () {
+            $('#myTab a:first').tab('show')
+        })
+
+        $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+            var target = $(e.target).attr("href") // activated tab
+            if(target == "#Realizados")
+            {
+                $height = $(window).height() - 250;
+                $('div#Realizados').height($height);
+
+                var grid = $("#grid").data('kendoGrid');
+
+                if (grid != undefined) {
+                    grid.resize();
+                }
+            }
+            else
+            {
+                $height = $(window).height() - 250;
+                $('div#Pendientes').height($height);
+
+                var grid = $("#grid2").data('kendoGrid');
+
+                if (grid != undefined) {
+                    grid.resize();
+                }
+            }
+        });
+    </script>
+}

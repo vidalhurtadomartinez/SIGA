@@ -1,0 +1,67 @@
+﻿@model SIGAA.Areas.CONV.Models.gatbl_Carreras
+
+@{
+    ViewBag.Title = "Detalle";
+}
+
+<h2>Detalle</h2>
+
+<div>
+    <h4>Carrerra</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.gatbl_Universidades.sNombre_desc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.gatbl_Universidades.sNombre_desc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.gatbl_Facultades.sFacultad_nm)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.gatbl_Facultades.sFacultad_nm)
+        </dd>        
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sCarrera_nm)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sCarrera_nm)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sResponsable_nm)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sResponsable_nm)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sTelefono_desc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sTelefono_desc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sMail_desc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sMail_desc)
+        </dd>
+
+        
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.lCarrera_id }) |
+    @Html.ActionLink("Ir a Lista", "Index")
+</p>

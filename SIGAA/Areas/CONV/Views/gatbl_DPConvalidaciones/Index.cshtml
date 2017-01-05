@@ -1,0 +1,93 @@
+﻿@model IEnumerable<SIGAA.Areas.CONV.Models.gatbl_DPConvalidaciones>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.gatbl_Facultades.sFacultad_nm)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.gatbl_PConvalidaciones.sGestion_desc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.gatbl_Universidades.sOrigen_fl)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tipo_documentos.doc_descripcion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TipoPresentacionDocumento.sDescripcion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.sCantidad_nro)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.sAprobados_nro)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.iEstado_fl)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.iEliminado_fl)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.sCreated_by)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.iConcurrencia_id)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.gatbl_Facultades.sFacultad_nm)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.gatbl_PConvalidaciones.sGestion_desc)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.gatbl_Universidades.sOrigen_fl)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tipo_documentos.doc_descripcion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TipoPresentacionDocumento.sDescripcion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.sCantidad_nro)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.sAprobados_nro)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.iEstado_fl)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.iEliminado_fl)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.sCreated_by)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.iConcurrencia_id)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.lDPConvalicacion_id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.lDPConvalicacion_id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.lDPConvalicacion_id })
+        </td>
+    </tr>
+}
+
+</table>

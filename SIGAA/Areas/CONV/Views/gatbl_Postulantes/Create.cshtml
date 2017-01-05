@@ -1,0 +1,187 @@
+﻿@model SIGAA.Areas.CONV.Models.gatbl_Postulantes
+
+@{
+    ViewBag.Title = "Nuevo";
+}
+
+<h2>Nuevo</h2>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Postulante</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" }) 
+        
+        <div class="form-group">
+            @Html.LabelFor(model => model.NombreCompleto, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @(Html.Kendo().AutoCompleteFor(model => model.NombreCompleto)
+                  .DataTextField("NombreCompleto")
+                  .Placeholder("Buscar Estudiante")
+                  .Filter("contains")
+                  .MinLength(3)
+                  .HtmlAttributes(new { style = "width:280px" })
+                  .DataSource(source =>
+                  {
+                      source.Read(read =>
+                      {
+                          read.Action("ObtenerPostulantes", "gatbl_Postulantes")
+                              .Data("onAdditionalData");
+                      })
+                      .ServerFiltering(true);
+                  })
+                  .Events(e =>
+                    {
+                        e.Select("onSelectPostulante").Filtering("onFilteringPostulante");
+                    })
+                )
+                @Html.ValidationMessageFor(model => model.NombreCompleto, "", new { @class = "text-danger" })
+            </div>
+        </div> 
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.sApPaterno_desc, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">                
+                @Html.EditorFor(model => model.sApPaterno_desc, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.sApPaterno_desc, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.sApMaterno_desc, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.sApMaterno_desc, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.sApMaterno_desc, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.sNombre_desc, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.sNombre_desc, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.sNombre_desc, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.sNroRegistro, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @*@Html.EditorFor(model => model.sNroRegistro, new { htmlAttributes = new { @class = "form-control" } })*@
+                @Html.TextBoxFor(model => model.sNroRegistro, new { @class = "form-control", @readonly = "readonly" })
+                @Html.ValidationMessageFor(model => model.sNroRegistro, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.lTipoDocumentoPersonal_id, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="form-inline">
+                    @Html.DropDownList("lTipoDocumentoPersonal_id", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.lTipoDocumentoPersonal_id, "", new { @class = "text-danger" })
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.sDocumento_nro, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(model => model.sDocumento_nro, new { @class = "form-control", placeholder = "Nro. Documento" })
+                            @*@Html.EditorFor(model => model.sDocumento_nro, new { htmlAttributes = new { @class = "form-control", placeholder = "Nro. Documento" } })*@
+                            @Html.ValidationMessageFor(model => model.sDocumento_nro, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.lProcedencia_id, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("lProcedencia_id", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.lProcedencia_id, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group" id="Departamento">
+            @Html.LabelFor(model => model.sDepartamento_fl, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("sDepartamento_fl", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.sDepartamento_fl, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.lNacionalidad_id, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("lNacionalidad_id", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.lNacionalidad_id, "", new { @class = "text-danger" })
+            </div>
+        </div>        
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.sDireccion_desc, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.sDireccion_desc, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.sDireccion_desc, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.sTelefonos_desc, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.sTelefonos_desc, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.sTelefonos_desc, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.sMail_desc, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.sMail_desc, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.sMail_desc, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Guardar" class="btn btn-success" />
+                @Html.ActionLink("Cancelar", "Index", new { }, new { @class = "btn btn-warning" })
+            </div>
+        </div>
+    </div>
+}
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script>
+        function onAdditionalData() {
+            return {
+                text: $("#NombreCompleto").val()
+            };
+        }
+
+        function onSelectPostulante(e) {
+            var dataItem = this.dataItem(e.item);
+            $("#sApPaterno_desc").val(dataItem.sApPaterno_desc);
+            $("#sApMaterno_desc").val(dataItem.sApMaterno_desc);
+            $("#sNombre_desc").val(dataItem.sNombre_desc);
+            $("#sNroRegistro").val(dataItem.sNroRegistro);
+            $("#sDireccion_desc").val(dataItem.sDireccion_desc);
+            $("#sTelefonos_desc").val(dataItem.sHorasSociales_nro);
+            $("#sMail_desc").val(dataItem.sMail_desc);            
+        }
+
+        function onFilteringPostulante() {
+            $("#sApPaterno_desc").val("");
+            $("#sApMaterno_desc").val("");
+            $("#sNombre_desc").val("");
+            $("#sNroRegistro").val("");
+            $("#sDireccion_desc").val("");
+            $("#sTelefonos_desc").val("");
+            $("#sMail_desc").val("");
+        }
+</script>
+}

@@ -1,0 +1,340 @@
+﻿@model SIGAA.Areas.CONV.ViewModels.SolicitudConvalidacion
+@{
+    ViewBag.Title = "Editar";
+}
+
+<h2>Editar</h2>
+
+
+@using (Html.BeginForm("Edit", "SolicitudConvalidaciones", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Solicitud de Convalidacion</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.gatbl_PConvalidaciones.lNro_solucitud, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.gatbl_PConvalidaciones.lNro_solucitud, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                @Html.ValidationMessageFor(model => model.gatbl_PConvalidaciones.lNro_solucitud, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.gatbl_PConvalidaciones.lPostulante_id, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @(Html.Kendo().DropDownListFor(model => model.gatbl_PConvalidaciones.lPostulante_id)
+                  .DataTextField("NombreCompleto")
+                  .DataValueField("lPostulante_id")
+                  .HtmlAttributes(new { style = "width:280px" })
+                  //.OptionLabel("Buscar Postulante")
+                  .Filter("contains")
+                  .AutoBind(true)
+                  .MinLength(3)
+                  .DataSource(source =>
+                  {
+                      source.Read(read =>
+                      {
+                          read.Action("ObtenerPostulantes", "SolicitudConvalidaciones");
+                      })
+                      .ServerFiltering(true);
+                  })
+                  .Events(e =>
+                  {
+                      e.Select("onSelectPostulante");
+                  })
+                )
+                @Html.ValidationMessageFor(model => model.gatbl_PConvalidaciones.lPostulante_id, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.gatbl_PConvalidaciones.gatbl_Postulantes.sDocumento_nro, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.gatbl_PConvalidaciones.gatbl_Postulantes.sDocumento_nro, new { @class = "form-control", @readonly = "readonly" })
+                @*@Html.EditorFor(model => model.gatbl_PConvalidaciones.gatbl_Postulantes.sDocumento_nro, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })*@
+                @Html.ValidationMessageFor(model => model.gatbl_PConvalidaciones.gatbl_Postulantes.sDocumento_nro, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.gatbl_PConvalidaciones.lUniversidadOrigen_id, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("lUniversidadOrigen_id", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.gatbl_PConvalidaciones.lUniversidadOrigen_id, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.gatbl_PConvalidaciones.lCarreraOrigen_id, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("lCarreraOrigen_id", null, htmlAttributes: new { @class = "form-control" })                
+                @Html.ValidationMessageFor(model => model.gatbl_PConvalidaciones.lCarreraOrigen_id, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.gatbl_PConvalidaciones.lUniversidadDestino_id, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("lUniversidadDestino_id", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.gatbl_PConvalidaciones.lUniversidadDestino_id, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.gatbl_PConvalidaciones.lCarreraDestino_id, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("lCarreraDestino_id", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.gatbl_PConvalidaciones.lCarreraDestino_id, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.gatbl_PConvalidaciones.lPensum_id, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("lPensum_id", null, htmlAttributes: new { id = "lPensum_id", @class = "form-control" })
+                @*@Html.DropDownListFor(model => model.gatbl_PConvalidaciones.lPensum_id, new SelectList(Enumerable.Empty<SelectListItem>(), "lPensum_id", "sDescripcion"), "Seleccionar Pensum", new { id = "lPensum_id", @class = "form-control" })*@
+                @Html.ValidationMessageFor(model => model.gatbl_PConvalidaciones.lPensum_id, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.gatbl_PConvalidaciones.sObs_desc, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.gatbl_PConvalidaciones.sObs_desc, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.gatbl_PConvalidaciones.sObs_desc, "", new { @class = "text-danger" })
+            </div>
+        </div>
+       
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Guardar Solicitud" name="Update" id="Update" class="btn btn-success" />
+                @Html.ActionLink("Cancelar", "Index", new { }, new { @class = "btn btn-warning" })
+            </div>
+        </div>
+
+    </div>
+}
+
+<h2>Documentos para Evaluacion</h2>
+
+<div>
+
+    @(Html.Kendo().Grid<SIGAA.Areas.CONV.Models.gatbl_DPConvalidaciones>()
+        .Name("Grid")
+        .Columns(columns =>
+        {
+            columns.ForeignKey(p => p.lTipoDocumentoSolicitud_id, (System.Collections.IEnumerable)ViewData["lTipoDocumentoSolicitud_id"], "lTipoDocumentoSolicitud_id", "sDescripcion")
+                .Title("Tipo de Documento");
+            columns.ForeignKey(p => p.sTipoPresentacion_fl, (System.Collections.IEnumerable)ViewData["sTipoPresentacion_fl"], "sTipoPresentacion_fl", "sDescripcion")
+                .Title("Tipo presentacion");
+
+            columns.Bound(p => p.lCantidad_nro).Width(140);
+            columns.Command(command => command.Destroy()).Width(150);
+        })
+        .ToolBar(toolbar =>
+        {
+            toolbar.Create().Text("Adicionar Documento");
+            //toolbar.Save();
+        })
+        .Editable(editable => editable.Mode(GridEditMode.InCell))
+        .Pageable()
+        .Navigatable()
+        .Sortable()
+        .Scrollable()
+        .DataSource(dataSource => dataSource
+            .Ajax()
+            .Batch(true)
+            .PageSize(10)
+            .ServerOperation(false)
+            .Events(events => events.Error("error_handler"))
+            .Model(model =>
+            {
+                model.Id(p => p.lDPConvalicacion_id);
+                model.Field(p => p.lDPConvalicacion_id).Editable(false);
+                model.Field(p => p.lTipoDocumentoSolicitud_id).DefaultValue(1);
+                model.Field(p => p.sTipoPresentacion_fl).DefaultValue("01");
+                model.Field(p => p.lCantidad_nro).DefaultValue(1);
+            })
+            .Read("Editing_Read", "SolicitudConvalidaciones")
+            .Create("Editing_Create", "SolicitudConvalidaciones")
+            .Update("Editing_Update", "SolicitudConvalidaciones")
+            .Destroy("Editing_Destroy", "SolicitudConvalidaciones")
+        )
+
+    )
+
+</div>
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script>
+        kendo.culture("es-ES");
+
+        $(document).ready(function () {
+            kendo.culture("es-ES");
+            $.validator.addMethod('date',
+               function (value, element) {
+                   var isValidDate = this.optional(element) || kendo.parseDate(value);
+
+                   return isValidDate
+               });
+        });
+
+        $(document).ready(function () {
+            $("#lUniversidadOrigen_id").change(function () {
+                var univId = $("#lUniversidadOrigen_id").val();
+                if (univId != null && univId != undefined && univId != '') {
+                    var CountryOptions = {};
+                    CountryOptions.url = '@Url.Action("CarreraList", "SolicitudConvalidaciones")';
+                    CountryOptions.type = "POST";
+                    CountryOptions.data = JSON.stringify({ id: univId });
+                    CountryOptions.datatype = "json";
+                    CountryOptions.contentType = "application/json";
+                    CountryOptions.success = function (facultades) {
+                        $("#lCarreraOrigen_id").empty();
+                        $.each(facultades, function (index, val) {
+                            $('#lCarreraOrigen_id')
+                            .append($("<option></option>")
+                            .attr("value", val.Value)
+                            .text(val.Text));
+                        });
+                    };
+                    CountryOptions.error = function () { alert("Error al obtener carreras!!"); };
+                    $.ajax(CountryOptions);
+                }
+                else {
+                    $("#lCarreraOrigen_id").empty();
+                    //$("#lFacultad_id").prop("disabled", true);
+                }
+            });
+        });
+
+        $(document).ready(function () {
+            $("#lUniversidadDestino_id").change(function () {
+                var univId = $("#lUniversidadDestino_id").val();
+                if (univId != null && univId != undefined && univId != '') {
+                    var CountryOptions = {};
+                    CountryOptions.url = '@Url.Action("CarreraList", "SolicitudConvalidaciones")';
+                    CountryOptions.type = "POST";
+                    CountryOptions.data = JSON.stringify({ id: univId });
+                    CountryOptions.datatype = "json";
+                    CountryOptions.contentType = "application/json";
+                    CountryOptions.success = function (facultades) {
+                        $("#lCarreraDestino_id").empty();
+                        $("#lPensum_id").empty();
+                        $('#lCarreraDestino_id')
+                                .append($("<option></option>")
+                                .attr("value", "0")
+                                .text("Seleccionar Carrera"));
+                        $('#lPensum_id')
+                            .append($("<option></option>")
+                            .attr("value", "0")
+                            .text("Seleccionar Pensum"));
+
+                        $.each(facultades, function (index, val) {
+                            $('#lCarreraDestino_id')
+                            .append($("<option></option>")
+                            .attr("value", val.Value)
+                            .text(val.Text));
+                        });
+                    };
+                    CountryOptions.error = function () { alert("Error al obtener carreras!!"); };
+                    $.ajax(CountryOptions);
+                }
+                else {
+                    $("#lCarreraDestino_id").empty();
+                    $("#lPensum_id").empty();
+                    $('#lCarreraDestino_id')
+                            .append($("<option></option>")
+                            .attr("value", "0")
+                            .text("Seleccionar Carrera"));
+                    $('#lPensum_id')
+                        .append($("<option></option>")
+                        .attr("value", "0")
+                        .text("Seleccionar Pensum"));
+                }
+            });
+        });
+
+        $(document).ready(function () {
+            $("#lCarreraDestino_id").change(function () {
+                var facId = $("#lCarreraDestino_id").val();
+                if (facId != null && facId != undefined && facId != '') {
+                    var CountryOptions = {};
+                    CountryOptions.url = '@Url.Action("PensumList", "SolicitudConvalidaciones")';
+                    CountryOptions.type = "POST";
+                    CountryOptions.data = JSON.stringify({ id: facId });
+                    CountryOptions.datatype = "json";
+                    CountryOptions.contentType = "application/json";
+                    CountryOptions.success = function (pensum) {
+                        $("#lPensum_id").empty();
+                        $.each(pensum, function (index, val) {
+                            $('#lPensum_id')
+                            .append($("<option></option>")
+                            .attr("value", val.Value)
+                            .text(val.Text));
+                        });
+                    };
+                    CountryOptions.error = function () { alert("Error al obtener Pensum!!"); };
+                    $.ajax(CountryOptions);
+                }
+                else {
+                    $("#lPensum_id").empty();
+                }
+            });
+        });
+
+      function onAdditionalData() {
+          return {
+              text: $("#productComboBox").text()
+          };
+      }
+
+      function onSelectPostulante(e) {
+          var dataItem = this.dataItem(e.item);
+          $("#gatbl_PConvalidaciones_gatbl_Postulantes_sDocumento_nro").val(dataItem.agd_docnro);
+          $("#gatbl_PConvalidaciones_gatbl_Postulantes_carreras_crr_descripcion").val(dataItem.crr_descripcion);
+          $("#gatbl_PConvalidaciones_gatbl_Postulantes_secciones_academicas_sca_descripcion").val(dataItem.sca_descripcion);
+      }
+
+      function onSelectCarrera(e) {
+          var dataItem = this.dataItem(e.item);
+          $("#gatbl_PConvalidaciones_secciones_academicas_sca_descripcion").val(dataItem.sca_descripcion);
+      }
+
+      function error_handler(e) {
+          if (e.errors) {
+              var message = "Errors:\n";
+              $.each(e.errors, function (key, value) {
+                  if ('errors' in value) {
+                      $.each(value.errors, function () {
+                          message += this + "\n";
+                      });
+                  }
+              });
+              alert(message);
+          }
+      }
+
+      $('#Update').click(function () {
+
+          var grid = $("#Grid").data('kendoGrid');
+          if (grid != undefined) {              
+              //grid.dataSource.sync();
+              grid.saveChanges();
+          }
+
+          //$("#Grid").find("kendoGrid").each(function (index, element) {
+          //    $(element).data("kendoGrid").saveChanges();
+          //});
+      });
+    </script>
+}
+

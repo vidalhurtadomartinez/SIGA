@@ -1,0 +1,77 @@
+﻿@model IEnumerable<SIGAA.Areas.CONV.Models.gatbl_PConvalidaciones>
+
+@{
+    ViewBag.Title = "Convalidaciones Externas";
+}
+
+<h2>Convalidaciones Externas</h2>
+
+<p>
+    @Html.ActionLink("Crear Nuevo", "Create")
+</p>
+<table class="table">
+    <tr>        
+        <th>
+            @Html.DisplayNameFor(model => model.sPeriodo_desc)
+        </th>        
+        <th>
+            @Html.DisplayNameFor(model => model.agd_codigo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.sca_codigo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.crr_codigo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.sAgenda_nro)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.sDocumento_nro)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dtPostulacion_dt)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lResponsable_id)
+        </th>
+        
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>        
+        <td>
+            @Html.DisplayFor(modelItem => item.sPeriodo_desc)
+        </td>        
+        <td>
+            @Html.DisplayFor(modelItem => item.agd_codigo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.sca_codigo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.crr_codigo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.sAgenda_nro)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.sDocumento_nro)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.dtPostulacion_dt)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lResponsable_id)
+        </td>
+       
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.lPConvalidacion_id }) |
+            @Html.ActionLink("Ver", "Details", new { id=item.lPConvalidacion_id }) |
+            @Html.ActionLink("Eliminar", "Delete", new { id=item.lPConvalidacion_id })
+        </td>
+    </tr>
+}
+
+</table>

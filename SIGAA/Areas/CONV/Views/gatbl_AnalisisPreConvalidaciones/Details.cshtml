@@ -1,0 +1,112 @@
+﻿@model SIGAA.Areas.CONV.Models.gatbl_AnalisisPreConvalidaciones
+
+@{
+    ViewBag.Title = "Detalle";
+}
+
+<h2>Detalle</h2>
+
+<div>
+    <h4>Analisis Pre Convalidacion</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.dtAnalisisConvalidacion_dt)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dtAnalisisConvalidacion_dt)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.gatbl_PConvalidaciones.lUniversidadOrigen_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.gatbl_PConvalidaciones.gatbl_UniversidadesOrigen.sNombre_desc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.gatbl_PConvalidaciones.lCarreraOrigen_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.gatbl_PConvalidaciones.gatbl_CarrerasOrigen.sCarrera_nm)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.gatbl_PConvalidaciones.lUniversidadDestino_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.gatbl_PConvalidaciones.gatbl_UniversidadesDestino.sNombre_desc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.gatbl_PConvalidaciones.lCarreraDestino_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.gatbl_PConvalidaciones.gatbl_CarrerasDestino.sCarrera_nm)
+        </dd>
+                
+        <dt>
+            @Html.DisplayNameFor(model => model.lResponsable_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Responsables.NombreCompleto)
+        </dd>
+
+        @*<dt>
+            @Html.DisplayNameFor(model => model.sPensumDestino_desc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sPensumDestino_desc)
+        </dd>*@
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sVersion_nro)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sVersion_nro)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sObs_desc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sObs_desc)
+        </dd>
+
+        
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Asignar Materias a Convalidar", "Edit", "gatbl_AnalisisPreConvalidaciones", new { id = Model.lAnalisisPreConvalidacion_id }, new { @class = "btn btn-warning" }) |
+    @Html.ActionLink("Ir a Lista", "Index_Pendiente")
+</p>
+@*<h2>Materias</h2>
+<div class="row">
+    <div class="col-md-4">
+        <h4>Origen</h4>
+        @(Html.Kendo().TreeView()
+            .Name("treeviewOrigen")
+            .ExpandAll(true)
+            .BindTo((IEnumerable<TreeViewItemModel>)ViewBag.MateriasOrigen)
+        )
+    </div>
+
+    <div class="col-md-4">
+        <h4>Destino</h4>
+        @(Html.Kendo().TreeView()
+            .Name("treeviewDestino")
+            .ExpandAll(true)
+            .BindTo((IEnumerable<TreeViewItemModel>)ViewBag.MateriasDestino)
+        )
+    </div>
+
+</div>*@

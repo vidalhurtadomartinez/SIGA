@@ -1,0 +1,54 @@
+﻿@model IEnumerable<SIGAA.Areas.CONV.Models.NivelProgramaAnalitico>
+
+@{
+    ViewBag.Title = "Niveles de Programa Analitico";
+}
+
+<h2>Niveles de Programa Analitico</h2>
+
+<p>
+    @Html.ActionLink("Crear Nuevo", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.sNivel_fl)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.sDescripcion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.bActivo)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.sNivel_fl)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.sDescripcion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.bActivo)
+        </td>
+        <td>
+            <a href="@Url.Action("Edit", new { id = item.sNivel_fl })">
+                <i class="glyphicon glyphicon-edit" title="Editar"></i>
+                <span class="sr-only">Editar</span>
+            </a>
+            <a href="@Url.Action("Details", new { id = item.sNivel_fl })">
+                <i class="glyphicon glyphicon-search" title="Ver"></i>
+                <span class="sr-only">Ver</span>
+            </a>
+            <a href="@Url.Action("Delete", new { id = item.sNivel_fl })">
+                <i class="glyphicon glyphicon-trash" title="Eliminar"></i>
+                <span class="sr-only">Eliminar</span>
+            </a>
+        </td>
+    </tr>
+}
+
+</table>

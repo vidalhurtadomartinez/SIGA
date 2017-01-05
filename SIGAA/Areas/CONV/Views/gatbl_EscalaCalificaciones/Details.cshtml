@@ -1,0 +1,49 @@
+﻿@model SIGAA.Areas.CONV.Models.gatbl_EscalaCalificaciones
+
+@{
+    ViewBag.Title = "Detalle";
+}
+
+<h2>Detalle</h2>
+
+<div>
+    <h4>Escala de Calificaciones</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.gatbl_Universidades.sNombre_desc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.gatbl_Universidades.sNombre_desc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TipoEscalaEvaluacion.sDescripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TipoEscalaEvaluacion.sDescripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sEscala_desc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sEscala_desc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sEquivalencia_destino)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sEquivalencia_destino)
+        </dd>        
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.lEscalaCalificacion_id }) |
+    @Html.ActionLink("Ir a Lista", "Index")
+</p>

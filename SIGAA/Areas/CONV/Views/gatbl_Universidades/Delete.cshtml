@@ -1,0 +1,72 @@
+﻿@model SIGAA.Areas.CONV.Models.gatbl_Universidades
+
+@{
+    ViewBag.Title = "Eliminar";
+}
+
+<h2>Eliminar</h2>
+
+<h3>Esta seguro que desea eliminar el registro?</h3>
+<div>
+    <h4>universidad</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.OrigenOtraUniversidad.sDescripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OrigenOtraUniversidad.sDescripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Departamento.sDescripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Departamento.sDescripcion)
+        </dd>        
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sNombre_desc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sNombre_desc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sDireccion_desc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sDireccion_desc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sTelefonos_desc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sTelefonos_desc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.bInterno)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.bInterno)
+        </dd>
+        
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Eliminar" class="btn btn-danger" /> |
+            @Html.ActionLink("Ir a Lista", "Index")
+        </div>
+    }
+</div>

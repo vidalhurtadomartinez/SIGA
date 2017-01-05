@@ -1,0 +1,190 @@
+﻿@model SIGAA.Areas.CONV.ViewModels.SolicitudConvalidacion
+@{
+    ViewBag.Title = "Certificados";
+}
+
+<h2>Certificados</h2>
+
+
+@using (Html.BeginForm("Certificate", "SolicitudConvalidaciones", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Materias para convalidar</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.gatbl_PConvalidaciones.lNro_solucitud, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.gatbl_PConvalidaciones.lNro_solucitud, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })                
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.gatbl_PConvalidaciones.gatbl_Postulantes.sNombre_desc, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.gatbl_PConvalidaciones.gatbl_Postulantes.NombreCompleto, new { @class = "form-control", @readonly = "readonly" })
+                @*@Html.EditorFor(model => model.gatbl_PConvalidaciones.gatbl_Postulantes.sNombre_desc, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })*@                
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.gatbl_PConvalidaciones.gatbl_Postulantes.sDocumento_nro, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.gatbl_PConvalidaciones.gatbl_Postulantes.sDocumento_nro, new { @class = "form-control", @readonly = "readonly" })
+                @*@Html.EditorFor(model => model.gatbl_PConvalidaciones.gatbl_Postulantes.sDocumento_nro, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })*@                
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.gatbl_PConvalidaciones.lUniversidadOrigen_id, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.gatbl_PConvalidaciones.gatbl_UniversidadesOrigen.sNombre_desc, new { @class = "form-control", @readonly = "readonly" })
+                @*@Html.EditorFor(model => model.gatbl_PConvalidaciones.gatbl_UniversidadesOrigen.sNombre_desc, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })*@
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.gatbl_PConvalidaciones.lCarreraOrigen_id, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.gatbl_PConvalidaciones.gatbl_CarrerasOrigen.sCarrera_nm, new { @class = "form-control", @readonly = "readonly" })
+                @*@Html.EditorFor(model => model.gatbl_PConvalidaciones.gatbl_CarrerasOrigen.sCarrera_nm, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })*@
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.gatbl_PConvalidaciones.lUniversidadDestino_id, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.gatbl_PConvalidaciones.gatbl_UniversidadesDestino.sNombre_desc, new { @class = "form-control", @readonly = "readonly" })
+                @*@Html.EditorFor(model => model.gatbl_PConvalidaciones.gatbl_UniversidadesDestino.sNombre_desc, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })*@
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.gatbl_PConvalidaciones.lCarreraDestino_id, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.gatbl_PConvalidaciones.gatbl_CarrerasDestino.sCarrera_nm, new { @class = "form-control", @readonly = "readonly" })
+                @*@Html.EditorFor(model => model.gatbl_PConvalidaciones.gatbl_CarrerasDestino.sCarrera_nm, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })*@
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.gatbl_PConvalidaciones.sObs_desc, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.gatbl_PConvalidaciones.sObs_desc, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Guardar Certificados" name="Certificate" id="Certificate" class="btn btn-success" />
+                @Html.ActionLink("Cancelar", "Index", new { }, new { @class = "btn btn-warning" })
+            </div>
+        </div>
+
+    </div>
+}
+
+@*<div>
+    @Html.Partial("_CertificadosMateria")
+</div>*@
+
+<h2>Materias para Evaluacion</h2>
+
+<div>
+
+    @(Html.Kendo().Grid<SIGAA.Areas.CONV.Models.gatbl_CertificadosMateria>()
+        .Name("Grid")
+        .Columns(columns =>
+        {
+            columns.ForeignKey(p => p.lMateria_id, (System.Collections.IEnumerable)ViewData["lMateria_id"], "lProgramaAnalitico_id", "sMateria_desc")
+                .Title("Materia");
+            columns.ForeignKey(p => p.sTipoPresentacion_fl, (System.Collections.IEnumerable)ViewData["sTipoPresentacion_fl"], "sTipoPresentacion_fl", "sDescripcion")
+                .Title("Tipo presentacion");
+
+            columns.Bound(p => p.dCalificacion).Width(140).Format("{0:N}");
+            columns.Bound(p => p.bHomologado).Width(100).ClientTemplate("#= bHomologado ? 'SI' : 'NO' #");
+            //columns.Bound(p => p.sDocumento_adjunto).Width(200);
+            columns.Command(command => command.Destroy()).Width(150);
+        })
+        .ToolBar(toolbar =>
+        {
+            toolbar.Create().Text("Adicionar Materia");
+            //toolbar.Save();
+        })
+        .Editable(editable => editable.Mode(GridEditMode.InCell))
+        .Pageable()
+        .Navigatable()
+        .Sortable()
+        .Scrollable()
+        .DataSource(dataSource => dataSource
+            .Ajax()
+            .Batch(true)
+            .PageSize(10)
+            .ServerOperation(false)
+            .Events(events => events.Error("error_handler"))
+            .Model(model =>
+            {
+                model.Id(p => p.lDCertificado_id);
+                model.Field(p => p.lDCertificado_id).Editable(false);
+                model.Field(p => p.sTipoPresentacion_fl).DefaultValue("01");
+                model.Field(p => p.dCalificacion).DefaultValue(0);
+            })
+            .Read("MEditing_Read", "SolicitudConvalidaciones")
+            .Create("MEditing_Create", "SolicitudConvalidaciones")
+            .Update("MEditing_Update", "SolicitudConvalidaciones")
+            .Destroy("MEditing_Destroy", "SolicitudConvalidaciones")
+        )
+
+    )
+
+</div>
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script>
+        kendo.culture("es-ES");
+
+        $(document).ready(function () {
+            kendo.culture("es-ES");
+            $.validator.addMethod('date',
+               function (value, element) {
+                   var isValidDate = this.optional(element) || kendo.parseDate(value);
+
+                   return isValidDate
+               });
+        });
+
+        function error_handler(e) {
+            if (e.errors) {
+                var message = "Errors:\n";
+                $.each(e.errors, function (key, value) {
+                    if ('errors' in value) {
+                        $.each(value.errors, function () {
+                            message += this + "\n";
+                        });
+                    }
+                });
+                alert(message);
+            }
+        }
+
+        $('#Certificate').click(function () {
+
+            var grid = $("#Grid").data('kendoGrid');
+            if (grid != undefined) {
+                grid.dataSource.sync();
+                //grid.saveChanges();
+            }
+            //grid.submitChanges();
+            //if (grid.hasChanges()) {
+            //    e.preventDefault();
+            //}
+        });
+    </script>
+}
+

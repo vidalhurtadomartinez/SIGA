@@ -1,0 +1,303 @@
+﻿@model SIGAA.Areas.CONV.Models.gatbl_AnalisisConvalidaciones
+
+@{
+    ViewBag.Title = "Editar";
+}
+
+<h2>Editar</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Analisis de Convalidacion</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.lAnalisisConvalidacion_id)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.sPeriodo_desc, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @(Html.Kendo().MaskedTextBoxFor(model => model.sPeriodo_desc)
+                  .Mask("0000-0")
+                )
+                @*@Html.EditorFor(model => model.sPeriodo_desc, new { htmlAttributes = new { @class = "form-control" } })*@
+                @Html.ValidationMessageFor(model => model.sPeriodo_desc, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.lUniversidad_origen, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("lUniversidad_origen", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.lUniversidad_origen, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.lCarrera_Origen, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("lCarrera_Origen", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.lCarrera_Origen, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.lUniversidad_destino, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("lUniversidad_destino", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.lUniversidad_destino, "", new { @class = "text-danger" })
+            </div>
+        </div>        
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.lCarrera_destino, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("lCarrera_destino", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.lCarrera_destino, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        
+        <div class="form-group">
+            @Html.LabelFor(model => model.sPensumDestino_desc, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.sPensumDestino_desc, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.sPensumDestino_desc, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.lResponsable_id, htmlAttributes: new { @class = "control-label col-md-2" }) 
+            <div class="col-md-10">                               
+                @(Html.Kendo().DropDownListFor(model => model.lResponsable_id)
+                    .Name("lResponsable_id")
+                    .DataTextField("agd_nombres")
+                    .DataValueField("agd_codigo")
+                    .HtmlAttributes(new { style = "width:280px" })
+                    .Filter("contains")
+                    .AutoBind(true)
+                    .MinLength(3)
+                    .DataSource(source =>
+                    {
+                        source.Read(read =>
+                        {
+                            read.Action("ObtenerResponsables", "gatbl_AnalisisConvalidaciones");
+                        })
+                        .ServerFiltering(true);
+                    })
+                )
+                @*@Html.DropDownList("lResponsable_id", null, htmlAttributes: new { @class = "form-control" })*@
+                @Html.ValidationMessageFor(model => model.lResponsable_id, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.sVersion_nro, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.sVersion_nro, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.sVersion_nro, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.dtAnalisisConvalidacion_dt, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @(Html.Kendo().DatePickerFor(model => model.dtAnalisisConvalidacion_dt))
+                @*@Html.EditorFor(model => model.dtAnalisisConvalidacion_dt, new { htmlAttributes = new { @class = "form-control" } })*@
+                @Html.ValidationMessageFor(model => model.dtAnalisisConvalidacion_dt, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.sEquivalencia_porc, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.sEquivalencia_porc, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.sEquivalencia_porc, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.sObs_desc, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.sObs_desc, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.sObs_desc, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Guardar Analisis" class="btn btn-success" />
+                @Html.ActionLink("Cancelar", "Index", new { }, new { @class = "btn btn-warning" })
+            </div>
+        </div>
+    </div>
+}
+
+<h2>Materias y Unidades</h2>
+<div class="row">
+    <div class="col-md-4">
+        <h4>Origen</h4>
+        @(Html.Kendo().TreeView()
+            .Name("treeviewOrigen")
+            .Checkboxes(checkboxes => checkboxes
+                .Name("checkedFiles")
+                .CheckChildren(true)
+            )
+            .ExpandAll(true)
+            .BindTo((IEnumerable<TreeViewItemModel>)ViewBag.MateriasOrigen)
+        )
+    </div>
+
+    <div class="col-md-4">
+        <h4>Destino</h4>
+        @(Html.Kendo().TreeView()
+            .Name("treeviewDestino")
+            .Checkboxes(checkboxes => checkboxes
+                .Name("checkedFiles")
+                .CheckChildren(true)
+            )
+            .ExpandAll(true)
+            .BindTo((IEnumerable<TreeViewItemModel>)ViewBag.MateriasDestino)
+        )
+    </div>
+
+</div>
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+<script>
+    kendo.culture("es-ES");
+    $(document).ready(function () {
+        kendo.culture("es-ES");
+        $.validator.addMethod('date',
+           function (value, element) {
+               var isValidDate = this.optional(element) || kendo.parseDate(value);
+
+               return isValidDate
+           });
+    });
+
+
+    $(document).ready(function () {
+        $("#lUniversidad_origen").change(function () {
+            var univId = $("#lUniversidad_origen").val();
+            if (univId != null && univId != undefined && univId != '') {
+                var CountryOptions = {};
+                CountryOptions.url = '@Url.Action("CarreraList", "gatbl_AnalisisConvalidaciones")';
+                CountryOptions.type = "POST";
+                CountryOptions.data = JSON.stringify({ id: univId });
+                CountryOptions.datatype = "json";
+                CountryOptions.contentType = "application/json";
+                CountryOptions.success = function (facultades) {
+                    $("#lCarrera_Origen").empty();
+                    $.each(facultades, function (index, val) {
+                        $('#lCarrera_Origen')
+                        .append($("<option></option>")
+                        .attr("value", val.Value)
+                        .text(val.Text));
+                    });
+                };
+                CountryOptions.error = function () { alert("Error al obtener carreras!!"); };
+                $.ajax(CountryOptions);
+            }
+            else {
+                $("#lCarrera_Origen").empty();
+                //$("#lFacultad_id").prop("disabled", true);
+            }
+        });
+    });
+
+    $(document).ready(function () {
+        $("#lUniversidad_destino").change(function () {
+            var univId = $("#lUniversidad_destino").val();
+            if (univId != null && univId != undefined && univId != '') {
+                var CountryOptions = {};
+                CountryOptions.url = '@Url.Action("CarreraList", "gatbl_AnalisisConvalidaciones")';
+                CountryOptions.type = "POST";
+                CountryOptions.data = JSON.stringify({ id: univId });
+                CountryOptions.datatype = "json";
+                CountryOptions.contentType = "application/json";
+                CountryOptions.success = function (facultades) {
+                    $("#lCarrera_destino").empty();
+                    $.each(facultades, function (index, val) {
+                        $('#lCarrera_destino')
+                        .append($("<option></option>")
+                        .attr("value", val.Value)
+                        .text(val.Text));
+                    });
+                };
+                CountryOptions.error = function () { alert("Error al obtener carreras!!"); };
+                $.ajax(CountryOptions);
+            }
+            else {
+                $("#lCarrera_destino").empty();
+                //$("#lFacultad_id").prop("disabled", true);
+            }
+        });
+    });
+
+
+    // function that gathers IDs of checked nodes
+    function checkedNodeIds(nodes, checkedNodes) {
+        for (var i = 0; i < nodes.length; i++) {
+            if (nodes[i].checked && nodes[i].parentNode() != undefined) {
+                checkedNodes.push(nodes[i].id);
+            }
+
+
+            if (nodes[i].hasChildren) {
+                checkedNodeIds(nodes[i].children.view(), checkedNodes);
+            }
+        }
+    }
+
+    // show checked node IDs on datasource change
+    function onCheckOrigen() {
+        var checkedNodes = [],
+            treeView = $("#treeviewOrigen").data("kendoTreeView"),
+            message;
+
+        checkedNodeIds(treeView.dataSource.view(), checkedNodes);
+
+        if (checkedNodes.length > 0) {
+            message = checkedNodes.join(",");
+        } else {
+            message = "";
+        }
+
+        $("#sGestion_desc").val(message);
+    }
+
+    function onCheckDestino() {
+        var checkedNodes = [],
+            treeView = $("#treeviewDestino").data("kendoTreeView"),
+            message;
+
+        checkedNodeIds(treeView.dataSource.view(), checkedNodes);
+
+        if (checkedNodes.length > 0) {
+            message = checkedNodes.join(",");
+        } else {
+            message = "";
+        }
+
+        $("#sCreated_by").val(message);
+    }
+</script>
+<style>
+    #treeview .k-sprite {
+        background-image: url("@Url.Content("~/Content/web/treeview/coloricons-sprite.png")");
+    }
+
+    .rootfolder { background-position: 0 0; }
+    .folder     { background-position: 0 -16px; }
+    .pdf        { background-position: 0 -32px; }
+    .html       { background-position: 0 -48px; }
+    .image      { background-position: 0 -64px; }
+</style>
+}

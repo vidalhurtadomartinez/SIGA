@@ -1,0 +1,80 @@
+﻿@using SIGAA.Areas.CONV.Helpers
+@model IEnumerable<SIGAA.Areas.CONV.Models.gatbl_DetProgramaAnaliticoAnalisis>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <strong>Unidades a Convalidar</strong>
+    </div>
+
+    @if (Model.Count() > 0)
+    {
+        <table class="table">
+            <tr>
+                <th></th>
+                <th>
+                    @Html.DisplayNameFor(model => model.MateriaDesc)
+                </th>
+                @*<th>
+                    @Html.DisplayNameFor(model => model.sNumero)
+                </th>*@                
+                <th>
+                    @Html.DisplayNameFor(model => model.sDescripcion_desc)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CantidadMateria)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.equivalencia)
+                </th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td style="width:68px">
+                        <div class="pull-left">
+                            @if (item.CantidadMateria == null)
+                            {
+                                if (item.Estado != "3")
+                                {
+                                    @Html.NoEncodeActionLink("<span class='glyphicon glyphicon-edit'></span>", "Realizar Analisis", "AnalisisUnidad", "gatbl_AnalisisConvalidaciones", routeValues: new { id = item.lDetProgramaAnalitico_id }, htmlAttributes: new { data_modal = "", @class = "glyphicon" })
+                                }
+                            }
+                            else
+                            {
+                                <div class="pull-left">
+                                    @Html.NoEncodeActionLink("<span class='glyphicon glyphicon-search'></span>", "Ver Analisis", "VerAnalisisUnidad", "gatbl_AnalisisConvalidaciones", routeValues: new { id = item.lAnalisisConvalidacionUnidad_id }, htmlAttributes: new { data_modal = "", @class = "glyphicon" })                                    
+                                    @if (item.Estado != "3")
+                                    {
+                                        @Html.NoEncodeActionLink("<span class='glyphicon glyphicon-trash'></span>", "Eliminar Analisis", "EliminarAnalisisUnidad", "gatbl_AnalisisConvalidaciones", routeValues: new { id = item.lAnalisisConvalidacionUnidad_id }, htmlAttributes: new { data_modal = "", @class = "glyphicon" })
+                                    }
+                                    
+                                </div>                                
+                            }
+
+                        </div>                        
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MateriaDesc)
+                    </td>
+                    @*<td>
+                        @Html.DisplayFor(modelItem => item.sNumero)
+                    </td>*@
+                    <td>
+                        @Html.DisplayFor(modelItem => item.sDescripcion_desc)
+                    </td>                    
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CantidadMateria)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.equivalencia)
+                    </td>
+                </tr>
+            }
+        </table>
+    }
+    else
+    {
+        @: <div class="text-muted">&nbsp;No existen Unidades a convalidar.</div>
+    }
+</div>

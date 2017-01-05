@@ -1,0 +1,96 @@
+﻿@model SIGAA.Areas.CONV.Models.gatbl_DetAnalisisPreConvalidaciones
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>gatbl_DetAnalisisPreConvalidaciones</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.gatbl_AnalisisPreConvalidaciones.lResponsable_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.gatbl_AnalisisPreConvalidaciones.lResponsable_id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.gatbl_DestinoProgramasAnaliticos.sMateria_desc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.gatbl_DestinoProgramasAnaliticos.sMateria_desc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.gatbl_OrigenProgramasAnaliticos.sMateria_desc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.gatbl_OrigenProgramasAnaliticos.sMateria_desc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.lNotaOrigen)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.lNotaOrigen)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sObservaciones)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sObservaciones)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.iEstado_fl)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.iEstado_fl)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.iEliminado_fl)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.iEliminado_fl)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sCreated_by)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sCreated_by)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.iConcurrencia_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.iConcurrencia_id)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

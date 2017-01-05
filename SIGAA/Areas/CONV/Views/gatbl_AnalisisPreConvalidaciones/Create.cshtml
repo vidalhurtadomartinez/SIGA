@@ -1,0 +1,345 @@
+﻿@model SIGAA.Areas.CONV.Models.gatbl_AnalisisPreConvalidaciones
+
+@{
+    ViewBag.Title = "Nuevo";
+}
+
+<h2>Nuevo</h2>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Analisis Pre Convalidacion</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.lPConvalidacion_id, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @(Html.Kendo().AutoCompleteFor(model => model.gatbl_PConvalidaciones.gatbl_Postulantes.sNombre_desc)
+                  .DataTextField("gatbl_Postulantes_sNombre_desc")
+                  .Placeholder("(# solicitud), Nombre de postulante")
+                  .Filter("contains")
+                  //.MinLength(3)
+                  .HtmlAttributes(new { style = "width:280px" })
+                  .DataSource(source =>
+                  {
+                      source.Read(read =>
+                      {
+                          read.Action("ObtenerSolicitudes", "gatbl_AnalisisPreConvalidaciones")
+                              .Data("onAdditionalData");
+                      })
+                      .ServerFiltering(true);
+                  })
+                  .Events(e =>
+                  {
+                      e.Select("onSelectSolicitud").Filtering("onFilteringSolicitud");
+                  })
+                )
+                @Html.ValidationMessageFor(model => model.lPConvalidacion_id, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.gatbl_PConvalidaciones.lNro_solucitud, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">                
+                @Html.EditorFor(model => model.gatbl_PConvalidaciones.lNro_solucitud, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.gatbl_PConvalidaciones.lUniversidadOrigen_id, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.gatbl_PConvalidaciones.gatbl_UniversidadesOrigen.sNombre_desc, new { @class = "form-control", @readonly = "readonly" })
+                @*@Html.EditorFor(model => model.gatbl_PConvalidaciones.gatbl_UniversidadesOrigen.sNombre_desc, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })*@
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.gatbl_PConvalidaciones.lCarreraOrigen_id, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.gatbl_PConvalidaciones.gatbl_CarrerasOrigen.sCarrera_nm, new { @class = "form-control", @readonly = "readonly" })
+                @*@Html.EditorFor(model => model.gatbl_PConvalidaciones.gatbl_CarrerasOrigen.sCarrera_nm, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })*@
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.gatbl_PConvalidaciones.lUniversidadDestino_id, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.gatbl_PConvalidaciones.gatbl_UniversidadesDestino.sNombre_desc, new { @class = "form-control", @readonly = "readonly" })
+                @*@Html.EditorFor(model => model.gatbl_PConvalidaciones.gatbl_UniversidadesDestino.sNombre_desc, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })*@
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.gatbl_PConvalidaciones.lCarreraDestino_id, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.gatbl_PConvalidaciones.gatbl_CarrerasDestino.sCarrera_nm, new { @class = "form-control", @readonly = "readonly" })
+                @*@Html.EditorFor(model => model.gatbl_PConvalidaciones.gatbl_CarrerasDestino.sCarrera_nm, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })*@
+            </div>
+        </div>        
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.sVersion_nro, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.sVersion_nro, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                @Html.ValidationMessageFor(model => model.sVersion_nro, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.sObs_desc, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.sObs_desc, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.sObs_desc, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        @Html.HiddenFor(model => model.iEstado_fl, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.EditorFor(model => model.sCreated_by, new { htmlAttributes = new { @class = "form-control" } })
+     
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Guardar Pre Analisis" class="btn btn-success" />
+                @Html.ActionLink("Cancelar", "Index_Pendiente", new { }, new { @class = "btn btn-warning" })
+            </div>
+        </div>
+    </div>
+}
+
+<!-- modal placeholder-->
+<div id='myModal' class='modal fade in'>
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div id='myModalContent'></div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-offset-2 col-md-10" id="replacetarget">
+        @{ Html.RenderAction("Index", "gatbl_DetAnalisisPreConvalidaciones", new { id = Model.lAnalisisPreConvalidacion_id }); }
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script>
+    kendo.culture("es-ES");
+    $(document).ready(function () {
+        kendo.culture("es-ES");
+        $.validator.addMethod('date',
+           function (value, element) {
+               var isValidDate = this.optional(element) || kendo.parseDate(value);
+
+               return isValidDate
+           });
+    });
+
+
+    $(document).ready(function () {
+        $("#lUniversidad_origen").change(function () {
+            var univId = $("#lUniversidad_origen").val();
+            if (univId != null && univId != undefined && univId != '') {
+                var CountryOptions = {};
+                CountryOptions.url = '@Url.Action("CarreraList", "gatbl_AnalisisPreConvalidaciones")';
+                CountryOptions.type = "POST";
+                CountryOptions.data = JSON.stringify({ id: univId });
+                CountryOptions.datatype = "json";
+                CountryOptions.contentType = "application/json";
+                CountryOptions.success = function (facultades) {
+                    $("#lCarrera_Origen").empty();
+                    $('#lCarrera_Origen')
+                        .append($("<option></option>")
+                        .attr("value", 0)
+                        .text("Seleccionar Carrera"));
+                    $.each(facultades, function (index, val) {
+                        $('#lCarrera_Origen')
+                        .append($("<option></option>")
+                        .attr("value", val.Value)
+                        .text(val.Text));
+                    });
+                };
+                CountryOptions.error = function () { alert("Error al obtener carreras!!"); };
+                $.ajax(CountryOptions);
+            }
+            else {
+                $("#lCarrera_Origen").empty();
+                //$("#lFacultad_id").prop("disabled", true);
+            }
+        });
+    });
+
+    $(document).ready(function () {
+        $("#lUniversidad_destino").change(function () {
+            var univId = $("#lUniversidad_destino").val();
+            if (univId != null && univId != undefined && univId != '') {
+                var CountryOptions = {};
+                CountryOptions.url = '@Url.Action("CarreraList", "gatbl_AnalisisPreConvalidaciones")';
+                CountryOptions.type = "POST";
+                CountryOptions.data = JSON.stringify({ id: univId });
+                CountryOptions.datatype = "json";
+                CountryOptions.contentType = "application/json";
+                CountryOptions.success = function (facultades) {
+                    $("#lCarrera_destino").empty();
+                    $('#lCarrera_destino')
+                        .append($("<option></option>")
+                        .attr("value", 0)
+                        .text("Seleccionar Carrera"));
+                    $.each(facultades, function (index, val) {
+                        $('#lCarrera_destino')
+                        .append($("<option></option>")
+                        .attr("value", val.Value)
+                        .text(val.Text));
+                    });
+                };
+                CountryOptions.error = function () { alert("Error al obtener carreras!!"); };
+                $.ajax(CountryOptions);
+            }
+            else {
+                $("#lCarrera_destino").empty();
+                //$("#lFacultad_id").prop("disabled", true);
+            }
+        });
+    });
+
+        function ObtenerMaterias(id) {
+            var treeview = $("#treeviewOrigen").data("kendoTreeView");
+            if (id != null && id != undefined && id != '') {
+                var CountryOptions = {};
+                CountryOptions.url = '@Url.Action("Materias", "gatbl_AnalisisPreConvalidaciones")';
+                CountryOptions.type = "POST";
+                CountryOptions.data = JSON.stringify({ id: id });
+                CountryOptions.datatype = "json";
+                CountryOptions.contentType = "application/json";
+                CountryOptions.success = function (materias) {
+                    $("#treeviewOrigen").data("kendoTreeView").dataSource.data(materias);
+                };
+                CountryOptions.error = function () { alert("Error al obtener materias origen!!"); };
+                $.ajax(CountryOptions);
+            }
+        }
+
+        function ObtenerMateriasDestino(id) {
+            var treeview = $("#treeviewDestino").data("kendoTreeView");
+            if (id != null && id != undefined && id != '') {
+                var CountryOptions = {};
+                CountryOptions.url = '@Url.Action("MateriasDestino", "gatbl_AnalisisPreConvalidaciones")';
+                CountryOptions.type = "POST";
+                CountryOptions.data = JSON.stringify({ id: id });
+                CountryOptions.datatype = "json";
+                CountryOptions.contentType = "application/json";
+                CountryOptions.success = function (materias) {
+                    $("#treeviewDestino").data("kendoTreeView").dataSource.data(materias);
+                };
+                CountryOptions.error = function () { alert("Error al obtener materias destino!!"); };
+                $.ajax(CountryOptions);
+            }
+        }
+
+
+    //function onAdditionalData() {
+    //    return {
+    //        //text: $("#materiasOrigen").data("kendoMultiSelect").input.val()
+    //        id: $("#lCarrera_Origen").val()
+    //    };
+    //}
+
+
+    // function that gathers IDs of checked nodes
+    function checkedNodeIds(nodes, checkedNodes) {
+        for (var i = 0; i < nodes.length; i++) {
+            if (nodes[i].checked) {
+                checkedNodes.push(nodes[i].id);
+            }
+
+            if (nodes[i].hasChildren) {
+                checkedNodeIds(nodes[i].children.view(), checkedNodes);
+            }
+        }
+    }
+
+    // show checked node IDs on datasource change
+    function onCheckOrigen() {
+        var checkedNodes = [],
+            treeView = $("#treeviewOrigen").data("kendoTreeView"),
+            message;
+
+        checkedNodeIds(treeView.dataSource.view(), checkedNodes);
+
+        if (checkedNodes.length > 0) {
+            message = checkedNodes.join(",");
+        } else {
+            message = "";
+        }
+
+        $("#iEstado_fl").val(message);
+    }
+
+    function onCheckDestino() {
+        var checkedNodes = [],
+            treeView = $("#treeviewDestino").data("kendoTreeView"),
+            message;
+
+        checkedNodeIds(treeView.dataSource.view(), checkedNodes);
+
+        if (checkedNodes.length > 0) {
+            message = checkedNodes.join(",");
+        } else {
+            message = "";
+        }
+
+        $("#sCreated_by").val(message);
+    }
+
+
+
+    function onAdditionalData() {
+        return {
+            text: $("#gatbl_PConvalidaciones_gatbl_Postulantes_sNombre_desc").val()
+        };
+    }
+
+    function onSelectSolicitud(e) {
+        var dataItem = this.dataItem(e.item);
+
+        $("#gatbl_PConvalidaciones_lNro_solucitud").val(dataItem.lNro_solucitud);
+        $("#gatbl_PConvalidaciones_gatbl_UniversidadesOrigen_sNombre_desc").val(dataItem.gatbl_UniversidadesOrigen_sNombre_desc);
+        $("#gatbl_PConvalidaciones_gatbl_CarrerasOrigen_sCarrera_nm").val(dataItem.gatbl_CarrerasOrigen_sCarrera_nm);
+        $("#gatbl_PConvalidaciones_gatbl_UniversidadesDestino_sNombre_desc").val(dataItem.gatbl_UniversidadesDestino_sNombre_desc);
+        $("#gatbl_PConvalidaciones_gatbl_CarrerasDestino_sCarrera_nm").val(dataItem.gatbl_CarrerasDestino_sCarrera_nm);
+        $("#sVersion_nro").val(1);
+        
+
+        //ObtenerMaterias(dataItem.lPConvalidacion_id);
+        //ObtenerMateriasDestino(dataItem.lPConvalidacion_id);
+        //ObtenerMateriasDestino(dataItem.lCarreraDestino_id);
+    }
+
+    function onFilteringSolicitud() {
+        $("#gatbl_PConvalidaciones_lNro_solucitud").val(0);
+        $("#gatbl_PConvalidaciones_gatbl_UniversidadesOrigen_sNombre_desc").val("");
+        $("#gatbl_PConvalidaciones_gatbl_CarrerasOrigen_sCarrera_nm").val("");
+        $("#gatbl_PConvalidaciones_gatbl_UniversidadesDestino_sNombre_desc").val("");
+        $("#gatbl_PConvalidaciones_gatbl_CarrerasDestino_sCarrera_nm").val("");
+        $("#sVersion_nro").val("");
+
+        //ObtenerMaterias(-1);
+        //ObtenerMateriasDestino(-1);
+    }
+
+    </script>
+    <style>
+    #treeview .k-sprite {
+        background-image: url("@Url.Content("~/Content/web/treeview/coloricons-sprite.png")");
+    }
+
+    .rootfolder { background-position: 0 0; }
+    .folder     { background-position: 0 -16px; }
+    .pdf        { background-position: 0 -32px; }
+    .html       { background-position: 0 -48px; }
+    .image      { background-position: 0 -64px; }
+    </style>
+}

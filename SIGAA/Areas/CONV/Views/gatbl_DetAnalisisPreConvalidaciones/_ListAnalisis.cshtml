@@ -1,0 +1,63 @@
+﻿@using SIGAA.Areas.CONV.Helpers
+@model IEnumerable<SIGAA.Areas.CONV.Models.gatbl_DetAnalisisPreConvalidaciones>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <strong>Materias a Convalidar</strong>
+    </div>
+
+    @if (Model.Count() > 0)
+    {
+        <table class="table">
+            <tr>
+                <th></th>                
+                <th>
+                    @Html.DisplayNameFor(model => model.sMateriaDestino)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.sMateriaOrigen)
+                </th>               
+                <th>
+                    @Html.DisplayNameFor(model => model.sObservaciones)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.iEstado_fl)
+                </th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        <div class="pull-left">
+                            @Html.NoEncodeActionLink("<span class='glyphicon glyphicon-share'></span>", "Ver Unidades", "VerUnidades", "gatbl_AnalisisConvalidaciones", routeValues: new { id = item.lDetAnalisisPreConvalidacion_id }, htmlAttributes: new { data_modal = "", @class = "glyphicon" })                            
+                        </div>
+                    </td>                    
+                    <td>
+                        @Html.DisplayFor(modelItem => item.sMateriaDestino)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.sMateriaOrigen)
+                    </td>                    
+                    <td>
+                        @Html.DisplayFor(modelItem => item.sObservaciones)
+                    </td>
+                    <td>
+                        @if (item.iEstado_fl != "3")
+                        {
+                            <p>Pendiente</p>
+                        }
+                        else
+                        {
+                            <p>Confirmado</p>
+                        }                        
+                    </td>
+                </tr>
+            }
+        </table>
+    }
+    else
+    {
+        @: <div class="text-muted">&nbsp;No existen materias a convalidar.</div>
+    }
+</div>

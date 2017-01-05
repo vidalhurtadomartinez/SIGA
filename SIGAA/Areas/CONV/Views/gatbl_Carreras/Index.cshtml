@@ -1,0 +1,204 @@
+﻿@model IEnumerable<SIGAA.Areas.CONV.Models.gatbl_Carreras>
+
+@{
+    ViewBag.Title = "Carreras";
+}
+
+<h2>Carreras</h2>
+
+<div id="content">
+    @(Html.Kendo().Grid<SIGAA.Areas.CONV.Models.gatbl_Carreras>()
+        .Name("grid")
+        .Columns(columns =>
+        {
+            columns.Template(@<text></text>).ClientTemplate(
+                                    "<a class='k-button k-button-icon' href='" + Url.Action("Edit", "gatbl_Carreras") + "/#=lCarrera_id#' title='Editar'><span class='k-icon k-edit'> </span></a>" +
+                                     "<a class='k-button k-button-icon' href='" + Url.Action("Details", "gatbl_Carreras") + "/#=lCarrera_id#' title='Ver'><span class='k-icon k-i-search'> </span></a>" +
+                                     "<a class='k-button k-button-icon' href='" + Url.Action("Delete", "gatbl_Carreras") + "/#=lCarrera_id#' title='Eliminar'><span class='k-icon k-delete'> </span></a>")
+                                     .Width(120).Title("Edicion");
+
+            columns.Bound(o => o.sCarrera_nm).ClientTemplate(@Html.ActionLink("#=sCarrera_nm#", "Details", new { ID = "#=lCarrera_id#" })
+            .ToHtmlString()).Width(250).Filterable(ftb => ftb.Cell(cell => cell.Operator("contains").ShowOperators(false)));
+            columns.Bound(p => p.gatbl_Universidades.sNombre_desc).Width(150).Filterable(ftb => ftb.Cell(cell => cell.Operator("contains").ShowOperators(false)));
+            columns.Bound(p => p.gatbl_Facultades.sFacultad_nm).Width(250).Filterable(ftb => ftb.Cell(cell => cell.Operator("contains").ShowOperators(false)));
+            columns.Bound(p => p.sResponsable_nm).Filterable(ftb => ftb.Cell(cell => cell.Operator("contains").ShowOperators(false)));
+            columns.Bound(p => p.sTelefono_desc).Width(120).Filterable(ftb => ftb.Cell(cell => cell.Operator("contains").ShowOperators(false)));
+            columns.Bound(p => p.sMail_desc).Filterable(ftb => ftb.Cell(cell => cell.Operator("contains").ShowOperators(false)));
+
+        })
+        .ToolBar(toolBar =>
+        {
+        toolBar.Template(@<text>
+        <a class="k-button k-button-icontext" href=@Url.Action("Create", "gatbl_Carreras")><span class="k-icon k-i-plus"></span>Crear Nuevo</a>
+        </text>);
+        })
+        .Editable(editable => editable.Mode(GridEditMode.InLine))
+        .Pageable()
+        .Groupable()
+        .Sortable()
+        .Filterable()
+        .ColumnMenu()
+        .Scrollable(s => s.Height("auto"))
+        .HtmlAttributes(new { style = "height:100%" })
+        .Filterable(ftb => ftb.Mode(GridFilterMode.Row))
+        .Resizable(rsb => rsb.Columns(true))
+        .Reorderable(r => r.Columns(true))
+        .Pageable(pageable => pageable
+        .Refresh(true)
+        .PageSizes(true)
+        .ButtonCount(10)
+        .Messages(m => m
+            .ItemsPerPage("items por página")
+            )
+        )
+        .DataSource(dataSource => dataSource
+            .Ajax()
+            .PageSize(20)
+            .ServerOperation(false)
+            .Group(group => group.Add(p => p.gatbl_Universidades.sNombre_desc))
+            .Group(group => group.Add(p => p.gatbl_Facultades.sFacultad_nm))
+        .Model(model =>
+         {
+             model.Id(p => p.lCarrera_id);
+             model.Field(p => p.lCarrera_id).Editable(false);
+         })
+        .Read(read => read.Action("Index_Read", "gatbl_Carreras"))
+        .Create(create => create.Action("Create", "gatbl_Carreras"))
+        .Update(update => update.Action("Edit", "gatbl_Carreras"))
+        .Destroy(update => update.Action("Delete", "gatbl_Carreras"))
+     )
+    )
+</div>
+
+
+@(Html.Kendo().ContextMenu()
+        .Name("menu")
+        .Target("#grid")
+        .Orientation(ContextMenuOrientation.Vertical)
+        .Animation(animation =>
+        {
+            animation.Open(open =>
+            {
+                open.Fade(FadeDirection.In);
+                open.Duration(500);
+            });
+        })
+        .Items(items =>
+        {
+
+            items.Add()
+                 .Text("Nuevo").ImageUrl("~/Content/Web/img/ignore_list_32.png");
+            items.Add().Separator(true);
+            items.Add()
+                 .Text("Editar").ImageUrl("~/Content/Web/img/exam_32.png"); ;
+            items.Add()
+                 .Text("Ver").ImageUrl("~/Content/Web/img/ignore_list_32.png"); ;
+            items.Add()
+                 .Text("Eliminar").ImageUrl("~/Content/Web/img/cross_32.png"); ;
+
+        })
+)
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script>
+        $(document).ready(function () {
+            resizeContent();
+
+            $(window).resize(function () {
+                resizeContent();
+            });
+        });
+
+        function resizeContent() {
+            $height = $(window).height() - 210;
+            $('div#content').height($height);
+
+            var grid = $("#grid").data('kendoGrid');
+            if (grid != undefined) {
+                grid.resize();
+            }
+        }
+    </script>
+}
+
+
+
+
+@*<p>
+    @Html.ActionLink("Crear Nuevo", "Create")
+</p>
+<form action="" class="navbar-form navbar-right">
+    <div class="input-group">
+        <input type="Search" placeholder="Ingresar aqui para buscar..." class="form-control" />
+        <div class="input-group-btn">
+            <button class="btn btn-success">
+                <span class="glyphicon glyphicon-search"></span>
+            </button>
+        </div>
+    </div>
+</form>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.gatbl_Universidades.sNombre_desc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.gatbl_Carreras.sFacultad_nm)
+        </th>        
+        <th>
+            @Html.DisplayNameFor(model => model.sCarrera_nm)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.sResponsable_nm)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.sTelefono_desc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.sMail_desc)
+        </th>
+        
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.gatbl_Universidades.sNombre_desc)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.gatbl_Carreras.sFacultad_nm)
+        </td>        
+        <td>
+            @Html.DisplayFor(modelItem => item.sCarrera_nm)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.sResponsable_nm)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.sTelefono_desc)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.sMail_desc)
+        </td>
+        
+        <td>
+            <a href="@Url.Action("Edit", new { id = item.lCarrera_id })">
+                <i class="glyphicon glyphicon-edit" title="Editar"></i>
+                <span class="sr-only">Editar</span>
+            </a>
+            <a href="@Url.Action("Details", new { id = item.lCarrera_id })">
+                <i class="glyphicon glyphicon-search" title="Ver"></i>
+                <span class="sr-only">Ver</span>
+            </a>
+            <a href="@Url.Action("Delete", new { id = item.lCarrera_id })">
+                <i class="glyphicon glyphicon-trash" title="Eliminar"></i>
+                <span class="sr-only">Eliminar</span>
+            </a>
+        </td>
+    </tr>
+}
+
+</table>*@

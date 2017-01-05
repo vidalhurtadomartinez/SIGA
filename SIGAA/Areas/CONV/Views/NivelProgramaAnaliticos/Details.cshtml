@@ -1,0 +1,42 @@
+﻿@model SIGAA.Areas.CONV.Models.NivelProgramaAnalitico
+
+@{
+    ViewBag.Title = "Detalle";
+}
+
+<h2>Detalle</h2>
+
+<div>
+    <h4>Nivel de Programa Analitico</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.sNivel_fl)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sNivel_fl)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sDescripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sDescripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.bActivo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.bActivo)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.sNivel_fl }) |
+    @Html.ActionLink("Ir a Lista", "Index")
+</p>
