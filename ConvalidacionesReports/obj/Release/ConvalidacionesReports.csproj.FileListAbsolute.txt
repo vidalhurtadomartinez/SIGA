@@ -1,0 +1,14 @@
+H:\Edwin\Code Source\Project\MapiriSoft-ConvalidacionesMVC\ConvalidacionesReports\bin\Release\ConvalidacionesReports.dll.config
+H:\Edwin\Code Source\Project\MapiriSoft-ConvalidacionesMVC\ConvalidacionesReports\bin\Release\ConvalidacionesReports.dll
+H:\Edwin\Code Source\Project\MapiriSoft-ConvalidacionesMVC\ConvalidacionesReports\bin\Release\ConvalidacionesReports.pdb
+H:\Edwin\Code Source\Project\MapiriSoft-ConvalidacionesMVC\ConvalidacionesReports\bin\Release\Telerik.Reporting.dll
+H:\Edwin\Code Source\Project\MapiriSoft-ConvalidacionesMVC\ConvalidacionesReports\bin\Release\Telerik.Reporting.pdb
+H:\Edwin\Code Source\Project\MapiriSoft-ConvalidacionesMVC\ConvalidacionesReports\bin\Release\Telerik.Reporting.xml
+H:\Edwin\Code Source\Project\MapiriSoft-ConvalidacionesMVC\ConvalidacionesReports\obj\Release\ConvalidacionesReports.Properties.Resources.resources
+H:\Edwin\Code Source\Project\MapiriSoft-ConvalidacionesMVC\ConvalidacionesReports\obj\Release\ConvalidacionesReports.rptInformeFinal.resources
+H:\Edwin\Code Source\Project\MapiriSoft-ConvalidacionesMVC\ConvalidacionesReports\obj\Release\ConvalidacionesReports.csproj.GenerateResource.Cache
+H:\Edwin\Code Source\Project\MapiriSoft-ConvalidacionesMVC\ConvalidacionesReports\obj\Release\ConvalidacionesReports.dll.licenses
+H:\Edwin\Code Source\Project\MapiriSoft-ConvalidacionesMVC\ConvalidacionesReports\obj\Release\ConvalidacionesReports.dll
+H:\Edwin\Code Source\Project\MapiriSoft-ConvalidacionesMVC\ConvalidacionesReports\obj\Release\ConvalidacionesReports.pdb
+H:\Edwin\Code Source\Project\MapiriSoft-ConvalidacionesMVC\ConvalidacionesReports\obj\Release\ConvalidacionesReports.csprojResolveAssemblyReference.cache
+H:\Edwin\Code Source\Project\MapiriSoft-ConvalidacionesMVC\ConvalidacionesReports\obj\Release\ConvalidacionesReports.rptInforme.resources
