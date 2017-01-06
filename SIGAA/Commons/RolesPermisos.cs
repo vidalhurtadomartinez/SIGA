@@ -258,5 +258,98 @@ namespace SIGAA.Commons
         OYM_reportes_DetalleDeRespuestasPorProcesosDeFormularios = 203,
 
         #endregion
+        #region CONVALIDACIONES
+        CONV_Solicitud_Nuevo = 205,
+        CONV_Solicitud_Buscar = 206,
+        CONV_Solicitud_Editar = 207,
+        CONV_Solicitud_Certificado = 208,
+        CONV_Solicitud_Ver = 209,
+        CONV_Solicitud_Eliminar = 210,
+
+        CONV_Postulante_Listado = 211,
+        CONV_Postulante_Nuevo = 212,
+        CONV_Postulante_Editar = 213,
+        CONV_Postulante_Ver = 214,
+        CONV_Postulante_Eliminar = 215,
+
+        CONV_PreConvalidacion_Pendientes = 216,
+        CONV_PreConvalidacion_Realizados = 217,
+
+        CONV_Analisis_Pendientes = 218,
+        CONV_Analisis_Realizados = 219,
+
+        CONV_Academico_ListadoUniversidades = 220,
+        CONV_Academico_EditarUniversidad = 221,
+        CONV_Academico_VerUniversidad = 222,
+        CONV_Academico_EliminarUniversidad = 223,
+
+        CONV_Academico_ListadoFacultades = 224,
+        CONV_Academico_EditarFacultad = 225,
+        CONV_Academico_VerFacultad = 226,
+        CONV_Academico_EliminarFacultad = 227,
+
+        CONV_Academico_ListadoCarreras = 228,
+        CONV_Academico_EditarCarrera = 229,
+        CONV_Academico_VerCarrera = 230,
+        CONV_Academico_EliminarCarrera = 231,
+
+        CONV_Academico_ListadoProgramasAnaliticos = 232,
+        CONV_Academico_EditarProgramasAnalitico = 233,
+        CONV_Academico_DuplicarProgramasAnalitico = 234,
+        CONV_Academico_VerProgramasAnalitico = 235,
+        CONV_Academico_EliminarProgramasAnalitico = 236,
+
+
+
+        CONV_Parametros_ListadoDepartamentos = 237,
+        CONV_Parametros_EditarDepartamento = 238,
+        CONV_Parametros_VerDepartamento = 239,
+        CONV_Parametros_EliminarDepartamento = 240,
+
+        CONV_Parametros_ListadoTipoDocumentoPersonal = 241,
+        CONV_Parametros_EditarTipoDocumentoPersonal = 242,
+        CONV_Parametros_VerTipoDocumentoPersonal = 243,
+        CONV_Parametros_EliminarTipoDocumentoPersonal = 244,
+
+        CONV_Parametros_ListadoNacionalidades = 245,
+        CONV_Parametros_EditarNacionalidad = 246,
+        CONV_Parametros_VerNacionalidad = 247,
+        CONV_Parametros_EliminarNacionalidad = 248,
+
+        CONV_Parametros_ListadoTipoDocumentoSolicitud = 249,
+        CONV_Parametros_EditarTipoDocumentoSolicitud = 250,
+        CONV_Parametros_VerTipoDocumentoSolicitud = 251,
+        CONV_Parametros_EliminarTipoDocumentoSolicitud = 252,
+
+        CONV_Parametros_ListadoOrigenOtraUniversidad = 253,
+        CONV_Parametros_EditarOrigenOtraUniversidad = 254,
+        CONV_Parametros_VerOrigenOtraUniversidad = 255,
+        CONV_Parametros_EliminarOrigenOtraUniversidad = 256,
+
+        CONV_Parametros_ListadoTipoPresentacionDocumento = 257,
+        CONV_Parametros_EditarTipoPresentacionDocumento = 258,
+        CONV_Parametros_VerTipoPresentacionDocumento = 259,
+        CONV_Parametros_EliminarTipoPresentacionDocumento = 260,
+
+        CONV_Parametros_ListadoUnidadNegocio = 261,
+        CONV_Parametros_EditarUnidadNegocio = 262,
+        CONV_Parametros_VerUnidadNegocio = 263,
+        CONV_Parametros_EliminarUnidadNegocio = 264,
+
+        CONV_Parametros_ListadoNivelProgramaAnalitico = 265,
+        CONV_Parametros_EditarNivelProgramaAnalitico = 266,
+        CONV_Parametros_VerNivelProgramaAnalitico = 267,
+        CONV_Parametros_EliminarNivelProgramaAnalitico = 268,
+
+        CONV_Parametros_ListadoPensumAcademico = 269,
+        CONV_Parametros_EditarPensumAcademico = 270,
+        CONV_Parametros_VerPensumAcademico = 271,
+        CONV_Parametros_EliminarPensumAcademico = 272,
+
+        CONV_Parametros_ListadoTipoCargaHoraria = 273,
+        CONV_Parametros_EditarTipoCargaHoraria = 274,
+        CONV_Parametros_VerTipoCargaHoraria = 275,
+        CONV_Parametros_EliminarTipoCargaHoraria = 276,
+        #endregion
     }
 }

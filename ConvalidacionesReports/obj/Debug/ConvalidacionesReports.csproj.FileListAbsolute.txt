@@ -31,3 +31,21 @@ D:\ROGER\Sistemas WEB\MapiriSoft-ConvalidacionesMVC\ConvalidacionesReports\obj\D
 D:\ROGER\Sistemas WEB\MapiriSoft-ConvalidacionesMVC\ConvalidacionesReports\obj\Debug\ConvalidacionesReports.rptInformeFinalSub.resources
 D:\ROGER\Sistemas WEB\MapiriSoft-ConvalidacionesMVC\ConvalidacionesReports\obj\Debug\ConvalidacionesReports.srptDetalleOrigen.resources
 D:\ROGER\Sistemas WEB\MapiriSoft-ConvalidacionesMVC\ConvalidacionesReports\obj\Debug\ConvalidacionesReports.srptDetalleDestino.resources
+D:\ROGER\Sistemas WEB\Project GitLab\Source3\MP-SIGA\ConvalidacionesReports\bin\Debug\ConvalidacionesReports.dll.config
+D:\ROGER\Sistemas WEB\Project GitLab\Source3\MP-SIGA\ConvalidacionesReports\bin\Debug\ConvalidacionesReports.dll
+D:\ROGER\Sistemas WEB\Project GitLab\Source3\MP-SIGA\ConvalidacionesReports\bin\Debug\ConvalidacionesReports.pdb
+D:\ROGER\Sistemas WEB\Project GitLab\Source3\MP-SIGA\ConvalidacionesReports\bin\Debug\Telerik.Reporting.dll
+D:\ROGER\Sistemas WEB\Project GitLab\Source3\MP-SIGA\ConvalidacionesReports\bin\Debug\Telerik.Reporting.pdb
+D:\ROGER\Sistemas WEB\Project GitLab\Source3\MP-SIGA\ConvalidacionesReports\bin\Debug\Telerik.Reporting.xml
+D:\ROGER\Sistemas WEB\Project GitLab\Source3\MP-SIGA\ConvalidacionesReports\obj\Debug\ConvalidacionesReports.csprojResolveAssemblyReference.cache
+D:\ROGER\Sistemas WEB\Project GitLab\Source3\MP-SIGA\ConvalidacionesReports\obj\Debug\ConvalidacionesReports.Properties.Resources.resources
+D:\ROGER\Sistemas WEB\Project GitLab\Source3\MP-SIGA\ConvalidacionesReports\obj\Debug\ConvalidacionesReports.rptInforme.resources
+D:\ROGER\Sistemas WEB\Project GitLab\Source3\MP-SIGA\ConvalidacionesReports\obj\Debug\ConvalidacionesReports.rptInformeFinalSub.resources
+D:\ROGER\Sistemas WEB\Project GitLab\Source3\MP-SIGA\ConvalidacionesReports\obj\Debug\ConvalidacionesReports.rptInformeFinal.resources
+D:\ROGER\Sistemas WEB\Project GitLab\Source3\MP-SIGA\ConvalidacionesReports\obj\Debug\ConvalidacionesReports.rptProgramaAnalitico.resources
+D:\ROGER\Sistemas WEB\Project GitLab\Source3\MP-SIGA\ConvalidacionesReports\obj\Debug\ConvalidacionesReports.srptDetalleDestino.resources
+D:\ROGER\Sistemas WEB\Project GitLab\Source3\MP-SIGA\ConvalidacionesReports\obj\Debug\ConvalidacionesReports.srptDetalleOrigen.resources
+D:\ROGER\Sistemas WEB\Project GitLab\Source3\MP-SIGA\ConvalidacionesReports\obj\Debug\ConvalidacionesReports.csproj.GenerateResource.Cache
+D:\ROGER\Sistemas WEB\Project GitLab\Source3\MP-SIGA\ConvalidacionesReports\obj\Debug\ConvalidacionesReports.dll.licenses
+D:\ROGER\Sistemas WEB\Project GitLab\Source3\MP-SIGA\ConvalidacionesReports\obj\Debug\ConvalidacionesReports.dll
+D:\ROGER\Sistemas WEB\Project GitLab\Source3\MP-SIGA\ConvalidacionesReports\obj\Debug\ConvalidacionesReports.pdb

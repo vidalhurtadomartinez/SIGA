@@ -33,3 +33,8 @@ D:\MAPIRISOFT\MapitiSoft\MODULOS_UTEPSA\SIGAA V2\Helper\bin\Debug\Helper.pdb
 D:\MAPIRISOFT\MapitiSoft\MODULOS_UTEPSA\SIGAA V2\Helper\obj\Debug\Helper.csprojResolveAssemblyReference.cache
 D:\MAPIRISOFT\MapitiSoft\MODULOS_UTEPSA\SIGAA V2\Helper\obj\Debug\Helper.dll
 D:\MAPIRISOFT\MapitiSoft\MODULOS_UTEPSA\SIGAA V2\Helper\obj\Debug\Helper.pdb
+D:\ROGER\Sistemas WEB\Project GitLab\Source3\MP-SIGA\Helper\bin\Debug\Helper.dll
+D:\ROGER\Sistemas WEB\Project GitLab\Source3\MP-SIGA\Helper\bin\Debug\Helper.pdb
+D:\ROGER\Sistemas WEB\Project GitLab\Source3\MP-SIGA\Helper\obj\Debug\Helper.csprojResolveAssemblyReference.cache
+D:\ROGER\Sistemas WEB\Project GitLab\Source3\MP-SIGA\Helper\obj\Debug\Helper.dll
+D:\ROGER\Sistemas WEB\Project GitLab\Source3\MP-SIGA\Helper\obj\Debug\Helper.pdb

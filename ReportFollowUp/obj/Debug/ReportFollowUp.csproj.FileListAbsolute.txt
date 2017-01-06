@@ -69,3 +69,28 @@ D:\MAPIRISOFT\MapitiSoft\MODULOS_UTEPSA\SIGAA V2\ReportFollowUp\obj\Debug\Report
 D:\MAPIRISOFT\MapitiSoft\MODULOS_UTEPSA\SIGAA V2\ReportFollowUp\obj\Debug\es-ES\ReportFollowUp.resources.dll
 D:\MAPIRISOFT\MapitiSoft\MODULOS_UTEPSA\SIGAA V2\ReportFollowUp\obj\Debug\ReportFollowUp.dll
 D:\MAPIRISOFT\MapitiSoft\MODULOS_UTEPSA\SIGAA V2\ReportFollowUp\obj\Debug\ReportFollowUp.pdb
+D:\ROGER\Sistemas WEB\Project GitLab\Source3\MP-SIGA\ReportFollowUp\bin\Debug\ReportFollowUp.dll.config
+D:\ROGER\Sistemas WEB\Project GitLab\Source3\MP-SIGA\ReportFollowUp\bin\Debug\ReportFollowUp.dll
+D:\ROGER\Sistemas WEB\Project GitLab\Source3\MP-SIGA\ReportFollowUp\bin\Debug\ReportFollowUp.pdb
+D:\ROGER\Sistemas WEB\Project GitLab\Source3\MP-SIGA\ReportFollowUp\bin\Debug\es-ES\ReportFollowUp.resources.dll
+D:\ROGER\Sistemas WEB\Project GitLab\Source3\MP-SIGA\ReportFollowUp\bin\Debug\Telerik.Reporting.dll
+D:\ROGER\Sistemas WEB\Project GitLab\Source3\MP-SIGA\ReportFollowUp\bin\Debug\Telerik.Reporting.pdb
+D:\ROGER\Sistemas WEB\Project GitLab\Source3\MP-SIGA\ReportFollowUp\bin\Debug\Telerik.Reporting.xml
+D:\ROGER\Sistemas WEB\Project GitLab\Source3\MP-SIGA\ReportFollowUp\obj\Debug\ReportFollowUp.csprojResolveAssemblyReference.cache
+D:\ROGER\Sistemas WEB\Project GitLab\Source3\MP-SIGA\ReportFollowUp\obj\Debug\ReportFollowUp.rptFormularioDetalleRespuesta.resources
+D:\ROGER\Sistemas WEB\Project GitLab\Source3\MP-SIGA\ReportFollowUp\obj\Debug\ReportFollowUp.rptDocumentoHistorico.resources
+D:\ROGER\Sistemas WEB\Project GitLab\Source3\MP-SIGA\ReportFollowUp\obj\Debug\ReportFollowUp.rptDocumentoPromedio.resources
+D:\ROGER\Sistemas WEB\Project GitLab\Source3\MP-SIGA\ReportFollowUp\obj\Debug\ReportFollowUp.rptDocumentoDetalleRespuesta.resources
+D:\ROGER\Sistemas WEB\Project GitLab\Source3\MP-SIGA\ReportFollowUp\obj\Debug\ReportFollowUp.rptFormularioPromedioRespuesta.resources
+D:\ROGER\Sistemas WEB\Project GitLab\Source3\MP-SIGA\ReportFollowUp\obj\Debug\ReportFollowUp.rptDocumentoPromedioRespuesta.resources
+D:\ROGER\Sistemas WEB\Project GitLab\Source3\MP-SIGA\ReportFollowUp\obj\Debug\ReportFollowUp.rptFormularioTipoProceso.resources
+D:\ROGER\Sistemas WEB\Project GitLab\Source3\MP-SIGA\ReportFollowUp\obj\Debug\ReportFollowUp.rptDocumentoTipoProceso.resources
+D:\ROGER\Sistemas WEB\Project GitLab\Source3\MP-SIGA\ReportFollowUp\obj\Debug\ReportFollowUp.rptFormularioProceso.resources
+D:\ROGER\Sistemas WEB\Project GitLab\Source3\MP-SIGA\ReportFollowUp\obj\Debug\ReportFollowUp.rptDocumentoProceso.resources
+D:\ROGER\Sistemas WEB\Project GitLab\Source3\MP-SIGA\ReportFollowUp\obj\Debug\ReportFollowUp.rptFormularioDetalleRespuesta.es-ES.resources
+D:\ROGER\Sistemas WEB\Project GitLab\Source3\MP-SIGA\ReportFollowUp\obj\Debug\ReportFollowUp.rptDocumentoDetalleRespuesta.es-ES.resources
+D:\ROGER\Sistemas WEB\Project GitLab\Source3\MP-SIGA\ReportFollowUp\obj\Debug\ReportFollowUp.csproj.GenerateResource.Cache
+D:\ROGER\Sistemas WEB\Project GitLab\Source3\MP-SIGA\ReportFollowUp\obj\Debug\ReportFollowUp.dll.licenses
+D:\ROGER\Sistemas WEB\Project GitLab\Source3\MP-SIGA\ReportFollowUp\obj\Debug\es-ES\ReportFollowUp.resources.dll
+D:\ROGER\Sistemas WEB\Project GitLab\Source3\MP-SIGA\ReportFollowUp\obj\Debug\ReportFollowUp.dll
+D:\ROGER\Sistemas WEB\Project GitLab\Source3\MP-SIGA\ReportFollowUp\obj\Debug\ReportFollowUp.pdb
