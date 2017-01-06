@@ -103,7 +103,7 @@ namespace SIGAA.Areas.EGRE.Controllers
 
                 ActaDefensaFinal.iEstado_fl = true;
                 ActaDefensaFinal.iEliminado_fl = 1;
-                ActaDefensaFinal.sCreado_by = FrontUser.Get().EmailUtepsa;
+                ActaDefensaFinal.sCreado_by = FrontUser.Get().usr_login;
                 ActaDefensaFinal.iConcurrencia_id = 1;
                 if (ModelState.IsValid)
                 {
@@ -171,7 +171,7 @@ namespace SIGAA.Areas.EGRE.Controllers
                 }
 
                 ActaDefensaFinal.iEliminado_fl = 1;
-                ActaDefensaFinal.sCreado_by = FrontUser.Get().EmailUtepsa;
+                ActaDefensaFinal.sCreado_by = FrontUser.Get().usr_login;
                 ActaDefensaFinal.iConcurrencia_id += 1;
 
                 if (ModelState.IsValid)
@@ -221,7 +221,7 @@ namespace SIGAA.Areas.EGRE.Controllers
                     gatbl_ActaDefensaFinal ActaDefensaFinal = db.ActasDefensasFinales.Find(id);
                     ActaDefensaFinal.iEstado_fl = false;
                     ActaDefensaFinal.iEliminado_fl = 2;
-                    ActaDefensaFinal.sCreado_by = FrontUser.Get().EmailUtepsa;
+                    ActaDefensaFinal.sCreado_by = FrontUser.Get().usr_login;
                     ActaDefensaFinal.iConcurrencia_id += 1;
 
                     db.Entry(ActaDefensaFinal).State = EntityState.Modified;

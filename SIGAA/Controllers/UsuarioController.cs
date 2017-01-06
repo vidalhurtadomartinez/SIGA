@@ -25,14 +25,12 @@ namespace SIGAA.Controllers
         {
             var usu = db.Usuario.Where(p => p.iEliminado_fl == 1).Include(g => g.Rol).ToList();
             var usuFil = usu.Where(t => criterio == null ||
-                                   t.NombreCompleto.ToLower().Contains(criterio.ToLower()) ||
                                    t.agd_codigo.ToLower().Contains(criterio.ToLower()) ||
-                                   t.Sexo.ToString().ToLower().Contains(criterio.ToLower()) ||
-                                   t.EmailUtepsa.ToString().ToLower().Contains(criterio.ToLower()) ||
-                                   t.Dierccion.ToLower().Contains(criterio.ToLower()) ||
+                                   t.usr_login.ToString().ToLower().Contains(criterio.ToLower()) ||
+                                   t.dtFechaVigencia.ToString().Contains(criterio.ToLower()) ||
                                    t.Rol.Nombre.ToLower().Contains(criterio.ToLower())
                                    ).ToList();
-            var usuFilOr = usuFil.OrderBy(ef => ef.NombreCompleto);
+            var usuFilOr = usuFil.OrderBy(ef => ef.usr_login);
             if (Request.IsAjaxRequest())
             {
                 if (!String.IsNullOrWhiteSpace(criterio))
@@ -63,6 +61,7 @@ namespace SIGAA.Controllers
                 Flash.Instance.Warning("ERROR", "No Existe Usuario con ID "+id);
                 return RedirectToAction("Index");
             }
+            ViewBag.datos = new { nombreCompleto = usuario.Persona.NombreCompleto };
             return View(usuario);
         }
 
@@ -76,13 +75,13 @@ namespace SIGAA.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "iUsuario_id,agd_codigo,NombreCompleto,Sexo,FechaDeNacimiento,EmailUtepsa,Contrasena,Dierccion,iRol_id,iEstado_fl,iEliminado_fl,sCreado_by,iConcurrencia_id")] Usuario usuario)
+        public ActionResult Create([Bind(Include = "iUsuario_id,agd_codigo,usr_login,Contrasena,dtFechaVigencia,sObservacion,iRol_id,iEstado_fl,iEliminado_fl,sCreado_by,iConcurrencia_id")] Usuario usuario)
         {
             try
             {
                 usuario.iEstado_fl = true;
                 usuario.iEliminado_fl = 1;
-                usuario.sCreado_by = FrontUser.Get().EmailUtepsa;
+                usuario.sCreado_by = FrontUser.Get().usr_login;
                 usuario.iConcurrencia_id = 1;
 
                 if (ModelState.IsValid)
@@ -115,18 +114,19 @@ namespace SIGAA.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.datos = new { nombreCompleto = usuario.Persona.NombreCompleto };
             ViewBag.iRol_id = new SelectList(db.Rol, "iRol_id", "Nombre", usuario.iRol_id);
             return View(usuario);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "iUsuario_id,agd_codigo,NombreCompleto,Sexo,FechaDeNacimiento,EmailUtepsa,Contrasena,Dierccion,iRol_id,iEstado_fl,iEliminado_fl,sCreado_by,iConcurrencia_id")] Usuario usuario)
+        public ActionResult Edit([Bind(Include = "iUsuario_id,agd_codigo,usr_login,Contrasena,dtFechaVigencia,sObservacion,iRol_id,iEstado_fl,iEliminado_fl,sCreado_by,iConcurrencia_id")] Usuario usuario)
         {
             try
             {
                 usuario.iEliminado_fl = 1;
-                usuario.sCreado_by = FrontUser.Get().EmailUtepsa;
+                usuario.sCreado_by = FrontUser.Get().usr_login;
                 usuario.iConcurrencia_id += 1;
 
                 if (ModelState.IsValid)
@@ -136,6 +136,7 @@ namespace SIGAA.Controllers
                     Flash.Instance.Success("CORRECTO", "El dato ha sido Modificado correctamente.");
                     return RedirectToAction("Index");
                 }
+                ViewBag.datos = new { nombreCompleto = usuario.Persona.NombreCompleto };
                 ViewBag.iRol_id = new SelectList(db.Rol, "iRol_id", "Nombre", usuario.iRol_id);
                 Flash.Instance.Error("ERROR", "No se pudo Modificar el dato porque ha ocurrido un error al validar el modelo, por favor verifique que los campos estén correctamente llenados.");
                 return View(usuario);
@@ -173,7 +174,7 @@ namespace SIGAA.Controllers
         //            Usuario usuario = db.Usuario.Find(id);
         //            usuario.iEstado_fl = false;
         //            usuario.iEliminado_fl = 2;
-        //            usuario.sCreado_by = FrontUser.Get().EmailUtepsa;
+        //            usuario.sCreado_by = FrontUser.Get().usr_login;
         //            usuario.iConcurrencia_id += 1;
 
         //            db.Entry(usuario).State = EntityState.Modified;
@@ -204,8 +205,9 @@ namespace SIGAA.Controllers
             if (usu == null) {
                 return HttpNotFound("NO EXISTE USUARIO CON EL CODIGO ENVIADO");
             }
+            ViewBag.datos = new { nombreCompleto = usu.Persona.NombreCompleto };
             usuCambioContra.iUsuario_id = usu.iUsuario_id;
-            usuCambioContra.NombreUsuario = usu.NombreCompleto;
+            usuCambioContra.usr_login = usu.usr_login;
             return View(usuCambioContra);
         }
 
@@ -215,13 +217,13 @@ namespace SIGAA.Controllers
         public ActionResult CambioDeContrasena(CambioContrasenaWiewModel usuCambioContra)
         {
             //verificamos que la cuenta exista y corresponda al usuario
-            var usuCambia = db.Usuario.Where(e => e.EmailUtepsa.Equals(usuCambioContra.EmailUtepsa) && e.Contrasena.Equals(usuCambioContra.ContrasenaActual) && usuCambioContra.ContrasenaNueva.Equals(usuCambioContra.ConfirmaContrasenaNueva)).FirstOrDefault();
+            var usuCambia = db.Usuario.Where(e => e.usr_login.Equals(usuCambioContra.usr_login) && e.Contrasena.Equals(usuCambioContra.ContrasenaActual) && usuCambioContra.ContrasenaNueva.Equals(usuCambioContra.ConfirmaContrasenaNueva)).Include(a =>a.Persona).FirstOrDefault();
             if(usuCambia != null) {
                 Usuario usuario = new Usuario();
                 try
                 {
                     usuCambia.iEliminado_fl = 1;
-                    usuCambia.sCreado_by = FrontUser.Get().EmailUtepsa;
+                    usuCambia.sCreado_by = FrontUser.Get().usr_login;
                     usuCambia.iConcurrencia_id += 1;
                     usuCambia.Contrasena = usuCambioContra.ContrasenaNueva;
 
@@ -230,20 +232,25 @@ namespace SIGAA.Controllers
                         db.Entry(usuCambia).State = EntityState.Modified;
                         db.SaveChanges();
                         Flash.Instance.Success("CORRECTO", "El dato ha sido Modificado correctamente.");
+                        ViewBag.datos = new { nombreCompleto = usuCambia.Persona.NombreCompleto };
                         return View(usuCambioContra);
                     }                  
                     Flash.Instance.Error("ERROR", "No se puede modificar la Contraseña porque ha ocurrido un error al validar el modelo, por favor verifique que los campos estén correctamente llenados.");
+                    ViewBag.datos = new { nombreCompleto = usuCambia.Persona.NombreCompleto };
                     return View(usuCambioContra);
                 }
                 catch (Exception ex)
                 {
                     Flash.Instance.Error("ERROR", "No se puede Modificar el dato proque ha ocurrido el siguiente error: " + ex.Message);
+                    ViewBag.datos = new { nombreCompleto = usuCambia.Persona.NombreCompleto };
                     return View(usuCambioContra);
                 }
             }
             else
             {
                 Flash.Instance.Error("ERROR", "No se puede Modificar la contraseña por que los datos proporcionados son incorrectos");
+                var user = db.Usuario.Where(u => u.iUsuario_id == usuCambioContra.iUsuario_id).Include(a => a.Persona).FirstOrDefault();
+                ViewBag.datos = new { nombreCompleto = user.Persona.NombreCompleto};
                 return View(usuCambioContra);
             }
         }
@@ -259,8 +266,7 @@ namespace SIGAA.Controllers
                                           select new { codigoAgenda = usu.agd_codigo}).ToList();
 
             var personasNoUsuarios = (from perA in personasAgenda
-                                         where !personasUsuario.Any(m => m.codigoAgenda == perA.codigoAgenda)
-                                         // select new { registroAlumno = ag.agd_nombres.Trim() + " " + ag.agd_appaterno.Trim() + " " + ag.agd_apmaterno.Trim() + " (" + alumno.registroAlumno.Trim() + ") " + alumno.estadoAlumno.Trim() }).ToList();
+                                         where !personasUsuario.Any(m => m.codigoAgenda == perA.codigoAgenda)                                         
                                          select new { codigoAgenda = perA.codigoAgenda, nombreComleto = perA.nombreCompletoAgenda, }).ToList();
 
             personas = (from p in personasNoUsuarios
@@ -278,14 +284,12 @@ namespace SIGAA.Controllers
 
         private Object TraerInformacionDePersona(string id)
         {
-            var resultado = (from p in db.Personas
+            var resultado = (from p in db.Personas                         
                              select new
                              {
                                  codigoAgenda = p.agd_codigo,
                                  nombreCompleto = p.agd_nombres.Trim() + " " + p.agd_appaterno.Trim() + " " + p.agd_apmaterno.Trim(),
-                                 sexo = p.agd_sexo.ToString(),
-                                 emailUtepsa = p.agd_email_utepsa.Trim(),
-                                 direccion = p.agd_direccion.Trim()
+                                 usr_login = p.usr_login.Trim(),
                              }).ToList();
 
             var result = (from r in resultado

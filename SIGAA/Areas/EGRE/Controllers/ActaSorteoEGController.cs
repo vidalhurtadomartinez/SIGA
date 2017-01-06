@@ -83,7 +83,7 @@ namespace SIGAA.Areas.EGRE.Controllers
             {
                 ActaSorteoEG.iEstado_fl = true;
                 ActaSorteoEG.iEliminado_fl = 1;
-                ActaSorteoEG.sCreado_by = FrontUser.Get().EmailUtepsa;
+                ActaSorteoEG.sCreado_by = FrontUser.Get().usr_login;
                 ActaSorteoEG.iConcurrencia_id = 1;
 
                 if (ModelState.IsValid)
@@ -128,7 +128,7 @@ namespace SIGAA.Areas.EGRE.Controllers
             try
             {
                 ActaSorteoEG.iEliminado_fl = 1;
-                ActaSorteoEG.sCreado_by = FrontUser.Get().EmailUtepsa;
+                ActaSorteoEG.sCreado_by = FrontUser.Get().usr_login;
                 ActaSorteoEG.iConcurrencia_id += 1;
                 if (ModelState.IsValid)
                 {
@@ -178,7 +178,7 @@ namespace SIGAA.Areas.EGRE.Controllers
                     gatbl_ActaSorteoEG ActaSorteoEG = db.ActasSorteosEG.Find(id);
                     ActaSorteoEG.iEstado_fl = false;
                     ActaSorteoEG.iEliminado_fl = 2;
-                    ActaSorteoEG.sCreado_by = FrontUser.Get().EmailUtepsa;
+                    ActaSorteoEG.sCreado_by = FrontUser.Get().usr_login;
                     ActaSorteoEG.iConcurrencia_id += 1;
 
                     db.Entry(ActaSorteoEG).State = EntityState.Modified;

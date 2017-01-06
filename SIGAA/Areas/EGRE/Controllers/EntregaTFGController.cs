@@ -81,7 +81,7 @@ namespace SIGAA.Areas.EGRE.Controllers
             {
                 EntregaTFG.iEstado_fl = true;
                 EntregaTFG.iEliminado_fl = 1;
-                EntregaTFG.sCreado_by = FrontUser.Get().EmailUtepsa;
+                EntregaTFG.sCreado_by = FrontUser.Get().usr_login;
                 EntregaTFG.iConcurrencia_id = 1;
 
                 if (ModelState.IsValid)
@@ -128,7 +128,7 @@ namespace SIGAA.Areas.EGRE.Controllers
             try
             {
                 EntregaTFG.iEliminado_fl = 1;
-                EntregaTFG.sCreado_by = FrontUser.Get().EmailUtepsa;
+                EntregaTFG.sCreado_by = FrontUser.Get().usr_login;
                 EntregaTFG.iConcurrencia_id += 1;
 
                 if (ModelState.IsValid)
@@ -180,7 +180,7 @@ namespace SIGAA.Areas.EGRE.Controllers
                     gatbl_EntregaTFG EntregaTFG = db.EntregasTFG.Find(id);
                     EntregaTFG.iEstado_fl = false;
                     EntregaTFG.iEliminado_fl = 2;
-                    EntregaTFG.sCreado_by = FrontUser.Get().EmailUtepsa;
+                    EntregaTFG.sCreado_by = FrontUser.Get().usr_login;
                     EntregaTFG.iConcurrencia_id += 1;
 
                     db.Entry(EntregaTFG).State = EntityState.Modified;

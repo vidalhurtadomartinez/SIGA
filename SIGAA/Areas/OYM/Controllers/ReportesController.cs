@@ -6,7 +6,6 @@ using System.Web.Mvc;
 using Telerik.Reporting.Processing;
 using SIGAA.Commons;
 using SIGAA.Etiquetas;
-using SIGAA.Commons;
 
 namespace SIGAA.Areas.OYM.Controllers
 {

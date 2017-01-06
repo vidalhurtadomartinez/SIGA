@@ -15,7 +15,7 @@ namespace SIGAA.Models
         public DbSet<Rol> Rol { get; set; }
         public DbSet<Usuario> Usuario { get; set; }
         public DbSet<Permiso> Permiso { get; set; }
-        public DbSet<agenda> Personas { get; set; }
-
+        public DbSet<vt_agenda> Personas { get; set; }
+        public DbSet<SIGAA.Models.HistorialCambioRolDeUsuario> HistorialCambioRolDeUsuarios { get; set; }
     }
 }

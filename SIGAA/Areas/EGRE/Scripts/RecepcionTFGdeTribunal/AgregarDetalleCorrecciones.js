@@ -1,5 +1,4 @@
-﻿
-$("#btnAgregarObservacion").click(function (eve) {
+﻿$("#btnAgregarObservacion").click(function (eve) {
     $("#modal-content").load("/EGRE/RecepcionesTFG/CrearDetalleRecepcionTFG");
 });
 

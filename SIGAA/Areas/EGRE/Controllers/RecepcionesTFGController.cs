@@ -111,7 +111,7 @@ namespace SIGAA.Areas.EGRE.Controllers
                                 sSugerencias = item.sSugerencias,
                                 iEstado_fl = true,
                                 iEliminado_fl = 1,
-                                sCreado_by = FrontUser.Get().EmailUtepsa,
+                                sCreado_by = FrontUser.Get().usr_login,
                             iConcurrencia_id = 1
                             };
                             db.DRecepcionesTFG.Add(observacion);
@@ -199,7 +199,7 @@ namespace SIGAA.Areas.EGRE.Controllers
                         lRecepciona_id = recepcionTFGView.RecepcionTFG.lRecepciona_id,
                         iEstado_fl = true,
                         iEliminado_fl = 1,
-                        sCreado_by = FrontUser.Get().EmailUtepsa,
+                        sCreado_by = FrontUser.Get().usr_login,
                     iConcurrencia_id = 1
                     };
 
@@ -218,7 +218,7 @@ namespace SIGAA.Areas.EGRE.Controllers
                         {
                             detallePaEliminar.iEstado_fl = false;
                             detallePaEliminar.iEliminado_fl = 2;
-                            detallePaEliminar.sCreado_by = FrontUser.Get().EmailUtepsa;
+                            detallePaEliminar.sCreado_by = FrontUser.Get().usr_login;
                             detallePaEliminar.iConcurrencia_id += 1;
                             db.Entry(detallePaEliminar).State = EntityState.Modified;
                             db.SaveChanges();
@@ -244,7 +244,7 @@ namespace SIGAA.Areas.EGRE.Controllers
                                 sSugerencias = item.sSugerencias,
                                 iEstado_fl = true,
                                 iEliminado_fl = 1,
-                                sCreado_by = FrontUser.Get().EmailUtepsa,
+                                sCreado_by = FrontUser.Get().usr_login,
                             iConcurrencia_id = 1
                             };
                             db.DRecepcionesTFG.Add(observacion);
@@ -307,7 +307,7 @@ namespace SIGAA.Areas.EGRE.Controllers
                             gatbl_DRecepcionesTFG DRecepcionesTFG = db.DRecepcionesTFG.Find(item.iDRecepcionTFG_id);
                             DRecepcionesTFG.iEstado_fl = false;
                             DRecepcionesTFG.iEliminado_fl = 2;
-                            DRecepcionesTFG.sCreado_by = FrontUser.Get().EmailUtepsa;
+                            DRecepcionesTFG.sCreado_by = FrontUser.Get().usr_login;
                             DRecepcionesTFG.iConcurrencia_id += 1;
                             db.Entry(DRecepcionesTFG).State = EntityState.Modified;
                             db.SaveChanges();
@@ -321,7 +321,7 @@ namespace SIGAA.Areas.EGRE.Controllers
                     gatbl_RecepcionesTFG RecepcionesTFG = db.RecepcionesTFG.Find(id);
                     RecepcionesTFG.iEstado_fl = false;
                     RecepcionesTFG.iEliminado_fl = 2;
-                    RecepcionesTFG.sCreado_by = FrontUser.Get().EmailUtepsa;
+                    RecepcionesTFG.sCreado_by = FrontUser.Get().usr_login;
                     RecepcionesTFG.iConcurrencia_id += 1;
                     db.Entry(RecepcionesTFG).State = EntityState.Modified;
                     db.SaveChanges();

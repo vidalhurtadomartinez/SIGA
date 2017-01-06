@@ -7,14 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - O&M</title>
     @Styles.Render("~/Content/css")
-    @Styles.Render("~/Content/jqueryui")
-    @Scripts.Render("~/bundles/modernizr")
-    @Scripts.Render("~/bundles/jquery")
     @Styles.Render("~/Content/kendo/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @*@Scripts.Render("~/bundles/jquery")*@
     @Scripts.Render("~/bundles/kendo")
+    @Styles.Render("~/Content/jqueryui")
     
-    
-    <link href="@Url.Content("~/Content/kendo/kendo.common.min.css")" rel="stylesheet" type="text/css" />
+    @*<link href="@Url.Content("~/Content/kendo/kendo.common.min.css")" rel="stylesheet" type="text/css" />
     <link href="@Url.Content("~/Content/kendo/kendo.common-bootstrap.min.css")" rel="stylesheet" type="text/css" />
     <link href="@Url.Content("~/Content/kendo/kendo.mobile.all.min.css")" rel="stylesheet" type="text/css" />
     <link href="@Url.Content("~/Content/kendo/kendo.dataviz.min.css")" rel="stylesheet" type="text/css" />
@@ -25,7 +24,7 @@
     <script src="@Url.Content("~/Scripts/kendo/kendo.all.min.js")"></script>
     <script src="@Url.Content("~/Scripts/kendo/kendo.aspnetmvc.min.js")"></script>
     <script src="@Url.Content("~/Scripts/kendo.modernizr.custom.js")"></script>
-    <script src="@Url.Content("~/Scripts/kendo/cultures/kendo.culture.es-ES.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/kendo/cultures/kendo.culture.es-ES.min.js")"></script>*@
 
 </head>
 <body>
@@ -47,19 +46,19 @@
                             <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu">
-                            <li>@Html.ActionLink("Plantillas", "Index", "tblPlantillas")</li>
+                            <li>@Html.ActionLink("Plantillas", "Index", "tblPlantillas",new { area = "OYM" },null)</li>
                             <li role="menuitem" class="divider"></li>
-                            <li>@Html.ActionLink("Documentos", "Index", "tblDocumentos")</li>
-                            <li>@Html.ActionLink("Formularios", "Index", "tblFormularios")</li>
+                            <li>@Html.ActionLink("Documentos", "Index", "tblDocumentos", new { area="OYM"},null)</li>
+                            <li>@Html.ActionLink("Formularios", "Index", "tblFormularios",new { area="OYM"},null)</li>
                             <li role="menuitem" class="divider"></li>
-                            <li>@Html.ActionLink("Proceso documentos", "Index", "tblDocumentoProcesos")</li>
-                            <li>@Html.ActionLink("Proceso formularios", "Index", "tblFormularioProcesos")</li>
+                            <li>@Html.ActionLink("Proceso documentos", "Index", "tblDocumentoProcesos",new {area="OYM"},null)</li>
+                            <li>@Html.ActionLink("Proceso formularios", "Index", "tblFormularioProcesos",new { area="OYM"},null)</li>
                             <li role="menuitem" class="divider"></li>
-                            <li>@Html.ActionLink("Seguimiento de documentos", "Index", "tblSeguimientoDocumentos")</li>
-                            <li>@Html.ActionLink("Seguimiento de formularios", "Index", "tblSeguimientoFormularios")</li>
+                            <li>@Html.ActionLink("Seguimiento de documentos", "Index", "tblSeguimientoDocumentos",new {area="OYM"},null)</li>
+                            <li>@Html.ActionLink("Seguimiento de formularios", "Index", "tblSeguimientoFormularios",new {area="OYM"},null)</li>
                             <li role="menuitem" class="divider"></li>
-                            <li>@Html.ActionLink("Documentos Publicados", "FilterByDirectory", "tblDocumentoPublicados")</li>
-                            <li>@Html.ActionLink("Formularios Publicados", "FilterByDirectory", "tblFormularioPublicados")</li>
+                            <li>@Html.ActionLink("Documentos Publicados", "FilterByDirectory", "tblDocumentoPublicados",new {area="OYM"},null)</li>
+                            <li>@Html.ActionLink("Formularios Publicados", "FilterByDirectory", "tblFormularioPublicados",new { area = "OYM" },null)</li>
                         </ul>
                     </li>
                     <li class="dropdown">
@@ -68,15 +67,15 @@
                             <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu">
-                            <li>@Html.ActionLink("Directorio de Archivos", "Index", "tblDirectorios")</li>
+                            <li>@Html.ActionLink("Directorio de Archivos", "Index", "tblDirectorios",new {area="OYM"},null)</li>
                             <li role="menuitem" class="divider"></li>
-                            <li>@Html.ActionLink("Tipos de Formas de documentos", "Index", "tblFormaDocumentoTipos")</li>
-                            <li>@Html.ActionLink("Formas de documentos", "Index", "tblFormaDocumentos")</li>
-                            <li>@Html.ActionLink("Tipos de documentos", "Index", "tblTipoDocumentos")</li>
-                            <li>@Html.ActionLink("Tipos de procesos", "Index", "tblTipoProcesos")</li>
+                            <li>@Html.ActionLink("Tipos de Formas de documentos", "Index", "tblFormaDocumentoTipos",new {area="OYM"},null)</li>
+                            <li>@Html.ActionLink("Formas de documentos", "Index", "tblFormaDocumentos",new {area="OYM"},null)</li>
+                            <li>@Html.ActionLink("Tipos de documentos", "Index", "tblTipoDocumentos",new {area= "OYM"},null)</li>
+                            <li>@Html.ActionLink("Tipos de procesos", "Index", "tblTipoProcesos",new {area="OYM"},null)</li>
                             <li role="menuitem" class="divider"></li>
-                            <li>@Html.ActionLink("Categorias de participantes", "Index", "tblCategorias")</li>
-                            <li>@Html.ActionLink("Procesos", "Index", "tblProcesos")</li>
+                            <li>@Html.ActionLink("Categorias de participantes", "Index", "tblCategorias",new {area="OYM"},null)</li>
+                            <li>@Html.ActionLink("Procesos", "Index", "tblProcesos",new {area="OYM"},null)</li>
                         </ul>
                     </li>
                     <li class="dropdown">
@@ -85,14 +84,14 @@
                             <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu">
-                            <li>@Html.ActionLink("Documentos Por Tipo de Procesos", "DocumentoTipoProceso", "Reportes", null, new { target = "_blank" })</li>
-                            <li>@Html.ActionLink("Formularios Por Tipo de Procesos", "FormularioTipoProceso", "Reportes", null, new { target = "_blank" })</li>
+                            <li>@Html.ActionLink("Documentos Por Tipo de Procesos", "DocumentoTipoProceso", "Reportes", new {area="OYM"}, new { target = "_blank" })</li>
+                            <li>@Html.ActionLink("Formularios Por Tipo de Procesos", "FormularioTipoProceso", "Reportes", new { area = "OYM" }, new { target = "_blank" })</li>
                             <li role="menuitem" class="divider"></li>
-                            <li>@Html.ActionLink("Promedio de Respuestas Por Procesos de Documentos", "DocumentoTiempoTipoProceso", "Reportes", null, new { target = "_blank" })</li>
-                            <li>@Html.ActionLink("Promedio de Respuestas Por Procesos de Formularios", "FormularioTiempoTipoProceso", "Reportes", null, new { target = "_blank" })</li>
+                            <li>@Html.ActionLink("Promedio de Respuestas Por Procesos de Documentos", "DocumentoTiempoTipoProceso", "Reportes", new { area = "OYM" }, new { target = "_blank" })</li>
+                            <li>@Html.ActionLink("Promedio de Respuestas Por Procesos de Formularios", "FormularioTiempoTipoProceso", "Reportes", new { area = "OYM" }, new { target = "_blank" })</li>
                             <li role="menuitem" class="divider"></li>
-                            <li>@Html.ActionLink("Detalle de Respuestas Por Procesos de Documentos", "DocumentoDetalleRespuestaTipoProceso", "Reportes", null, new { target = "_blank" })</li>
-                            <li>@Html.ActionLink("Detalle de Respuestas Por Procesos de Formularios", "FormularioDetalleRespuestaTipoProceso", "Reportes", null, new { target = "_blank" })</li>
+                            <li>@Html.ActionLink("Detalle de Respuestas Por Procesos de Documentos", "DocumentoDetalleRespuestaTipoProceso", "Reportes", new { area = "OYM" }, new { target = "_blank" })</li>
+                            <li>@Html.ActionLink("Detalle de Respuestas Por Procesos de Formularios", "FormularioDetalleRespuestaTipoProceso", "Reportes", new { area = "OYM" }, new { target = "_blank" })</li>
                         </ul>
                     </li>                   
                 </ul>

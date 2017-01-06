@@ -106,7 +106,7 @@ namespace SIGAA.Areas.EGRE.Controllers
 
                 ComunicacionEst.iEstado_fl = true;
                 ComunicacionEst.iEliminado_fl = 1;
-                ComunicacionEst.sCreado_by = FrontUser.Get().EmailUtepsa;
+                ComunicacionEst.sCreado_by = FrontUser.Get().usr_login;
                 ComunicacionEst.iConcurrencia_id = 1;
 
                 if (ModelState.IsValid)
@@ -171,7 +171,7 @@ namespace SIGAA.Areas.EGRE.Controllers
                 }
 
                 ComunicacionEst.iEliminado_fl = 1;
-                ComunicacionEst.sCreado_by = FrontUser.Get().EmailUtepsa;
+                ComunicacionEst.sCreado_by = FrontUser.Get().usr_login;
                 ComunicacionEst.iConcurrencia_id += 1;
 
                 if (ModelState.IsValid)
@@ -221,7 +221,7 @@ namespace SIGAA.Areas.EGRE.Controllers
                     gatbl_ComunicacionEst ComunicacionEst = db.ComunicacionesEstudiantes.Find(id);
                     ComunicacionEst.iEstado_fl = false;
                     ComunicacionEst.iEliminado_fl = 2;
-                    ComunicacionEst.sCreado_by = FrontUser.Get().EmailUtepsa;
+                    ComunicacionEst.sCreado_by = FrontUser.Get().usr_login;
                     ComunicacionEst.iConcurrencia_id += 1;
                     db.Entry(ComunicacionEst).State = EntityState.Modified;
                     db.SaveChanges();

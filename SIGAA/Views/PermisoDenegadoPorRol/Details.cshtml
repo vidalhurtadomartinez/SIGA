@@ -7,6 +7,7 @@
 <hr />
 <div>
     @Html.Partial("_DetailsDelete", Model)
-    <a href="/PermisoDenegadoPorRol/Edit/@Model.iPermiso_id" class="btn btn-primary"><span class="glyphicon glyphicon-pencil"></span> Editar </a>
+    @if (FrontUser.TienePermiso(RolesPermisos.SEGU_permisoDenegadoPorRol_puedeEditar))
+    {<a href="/PermisoDenegadoPorRol/Edit/@Model.iPermiso_id" class="btn btn-primary"><span class="glyphicon glyphicon-pencil"></span> Editar </a>}
     <a href="/PermisoDenegadoPorRol/Index" class="btn btn-default"><span class="glyphicon glyphicon-list"></span> Ir a Lista </a>
 </div>

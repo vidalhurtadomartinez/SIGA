@@ -32,12 +32,16 @@ namespace SIGAA.Models
         [Display(Name = "Nemónico :")]
         public string Nemonico { get; set; }
 
+        [Required(ErrorMessage = "Debe ingresar valores al campo {0} porque es Obligatorio.")]
+        [StringLength(50, ErrorMessage = "El campo {0} debe tener como máximo {1} caracteres.")]
+        [Display(Name = "Proceso :")]
+        public string Proceso { get; set; }
+
         [StringLength(250,ErrorMessage = "El campo {0} debe tener como máximo {1} caracteres.")]
         [Display(Name = "Descripción de acción :")]
         public string Descripcion { get; set; }
-
         
         //pripiedades de navegacion
-        public virtual ICollection<PermisoDenegadoPorRol> PermisoDenegadoRoles { get; set; }
+        public virtual IEnumerable<PermisoDenegadoPorRol> PermisoDenegadoRoles { get; set; }
     }
 }

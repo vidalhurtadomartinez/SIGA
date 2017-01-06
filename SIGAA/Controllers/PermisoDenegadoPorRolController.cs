@@ -92,7 +92,7 @@ namespace SIGAA.Controllers
             {
                 permisoDenegadoPorRol.iEstado_fl = true;
                 permisoDenegadoPorRol.iEliminado_fl = 1;
-                permisoDenegadoPorRol.sCreado_by = FrontUser.Get().EmailUtepsa;
+                permisoDenegadoPorRol.sCreado_by = FrontUser.Get().usr_login;
                 permisoDenegadoPorRol.iConcurrencia_id = 1;
 
                 if (ModelState.IsValid)
@@ -164,7 +164,7 @@ namespace SIGAA.Controllers
                             db.PermisoDenegadoPorRol.Remove(s);
                        }
                     permisoDenegadoPorRol.iEliminado_fl = 1;
-                    permisoDenegadoPorRol.sCreado_by = FrontUser.Get().EmailUtepsa;
+                    permisoDenegadoPorRol.sCreado_by = FrontUser.Get().usr_login;
                     permisoDenegadoPorRol.iConcurrencia_id += 1;
 
                     db.PermisoDenegadoPorRol.Add(permisoDenegadoPorRol);
@@ -222,7 +222,7 @@ namespace SIGAA.Controllers
                     PermisoDenegadoPorRol permisoDenegadoPorRol = db.PermisoDenegadoPorRol.Find(Rol_id, permiso);
                     permisoDenegadoPorRol.iEstado_fl = false;
                     permisoDenegadoPorRol.iEliminado_fl = 2;
-                    permisoDenegadoPorRol.sCreado_by = FrontUser.Get().EmailUtepsa;
+                    permisoDenegadoPorRol.sCreado_by = FrontUser.Get().usr_login;
                     permisoDenegadoPorRol.iConcurrencia_id += 1;
 
                     db.Entry(permisoDenegadoPorRol).State = EntityState.Modified;

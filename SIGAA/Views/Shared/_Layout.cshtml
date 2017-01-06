@@ -6,14 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - MP-SIG</title>
     @Styles.Render("~/Content/css")   
+    @*@Styles.Render("~/Content/kendo/css")*@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/jqueryui")
     @Scripts.Render("~/bundles/jqueryval")
     @Scripts.Render("~/bundles/modernizr")
-    @Styles.Render("~/Content/kendo/css")
-    @Scripts.Render("~/bundles/kendo")
+    @*@Scripts.Render("~/bundles/kendo")*@
 
-    <link href="@Url.Content("~/Content/kendo/kendo.common.min.css")" rel="stylesheet" type="text/css" />
+    @*<link href="@Url.Content("~/Content/kendo/kendo.common.min.css")" rel="stylesheet" type="text/css" />
     <link href="@Url.Content("~/Content/kendo/kendo.common-bootstrap.min.css")" rel="stylesheet" type="text/css" />
     <link href="@Url.Content("~/Content/kendo/kendo.mobile.all.min.css")" rel="stylesheet" type="text/css" />
     <link href="@Url.Content("~/Content/kendo/kendo.dataviz.min.css")" rel="stylesheet" type="text/css" />
@@ -24,7 +24,8 @@
     <script src="@Url.Content("~/Scripts/kendo/kendo.all.min.js")"></script>
     <script src="@Url.Content("~/Scripts/kendo/kendo.aspnetmvc.min.js")"></script>
     <script src="@Url.Content("~/Scripts/kendo.modernizr.custom.js")"></script>
-    <script src="@Url.Content("~/Scripts/kendo/cultures/kendo.culture.es-ES.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/kendo/cultures/kendo.culture.es-ES.min.js")"></script>*@
+
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -60,6 +61,9 @@
                             @if (FrontUser.TienePermiso(RolesPermisos.SEGU_rol_puedeVerIndice)) { 
                             <li>@Html.ActionLink("Roles", "Index", "Rol")</li>
                             }
+                            @if (FrontUser.TienePermiso(RolesPermisos.SEGU_HistorialCambioRolDeUsuario_puedeVerIndice))
+                            {<li>@Html.ActionLink("Historial cambio Rol de Usuario", "Index", "HistorialCambioRolDeUsuario")</li>
+                            }
                         </ul>
                     </li>
                     }
@@ -75,10 +79,12 @@
             <p>&copy; @DateTime.Now.Year - By Mapirisoft</p>
         </footer>
     </div>
+
     @Scripts.Render("~/bundles/bootstrap")
-    @Scripts.Render("~/bundles/jqueryui")
+
+    @*@Scripts.Render("~/bundles/jqueryui")*@
     @*@Scripts.Render("~/bundles/kendo")*@
-    <script>
+    @*<script>
         kendo.culture("es-ES");
 
         $(function () {
@@ -93,7 +99,8 @@
                 text: false
             });
         });
-    </script>
+    </script>*@
+
     @RenderSection("scripts", required: false)
 </body>
 </html>

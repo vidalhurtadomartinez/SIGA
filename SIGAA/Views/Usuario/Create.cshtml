@@ -13,12 +13,7 @@
         @Html.Flash()
 
         <div class="form-group">
-            @Html.LabelFor(model => model.agd_codigo, htmlAttributes: new { @class = "control-label col-md-2" })
-
-            <div class="col-md-5 hidden">
-                @Html.EditorFor(model => model.agd_codigo, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.agd_codigo, "", new { @class = "text-danger" })
-            </div>
+            @Html.LabelFor(model => model.agd_codigo, htmlAttributes: new { @class = "control-label col-md-2" })       
 
             <div class="col-md-5">
                 <div class="input-group">
@@ -70,12 +65,8 @@
                         data: { "term": ui.item.value },
                         success: function (data) {
                             $("#agd_codigo").val(data.codigoAgenda)
-                            $("#NombreCompleto").val(data.nombreCompleto)
-                            $("#Sexo").val(data.sexo)
-                            $("#EmailUtepsa").val(data.emailUtepsa)
-                            $("#Dierccion").val(data.direccion)
-
-                            if ($('#agd_codigo').val() != '') {
+                            $("#usr_login").val(data.usr_login)
+                            if ($('#agd_codigo').val() != '' && $('#usr_login').val() != '') {
                                 $("#btnGuardar").attr('disabled', false);
                             }
                             action = data.Action;

@@ -23,8 +23,8 @@ namespace SIGAA.Areas.EGRE.Controllers
             var tutores = db.Tutorez.Where(p => p.iEliminado_fl == 1).Include(g => g.ColegioProfesional).Include(g => g.Profesion).ToList();
             var tutoresFiltradas = tutores.Where(t => criterio == null || 
                                    t.sNombre_desc.ToLower().Contains(criterio.ToLower()) ||
-                                   t.sTelefonos_desc.ToLower().Contains(criterio.ToLower()) ||
-                                   t.sDireccion_desc.ToLower().Contains(criterio.ToLower()) ||
+                                  // t.sTelefonos_desc.ToLower().Contains(criterio.ToLower()) ||
+                                   //t.sDireccion_desc.ToLower().Contains(criterio.ToLower()) ||
                                    t.TipoTutor.ToString().ToLower().Contains(criterio.ToLower()) ||
                                    t.sObs_fl.ToString().ToLower().Contains(criterio.ToLower())
                                    ).ToList();
@@ -79,7 +79,7 @@ namespace SIGAA.Areas.EGRE.Controllers
             {
                 Tutor.iEstado_fl = true;
                 Tutor.iEliminado_fl = 1;
-                Tutor.sCreado_by = FrontUser.Get().EmailUtepsa;
+                Tutor.sCreado_by = FrontUser.Get().usr_login;
                 Tutor.iConcurrencia_id = 1;
 
                 if (ModelState.IsValid)
@@ -124,7 +124,7 @@ namespace SIGAA.Areas.EGRE.Controllers
             try
             {
                 Tutor.iEliminado_fl = 1;
-                Tutor.sCreado_by = FrontUser.Get().EmailUtepsa;
+                Tutor.sCreado_by = FrontUser.Get().usr_login;
                 Tutor.iConcurrencia_id += 1;
 
                 if (ModelState.IsValid)
@@ -172,7 +172,7 @@ namespace SIGAA.Areas.EGRE.Controllers
                     gatbl_Tutores Tutor = db.Tutorez.Find(id);
                     Tutor.iEstado_fl = false;
                     Tutor.iEliminado_fl = 2;
-                    Tutor.sCreado_by = FrontUser.Get().EmailUtepsa;
+                    Tutor.sCreado_by = FrontUser.Get().usr_login;
                     Tutor.iConcurrencia_id += 1;
 
                     db.Entry(Tutor).State = EntityState.Modified;

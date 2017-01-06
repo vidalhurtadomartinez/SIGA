@@ -1,0 +1,59 @@
+﻿@using MvcFlash.Core.Extensions
+@model IEnumerable<SIGAA.Models.HistorialCambioRolDeUsuario>
+<div id="listaHistorialCambioRolDeUsuarios">
+    @Html.Flash()
+    <table class="table small">
+        <tr class="active">
+            <th>
+                @Html.DisplayNameFor(model => model.Usuario.usr_login)
+            </th>
+            <th>
+                @Html.DisplayName("Rol anterior")
+            </th>
+            <th>
+                @Html.DisplayName("Rol actual")
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.dtFechaCambio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.sObservacion)
+            </th>
+            <th>
+                @Html.DisplayName("Realizado por :")
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>               
+                <td>
+                    @Html.DisplayFor(modelItem => item.Usuario.usr_login)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RolAnterior.Nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RolActual.Nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.dtFechaCambio)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.sObservacion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.sCreado_by)
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('[data-toggle="tooltip"]').tooltip({
+            placement: 'top'
+        });
+    });
+</script>

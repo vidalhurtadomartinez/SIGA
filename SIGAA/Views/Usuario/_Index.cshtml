@@ -6,19 +6,16 @@
     <tr class="active">
         <th class="col-md-1">Operaciones</th>
         <th>
-            @Html.DisplayNameFor(model => model.NombreCompleto)
+            @Html.DisplayName("Nombre :")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.agd_codigo)
+            @Html.DisplayNameFor(model => model.usr_login)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Sexo)
-        </th>
+            @Html.DisplayNameFor(model => model.dtFechaVigencia)
+        </th> 
         <th>
-            @Html.DisplayNameFor(model => model.EmailUtepsa)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Dierccion)
+            @Html.DisplayNameFor(model => model.sObservacion)
         </th> 
         <th>
             @Html.DisplayNameFor(model => model.Rol.Nombre)
@@ -36,31 +33,25 @@
             @if (FrontUser.TienePermiso(RolesPermisos.SEGU_usuario_puedeVerDetalle))
             {<a href="/Usuario/Details/@item.iUsuario_id"><span class="glyphicon glyphicon-eye-open" data-toggle="tooltip" data-original-title="Ver detalle"></span></a>}
             @*<a href="/Usuario/Delete/@item.iUsuario_id"><span class="glyphicon glyphicon-trash" data-toggle="tooltip" data-original-title="Eliminar"></span></a>*@
-
-
-        </td>
-
-        <td>
-            @Html.DisplayFor(modelItem => item.NombreCompleto)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.agd_codigo)
+            @Html.DisplayFor(modelItem => item.Persona.NombreCompleto)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Sexo)
+            @Html.DisplayFor(modelItem => item.usr_login)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.EmailUtepsa)
+            @Html.DisplayFor(modelItem => item.dtFechaVigencia)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Dierccion)
+            @Html.DisplayFor(modelItem => item.sObservacion)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Rol.Nombre)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.iEstado_fl)
-        </td>
+        </td>       
     </tr>
 }
 </table>

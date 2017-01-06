@@ -85,7 +85,7 @@ namespace SIGAA.Areas.EGRE.Controllers
             {
                 EntregaAlEst.iEstado_fl = true;
                 EntregaAlEst.iEliminado_fl = 1;
-                EntregaAlEst.sCreado_by = FrontUser.Get().EmailUtepsa;
+                EntregaAlEst.sCreado_by = FrontUser.Get().usr_login;
                 EntregaAlEst.iConcurrencia_id = 1;
 
                 if (ModelState.IsValid)
@@ -132,7 +132,7 @@ namespace SIGAA.Areas.EGRE.Controllers
             try
             {
                 EntregaAlEst.iEliminado_fl = 1;
-                EntregaAlEst.sCreado_by = FrontUser.Get().EmailUtepsa;
+                EntregaAlEst.sCreado_by = FrontUser.Get().usr_login;
                 EntregaAlEst.iConcurrencia_id += 1;
 
                 if (ModelState.IsValid)
@@ -184,7 +184,7 @@ namespace SIGAA.Areas.EGRE.Controllers
                     gatbl_EntregaAlEst EntregaAlEst = db.EntregasAlEstudiante.Find(id);
                     EntregaAlEst.iEstado_fl = false;
                     EntregaAlEst.iEliminado_fl = 2;
-                    EntregaAlEst.sCreado_by = FrontUser.Get().EmailUtepsa;
+                    EntregaAlEst.sCreado_by = FrontUser.Get().usr_login;
                     EntregaAlEst.iConcurrencia_id += 1;
 
                     db.Entry(EntregaAlEst).State = EntityState.Modified;

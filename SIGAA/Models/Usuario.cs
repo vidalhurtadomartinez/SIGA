@@ -13,11 +13,8 @@ namespace SIGAA.Models
     public class Usuario: BaseModel
     {
         public Usuario() {
-            this.NombreCompleto = "";
-            this.Sexo = sexo.Masculino;
-            this.EmailUtepsa = "";
             this.Contrasena = "";
-            this.Dierccion = "";
+            this.usr_login = "";
         }
 
         [Key]
@@ -28,17 +25,9 @@ namespace SIGAA.Models
         public string agd_codigo { get; set; }
 
         [Required(ErrorMessage = "Debe ingresar valores al campo {0} porque es Obligatorio.")]
-        [Display(Name = "Nombre completo :")]
-        public string NombreCompleto { get; set; }
-
-        [Required(ErrorMessage = "Debe ingresar valores al campo {0} porque es Obligatorio.")]
-        [Display(Name = "Sexo :")]
-        public sexo Sexo { get; set; }
-
-        [Required(ErrorMessage = "Debe ingresar valores al campo {0} porque es Obligatorio.")]
-        [DataType(DataType.EmailAddress,ErrorMessage ="La dirección de email no es válido")]
-        [Display(Name = "Email UTEPSA :")]
-        public string EmailUtepsa { set; get;}
+        [StringLength(50, ErrorMessage = "El campo {0} debe tener {1} caracteres como máximo.")]
+        [Display(Name = "Usr Login :")]
+        public string usr_login { set; get; }
 
         [Required(ErrorMessage = "Debe ingresar valores al campo {0} porque es Obligatorio.")]
         [StringLength(30, ErrorMessage = "El campo {0} debe tener entre {2} y {1} caracteres.", MinimumLength = 5)]
@@ -46,10 +35,15 @@ namespace SIGAA.Models
         [Display(Name = "Contraseña :")]
         public string Contrasena { get; set; }
 
-        [StringLength(500, ErrorMessage = "El campo {0} debe tener {1} caracteres como máximo.")]
+        [Display(Name = "Fecha de Vigencia")]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        public DateTime dtFechaVigencia { get; set; }
+
+        [StringLength(500, ErrorMessage = "El campo {0} debe tener una longitud maxima de {1} caracteres.")]
+        [Display(Name = "Observación :")]
         [DataType(DataType.MultilineText)]
-        [Display(Name = "Dirección :")]
-        public string Dierccion { set; get; }
+        public string sObservacion { get; set; }
 
         [Required(ErrorMessage = "Debe ingresar valores al campo {0} porque es Obligatorio.")]
         [Display(Name = "Rol :")]
@@ -57,11 +51,9 @@ namespace SIGAA.Models
 
         //propiedades de navegacion
         public virtual Rol Rol { get; set; }
+        public virtual vt_agenda Persona { get; set; }
+        public virtual IEnumerable<HistorialCambioRolDeUsuario> HistorialCambioRolDeUsuarios { get; set; }
 
-        public enum sexo {
-            Masculino,
-            Femenino
-        }
 
         //public ResponseModel Autenticarse(string emailUtepsa, string contrasena)
         //{
@@ -90,14 +82,14 @@ namespace SIGAA.Models
         //    return rm;
         //}
 
-        public bool Autenticarse(string emailUtepsa, string contrasena)
+        public bool Autenticarse(string usr_login, string contrasena)
         {
             bool resultado = false;
             try
             {
                 using (var ctx = new SeguridadContext())
                 {
-                    var usuario = ctx.Usuario.Where(x => x.EmailUtepsa == emailUtepsa && x.Contrasena == contrasena && x.iEstado_fl).SingleOrDefault();
+                    var usuario = ctx.Usuario.Where(x => x.usr_login == usr_login && x.Contrasena == contrasena && x.iEstado_fl).SingleOrDefault();
                     if (usuario != null)
                     {
                         SessionHelper.AddUserToSession(usuario.iUsuario_id.ToString());

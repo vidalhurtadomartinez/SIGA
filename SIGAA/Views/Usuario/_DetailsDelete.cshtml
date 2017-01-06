@@ -1,44 +1,40 @@
 ﻿@model SIGAA.Models.Usuario
     <dl class="dl-horizontal">
+
         <dt>
-            @Html.DisplayNameFor(model => model.NombreCompleto)
+            @Html.DisplayName("Nombre :")
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.NombreCompleto)
+            @Html.DisplayFor(model => model.Persona.NombreCompleto)
         </dd>
-
         <dt>
-            @Html.DisplayNameFor(model => model.agd_codigo)
+            @Html.DisplayNameFor(model => model.usr_login)
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.agd_codigo)
+            @Html.DisplayFor(model => model.usr_login)
         </dd>
-
         <dt>
-            @Html.DisplayNameFor(model => model.Sexo)
+            @Html.DisplayNameFor(model => model.dtFechaVigencia)
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.Sexo)
+            @Html.DisplayFor(model => model.dtFechaVigencia)
         </dd>
-
         <dt>
-            @Html.DisplayNameFor(model => model.EmailUtepsa)
+            @Html.DisplayNameFor(model => model.sObservacion)
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.EmailUtepsa)
+            @Html.DisplayFor(model => model.sObservacion)
         </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Dierccion)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Dierccion)
-        </dd> 
-
         <dt>
             @Html.DisplayNameFor(model => model.Rol.Nombre)
         </dt>
         <dd>
             @Html.DisplayFor(model => model.Rol.Nombre)
+        </dd> 
+        <dt>
+            @Html.DisplayNameFor(model => model.Rol.iEstado_fl)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Rol.iEstado_fl)
         </dd>   
     </dl>

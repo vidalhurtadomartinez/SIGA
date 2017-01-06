@@ -75,7 +75,7 @@ namespace SIGAA.Areas.EGRE.Controllers
             {
                 RectorUniversidadPublica.iEstado_fl = true;
                 RectorUniversidadPublica.iEliminado_fl = 1;
-                RectorUniversidadPublica.sCreado_by = FrontUser.Get().EmailUtepsa;
+                RectorUniversidadPublica.sCreado_by = FrontUser.Get().usr_login;
                 RectorUniversidadPublica.iConcurrencia_id = 1;
 
                 if (ModelState.IsValid)
@@ -120,7 +120,7 @@ namespace SIGAA.Areas.EGRE.Controllers
             try
             {
                 RectorUniversidadPublica.iEliminado_fl = 1;
-                RectorUniversidadPublica.sCreado_by = FrontUser.Get().EmailUtepsa;
+                RectorUniversidadPublica.sCreado_by = FrontUser.Get().usr_login;
                 RectorUniversidadPublica.iConcurrencia_id += 1;
 
                 if (ModelState.IsValid)
@@ -168,7 +168,7 @@ namespace SIGAA.Areas.EGRE.Controllers
                     gatbl_RectorUniversidadPublica RectorUniversidadPublica = db.RectoresUniversidadesPublicas.Find(id);
                     RectorUniversidadPublica.iEstado_fl = false;
                     RectorUniversidadPublica.iEliminado_fl = 2;
-                    RectorUniversidadPublica.sCreado_by = FrontUser.Get().EmailUtepsa;
+                    RectorUniversidadPublica.sCreado_by = FrontUser.Get().usr_login;
                     RectorUniversidadPublica.iConcurrencia_id += 1;
 
                     db.Entry(RectorUniversidadPublica).State = EntityState.Modified;

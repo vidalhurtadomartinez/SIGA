@@ -1,11 +1,13 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
+using System.Web;
 
 namespace SIGAA.Models
 {
-    public class agenda
+    public class vt_agenda
     {
         [Key]
         public string agd_codigo { get; set; }
@@ -50,16 +52,18 @@ namespace SIGAA.Models
         public decimal agd_altura { get; set; }
         public decimal agd_peso { get; set; }
         public string agd_nroReferencia { get; set; }
-
         Nullable<System.DateTime> agd_trnfecha { get; set; }
         public string usr_codigo { get; set; }
         public string usr_codigo_cambio { get; set; }
         Nullable<System.DateTime> trn_fecha { get; set; }
         public string agd_prefijo { get; set; }
+        public string usr_login { get; set; }
 
         [NotMapped]
-        [Display(Name="Nombre Completo")]
+        [Display(Name = "Nombre Completo")]
         public string NombreCompleto { get { return string.Format("{0} {1} {2}", agd_nombres.Trim(), agd_appaterno.Trim(), agd_apmaterno.Trim()); } }
 
+        //propiedades de navegacion
+       // public virtual Usuario Usuario { get; set; }
     }
 }

@@ -12,6 +12,14 @@
     <div class="form-horizontal">
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.Flash()
+        <div class="form-group form-group-sm">
+            @Html.LabelFor(model => model.iPermiso_id, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-5">
+                 @Html.DropDownListFor(model => model.iPermiso_id,null,"[SELECCIONE UNA OPCION]",htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.iPermiso_id, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
         @Html.Partial("_CreateEdit", Model)
         @*<hr />*@
         <div class="col-md-offset-2">
@@ -23,4 +31,43 @@
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+@*<script type="text/javascript" language="javascript">
+    $(function () {     
+        $('#iPermiso_id').change(function () {
+         
+            var iPermiso_id = parseInt($("#iPermiso_id").val());
+                if (!isNaN(iPermiso_id)) {
+                    $.ajax({
+                        url: "@Url.Action("TraerInformacionDePermiso_json", "Permiso")",
+                        type: "GET",
+                        data: {rolPermiso_id:iPermiso_id},
+                        dataType: "json",
+                        success: function (data) {
+                            $("#Modulo").val(data.Modulo)
+                            $("#Nemonico").val(data.Nemonico)
+                            $("#Proceso").val(data.Proceso)
+                            $("#Descripcion").val(data.Descripcion)
+
+                            //if ($('#lRecepciona_id').val() != '') {
+                            //    $("#btnGuardar").attr('disabled', false);
+                            //}
+
+                            action = data.Action;
+                        },
+                        error: function () {
+                            alert("Error al recibir estados.")
+                        }
+                    });
+                } else {
+                    $("#Modulo").val("")
+                    $("#Nemonico").val("")
+                    $("#Proceso").val("")
+                    $("#Descripcion").val("")
+
+                   // $("#btnGuardar").attr('disabled', true);
+                }
+            });
+        })
+</script>*@
+
 }

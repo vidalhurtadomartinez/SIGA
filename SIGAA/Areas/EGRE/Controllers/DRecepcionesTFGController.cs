@@ -55,7 +55,7 @@ namespace SIGAA.Areas.EGRE.Controllers
             {
                 DRecepcionesTFG.iEstado_fl = true;
                 DRecepcionesTFG.iEliminado_fl = 1;
-                DRecepcionesTFG.sCreado_by = FrontUser.Get().EmailUtepsa;
+                DRecepcionesTFG.sCreado_by = FrontUser.Get().usr_login;
                 DRecepcionesTFG.iConcurrencia_id = 1;
 
                 if (ModelState.IsValid)
@@ -100,7 +100,7 @@ namespace SIGAA.Areas.EGRE.Controllers
             try
             {
                 DRecepcionesTFG.iEliminado_fl = 1;
-                DRecepcionesTFG.sCreado_by = FrontUser.Get().EmailUtepsa;
+                DRecepcionesTFG.sCreado_by = FrontUser.Get().usr_login;
                 DRecepcionesTFG.iConcurrencia_id += 1;
 
                 if (ModelState.IsValid)
@@ -148,7 +148,7 @@ namespace SIGAA.Areas.EGRE.Controllers
                     gatbl_DRecepcionesTFG DRecepcionesTFG = db.DRecepcionesTFG.Find(id);
                     DRecepcionesTFG.iEstado_fl = false;
                     DRecepcionesTFG.iEliminado_fl = 2;
-                    DRecepcionesTFG.sCreado_by = FrontUser.Get().EmailUtepsa;
+                    DRecepcionesTFG.sCreado_by = FrontUser.Get().usr_login;
                     DRecepcionesTFG.iConcurrencia_id += 1;
 
                     db.Entry(DRecepcionesTFG).State = EntityState.Modified;

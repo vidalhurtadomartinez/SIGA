@@ -34,5 +34,11 @@ namespace SIGAA.Models
         //propiedades de navegacion
         public virtual ICollection<Usuario> Usuarios { get; set; }
         public virtual ICollection<PermisoDenegadoPorRol> PermisoDenegadoRoles { get; set; }
+
+        [InverseProperty("idRolAnterior")]
+        public virtual IEnumerable<HistorialCambioRolDeUsuario>  HistorialCambioRolDeUsuarios_anterior { get; set; }
+
+        [InverseProperty("idRolActual")]
+        public virtual IEnumerable<HistorialCambioRolDeUsuario> HistorialCambioRolDeUsuarios_actual { get; set; }
     }
 }

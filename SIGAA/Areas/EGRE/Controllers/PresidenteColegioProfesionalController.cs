@@ -79,7 +79,7 @@ namespace SIGAA.Areas.EGRE.Controllers
             {
                 PresidenteColegioProfesional.iEstado_fl = true;
                 PresidenteColegioProfesional.iEliminado_fl = 1;
-                PresidenteColegioProfesional.sCreado_by = FrontUser.Get().EmailUtepsa;
+                PresidenteColegioProfesional.sCreado_by = FrontUser.Get().usr_login;
                 PresidenteColegioProfesional.iConcurrencia_id = 1;
 
                 if (ModelState.IsValid)
@@ -124,7 +124,7 @@ namespace SIGAA.Areas.EGRE.Controllers
             try
             {
                 PresidenteColegioProfesional.iEliminado_fl = 1;
-                PresidenteColegioProfesional.sCreado_by = FrontUser.Get().EmailUtepsa;
+                PresidenteColegioProfesional.sCreado_by = FrontUser.Get().usr_login;
                 PresidenteColegioProfesional.iConcurrencia_id += 1;
 
                 if (ModelState.IsValid)
@@ -172,7 +172,7 @@ namespace SIGAA.Areas.EGRE.Controllers
                     gatbl_PresidenteColegioProfesional PresidenteColegioProfesional = db.PresidentesColegiosProfesionales.Find(id);
                     PresidenteColegioProfesional.iEstado_fl = false;
                     PresidenteColegioProfesional.iEliminado_fl = 2;
-                    PresidenteColegioProfesional.sCreado_by = FrontUser.Get().EmailUtepsa;
+                    PresidenteColegioProfesional.sCreado_by = FrontUser.Get().usr_login;
                     PresidenteColegioProfesional.iConcurrencia_id += 1;
 
                     db.Entry(PresidenteColegioProfesional).State = EntityState.Modified;

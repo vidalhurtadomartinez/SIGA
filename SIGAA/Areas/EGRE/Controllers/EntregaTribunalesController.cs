@@ -83,7 +83,7 @@ namespace SIGAA.Areas.EGRE.Controllers
             {
                 EntregaTribunal.iEstado_fl = true;
                 EntregaTribunal.iEliminado_fl = 1;
-                EntregaTribunal.sCreado_by = FrontUser.Get().EmailUtepsa;
+                EntregaTribunal.sCreado_by = FrontUser.Get().usr_login;
                 EntregaTribunal.iConcurrencia_id = 1;
 
                 if (ModelState.IsValid)
@@ -130,7 +130,7 @@ namespace SIGAA.Areas.EGRE.Controllers
             try
             {
                 EntregaTribunal.iEliminado_fl = 1;
-                EntregaTribunal.sCreado_by = FrontUser.Get().EmailUtepsa;
+                EntregaTribunal.sCreado_by = FrontUser.Get().usr_login;
                 EntregaTribunal.iConcurrencia_id += 1;
 
                 if (ModelState.IsValid)
@@ -182,7 +182,7 @@ namespace SIGAA.Areas.EGRE.Controllers
                     gatbl_EntregaTribunales EntregaTribunal = db.EntregasTribunales.Find(id);
                     EntregaTribunal.iEstado_fl = false;
                     EntregaTribunal.iEliminado_fl = 2;
-                    EntregaTribunal.sCreado_by = FrontUser.Get().EmailUtepsa;
+                    EntregaTribunal.sCreado_by = FrontUser.Get().usr_login;
                     EntregaTribunal.iConcurrencia_id += 1;
 
                     db.Entry(EntregaTribunal).State = EntityState.Modified;

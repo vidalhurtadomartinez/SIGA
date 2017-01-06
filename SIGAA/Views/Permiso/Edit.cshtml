@@ -13,6 +13,15 @@
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.Flash()
         @Html.HiddenFor(model => model.iPermiso_id)
+
+        <div class="form-group form-group-sm">
+            @Html.LabelFor(model => model.iPermiso_id, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-5">
+                 @Html.DropDownListFor(model => model.iPermiso_id,null,"[SELECCIONE UNA OPCION]",htmlAttributes: new { @class = "form-control", @disabled = "disabled" })
+                @Html.ValidationMessageFor(model => model.iPermiso_id, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
         @Html.Partial("_CreateEdit", Model)
         @*<hr />*@
         <div class="col-md-offset-2">

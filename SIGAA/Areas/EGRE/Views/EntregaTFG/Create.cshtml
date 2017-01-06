@@ -21,10 +21,6 @@
 
 @section Scripts{
     @Scripts.Render("~/bundles/jqueryval")
-<script src="~/Scripts/Observaciones/General/marcaCamposRequeridos.js"></script>
-    @*<link href="~/Content/autocompletar/jquery-ui.css" rel="stylesheet" />
-    <script src="~/Content/autocompletar/jquery-ui.js"></script>*@
-
 
     @*combo alumno es idperfil*@
     <script type="text/javascript" language="javascript">
@@ -68,48 +64,48 @@
 
     </script>
 
-@*autoComplete de Receptor*@
-<script type="text/javascript" language="javascript">
-        $(document).ready(function () {
-            $("#Receptor_nombrePersona").autocomplete({
-                source: function (request, response) {
-                    $("#btnGuardar").attr('disabled', true);
-                    $.ajax({
-                        async: false,
-                        cache: false,
-                        type: "GET",
-                        url: "@(Url.Action("ListarNombresDePersonas_Json", "EntregaTFG"))",
-                        dataType: "json",
-                        data: { "term": request.term },
-                        success: function (data) {
-                            response(data);
-                        }
-                    });
-                },
-                select: function (event, ui) {
-                    $.ajax({
-                        cache: false,
-                        async: false,
-                        type: "GET",
-                        url: "@(Url.Action("TraerInformacionDePersona_Json", "EntregaTFG"))",
-                        dataType: "json",
-                        data: { "term": ui.item.value },
-                        success: function (data) {
-                            $('#lRecepciona_id').val(data.codigoPersona)
-
-                            if ($('#iPerfil_id').val() != '') {
-                                $("#btnGuardar").attr('disabled', false);
+    @*autoComplete de Receptor*@
+    <script type="text/javascript" language="javascript">
+            $(document).ready(function () {
+                $("#Receptor_nombrePersona").autocomplete({
+                    source: function (request, response) {
+                        $("#btnGuardar").attr('disabled', true);
+                        $.ajax({
+                            async: false,
+                            cache: false,
+                            type: "GET",
+                            url: "@(Url.Action("ListarNombresDePersonas_Json", "EntregaTFG"))",
+                            dataType: "json",
+                            data: { "term": request.term },
+                            success: function (data) {
+                                response(data);
                             }
+                        });
+                    },
+                    select: function (event, ui) {
+                        $.ajax({
+                            cache: false,
+                            async: false,
+                            type: "GET",
+                            url: "@(Url.Action("TraerInformacionDePersona_Json", "EntregaTFG"))",
+                            dataType: "json",
+                            data: { "term": ui.item.value },
+                            success: function (data) {
+                                $('#lRecepciona_id').val(data.codigoPersona)
 
-                            action = data.Action;
-                        },
-                        error: function (xhr, ajaxOptions, thrownError) {
-                            alert('Fallo al recibir estados.');
-                        }
-                    });
-                }
+                                if ($('#iPerfil_id').val() != '') {
+                                    $("#btnGuardar").attr('disabled', false);
+                                }
+
+                                action = data.Action;
+                            },
+                            error: function (xhr, ajaxOptions, thrownError) {
+                                alert('Fallo al recibir estados.');
+                            }
+                        });
+                    }
+                });
             });
-        });
-</script>
+    </script>
 
 }

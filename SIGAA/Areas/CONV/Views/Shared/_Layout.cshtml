@@ -29,12 +29,10 @@
     <script src="@Url.Content("~/Scripts/kendo/2016.1.112/cultures/kendo.culture.es-ES.min.js")"></script>*@ 
 
     @Styles.Render("~/Content/css")
-    @Styles.Render("~/Content/jqueryui")
-    @Scripts.Render("~/bundles/modernizr")
-    @Scripts.Render("~/bundles/jquery")
     @Styles.Render("~/Content/kendo/css")
+    @Scripts.Render("~/bundles/modernizr")
     @Scripts.Render("~/bundles/kendo")
-
+    @Styles.Render("~/Content/jqueryui")
 
     @*<link href="@Url.Content("~/Content/kendo/kendo.common.min.css")" rel="stylesheet" type="text/css" />
     <link href="@Url.Content("~/Content/kendo/kendo.common-bootstrap.min.css")" rel="stylesheet" type="text/css" />
@@ -130,10 +128,9 @@
             <p>&copy; @DateTime.Now.Year - Copyright by MapiriSoft</p>
         </footer>
     </div>
-
-    @Scripts.Render("~/bundles/jquery") 
-    @Scripts.Render("~/bundles/kendo")
     @Scripts.Render("~/bundles/bootstrap")
+    @*@Scripts.Render("~/bundles/jquery")*@ 
+    @Scripts.Render("~/bundles/kendo")
     @RenderSection("scripts", required: false)
 </body>
 </html>

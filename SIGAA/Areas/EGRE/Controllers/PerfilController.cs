@@ -190,7 +190,7 @@ namespace SIGAA.Areas.EGRE.Controllers
 
                 Perfil.iEstado_fl = true;
                 Perfil.iEliminado_fl = 1;
-                Perfil.sCreado_by = FrontUser.Get().EmailUtepsa;
+                Perfil.sCreado_by = FrontUser.Get().usr_login;
                 Perfil.iConcurrencia_id = 1;
 
                 if (ModelState.IsValid)
@@ -255,7 +255,7 @@ namespace SIGAA.Areas.EGRE.Controllers
 
 
                 Perfil.iEliminado_fl = 1;
-                Perfil.sCreado_by = FrontUser.Get().EmailUtepsa;
+                Perfil.sCreado_by = FrontUser.Get().usr_login;
                 Perfil.iConcurrencia_id += 1;
 
                 if (ModelState.IsValid)
@@ -312,7 +312,7 @@ namespace SIGAA.Areas.EGRE.Controllers
 
                     Perfil.iEstado_fl = false;
                     Perfil.iEliminado_fl = 2;
-                    Perfil.sCreado_by = FrontUser.Get().EmailUtepsa;
+                    Perfil.sCreado_by = FrontUser.Get().usr_login;
                     Perfil.iConcurrencia_id += 1;
 
                     db.Entry(Perfil).State = EntityState.Modified;

@@ -10,8 +10,7 @@ namespace SIGAA.ViewModels
     {
         public CambioContrasenaWiewModel() {
             iUsuario_id = 0;
-            NombreUsuario = "";
-            EmailUtepsa = "";
+            usr_login = "";
             ContrasenaActual = "";
             ContrasenaNueva = "";
             ConfirmaContrasenaNueva = "";
@@ -22,14 +21,8 @@ namespace SIGAA.ViewModels
         public int iUsuario_id { get; set; }
 
         [Required(ErrorMessage = "Debe ingresar valores al campo {0} porque es Obligatorio.")]
-        [DataType(DataType.EmailAddress, ErrorMessage = "La dirección de email no es válido")]
-        [Display(Name = "Usuario :")]
-        public string NombreUsuario { set; get; }
-
-        [Required(ErrorMessage = "Debe ingresar valores al campo {0} porque es Obligatorio.")]
-        [DataType(DataType.EmailAddress, ErrorMessage = "La dirección de email no es válido")]
-        [Display(Name = "Email Utepsa :")]
-        public string EmailUtepsa { set; get; }
+        [Display(Name = "Usr Login :")]
+        public string usr_login { set; get; }
 
         [Required(ErrorMessage = "Debe ingresar valores al campo {0} porque es Obligatorio.")]
         [StringLength(30, ErrorMessage = "El campo {0} debe tener entre {2} y {1} caracteres.", MinimumLength = 5)]

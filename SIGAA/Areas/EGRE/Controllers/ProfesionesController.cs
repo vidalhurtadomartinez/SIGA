@@ -71,7 +71,7 @@ namespace SIGAA.Areas.EGRE.Controllers
             {
                 Profesion.iEstado_fl = true;
                 Profesion.iEliminado_fl = 1;
-                Profesion.sCreado_by = FrontUser.Get().EmailUtepsa;
+                Profesion.sCreado_by = FrontUser.Get().usr_login;
                 Profesion.iConcurrencia_id = 1;
 
                 if (ModelState.IsValid)
@@ -113,7 +113,7 @@ namespace SIGAA.Areas.EGRE.Controllers
         public ActionResult Edit([Bind(Include = "iProfesion_id,sNombre_nm,iEstado_fl,iEliminado_fl,sCreado_by,iConcurrencia_id")] gatbl_Profesiones Profesion)
         {
             Profesion.iEliminado_fl = 1;
-            Profesion.sCreado_by = FrontUser.Get().EmailUtepsa;
+            Profesion.sCreado_by = FrontUser.Get().usr_login;
             Profesion.iConcurrencia_id += 1;
             try
             {
@@ -161,7 +161,7 @@ namespace SIGAA.Areas.EGRE.Controllers
                     gatbl_Profesiones Profesion = db.Profesiones.Find(id);
                     Profesion.iEstado_fl = false;
                     Profesion.iEliminado_fl = 2;
-                    Profesion.sCreado_by = FrontUser.Get().EmailUtepsa;
+                    Profesion.sCreado_by = FrontUser.Get().usr_login;
                     Profesion.iConcurrencia_id += 1;
 
                     db.Entry(Profesion).State = EntityState.Modified;

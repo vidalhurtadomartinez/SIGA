@@ -76,7 +76,7 @@ namespace SIGAA.Controllers
             {
                 rol.iEstado_fl = true;
                 rol.iEliminado_fl = 1;
-                rol.sCreado_by = FrontUser.Get().EmailUtepsa;
+                rol.sCreado_by = FrontUser.Get().usr_login;
                 rol.iConcurrencia_id = 1;
 
                 if (ModelState.IsValid)
@@ -118,7 +118,7 @@ namespace SIGAA.Controllers
             try
             {
                 rol.iEliminado_fl = 1;
-                rol.sCreado_by = FrontUser.Get().EmailUtepsa;
+                rol.sCreado_by = FrontUser.Get().usr_login;
                 rol.iConcurrencia_id += 1;
 
                 if (ModelState.IsValid)
@@ -164,7 +164,7 @@ namespace SIGAA.Controllers
                     Rol rol = db.Rol.Find(id);
                     rol.iEstado_fl = false;
                     rol.iEliminado_fl = 2;
-                    rol.sCreado_by = FrontUser.Get().EmailUtepsa;
+                    rol.sCreado_by = FrontUser.Get().usr_login;
                     rol.iConcurrencia_id += 1;
 
                     db.Entry(rol).State = EntityState.Modified;

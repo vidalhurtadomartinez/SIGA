@@ -1,97 +1,84 @@
-D:\ParaVersionar\SIGAA V2\SIGAA\bin\roslyn\csc.exe
-D:\ParaVersionar\SIGAA V2\SIGAA\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
-D:\ParaVersionar\SIGAA V2\SIGAA\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
-D:\ParaVersionar\SIGAA V2\SIGAA\bin\roslyn\Microsoft.CodeAnalysis.dll
-D:\ParaVersionar\SIGAA V2\SIGAA\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
-D:\ParaVersionar\SIGAA V2\SIGAA\bin\roslyn\Microsoft.CSharp.Core.targets
-D:\ParaVersionar\SIGAA V2\SIGAA\bin\roslyn\Microsoft.VisualBasic.Core.targets
-D:\ParaVersionar\SIGAA V2\SIGAA\bin\roslyn\System.Collections.Immutable.dll
-D:\ParaVersionar\SIGAA V2\SIGAA\bin\roslyn\System.Reflection.Metadata.dll
-D:\ParaVersionar\SIGAA V2\SIGAA\bin\roslyn\vbc.exe
-D:\ParaVersionar\SIGAA V2\SIGAA\bin\roslyn\VBCSCompiler.exe
-D:\ParaVersionar\SIGAA V2\SIGAA\bin\roslyn\VBCSCompiler.exe.config
-D:\ParaVersionar\SIGAA V2\SIGAA\bin\SIGAA.dll.config
-D:\ParaVersionar\SIGAA V2\SIGAA\bin\SIGAA.dll
-D:\ParaVersionar\SIGAA V2\SIGAA\bin\SIGAA.pdb
-D:\ParaVersionar\SIGAA V2\SIGAA\bin\Antlr3.Runtime.dll
-D:\ParaVersionar\SIGAA V2\SIGAA\bin\CrystalDecisions.CrystalReports.Engine.dll
-D:\ParaVersionar\SIGAA V2\SIGAA\bin\CrystalDecisions.ReportSource.dll
-D:\ParaVersionar\SIGAA V2\SIGAA\bin\CrystalDecisions.Shared.dll
-D:\ParaVersionar\SIGAA V2\SIGAA\bin\DocX.dll
-D:\ParaVersionar\SIGAA V2\SIGAA\bin\EntityFramework.dll
-D:\ParaVersionar\SIGAA V2\SIGAA\bin\EntityFramework.SqlServer.dll
-D:\ParaVersionar\SIGAA V2\SIGAA\bin\Helper.dll
-D:\ParaVersionar\SIGAA V2\SIGAA\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
-D:\ParaVersionar\SIGAA V2\SIGAA\bin\Microsoft.Web.Infrastructure.dll
-D:\ParaVersionar\SIGAA V2\SIGAA\bin\MvcFlash.Core.dll
-D:\ParaVersionar\SIGAA V2\SIGAA\bin\Newtonsoft.Json.dll
-D:\ParaVersionar\SIGAA V2\SIGAA\bin\ReportFollowUp.dll
-D:\ParaVersionar\SIGAA V2\SIGAA\bin\System.Net.Http.Formatting.dll
-D:\ParaVersionar\SIGAA V2\SIGAA\bin\System.Web.Helpers.dll
-D:\ParaVersionar\SIGAA V2\SIGAA\bin\System.Web.Http.dll
-D:\ParaVersionar\SIGAA V2\SIGAA\bin\System.Web.Http.WebHost.dll
-D:\ParaVersionar\SIGAA V2\SIGAA\bin\System.Web.Mvc.dll
-D:\ParaVersionar\SIGAA V2\SIGAA\bin\System.Web.Optimization.dll
-D:\ParaVersionar\SIGAA V2\SIGAA\bin\System.Web.Razor.dll
-D:\ParaVersionar\SIGAA V2\SIGAA\bin\System.Web.WebPages.Deployment.dll
-D:\ParaVersionar\SIGAA V2\SIGAA\bin\System.Web.WebPages.dll
-D:\ParaVersionar\SIGAA V2\SIGAA\bin\System.Web.WebPages.Razor.dll
-D:\ParaVersionar\SIGAA V2\SIGAA\bin\Utilitario.dll
-D:\ParaVersionar\SIGAA V2\SIGAA\bin\WebGrease.dll
-D:\ParaVersionar\SIGAA V2\SIGAA\bin\CrystalDecisions.ReportAppServer.DataDefModel.dll
-D:\ParaVersionar\SIGAA V2\SIGAA\bin\CrystalDecisions.ReportAppServer.ClientDoc.dll
-D:\ParaVersionar\SIGAA V2\SIGAA\bin\CrystalDecisions.ReportAppServer.ReportDefModel.dll
-D:\ParaVersionar\SIGAA V2\SIGAA\bin\CrystalDecisions.ReportAppServer.Controllers.dll
-D:\ParaVersionar\SIGAA V2\SIGAA\bin\CrystalDecisions.ReportAppServer.CommLayer.dll
-D:\ParaVersionar\SIGAA V2\SIGAA\bin\CrystalDecisions.ReportAppServer.DataSetConversion.dll
-D:\ParaVersionar\SIGAA V2\SIGAA\bin\CrystalDecisions.ReportAppServer.Prompting.dll
-D:\ParaVersionar\SIGAA V2\SIGAA\bin\CrystalDecisions.ReportAppServer.XmlSerialize.dll
-D:\ParaVersionar\SIGAA V2\SIGAA\bin\CrystalDecisions.ReportAppServer.CubeDefModel.dll
-D:\ParaVersionar\SIGAA V2\SIGAA\bin\CrystalDecisions.ReportAppServer.CommonObjectModel.dll
-D:\ParaVersionar\SIGAA V2\SIGAA\bin\CrystalDecisions.ReportAppServer.ObjectFactory.dll
-D:\ParaVersionar\SIGAA V2\SIGAA\bin\CrystalDecisions.ReportAppServer.CommonControls.dll
-D:\ParaVersionar\SIGAA V2\SIGAA\bin\stdole.dll
-D:\ParaVersionar\SIGAA V2\SIGAA\bin\Helper.pdb
-D:\ParaVersionar\SIGAA V2\SIGAA\bin\ReportFollowUp.pdb
-D:\ParaVersionar\SIGAA V2\SIGAA\bin\Utilitario.pdb
-D:\ParaVersionar\SIGAA V2\SIGAA\bin\EntityFramework.xml
-D:\ParaVersionar\SIGAA V2\SIGAA\bin\EntityFramework.SqlServer.xml
-D:\ParaVersionar\SIGAA V2\SIGAA\bin\Kendo.Mvc.xml
-D:\ParaVersionar\SIGAA V2\SIGAA\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-D:\ParaVersionar\SIGAA V2\SIGAA\bin\System.Net.Http.Formatting.xml
-D:\ParaVersionar\SIGAA V2\SIGAA\bin\System.Web.Http.xml
-D:\ParaVersionar\SIGAA V2\SIGAA\bin\System.Web.Http.WebHost.xml
-D:\ParaVersionar\SIGAA V2\SIGAA\bin\System.Web.Helpers.xml
-D:\ParaVersionar\SIGAA V2\SIGAA\bin\System.Web.Mvc.xml
-D:\ParaVersionar\SIGAA V2\SIGAA\bin\System.Web.Optimization.xml
-D:\ParaVersionar\SIGAA V2\SIGAA\bin\System.Web.Razor.xml
-D:\ParaVersionar\SIGAA V2\SIGAA\bin\System.Web.WebPages.xml
-D:\ParaVersionar\SIGAA V2\SIGAA\bin\System.Web.WebPages.Deployment.xml
-D:\ParaVersionar\SIGAA V2\SIGAA\bin\System.Web.WebPages.Razor.xml
-D:\ParaVersionar\SIGAA V2\SIGAA\bin\Telerik.Reporting.pdb
-D:\ParaVersionar\SIGAA V2\SIGAA\bin\Telerik.Reporting.xml
-D:\ParaVersionar\SIGAA V2\SIGAA\bin\Telerik.Reporting.Service.pdb
-D:\ParaVersionar\SIGAA V2\SIGAA\bin\Telerik.Reporting.Service.xml
-D:\ParaVersionar\SIGAA V2\SIGAA\bin\Telerik.Reporting.Services.WebApi.pdb
-D:\ParaVersionar\SIGAA V2\SIGAA\bin\Telerik.Reporting.Services.WebApi.xml
-D:\ParaVersionar\SIGAA V2\SIGAA\bin\Telerik.Reporting.XpsRendering.pdb
-D:\ParaVersionar\SIGAA V2\SIGAA\bin\Telerik.Reporting.XpsRendering.xml
-D:\ParaVersionar\SIGAA V2\SIGAA\bin\Telerik.ReportViewer.Html5.WebForms.pdb
-D:\ParaVersionar\SIGAA V2\SIGAA\bin\Telerik.ReportViewer.Html5.WebForms.xml
-D:\ParaVersionar\SIGAA V2\SIGAA\bin\Telerik.ReportViewer.Mvc.pdb
-D:\ParaVersionar\SIGAA V2\SIGAA\bin\Telerik.ReportViewer.Mvc.xml
-D:\ParaVersionar\SIGAA V2\SIGAA\bin\Telerik.ReportViewer.WebForms.pdb
-D:\ParaVersionar\SIGAA V2\SIGAA\bin\Telerik.ReportViewer.WebForms.xml
-D:\ParaVersionar\SIGAA V2\SIGAA\bin\Antlr3.Runtime.pdb
-D:\ParaVersionar\SIGAA V2\SIGAA\bin\Newtonsoft.Json.xml
-D:\ParaVersionar\SIGAA V2\SIGAA\bin\es-ES\ReportFollowUp.resources.dll
-D:\ParaVersionar\SIGAA V2\SIGAA\bin\es-ES\Kendo.Mvc.resources.dll
-D:\ParaVersionar\SIGAA V2\SIGAA\bin\es\System.Web.Helpers.resources.dll
-D:\ParaVersionar\SIGAA V2\SIGAA\bin\es\System.Web.Mvc.resources.dll
-D:\ParaVersionar\SIGAA V2\SIGAA\bin\es\System.Web.Optimization.resources.dll
-D:\ParaVersionar\SIGAA V2\SIGAA\bin\es\System.Web.Razor.resources.dll
-D:\ParaVersionar\SIGAA V2\SIGAA\bin\es\System.Web.WebPages.resources.dll
-D:\ParaVersionar\SIGAA V2\SIGAA\bin\es\System.Web.WebPages.Deployment.resources.dll
-D:\ParaVersionar\SIGAA V2\SIGAA\bin\es\System.Web.WebPages.Razor.resources.dll
-D:\ParaVersionar\SIGAA V2\SIGAA\obj\Debug\SIGAA.dll
-D:\ParaVersionar\SIGAA V2\SIGAA\obj\Debug\SIGAA.pdb
+D:\MAPIRISOFT\MapitiSoft\MODULOS_UTEPSA\REPOSITORIO\MP-SIGA\SIGAA\bin\roslyn\csc.exe
+D:\MAPIRISOFT\MapitiSoft\MODULOS_UTEPSA\REPOSITORIO\MP-SIGA\SIGAA\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\MAPIRISOFT\MapitiSoft\MODULOS_UTEPSA\REPOSITORIO\MP-SIGA\SIGAA\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\MAPIRISOFT\MapitiSoft\MODULOS_UTEPSA\REPOSITORIO\MP-SIGA\SIGAA\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\MAPIRISOFT\MapitiSoft\MODULOS_UTEPSA\REPOSITORIO\MP-SIGA\SIGAA\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\MAPIRISOFT\MapitiSoft\MODULOS_UTEPSA\REPOSITORIO\MP-SIGA\SIGAA\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\MAPIRISOFT\MapitiSoft\MODULOS_UTEPSA\REPOSITORIO\MP-SIGA\SIGAA\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\MAPIRISOFT\MapitiSoft\MODULOS_UTEPSA\REPOSITORIO\MP-SIGA\SIGAA\bin\roslyn\System.Collections.Immutable.dll
+D:\MAPIRISOFT\MapitiSoft\MODULOS_UTEPSA\REPOSITORIO\MP-SIGA\SIGAA\bin\roslyn\System.Reflection.Metadata.dll
+D:\MAPIRISOFT\MapitiSoft\MODULOS_UTEPSA\REPOSITORIO\MP-SIGA\SIGAA\bin\roslyn\vbc.exe
+D:\MAPIRISOFT\MapitiSoft\MODULOS_UTEPSA\REPOSITORIO\MP-SIGA\SIGAA\bin\roslyn\VBCSCompiler.exe
+D:\MAPIRISOFT\MapitiSoft\MODULOS_UTEPSA\REPOSITORIO\MP-SIGA\SIGAA\bin\roslyn\VBCSCompiler.exe.config
+D:\MAPIRISOFT\MapitiSoft\MODULOS_UTEPSA\REPOSITORIO\MP-SIGA\SIGAA\bin\SIGAA.dll.config
+D:\MAPIRISOFT\MapitiSoft\MODULOS_UTEPSA\REPOSITORIO\MP-SIGA\SIGAA\bin\SIGAA.dll
+D:\MAPIRISOFT\MapitiSoft\MODULOS_UTEPSA\REPOSITORIO\MP-SIGA\SIGAA\bin\SIGAA.pdb
+D:\MAPIRISOFT\MapitiSoft\MODULOS_UTEPSA\REPOSITORIO\MP-SIGA\SIGAA\bin\Antlr3.Runtime.dll
+D:\MAPIRISOFT\MapitiSoft\MODULOS_UTEPSA\REPOSITORIO\MP-SIGA\SIGAA\bin\ConvalidacionesReports.dll
+D:\MAPIRISOFT\MapitiSoft\MODULOS_UTEPSA\REPOSITORIO\MP-SIGA\SIGAA\bin\CrystalDecisions.CrystalReports.Engine.dll
+D:\MAPIRISOFT\MapitiSoft\MODULOS_UTEPSA\REPOSITORIO\MP-SIGA\SIGAA\bin\CrystalDecisions.ReportSource.dll
+D:\MAPIRISOFT\MapitiSoft\MODULOS_UTEPSA\REPOSITORIO\MP-SIGA\SIGAA\bin\CrystalDecisions.Shared.dll
+D:\MAPIRISOFT\MapitiSoft\MODULOS_UTEPSA\REPOSITORIO\MP-SIGA\SIGAA\bin\DocX.dll
+D:\MAPIRISOFT\MapitiSoft\MODULOS_UTEPSA\REPOSITORIO\MP-SIGA\SIGAA\bin\EntityFramework.dll
+D:\MAPIRISOFT\MapitiSoft\MODULOS_UTEPSA\REPOSITORIO\MP-SIGA\SIGAA\bin\EntityFramework.SqlServer.dll
+D:\MAPIRISOFT\MapitiSoft\MODULOS_UTEPSA\REPOSITORIO\MP-SIGA\SIGAA\bin\Helper.dll
+D:\MAPIRISOFT\MapitiSoft\MODULOS_UTEPSA\REPOSITORIO\MP-SIGA\SIGAA\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\MAPIRISOFT\MapitiSoft\MODULOS_UTEPSA\REPOSITORIO\MP-SIGA\SIGAA\bin\Microsoft.Web.Infrastructure.dll
+D:\MAPIRISOFT\MapitiSoft\MODULOS_UTEPSA\REPOSITORIO\MP-SIGA\SIGAA\bin\MvcFlash.Core.dll
+D:\MAPIRISOFT\MapitiSoft\MODULOS_UTEPSA\REPOSITORIO\MP-SIGA\SIGAA\bin\Newtonsoft.Json.dll
+D:\MAPIRISOFT\MapitiSoft\MODULOS_UTEPSA\REPOSITORIO\MP-SIGA\SIGAA\bin\ReportFollowUp.dll
+D:\MAPIRISOFT\MapitiSoft\MODULOS_UTEPSA\REPOSITORIO\MP-SIGA\SIGAA\bin\System.Net.Http.Formatting.dll
+D:\MAPIRISOFT\MapitiSoft\MODULOS_UTEPSA\REPOSITORIO\MP-SIGA\SIGAA\bin\System.Web.Helpers.dll
+D:\MAPIRISOFT\MapitiSoft\MODULOS_UTEPSA\REPOSITORIO\MP-SIGA\SIGAA\bin\System.Web.Http.dll
+D:\MAPIRISOFT\MapitiSoft\MODULOS_UTEPSA\REPOSITORIO\MP-SIGA\SIGAA\bin\System.Web.Http.WebHost.dll
+D:\MAPIRISOFT\MapitiSoft\MODULOS_UTEPSA\REPOSITORIO\MP-SIGA\SIGAA\bin\System.Web.Mvc.dll
+D:\MAPIRISOFT\MapitiSoft\MODULOS_UTEPSA\REPOSITORIO\MP-SIGA\SIGAA\bin\System.Web.Optimization.dll
+D:\MAPIRISOFT\MapitiSoft\MODULOS_UTEPSA\REPOSITORIO\MP-SIGA\SIGAA\bin\System.Web.Razor.dll
+D:\MAPIRISOFT\MapitiSoft\MODULOS_UTEPSA\REPOSITORIO\MP-SIGA\SIGAA\bin\System.Web.WebPages.Deployment.dll
+D:\MAPIRISOFT\MapitiSoft\MODULOS_UTEPSA\REPOSITORIO\MP-SIGA\SIGAA\bin\System.Web.WebPages.dll
+D:\MAPIRISOFT\MapitiSoft\MODULOS_UTEPSA\REPOSITORIO\MP-SIGA\SIGAA\bin\System.Web.WebPages.Razor.dll
+D:\MAPIRISOFT\MapitiSoft\MODULOS_UTEPSA\REPOSITORIO\MP-SIGA\SIGAA\bin\Utilitario.dll
+D:\MAPIRISOFT\MapitiSoft\MODULOS_UTEPSA\REPOSITORIO\MP-SIGA\SIGAA\bin\WebGrease.dll
+D:\MAPIRISOFT\MapitiSoft\MODULOS_UTEPSA\REPOSITORIO\MP-SIGA\SIGAA\bin\CrystalDecisions.ReportAppServer.DataDefModel.dll
+D:\MAPIRISOFT\MapitiSoft\MODULOS_UTEPSA\REPOSITORIO\MP-SIGA\SIGAA\bin\CrystalDecisions.ReportAppServer.ClientDoc.dll
+D:\MAPIRISOFT\MapitiSoft\MODULOS_UTEPSA\REPOSITORIO\MP-SIGA\SIGAA\bin\CrystalDecisions.ReportAppServer.ReportDefModel.dll
+D:\MAPIRISOFT\MapitiSoft\MODULOS_UTEPSA\REPOSITORIO\MP-SIGA\SIGAA\bin\CrystalDecisions.ReportAppServer.Controllers.dll
+D:\MAPIRISOFT\MapitiSoft\MODULOS_UTEPSA\REPOSITORIO\MP-SIGA\SIGAA\bin\CrystalDecisions.ReportAppServer.CommLayer.dll
+D:\MAPIRISOFT\MapitiSoft\MODULOS_UTEPSA\REPOSITORIO\MP-SIGA\SIGAA\bin\CrystalDecisions.ReportAppServer.DataSetConversion.dll
+D:\MAPIRISOFT\MapitiSoft\MODULOS_UTEPSA\REPOSITORIO\MP-SIGA\SIGAA\bin\CrystalDecisions.ReportAppServer.Prompting.dll
+D:\MAPIRISOFT\MapitiSoft\MODULOS_UTEPSA\REPOSITORIO\MP-SIGA\SIGAA\bin\CrystalDecisions.ReportAppServer.XmlSerialize.dll
+D:\MAPIRISOFT\MapitiSoft\MODULOS_UTEPSA\REPOSITORIO\MP-SIGA\SIGAA\bin\CrystalDecisions.ReportAppServer.CubeDefModel.dll
+D:\MAPIRISOFT\MapitiSoft\MODULOS_UTEPSA\REPOSITORIO\MP-SIGA\SIGAA\bin\CrystalDecisions.ReportAppServer.CommonObjectModel.dll
+D:\MAPIRISOFT\MapitiSoft\MODULOS_UTEPSA\REPOSITORIO\MP-SIGA\SIGAA\bin\CrystalDecisions.ReportAppServer.ObjectFactory.dll
+D:\MAPIRISOFT\MapitiSoft\MODULOS_UTEPSA\REPOSITORIO\MP-SIGA\SIGAA\bin\CrystalDecisions.ReportAppServer.CommonControls.dll
+D:\MAPIRISOFT\MapitiSoft\MODULOS_UTEPSA\REPOSITORIO\MP-SIGA\SIGAA\bin\stdole.dll
+D:\MAPIRISOFT\MapitiSoft\MODULOS_UTEPSA\REPOSITORIO\MP-SIGA\SIGAA\bin\ConvalidacionesReports.pdb
+D:\MAPIRISOFT\MapitiSoft\MODULOS_UTEPSA\REPOSITORIO\MP-SIGA\SIGAA\bin\Helper.pdb
+D:\MAPIRISOFT\MapitiSoft\MODULOS_UTEPSA\REPOSITORIO\MP-SIGA\SIGAA\bin\ReportFollowUp.pdb
+D:\MAPIRISOFT\MapitiSoft\MODULOS_UTEPSA\REPOSITORIO\MP-SIGA\SIGAA\bin\Utilitario.pdb
+D:\MAPIRISOFT\MapitiSoft\MODULOS_UTEPSA\REPOSITORIO\MP-SIGA\SIGAA\bin\EntityFramework.xml
+D:\MAPIRISOFT\MapitiSoft\MODULOS_UTEPSA\REPOSITORIO\MP-SIGA\SIGAA\bin\EntityFramework.SqlServer.xml
+D:\MAPIRISOFT\MapitiSoft\MODULOS_UTEPSA\REPOSITORIO\MP-SIGA\SIGAA\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\MAPIRISOFT\MapitiSoft\MODULOS_UTEPSA\REPOSITORIO\MP-SIGA\SIGAA\bin\System.Net.Http.Formatting.xml
+D:\MAPIRISOFT\MapitiSoft\MODULOS_UTEPSA\REPOSITORIO\MP-SIGA\SIGAA\bin\System.Web.Http.xml
+D:\MAPIRISOFT\MapitiSoft\MODULOS_UTEPSA\REPOSITORIO\MP-SIGA\SIGAA\bin\System.Web.Http.WebHost.xml
+D:\MAPIRISOFT\MapitiSoft\MODULOS_UTEPSA\REPOSITORIO\MP-SIGA\SIGAA\bin\System.Web.Helpers.xml
+D:\MAPIRISOFT\MapitiSoft\MODULOS_UTEPSA\REPOSITORIO\MP-SIGA\SIGAA\bin\System.Web.Mvc.xml
+D:\MAPIRISOFT\MapitiSoft\MODULOS_UTEPSA\REPOSITORIO\MP-SIGA\SIGAA\bin\System.Web.Optimization.xml
+D:\MAPIRISOFT\MapitiSoft\MODULOS_UTEPSA\REPOSITORIO\MP-SIGA\SIGAA\bin\System.Web.Razor.xml
+D:\MAPIRISOFT\MapitiSoft\MODULOS_UTEPSA\REPOSITORIO\MP-SIGA\SIGAA\bin\System.Web.WebPages.xml
+D:\MAPIRISOFT\MapitiSoft\MODULOS_UTEPSA\REPOSITORIO\MP-SIGA\SIGAA\bin\System.Web.WebPages.Deployment.xml
+D:\MAPIRISOFT\MapitiSoft\MODULOS_UTEPSA\REPOSITORIO\MP-SIGA\SIGAA\bin\System.Web.WebPages.Razor.xml
+D:\MAPIRISOFT\MapitiSoft\MODULOS_UTEPSA\REPOSITORIO\MP-SIGA\SIGAA\bin\Antlr3.Runtime.pdb
+D:\MAPIRISOFT\MapitiSoft\MODULOS_UTEPSA\REPOSITORIO\MP-SIGA\SIGAA\bin\Newtonsoft.Json.xml
+D:\MAPIRISOFT\MapitiSoft\MODULOS_UTEPSA\REPOSITORIO\MP-SIGA\SIGAA\bin\es-ES\ReportFollowUp.resources.dll
+D:\MAPIRISOFT\MapitiSoft\MODULOS_UTEPSA\REPOSITORIO\MP-SIGA\SIGAA\bin\es\System.Web.Helpers.resources.dll
+D:\MAPIRISOFT\MapitiSoft\MODULOS_UTEPSA\REPOSITORIO\MP-SIGA\SIGAA\bin\es\System.Web.Mvc.resources.dll
+D:\MAPIRISOFT\MapitiSoft\MODULOS_UTEPSA\REPOSITORIO\MP-SIGA\SIGAA\bin\es\System.Web.Optimization.resources.dll
+D:\MAPIRISOFT\MapitiSoft\MODULOS_UTEPSA\REPOSITORIO\MP-SIGA\SIGAA\bin\es\System.Web.Razor.resources.dll
+D:\MAPIRISOFT\MapitiSoft\MODULOS_UTEPSA\REPOSITORIO\MP-SIGA\SIGAA\bin\es\System.Web.WebPages.resources.dll
+D:\MAPIRISOFT\MapitiSoft\MODULOS_UTEPSA\REPOSITORIO\MP-SIGA\SIGAA\bin\es\System.Web.WebPages.Deployment.resources.dll
+D:\MAPIRISOFT\MapitiSoft\MODULOS_UTEPSA\REPOSITORIO\MP-SIGA\SIGAA\bin\es\System.Web.WebPages.Razor.resources.dll
+D:\MAPIRISOFT\MapitiSoft\MODULOS_UTEPSA\REPOSITORIO\MP-SIGA\SIGAA\obj\Debug\SIGAA.csprojResolveAssemblyReference.cache
+D:\MAPIRISOFT\MapitiSoft\MODULOS_UTEPSA\REPOSITORIO\MP-SIGA\SIGAA\obj\Debug\SIGAA.dll
+D:\MAPIRISOFT\MapitiSoft\MODULOS_UTEPSA\REPOSITORIO\MP-SIGA\SIGAA\obj\Debug\SIGAA.pdb

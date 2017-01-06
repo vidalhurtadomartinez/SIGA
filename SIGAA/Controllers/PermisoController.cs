@@ -66,18 +66,20 @@ namespace SIGAA.Controllers
         [Permiso(Permiso =RolesPermisos.SEGU_permiso_puedeCrearNuevo)]
         public ActionResult Create()
         {
+           // var prueba = ObtenerObjetoPermisoApartirDeUnaConstanteEnumRolesPermisos(RolesPermisos.EGRE_actaDeDefensaFinal_puedeCrearNuevo);
+            CargarDDlistPermisos(0);
             return View();
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "iPermiso_id,Modulo,Nemonico,Descripcion,iEstado_fl,iEliminado_fl,sCreado_by,iConcurrencia_id")] Permiso permiso)
+        public ActionResult Create([Bind(Include = "iPermiso_id,Modulo,Nemonico,Proceso,Descripcion,iEstado_fl,iEliminado_fl,sCreado_by,iConcurrencia_id")] Permiso permiso)
         {
             try
             {
                 permiso.iEstado_fl = true;
                 permiso.iEliminado_fl = 1;
-                permiso.sCreado_by = FrontUser.Get().EmailUtepsa;
+                permiso.sCreado_by = FrontUser.Get().usr_login;
                 permiso.iConcurrencia_id = 1;
 
                 if (ModelState.IsValid)
@@ -88,6 +90,7 @@ namespace SIGAA.Controllers
                     return RedirectToAction("Index");
                 }
                 Flash.Instance.Error("ERROR", "No se pudo guardar el dato porque ha ocurrido un error al validar el modelo, por favor verifique que los campos estén correctamente llenados.");
+                CargarDDlistPermisos(permiso.iPermiso_id);
                 return View(permiso);
             }
             catch (Exception ex)
@@ -110,17 +113,18 @@ namespace SIGAA.Controllers
             {
                 return HttpNotFound();
             }
+            CargarDDlistPermisos(id);
             return View(permiso);
         }
  
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "iPermiso_id,Modulo,Nemonico,Descripcion,iEstado_fl,iEliminado_fl,sCreado_by,iConcurrencia_id")] Permiso permiso)
+        public ActionResult Edit([Bind(Include = "iPermiso_id,Modulo,Nemonico,Proceso,Descripcion,iEstado_fl,iEliminado_fl,sCreado_by,iConcurrencia_id")] Permiso permiso)
         {
             try
             {
                 permiso.iEliminado_fl = 1;
-                permiso.sCreado_by = FrontUser.Get().EmailUtepsa;
+                permiso.sCreado_by = FrontUser.Get().usr_login;
                 permiso.iConcurrencia_id += 1;
 
                 if (ModelState.IsValid)
@@ -131,6 +135,7 @@ namespace SIGAA.Controllers
                     return RedirectToAction("Index");
                 }
                 Flash.Instance.Error("ERROR", "No se pudo Modificar el dato porque ha ocurrido un error al validar el modelo, por favor verifique que los campos estén correctamente llenados.");
+                CargarDDlistPermisos(permiso.iPermiso_id);
                 return View(permiso);
             }
             catch (Exception ex)
@@ -163,10 +168,10 @@ namespace SIGAA.Controllers
             {
                 try
                 {
-                    Permiso permiso = db.Permiso.Find((int)id);
+                    Permiso permiso = db.Permiso.Find(id);
                     permiso.iEstado_fl = false;
                     permiso.iEliminado_fl = 2;
-                    permiso.sCreado_by = FrontUser.Get().EmailUtepsa;
+                    permiso.sCreado_by = FrontUser.Get().usr_login;
                     permiso.iConcurrencia_id += 1;
 
                     db.Entry(permiso).State = EntityState.Modified;
@@ -186,6 +191,94 @@ namespace SIGAA.Controllers
                 }
             }
         }
+
+        private void CargarDDlistPermisos(RolesPermisos selecionado = 0) {
+            var permisoBD = db.Permiso.Select(p => p.iPermiso_id).Cast<RolesPermisos>().ToList();
+            var permisoEnum = Enum.GetValues(typeof(RolesPermisos)).Cast<RolesPermisos>().ToList();
+
+            var permisosNoEnBD = (from perE in permisoEnum
+                                  where !permisoBD.Any(m => m.Equals(perE))
+                                  select new { id= (int)perE,nombre= perE.ToString()}).ToList();
+            if (selecionado > 0) {
+                permisosNoEnBD.Add( new {
+                                         id = (int)(RolesPermisos)Enum.ToObject(typeof(RolesPermisos), selecionado),
+                                         nombre = ((RolesPermisos)Enum.ToObject(typeof(RolesPermisos), selecionado)).ToString()
+                                        });
+            }
+            ViewBag.iPermiso_id = selecionado >0? new SelectList(permisosNoEnBD,"id","nombre",selecionado): new SelectList(permisosNoEnBD,"id","nombre");
+        }
+
+        public ActionResult TraerInformacionDePermiso_json(int rolPermiso_id)
+        {
+            var rolPermisoEnum = (RolesPermisos)Enum.ToObject(typeof(RolesPermisos), rolPermiso_id);
+            var result = ObtenerObjetoPermisoApartirDeUnaConstanteEnumRolesPermisos(rolPermisoEnum);
+            return Json(result, JsonRequestBehavior.AllowGet);
+        }
+
+        private Permiso ObtenerObjetoPermisoApartirDeUnaConstanteEnumRolesPermisos(RolesPermisos rolpermiso) {
+            Permiso permiso = new Permiso();
+            String nombreCompleto = Enum.GetName(typeof(RolesPermisos), rolpermiso);
+            String[] palabras = nombreCompleto.Split('_');
+            String modulo="";
+            String nemonico="";
+            String proceso="";
+            String metodoDeAccion="";
+
+            for (int i = 0; i < palabras.Length; i++)
+            {
+                switch (i)
+                {
+                    case 0:
+                        nemonico = palabras[i].Trim();
+                        break;
+                    case 1:
+                        proceso = palabras[i].Trim();
+                        break;
+                    case 2:
+                        metodoDeAccion = palabras[i].Trim();
+                        break;
+                }
+            }
+
+            modulo = ObtenerNombreModuloConNemonico(nemonico);
+
+            permiso.Descripcion = nombreCompleto;
+           // permiso.Descripcion = metodoDeAccion;
+            permiso.iConcurrencia_id = 1;
+            permiso.iEliminado_fl = 1;
+            permiso.iEstado_fl = true;
+            permiso.iPermiso_id = 0;
+            permiso.Modulo = modulo;
+            permiso.Nemonico = nemonico;
+            permiso.Proceso = proceso;
+            permiso.sCreado_by = FrontUser.Get().usr_login;
+
+            return permiso;
+        }
+
+        private String ObtenerNombreModuloConNemonico(String nemonico) {
+            Permiso permiso = db.Permiso.Where(p => p.Nemonico.Equals(nemonico)).FirstOrDefault();
+            String nombreModulo = permiso != null ? permiso.Modulo : "";
+            return nombreModulo;
+        }
+
+        //private String SepararPalablasPorLetraMayuscula(String palablasJuntas)
+        //{
+        //    //var string cadenaResultado;
+        //    //var letras_mayusculas = "ABCDEFGHYJKLMNÑOPQRSTUVWXYZ";
+        //    //for (int i = 0; i < palablasJuntas.Length; i++)
+        //    //    {
+        //    //        if (letras_mayusculas.IndexOf(palablasJuntas.ElementAt(i), 0) != -1)
+        //    //        {
+        //    //            return 1;
+        //    //        }
+        //    //    }
+
+
+        //    //var res = palablasJuntas.CompareTo()
+        //    //String nombreModulo = permiso != null ? permiso.Modulo : "";
+        //    //return nombreModulo;
+        //}
 
         protected override void Dispose(bool disposing)
         {

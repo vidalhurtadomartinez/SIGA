@@ -52,10 +52,10 @@ namespace SIGAA.Areas.EGRE.Controllers
         {
             var salas = db.Salas.Where(p => p.iEliminado_fl == 1).ToList();
             var salasFiltradas = salas.Where(p => criterio == null ||
-                                             p.sNombre_nm.ToLower().Contains(criterio.ToLower()) ||
-                                             p.sUbicacion_desc.ToLower().Contains(criterio.ToLower()) ||
-                                             p.sTelefono_desc.ToLower().Contains(criterio.ToLower()) ||
-                                             p.sEncargado_nm.ToLower().Contains(criterio.ToLower())
+                                             p.sNombre_nm.ToLower().Contains(criterio.ToLower()) 
+                                             //p.sUbicacion_desc.ToLower().Contains(criterio.ToLower()) ||
+                                             //p.sTelefono_desc.ToLower().Contains(criterio.ToLower()) ||
+                                             //p.sEncargado_nm.ToLower().Contains(criterio.ToLower())
                                              ).ToList();
             var salasFiltradasOrdenadas = salasFiltradas.OrderBy(ef => ef.sNombre_nm);
 
@@ -106,7 +106,7 @@ namespace SIGAA.Areas.EGRE.Controllers
             {
                 Sala.iEstado_fl = true;
                 Sala.iEliminado_fl = 1;
-                Sala.sCreado_by = FrontUser.Get().EmailUtepsa;
+                Sala.sCreado_by = FrontUser.Get().usr_login;
                 Sala.iConcurrencia_id = 1;
 
                 if (ModelState.IsValid)
@@ -149,7 +149,7 @@ namespace SIGAA.Areas.EGRE.Controllers
             try
             {
                 Sala.iEliminado_fl = 1;
-                Sala.sCreado_by = FrontUser.Get().EmailUtepsa;
+                Sala.sCreado_by = FrontUser.Get().usr_login;
                 Sala.iConcurrencia_id += 1;
 
                 if (ModelState.IsValid)
@@ -196,7 +196,7 @@ namespace SIGAA.Areas.EGRE.Controllers
                     gatbl_Salas Sala = db.Salas.Find(id);
                     Sala.iEstado_fl = false;
                     Sala.iEliminado_fl = 5;
-                    Sala.sCreado_by = FrontUser.Get().EmailUtepsa;
+                    Sala.sCreado_by = FrontUser.Get().usr_login;
                     Sala.iConcurrencia_id += 5;
 
                     db.Entry(Sala).State = EntityState.Modified;

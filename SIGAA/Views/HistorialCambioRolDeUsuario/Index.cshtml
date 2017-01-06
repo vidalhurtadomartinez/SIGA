@@ -1,0 +1,27 @@
+﻿@model IEnumerable<SIGAA.Models.HistorialCambioRolDeUsuario>
+
+@{
+    ViewBag.Title = "Index";
+}
+<h3><b>INDICE :</b> Historial de cambio Rol de Usuarios</h3>
+<hr />
+<div class="row">
+    <div class="col-md-6">
+        <div class="text-left">
+        </div>
+    </div>
+    <div class="col-md-6">
+        @using (Ajax.BeginForm(new AjaxOptions { HttpMethod = "GET", InsertionMode = InsertionMode.Replace, UpdateTargetId = "listaHistorialCambioRolDeUsuarios" }))
+        {
+            <div class="col-md-6 col-md-offset-6">
+                <div class="input-group">
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span>
+                    <input type="text" class="form-control" placeholder="Buscar" name="criterio" autofocus>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+<br />
+
+@Html.Partial("_Index")

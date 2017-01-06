@@ -91,7 +91,7 @@ namespace SIGAA.Areas.EGRE.Controllers
                 }
                 ComunicacionExt.iEstado_fl = true;
                 ComunicacionExt.iEliminado_fl = 1;
-                ComunicacionExt.sCreado_by = FrontUser.Get().EmailUtepsa;
+                ComunicacionExt.sCreado_by = FrontUser.Get().usr_login;
                 ComunicacionExt.iConcurrencia_id = 1;
 
                 if (ModelState.IsValid)
@@ -142,7 +142,7 @@ namespace SIGAA.Areas.EGRE.Controllers
                 }
 
                 ComunicacionExt.iEliminado_fl = 1;
-                ComunicacionExt.sCreado_by = FrontUser.Get().EmailUtepsa;
+                ComunicacionExt.sCreado_by = FrontUser.Get().usr_login;
                 ComunicacionExt.iConcurrencia_id += 1;
 
                 if (ModelState.IsValid)
@@ -192,7 +192,7 @@ namespace SIGAA.Areas.EGRE.Controllers
                     gatbl_ComunicacionExtUnivPublica ComunicacionExt = db.ComExternasUniversidadesPublicas.Find(id);
                     ComunicacionExt.iEstado_fl = false;
                     ComunicacionExt.iEliminado_fl = 2;
-                    ComunicacionExt.sCreado_by = FrontUser.Get().EmailUtepsa;
+                    ComunicacionExt.sCreado_by = FrontUser.Get().usr_login;
                     ComunicacionExt.iConcurrencia_id += 1;
 
                     db.Entry(ComunicacionExt).State = EntityState.Modified;

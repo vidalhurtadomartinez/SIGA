@@ -75,7 +75,7 @@ namespace SIGAA.Areas.EGRE.Controllers
             {
                 AreaAdministrativa.iEstado_fl = true;
                 AreaAdministrativa.iEliminado_fl = 1;
-                AreaAdministrativa.sCreado_by = FrontUser.Get().EmailUtepsa;
+                AreaAdministrativa.sCreado_by = FrontUser.Get().usr_login;
                 AreaAdministrativa.iConcurrencia_id = 1;
                 if (ModelState.IsValid)
                 {
@@ -116,7 +116,7 @@ namespace SIGAA.Areas.EGRE.Controllers
             try
             {
                 AreaAdministrativa.iEliminado_fl = 1;
-                AreaAdministrativa.sCreado_by = FrontUser.Get().EmailUtepsa;
+                AreaAdministrativa.sCreado_by = FrontUser.Get().usr_login;
                 AreaAdministrativa.iConcurrencia_id += 1;
 
                 if (ModelState.IsValid)
@@ -163,7 +163,7 @@ namespace SIGAA.Areas.EGRE.Controllers
                     gatbl_AreasAdministrativas AreaAdministrativa = db.AreasAdministrativas.Find(id);
                     AreaAdministrativa.iEstado_fl = false;
                     AreaAdministrativa.iEliminado_fl = 2;
-                    AreaAdministrativa.sCreado_by = FrontUser.Get().EmailUtepsa;
+                    AreaAdministrativa.sCreado_by = FrontUser.Get().usr_login;
                     AreaAdministrativa.iConcurrencia_id += 1;
 
                     db.Entry(AreaAdministrativa).State = EntityState.Modified;
