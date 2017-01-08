@@ -12,7 +12,7 @@ namespace SIGAA.Areas.EGRE.Models
     {
         [Display(Name = "Fecha defensa final programada")]
         [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         public DateTime dtDProgramada_dt { get; set; }
         public string NombreCompleto { get; set; }
         public string Carrera { get; set; }

@@ -40,7 +40,7 @@ namespace SIGAA.Areas.EGRE.Models
 
         [Required(ErrorMessage = "El campo {0} es requerido.")]
         [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         [Display(Name = "Fecha recepción")]
         public DateTime dtRecepcion_dt { get; set; } //Fecha en que  se recepciona la entrega de revision hecha por el tribunal.
 

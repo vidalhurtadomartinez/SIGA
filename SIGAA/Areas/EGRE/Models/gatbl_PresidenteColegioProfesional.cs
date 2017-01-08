@@ -32,13 +32,13 @@ namespace SIGAA.Areas.EGRE.Models
         [Required(ErrorMessage = "El campo {0} es requerido.")]
         [Display(Name = "Fecha inicio del cargo.")]
         [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         public DateTime dtFefhaInicioCargo_dt { get; set; }
 
         [Required(ErrorMessage = "El campo {0} es requerido.")]
         [Display(Name = "Fecha fin al cargo.")]
         [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         public DateTime dtFechaFinCargo_dt { get; set; }
 
 

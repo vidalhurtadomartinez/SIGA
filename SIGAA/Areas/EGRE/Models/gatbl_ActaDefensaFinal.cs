@@ -47,24 +47,24 @@ namespace SIGAA.Areas.EGRE.Models
 
         [Display(Name = "Fecha sorteo")]
         [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
         public DateTime dtSorteo_dt { get; set; }
         
         [Display(Name = "Hora sorteo")]
         [DataType(DataType.Time)]
-        [DisplayFormat(DataFormatString = "{0:hh:mm}", ApplyFormatInEditMode = true)]
+        [DisplayFormat(DataFormatString = "{0:HH:mm tt tt}", ApplyFormatInEditMode = true)]
         public DateTime dtHora_dt { get; set; }
 
         [Required(ErrorMessage = "El campo {0} es requerido.")]
         [Display(Name = "Fecha defensa")]
         [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
         public DateTime dtDefensa_dt { get; set; }
 
         [Required(ErrorMessage = "El campo {0} es requerido.")]
         [Display(Name = "Hora defensa")]
         [DataType(DataType.Time)]
-        [DisplayFormat(DataFormatString = "{0:hh:mm}", ApplyFormatInEditMode = true)]
+        [DisplayFormat(DataFormatString = "{0:HH:mm tt tt}", ApplyFormatInEditMode = true)]
         public DateTime dtHoraDefensa_dt { get; set; }
 
         [Required(ErrorMessage = "El campo {0} es requerido.")]
@@ -75,13 +75,13 @@ namespace SIGAA.Areas.EGRE.Models
         [Required(ErrorMessage = "El campo {0} es requerido.")]
         [Display(Name = "Fecha Finalización")]
         [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
         public DateTime dtFinalizacionDefensa_dt { get; set; }
 
         [Required(ErrorMessage = "El campo {0} es requerido.")]
         [Display(Name = "Hora finalización")]
         [DataType(DataType.Time)]
-        [DisplayFormat(DataFormatString = "{0:hh:mm}", ApplyFormatInEditMode = true)]
+        [DisplayFormat(DataFormatString = "{0:HH:mm tt tt}", ApplyFormatInEditMode = true)]
         public DateTime dtHoraFinalizacion_dt { get; set; }
 
         [Required(ErrorMessage = "El campo {0} es requerido.")]

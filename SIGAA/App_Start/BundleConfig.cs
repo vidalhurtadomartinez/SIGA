@@ -64,6 +64,18 @@ namespace SIGAA
                 "~/Content/kendo/kendo.dataviz.bootstrap.min.css",
                 "~/Content/kendo/kendo.mobile.all.min.css"
                ));
+
+            bundles.Add(new ScriptBundle("~/bundles/datetimepikeBootstrap").Include(
+            "~/Scripts/moment.js",
+            "~/Scripts/moment-with-locales.min.js",
+            "~/Scripts/bootstrap-datetimepicker.min.js"
+               ));
+
+            bundles.Add(new StyleBundle("~/Content/datetimepikeBootstrap").Include(
+              "~/Content/bootstrap-datetimepicker.min.css"
+           ));
+
+
         }
     }
 }

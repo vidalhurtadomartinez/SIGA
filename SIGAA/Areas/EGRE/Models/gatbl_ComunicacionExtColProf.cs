@@ -46,31 +46,31 @@ namespace SIGAA.Areas.EGRE.Models
         [Required(ErrorMessage = "El campo {0} es requerido.")]
         [Display(Name = "Fecha comunicación")]
         [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         public DateTime dtComunicacionExt_dt { get; set; }
 
         [Required(ErrorMessage = "El campo {0} es requerido.")]
         [Display(Name = "Fecha Sorteo")]
         [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         public DateTime dtSorteo_dt { get; set; }
 
         [Required(ErrorMessage = "El campo {0} es requerido.")]
         [Display(Name = "Hora Sorteo")]
         [DataType(DataType.Time)]
-        [DisplayFormat(DataFormatString = "{0:hh:mm}", ApplyFormatInEditMode = true)]
+        [DisplayFormat(DataFormatString = "{0:HH:mm tt}", ApplyFormatInEditMode = true)]
         public DateTime dtHora_dt { get; set; }
 
         [Required(ErrorMessage = "El campo {0} es requerido.")]
         [Display(Name = "Fecha defensa")]
         [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         public DateTime dtDefensa_dt { get; set; }
 
         [Required(ErrorMessage = "El campo {0} es requerido.")]
         [Display(Name = "Hora defensa")]
         [DataType(DataType.Time)]
-        [DisplayFormat(DataFormatString = "{0:hh:mm}", ApplyFormatInEditMode = true)]
+        [DisplayFormat(DataFormatString = "{0:HH:mm tt}", ApplyFormatInEditMode = true)]
         public DateTime dtHoraDefensa_dt { get; set; }
 
         [Required(ErrorMessage = "El campo {0} es requerido.")]

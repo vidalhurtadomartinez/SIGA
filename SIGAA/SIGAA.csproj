@@ -677,7 +677,12 @@
     <Content Include="Areas\OYM\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Areas\OYM\Images\LogoUtepsaPlantilla.gif" />
     <Content Include="Areas\OYM\Scripts\kendo\cultures\kendo.culture.es-ES.min.js" />
+    <Content Include="Content\bootstrap-datetimepicker.css" />
+    <Content Include="Content\bootstrap-datetimepicker.min.css" />
     <Content Include="Content\bootstrap-theme - Copia.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\kendo\Bootstrap\editor.png" />
     <Content Include="Content\kendo\Bootstrap\imagebrowser.png" />
     <Content Include="Content\kendo\Bootstrap\indeterminate.gif" />
@@ -746,6 +751,7 @@
     <Content Include="Content\tmp\bootstrap.css" />
     <Content Include="Content\tmp\bootstrap.min.css" />
     <Content Include="Content\tmp\Site.css" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="ReportViewer\js\kendo.subset.2015.3.930.min.js" />
     <Content Include="ReportViewer\js\telerikReportViewer-10.0.16.113.min.js" />
     <Content Include="Areas\OYM\Scripts\bootstrap.js" />
@@ -981,7 +987,6 @@
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\jquery-ui.css" />
     <Content Include="favicon.ico" />
-    <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="ReportViewer\styles\kendo.blueopal.min.css" />
@@ -989,8 +994,9 @@
     <Content Include="ReportViewer\styles\telerikReportViewer.css" />
     <Content Include="ReportViewer\templates\telerikReportViewerTemplate-FA.html" />
     <Content Include="ReportViewer\templates\telerikReportViewerTemplate.html" />
+    <Content Include="Scripts\bootstrap-datetimepicker.js" />
+    <Content Include="Scripts\bootstrap-datetimepicker.min.js" />
     <Content Include="Scripts\bootstrap.js" />
-    <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Areas\EGRE\Views\web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -1392,8 +1398,15 @@
     <Content Include="Areas\OYM\Views\tblDocumentoPublicados\IndexByDirectory.cshtml" />
     <Content Include="Areas\OYM\Views\tblFormularioPublicados\FilterByDirectory.cshtml" />
     <Content Include="Areas\OYM\Views\tblFormularioPublicados\IndexByDirectory.cshtml" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="Properties\PublishProfiles\SeguimientoSIGAA.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\general\adjunta_DateTimePikeBootstrapEspanol.js" />
     <Content Include="Scripts\general\datePikerEspanol.js" />
     <Content Include="Scripts\general\marcaCamposRequeridos.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -1413,6 +1426,11 @@
     <Content Include="Scripts\kendo\kendo.culture.es-ES.min.js" />
     <Content Include="Scripts\kendo\kendo.modernizr.custom.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\moment-with-locales.js" />
+    <Content Include="Scripts\moment-with-locales.min.js" />
+    <Content Include="Scripts\moment.js" />
+    <Content Include="Scripts\moment.min.js" />
+    <Content Include="Scripts\npm.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
@@ -1483,9 +1501,6 @@
     <Folder Include="Areas\OYM\Adjunto\Formularios\Instructivos\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />

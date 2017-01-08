@@ -38,7 +38,7 @@ namespace SIGAA.Areas.EGRE.Models
         [Required(ErrorMessage = "El campo {0} es requerido.")]
         [Display(Name ="Fecha recepción")]
         [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         public DateTime dtEntrega_dt { get; set; }
 
 

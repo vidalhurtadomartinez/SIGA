@@ -37,7 +37,7 @@ namespace SIGAA.Models
 
         [Display(Name = "Fecha de Vigencia")]
         [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         public DateTime dtFechaVigencia { get; set; }
 
         [StringLength(500, ErrorMessage = "El campo {0} debe tener una longitud maxima de {1} caracteres.")]

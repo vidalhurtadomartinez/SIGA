@@ -11,6 +11,8 @@
     @Scripts.Render("~/bundles/jqueryval")
     @Scripts.Render("~/bundles/modernizr")
 
+    @Scripts.Render("~/bundles/datetimepikeBootstrap")
+    @Styles.Render("~/Content/datetimepikeBootstrap")
 
 </head>
 <body>
@@ -106,6 +108,7 @@
 
 
     @Scripts.Render("~/bundles/bootstrap") @*js del bootstrap*@
+    <script src="~/Scripts/general/adjunta_DateTimePikeBootstrapEspanol.js"></script>
     @RenderSection("scripts", required: false)
 
 </body>
