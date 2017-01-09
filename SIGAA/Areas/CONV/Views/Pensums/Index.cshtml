@@ -10,6 +10,7 @@
     .Name("grid")
     .Columns(columns =>
     {
+        
         columns.Template(@<text></text>).ClientTemplate(
                                 "<a class='k-button k-button-icon' href='" + Url.Action("Edit", "Pensums") + "/#=lPensum_id#' title='Editar'><span class='k-icon k-edit'> </span></a>" +
                                  "<a class='k-button k-button-icon' href='" + Url.Action("Details", "Pensums") + "/#=lPensum_id#' title='Ver'><span class='k-icon k-i-search'> </span></a>" +

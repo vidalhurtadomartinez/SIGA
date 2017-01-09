@@ -7,19 +7,23 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using SIGAA.Areas.CONV.Models;
+using SIGAA.Etiquetas;
+using SIGAA.Commons;
+
 namespace SIGAA.Areas.CONV.Controllers
 {
+    [Autenticado]
     public class DepartamentosController : Controller
     {
         private ConvalidacionesContext db = new ConvalidacionesContext();
 
-        // GET: Departamentos
+        [Permiso(Permiso = RolesPermisos.CONV_Departamentos_VerListado)]
         public ActionResult Index()
         {
             return View(db.Departamentos.ToList());
         }
 
-        // GET: Departamentos/Details/5
+        [Permiso(Permiso =RolesPermisos.CONV_Departamentos_VerDetalle)]
         public ActionResult Details(string id)
         {
             if (id == null)
@@ -34,7 +38,7 @@ namespace SIGAA.Areas.CONV.Controllers
             return View(departamento);
         }
 
-        // GET: Departamentos/Create
+        [Permiso(Permiso = RolesPermisos.CONV_Departamentos_CrearNuevo)]
         public ActionResult Create()
         {
             return View(new Departamento() { bActivo = true });
@@ -57,7 +61,7 @@ namespace SIGAA.Areas.CONV.Controllers
             return View(departamento);
         }
 
-        // GET: Departamentos/Edit/5
+        [Permiso(Permiso = RolesPermisos.CONV_Departamentos_Editar)]
         public ActionResult Edit(string id)
         {
             if (id == null)
@@ -88,7 +92,7 @@ namespace SIGAA.Areas.CONV.Controllers
             return View(departamento);
         }
 
-        // GET: Departamentos/Delete/5
+        [Permiso(Permiso = RolesPermisos.CONV_Departamentos_Eliminar)]
         public ActionResult Delete(string id)
         {
             if (id == null)

@@ -5,10 +5,11 @@
 }
 
 <h2>Unidades de Negocio</h2>
-
+@if (FrontUser.TienePermiso(RolesPermisos.CONV_UnidadDeNegocio_CrearNuevo))
+{ 
 <p>
     @Html.ActionLink("Crear Nuevo", "Create")
-</p>
+</p>}
 <table class="table">
     <tr>
         <th>
@@ -35,18 +36,24 @@
             @Html.DisplayFor(modelItem => item.bActivo)
         </td>
         <td>
+            @if (FrontUser.TienePermiso(RolesPermisos.CONV_UnidadDeNegocio_Editar))
+            { 
             <a href="@Url.Action("Edit", new { id = item.lUNegocio_id })">
                 <i class="glyphicon glyphicon-edit" title="Editar"></i>
-                <span class="sr-only">Editar</span>
-            </a>
+                <span class="sr-only">Editar</span>}
+            </a> }
+            @if (FrontUser.TienePermiso(RolesPermisos.CONV_UnidadDeNegocio_VerDetalle))
+            { 
             <a href="@Url.Action("Details", new { id = item.lUNegocio_id })">
                 <i class="glyphicon glyphicon-search" title="Ver"></i>
                 <span class="sr-only">Ver</span>
-            </a>
+            </a>}
+            @if (FrontUser.TienePermiso(RolesPermisos.CONV_UnidadDeNegocio_Eliminar))
+            {
             <a href="@Url.Action("Delete", new { id = item.lUNegocio_id })">
                 <i class="glyphicon glyphicon-trash" title="Eliminar"></i>
                 <span class="sr-only">Eliminar</span>
-            </a>
+            </a> }
         </td>
     </tr>
 }

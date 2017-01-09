@@ -300,56 +300,73 @@ namespace SIGAA.Commons
         CONV_Academico_EliminarProgramasAnalitico = 236,
 
 
+        //patametros
+        CONV_Departamentos_VerListado = 237,
+        CONV_Departamentos_Editar = 238,
+        CONV_Departamentos_VerDetalle = 239,
+        CONV_Departamentos_Eliminar = 240,
 
-        CONV_Parametros_ListadoDepartamentos = 237,
-        CONV_Parametros_EditarDepartamento = 238,
-        CONV_Parametros_VerDepartamento = 239,
-        CONV_Parametros_EliminarDepartamento = 240,
+        CONV_TipoDocumentoPersonal_VerListado = 241,
+        CONV_TipoDocumentoPersonal_Editar = 242,
+        CONV_TipoDocumentoPersonal_VerDetalle = 243,
+        CONV_TipoDocumentoPersonal_Eliminar = 244,
 
-        CONV_Parametros_ListadoTipoDocumentoPersonal = 241,
-        CONV_Parametros_EditarTipoDocumentoPersonal = 242,
-        CONV_Parametros_VerTipoDocumentoPersonal = 243,
-        CONV_Parametros_EliminarTipoDocumentoPersonal = 244,
+        CONV_Nacionalidades_VerListado = 245,
+        CONV_Nacionalidades_Editar = 246,
+        CONV_Nacionalidadess_VerDetalle = 247,
+        CONV_Nacionalidades_Eliminar = 248,
 
-        CONV_Parametros_ListadoNacionalidades = 245,
-        CONV_Parametros_EditarNacionalidad = 246,
-        CONV_Parametros_VerNacionalidad = 247,
-        CONV_Parametros_EliminarNacionalidad = 248,
+        CONV_TipoDocumentoSolicitud_VerListado = 249,
+        CONV_TipoDocumentoSolicitud_Editar = 250,
+        CONV_TipoDocumentoSolicitud_VerDetalle = 251,
+        CONV_TipoDocumentoSolicitud_Eliminar = 252,
 
-        CONV_Parametros_ListadoTipoDocumentoSolicitud = 249,
-        CONV_Parametros_EditarTipoDocumentoSolicitud = 250,
-        CONV_Parametros_VerTipoDocumentoSolicitud = 251,
-        CONV_Parametros_EliminarTipoDocumentoSolicitud = 252,
+        CONV_OrigenOtraUniversidad_VerListado = 253,
+        CONV_OrigenOtraUniversidad_Editar = 254,
+        CONV_OrigenOtraUniversidad_VerDetalle = 255,
+        CONV_OrigenOtraUniversidad_Eliminar = 256,
 
-        CONV_Parametros_ListadoOrigenOtraUniversidad = 253,
-        CONV_Parametros_EditarOrigenOtraUniversidad = 254,
-        CONV_Parametros_VerOrigenOtraUniversidad = 255,
-        CONV_Parametros_EliminarOrigenOtraUniversidad = 256,
+        CONV_TipoPresentacionDocumento_VerListado = 257,
+        CONV_TipoPresentacionDocumento_Editar = 258,
+        CONV_TipoPresentacionDocumento_VerDetalle = 259,
+        CONV_TipoPresentacionDocumento_Eliminar = 260,
 
-        CONV_Parametros_ListadoTipoPresentacionDocumento = 257,
-        CONV_Parametros_EditarTipoPresentacionDocumento = 258,
-        CONV_Parametros_VerTipoPresentacionDocumento = 259,
-        CONV_Parametros_EliminarTipoPresentacionDocumento = 260,
+        CONV_UnidadDeNegocio_VerListado = 261,
+        CONV_UnidadDeNegocio_Editar = 262,
+        CONV_UnidadDeNegocio_VerDetalle = 263,
+        CONV_UnidadDeNegocio_Eliminar = 264,
 
-        CONV_Parametros_ListadoUnidadNegocio = 261,
-        CONV_Parametros_EditarUnidadNegocio = 262,
-        CONV_Parametros_VerUnidadNegocio = 263,
-        CONV_Parametros_EliminarUnidadNegocio = 264,
+        CONV_NivelProgramaAnalitico_VerListado = 265,
+        CONV_NivelProgramaAnalitico_Editar = 266,
+        CONV_NivelProgramaAnalitico_VerDetalle = 267,
+        CONV_NivelProgramaAnalitico_Eliminar = 268,
 
-        CONV_Parametros_ListadoNivelProgramaAnalitico = 265,
-        CONV_Parametros_EditarNivelProgramaAnalitico = 266,
-        CONV_Parametros_VerNivelProgramaAnalitico = 267,
-        CONV_Parametros_EliminarNivelProgramaAnalitico = 268,
+        CONV_PensumAcademico_VerListado = 269,
+        CONV_PensumAcademico_Editar = 270,
+        CONV_PensumAcademico_VerDetalle = 271,
+        CONV_PensumAcademico_Eliminar = 272,
 
-        CONV_Parametros_ListadoPensumAcademico = 269,
-        CONV_Parametros_EditarPensumAcademico = 270,
-        CONV_Parametros_VerPensumAcademico = 271,
-        CONV_Parametros_EliminarPensumAcademico = 272,
+        CONV_TipoCargaHoraria_VerListado = 273,
+        CONV_TipoCargaHoraria_Editar = 274,
+        CONV_TipoCargaHoraria_VerDetalle = 275,
+        CONV_TipoCargaHoraria_Eliminar = 276,
 
-        CONV_Parametros_ListadoTipoCargaHoraria = 273,
-        CONV_Parametros_EditarTipoCargaHoraria = 274,
-        CONV_Parametros_VerTipoCargaHoraria = 275,
-        CONV_Parametros_EliminarTipoCargaHoraria = 276,
+        CONV_Departamentos_CrearNuevo = 277,
+        CONV_TipoDocumentoPersonal_CrearNuevo = 278,
+        CONV_Nacionalidades_CrearNuevo = 279,
+        CONV_TipoDocumentoSolicitud_CrearNuevo = 280,
+        CONV_OrigenOtraUniversidad_CrearNuevo = 281,
+        CONV_TipoPresentacionDocumento_CrearNuevo = 282,
+        CONV_UnidadDeNegocio_CrearNuevo = 283,
+        CONV_NivelProgramaAnalitico_CrearNuevo = 284,
+        CONV_PensumAcademico_CrearNuevo = 285,
+        CONV_TipoCargaHoraria_CrearNuevo = 286,
+
+
+
+
+
+
         #endregion
     }
 }

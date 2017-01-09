@@ -5,10 +5,11 @@
 }
 
 <h2>Tipos de Carga Horarias</h2>
-
+@if (FrontUser.TienePermiso(RolesPermisos.CONV_TipoCargaHoraria_CrearNuevo))
+{
 <p>
     @Html.ActionLink("Crear Nuevo", "Create")
-</p>
+</p> }
 <table class="table">
     <tr>
         <th>
@@ -29,18 +30,24 @@
             @Html.DisplayFor(modelItem => item.bActivo)
         </td>
         <td>
+            @if (FrontUser.TienePermiso(RolesPermisos.CONV_TipoCargaHoraria_Editar))
+            { 
             <a href="@Url.Action("Edit", new { id = item.lTipoCargaHoraria_fl })">
                 <i class="glyphicon glyphicon-edit" title="Editar"></i>
                 <span class="sr-only">Editar</span>
-            </a>
+            </a>}
+            @if (FrontUser.TienePermiso(RolesPermisos.CONV_TipoCargaHoraria_VerDetalle))
+            {
             <a href="@Url.Action("Details", new { id = item.lTipoCargaHoraria_fl })">
                 <i class="glyphicon glyphicon-search" title="Ver"></i>
-                <span class="sr-only">Ver</span>
-            </a>
+                <span class="sr-only">Ver</span> 
+            </a> }
+            @if (FrontUser.TienePermiso(RolesPermisos.CONV_TipoCargaHoraria_Eliminar))
+            { 
             <a href="@Url.Action("Delete", new { id = item.lTipoCargaHoraria_fl })">
                 <i class="glyphicon glyphicon-trash" title="Eliminar"></i>
-                <span class="sr-only">Eliminar</span>
-            </a>
+                <span class="sr-only">Eliminar</span>}
+            </a> }
         </td>
     </tr>
 }

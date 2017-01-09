@@ -7,20 +7,23 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using SIGAA.Areas.CONV.Models;
+using SIGAA.Etiquetas;
+using SIGAA.Commons;
 
 namespace SIGAA.Areas.CONV.Controllers
 {
+    [Autenticado]
     public class UnidadNegociosController : Controller
     {
         private ConvalidacionesContext db = new ConvalidacionesContext();
 
-        // GET: UnidadNegocios
+        [Permiso(Permiso = RolesPermisos.CONV_UnidadDeNegocio_VerListado)]
         public ActionResult Index()
         {
             return View(db.UnidadNegocios.ToList());
         }
 
-        // GET: UnidadNegocios/Details/5
+        [Permiso(Permiso = RolesPermisos.CONV_UnidadDeNegocio_VerDetalle)]
         public ActionResult Details(string id)
         {
             if (id == null)
@@ -35,7 +38,7 @@ namespace SIGAA.Areas.CONV.Controllers
             return View(unidadNegocio);
         }
 
-        // GET: UnidadNegocios/Create
+        [Permiso(Permiso = RolesPermisos.CONV_UnidadDeNegocio_CrearNuevo)]
         public ActionResult Create()
         {
             return View();
@@ -58,7 +61,7 @@ namespace SIGAA.Areas.CONV.Controllers
             return View(unidadNegocio);
         }
 
-        // GET: UnidadNegocios/Edit/5
+        [Permiso(Permiso = RolesPermisos.CONV_UnidadDeNegocio_Editar)]
         public ActionResult Edit(string id)
         {
             if (id == null)
@@ -89,7 +92,7 @@ namespace SIGAA.Areas.CONV.Controllers
             return View(unidadNegocio);
         }
 
-        // GET: UnidadNegocios/Delete/5
+        [Permiso(Permiso = RolesPermisos.CONV_UnidadDeNegocio_Eliminar)]
         public ActionResult Delete(string id)
         {
             if (id == null)

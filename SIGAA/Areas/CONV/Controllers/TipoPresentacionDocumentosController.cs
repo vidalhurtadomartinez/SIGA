@@ -7,19 +7,23 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using SIGAA.Areas.CONV.Models;
+using SIGAA.Etiquetas;
+using SIGAA.Commons;
+
 namespace SIGAA.Areas.CONV.Controllers
 {
+    [Autenticado]
     public class TipoPresentacionDocumentosController : Controller
     {
         private ConvalidacionesContext db = new ConvalidacionesContext();
 
-        // GET: TipoPresentacionDocumentos
+        [Permiso(Permiso = RolesPermisos.CONV_TipoPresentacionDocumento_VerListado)]
         public ActionResult Index()
         {
             return View(db.TipoPresentacionDocumentos.ToList());
         }
 
-        // GET: TipoPresentacionDocumentos/Details/5
+        [Permiso(Permiso = RolesPermisos.CONV_TipoPresentacionDocumento_VerDetalle)]
         public ActionResult Details(string id)
         {
             if (id == null)
@@ -34,7 +38,7 @@ namespace SIGAA.Areas.CONV.Controllers
             return View(tipoPresentacionDocumento);
         }
 
-        // GET: TipoPresentacionDocumentos/Create
+        [Permiso(Permiso = RolesPermisos.CONV_TipoPresentacionDocumento_CrearNuevo)]
         public ActionResult Create()
         {
             return View();
@@ -57,7 +61,7 @@ namespace SIGAA.Areas.CONV.Controllers
             return View(tipoPresentacionDocumento);
         }
 
-        // GET: TipoPresentacionDocumentos/Edit/5
+        [Permiso(Permiso = RolesPermisos.CONV_TipoPresentacionDocumento_Editar)]
         public ActionResult Edit(string id)
         {
             if (id == null)
@@ -88,7 +92,7 @@ namespace SIGAA.Areas.CONV.Controllers
             return View(tipoPresentacionDocumento);
         }
 
-        // GET: TipoPresentacionDocumentos/Delete/5
+        [Permiso(Permiso = RolesPermisos.CONV_TipoPresentacionDocumento_Eliminar)]
         public ActionResult Delete(string id)
         {
             if (id == null)

@@ -9,14 +9,16 @@ using System.Web.Mvc;
 using SIGAA.Areas.CONV.Models;
 using Kendo.Mvc.UI;
 using Kendo.Mvc.Extensions;
+using SIGAA.Etiquetas;
+using SIGAA.Commons;
 
 namespace SIGAA.Areas.CONV.Controllers
-{
+{[Autenticado]
     public class PensumsController : Controller
     {
         private ConvalidacionesContext db = new ConvalidacionesContext();
 
-        // GET: Pensums
+        [Permiso(Permiso = RolesPermisos.CONV_PensumAcademico_VerListado)]
         public ActionResult Index()
         {
             var pensums = db.Pensums.Include(p => p.gatbl_Carreras).Include(p => p.gatbl_Universidades);
@@ -58,7 +60,7 @@ namespace SIGAA.Areas.CONV.Controllers
             return Json(new SelectList(carreras.ToArray(), "lCarrera_id", "sCarrera_nm"), JsonRequestBehavior.AllowGet);
         }
 
-        // GET: Pensums/Details/5
+        [Permiso(Permiso = RolesPermisos.CONV_PensumAcademico_VerDetalle)]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -73,7 +75,7 @@ namespace SIGAA.Areas.CONV.Controllers
             return View(pensum);
         }
 
-        // GET: Pensums/Create
+        [Permiso(Permiso = RolesPermisos.CONV_PensumAcademico_CrearNuevo)]
         public ActionResult Create()
         {
             ViewBag.lCarrera_id = new SelectList(db.gatbl_Carreras, "lCarrera_id", "sCarrera_nm");
@@ -107,7 +109,7 @@ namespace SIGAA.Areas.CONV.Controllers
             return View(pensum);
         }
 
-        // GET: Pensums/Edit/5
+        [Permiso(Permiso = RolesPermisos.CONV_PensumAcademico_Editar)]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -147,7 +149,7 @@ namespace SIGAA.Areas.CONV.Controllers
             return View(pensum);
         }
 
-        // GET: Pensums/Delete/5
+        [Permiso(Permiso = RolesPermisos.CONV_PensumAcademico_Eliminar)]
         public ActionResult Delete(int? id)
         {
             if (id == null)

@@ -7,19 +7,23 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using SIGAA.Areas.CONV.Models;
+using SIGAA.Etiquetas;
+using SIGAA.Commons;
+
 namespace SIGAA.Areas.CONV.Controllers
 {
+    [Autenticado]
     public class NacionalidadesController : Controller
     {
         private ConvalidacionesContext db = new ConvalidacionesContext();
 
-        // GET: Nacionalidades
+        [Permiso(Permiso = RolesPermisos.CONV_Nacionalidades_VerListado)]
         public ActionResult Index()
         {
             return View(db.Nacionalidades.ToList());
         }
 
-        // GET: Nacionalidades/Details/5
+        [Permiso(Permiso = RolesPermisos.CONV_Nacionalidadess_VerDetalle)]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -34,7 +38,7 @@ namespace SIGAA.Areas.CONV.Controllers
             return View(nacionalidad);
         }
 
-        // GET: Nacionalidades/Create
+        [Permiso(Permiso = RolesPermisos.CONV_Nacionalidades_CrearNuevo)]
         public ActionResult Create()
         {
             return View(new Nacionalidad() { bActivo = true });
@@ -57,7 +61,7 @@ namespace SIGAA.Areas.CONV.Controllers
             return View(nacionalidad);
         }
 
-        // GET: Nacionalidades/Edit/5
+        [Permiso(Permiso = RolesPermisos.CONV_Nacionalidades_Editar)]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -88,7 +92,7 @@ namespace SIGAA.Areas.CONV.Controllers
             return View(nacionalidad);
         }
 
-        // GET: Nacionalidades/Delete/5
+        [Permiso(Permiso = RolesPermisos.CONV_Nacionalidades_Eliminar)]
         public ActionResult Delete(int? id)
         {
             if (id == null)

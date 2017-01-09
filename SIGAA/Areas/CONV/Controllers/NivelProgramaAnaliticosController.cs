@@ -7,19 +7,22 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using SIGAA.Areas.CONV.Models;
+using SIGAA.Etiquetas;
+using SIGAA.Commons;
+
 namespace SIGAA.Areas.CONV.Controllers
-{
+{[Autenticado]
     public class NivelProgramaAnaliticosController : Controller
     {
         private ConvalidacionesContext db = new ConvalidacionesContext();
 
-        // GET: NivelProgramaAnaliticos
+        [Permiso(Permiso = RolesPermisos.CONV_NivelProgramaAnalitico_VerListado)]
         public ActionResult Index()
         {
             return View(db.NivelProgramaAnaliticos.ToList());
         }
 
-        // GET: NivelProgramaAnaliticos/Details/5
+        [Permiso(Permiso = RolesPermisos.CONV_NivelProgramaAnalitico_VerDetalle)]
         public ActionResult Details(string id)
         {
             if (id == null)
@@ -34,7 +37,7 @@ namespace SIGAA.Areas.CONV.Controllers
             return View(nivelProgramaAnalitico);
         }
 
-        // GET: NivelProgramaAnaliticos/Create
+        [Permiso(Permiso = RolesPermisos.CONV_NivelProgramaAnalitico_CrearNuevo)]
         public ActionResult Create()
         {
             return View();
@@ -57,7 +60,7 @@ namespace SIGAA.Areas.CONV.Controllers
             return View(nivelProgramaAnalitico);
         }
 
-        // GET: NivelProgramaAnaliticos/Edit/5
+        [Permiso(Permiso = RolesPermisos.CONV_NivelProgramaAnalitico_Editar)]
         public ActionResult Edit(string id)
         {
             if (id == null)
@@ -88,7 +91,7 @@ namespace SIGAA.Areas.CONV.Controllers
             return View(nivelProgramaAnalitico);
         }
 
-        // GET: NivelProgramaAnaliticos/Delete/5
+        [Permiso(Permiso = RolesPermisos.CONV_NivelProgramaAnalitico_Eliminar)]
         public ActionResult Delete(string id)
         {
             if (id == null)

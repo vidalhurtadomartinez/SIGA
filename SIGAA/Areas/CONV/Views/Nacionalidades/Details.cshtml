@@ -37,6 +37,8 @@
     </dl>
 </div>
 <p>
+    @if (FrontUser.TienePermiso(RolesPermisos.CONV_Nacionalidades_Editar))
+    { }
     @Html.ActionLink("Editar", "Edit", new { id = Model.lNacionalidad_id }) |
     @Html.ActionLink("Ir a Lista", "Index")
 </p>

@@ -5,10 +5,11 @@
 }
 
 <h2>Nacionalidades</h2>
-
-<p>
+@if (FrontUser.TienePermiso(RolesPermisos.CONV_Nacionalidades_CrearNuevo))
+{
+<p>   
     @Html.ActionLink("Crear Nuevo", "Create")
-</p>
+</p> }
 <table class="table">
     <tr>
         <th>
@@ -34,19 +35,25 @@
         <td>
             @Html.DisplayFor(modelItem => item.bActivo)
         </td>
-        <td>            
+        <td>  
+            @if (FrontUser.TienePermiso(RolesPermisos.CONV_Nacionalidades_Editar))
+            {          
             <a href="@Url.Action("Edit", new { id = item.lNacionalidad_id })">
                 <i class="glyphicon glyphicon-edit" title="Editar"></i>
                 <span class="sr-only">Editar</span>
-            </a>
+            </a> }
+            @if (FrontUser.TienePermiso(RolesPermisos.CONV_Nacionalidadess_VerDetalle))
+            { 
             <a href="@Url.Action("Details", new { id = item.lNacionalidad_id })">
                 <i class="glyphicon glyphicon-search" title="Ver"></i>
                 <span class="sr-only">Ver</span>
-            </a>
+            </a>}
+            @if (FrontUser.TienePermiso(RolesPermisos.CONV_Nacionalidades_Eliminar))
+            { 
             <a href="@Url.Action("Delete", new { id = item.lNacionalidad_id })">
                 <i class="glyphicon glyphicon-trash" title="Eliminar"></i>
                 <span class="sr-only">Eliminar</span>
-            </a>
+            </a>}
         </td>
     </tr>
 }

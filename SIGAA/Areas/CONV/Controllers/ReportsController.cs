@@ -4,11 +4,10 @@ using System.Web;
 using Telerik.Reporting.Cache.File;
 using Telerik.Reporting.Services;
 using Telerik.Reporting.Services.WebApi;
-
+using SIGAA.Etiquetas;
+using SIGAA.Commons;
 namespace SIGAA.Areas.CONV.Controllers
 {
-
-
 	//The class name determines the service URL. 
 	//ReportsController class name defines /api/report/ service URL.
     public class ReportsController : ReportsControllerBase
