@@ -19,12 +19,16 @@
         {
             <tr>
                 <td>
-                    @if (FrontUser.TienePermiso(RolesPermisos.SEGU_rol_puedeEditar)) {
-                    <a href="/Rol/Edit/@item.iRol_id"><span class="glyphicon glyphicon-pencil" data-toggle="tooltip" data-original-title="Editar"></span></a>} |
+                    @if (FrontUser.TienePermiso(RolesPermisos.SEGU_rol_puedeEditar))
+                    {
+                    @*<a href="/Rol/Edit/@item.iRol_id"><span class="glyphicon glyphicon-pencil" data-toggle="tooltip" data-original-title="Editar"></span></a>} |*@
+                    <a href=@Url.Action("Edit","Rol",new {id=item.iRol_id})><span class="glyphicon glyphicon-pencil" data-toggle="tooltip" data-original-title="Editar"></span></a>} |
                     @if (FrontUser.TienePermiso(RolesPermisos.SEGU_rol_puedeVerDetalle)) {
-                    <a href="/Rol/Details/@item.iRol_id"><span class="glyphicon glyphicon-eye-open" data-toggle="tooltip" data-original-title="Ver detalle"></span></a>} |
+                    @*<a href="/Rol/Details/@item.iRol_id"><span class="glyphicon glyphicon-eye-open" data-toggle="tooltip" data-original-title="Ver detalle"></span></a>} |*@
+                    <a href=@Url.Action("Details","Rol",new {id=item.iRol_id})><span class="glyphicon glyphicon-eye-open" data-toggle="tooltip" data-original-title="Ver detelle"></span></a>} |                 
                     @if (FrontUser.TienePermiso(RolesPermisos.SEGU_rol_puedeEliminar)) {
-                    <a href="/Rol/Delete/@item.iRol_id"><span class="glyphicon glyphicon-trash" data-toggle="tooltip" data-original-title="Eliminar"></span></a> }
+                    @*<a href="/Rol/Delete/@item.iRol_id"><span class="glyphicon glyphicon-trash" data-toggle="tooltip" data-original-title="Eliminar"></span></a> }*@
+                    <a href=@Url.Action("Delete","Rol",new {id=item.iRol_id})><span class="glyphicon glyphicon-trash" data-toggle="tooltip" data-original-title="Eliminar"></span></a>}
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Nombre)

@@ -8,8 +8,8 @@
 <div class="row">
     <div class="col-md-6">
         <div class="text-left">
-            @if (FrontUser.TienePermiso(RolesPermisos.SEGU_usuario_puedeCrearNuevo)) {
-            <a href="/Usuario/Create" class="btn btn-primary"><span class="glyphicon glyphicon-plus-sign"></span> Nuevo </a> }
+            @if (FrontUser.TienePermiso(RolesPermisos.SEGU_usuario_puedeCrearNuevo))
+            {<a href=@Url.Action("Create","Usuario") class="btn btn-primary"><span class="glyphicon glyphicon-plus-sign"></span> Nuevo</a>}
         </div>
     </div>
     <div class="col-md-6">

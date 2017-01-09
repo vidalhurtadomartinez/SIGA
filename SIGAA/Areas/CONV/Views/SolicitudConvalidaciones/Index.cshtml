@@ -94,7 +94,8 @@
             .ToolBar(toolBar =>
             {
             toolBar.Template(@<text>
-        <a class="k-button k-button-icontext" href=@Url.Action("Create", "SolicitudConvalidaciones")><span class="k-icon k-i-plus"></span>Crear Nuevo</a>
+        <a class="btn btn-primary" href=@Url.Action("Create", "SolicitudConvalidaciones")><span class="k-icon k-i-plus"></span>Crear Nuevo</a>
+           @*class="k-button k-button-icontext" href=@Url.Action("Create", "SolicitudConvalidaciones")><span class="k-icon k-i-plus"></span>Crear Nuevo</a>*@
             </text>);
             })
             .Editable(editable => editable.Mode(GridEditMode.InLine))

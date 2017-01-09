@@ -9,7 +9,7 @@
     <div class="col-md-6">
         <div class="text-left">
             @if (FrontUser.TienePermiso(RolesPermisos.SEGU_permiso_puedeCrearNuevo))
-            {<a href="/Permiso/Create" class="btn btn-primary"><span class="glyphicon glyphicon-plus-sign"></span> Nuevo </a>}
+            {<a href=@Url.Action("Create","Permiso") class="btn btn-primary"><span class="glyphicon glyphicon-plus-sign"></span> Nuevo</a>}
         </div>
     </div>
     <div class="col-md-6">
