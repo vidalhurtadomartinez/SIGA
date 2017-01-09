@@ -299,7 +299,6 @@ namespace SIGAA.Commons
         CONV_Academico_VerProgramasAnalitico = 235,
         CONV_Academico_EliminarProgramasAnalitico = 236,
 
-
         //patametros
         CONV_Departamentos_VerListado = 237,
         CONV_Departamentos_Editar = 238,
@@ -361,11 +360,6 @@ namespace SIGAA.Commons
         CONV_NivelProgramaAnalitico_CrearNuevo = 284,
         CONV_PensumAcademico_CrearNuevo = 285,
         CONV_TipoCargaHoraria_CrearNuevo = 286,
-
-
-
-
-
 
         #endregion
     }
