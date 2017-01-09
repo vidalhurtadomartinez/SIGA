@@ -1,0 +1,113 @@
+﻿@using MapiriSoftCRM.Helpers
+@model IEnumerable<MapiriSoftCRM.Models.tblCliente>
+
+@{
+    ViewBag.Title = "Posibles Clientes";
+}
+
+<h2>Posibles Clientes</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            <div class="pull-left">
+                @Html.NoEncodeActionLink("<span class='glyphicon glyphicon-plus'></span>", "Crear Nuevo", "Create", "tblClientes", routeValues: null, htmlAttributes: new { @class = "btn btn-primary" })
+            </div>
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dtFechaRegistro_dt)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nombres)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ApellidoPaterno)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ApellidoMaterno)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lFormaContacto_id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lTipoColegio_id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lMedioInformacion_id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Direccion)
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.lPaisNacimiento_id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lNacionalidad_id)
+        </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.lCiudad_id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Telefono)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Celular)
+        </th>
+        
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td style="width:68px">
+            <div class="pull-left" style="width:68px">
+                @Html.NoEncodeActionLink("<span class='glyphicon glyphicon-pencil'></span>", "Editar", "Edit", "tblClientes", routeValues: new { id = item.lCliente_id }, htmlAttributes: new { data_modal = "", @class = "glyphicon" })
+                &nbsp;
+                @Html.NoEncodeActionLink("<span class='glyphicon glyphicon-search'></span>", "Ver", "Details", "tblClientes", routeValues: new { id = item.lCliente_id }, htmlAttributes: new { data_modal = "", @class = "glyphicon" })
+                &nbsp;
+                @Html.NoEncodeActionLink("<span class='glyphicon glyphicon-trash'></span>", "Eliminar", "Delete", "tblClientes", routeValues: new { id = item.lCliente_id }, htmlAttributes: new { data_modal = "", @class = "glyphicon" })
+            </div>
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.dtFechaRegistro_dt)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nombres)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ApellidoPaterno)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ApellidoMaterno)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tblFormaContacto.Descripcion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tblTipoColegio.Descripcion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tblMedioInformacion.Descripcion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Direccion)
+        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.tblPaisNacimiento.Descripcion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tblPaisNacionalidad.Gentilicio)
+        </td>*@
+        <td>
+            @Html.DisplayFor(modelItem => item.tblCiudad.Descripcion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Telefono)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Celular)
+        </td>
+               
+    </tr>
+}
+
+</table>

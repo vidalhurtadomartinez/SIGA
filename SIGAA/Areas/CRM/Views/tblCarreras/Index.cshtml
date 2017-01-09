@@ -1,0 +1,53 @@
+﻿@using MapiriSoftCRM.Helpers
+@model IEnumerable<MapiriSoftCRM.Models.tblCarrera>
+
+@{
+    ViewBag.Title = "Carreras";
+}
+
+<h2>Carreras</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            <div class="pull-left">
+                @Html.NoEncodeActionLink("<span class='glyphicon glyphicon-plus'></span>", "Crear Nuevo", "Create", "tblCarreras", routeValues: null, htmlAttributes: new { @class = "btn btn-primary" })
+            </div>
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lUniversidad_id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Descripcion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Activo)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td style="width:68px">
+            <div class="pull-left" style="width:68px">
+                @Html.NoEncodeActionLink("<span class='glyphicon glyphicon-pencil'></span>", "Editar", "Edit", "tblCarreras", routeValues: new { id = item.lCarrera_id }, htmlAttributes: new { data_modal = "", @class = "glyphicon" })
+                &nbsp;
+                @Html.NoEncodeActionLink("<span class='glyphicon glyphicon-search'></span>", "Ver", "Details", "tblCarreras", routeValues: new { id = item.lCarrera_id }, htmlAttributes: new { data_modal = "", @class = "glyphicon" })
+                &nbsp;
+                @Html.NoEncodeActionLink("<span class='glyphicon glyphicon-trash'></span>", "Eliminar", "Delete", "tblCarreras", routeValues: new { id = item.lCarrera_id }, htmlAttributes: new { data_modal = "", @class = "glyphicon" })
+            </div>
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tblUniversidad.Descripcion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Descripcion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Activo)
+        </td>
+                
+    </tr>
+}
+
+</table>

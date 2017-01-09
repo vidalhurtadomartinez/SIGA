@@ -1,0 +1,58 @@
+﻿@model IEnumerable<MapiriSoftCRM.Models.tEvento>
+
+@{
+    //required in order to render validation attributes
+    ViewContext.FormContext = null;
+}
+
+@functions{
+    public Dictionary<string, object> generateDatePickerAttributes(
+           string elementId,
+           string fieldName,
+           string dataBindAttribute,
+           Dictionary<string, object> additionalAttributes = null)
+    {
+
+        Dictionary<string, object> datePickerAttributes = additionalAttributes != null ? new Dictionary<string, object>(additionalAttributes) : new Dictionary<string, object>();
+
+        datePickerAttributes["id"] = elementId;
+        datePickerAttributes["name"] = fieldName;
+        datePickerAttributes["data-bind"] = dataBindAttribute;
+        datePickerAttributes["required"] = "required";
+        datePickerAttributes["style"] = "z-index: inherit;";
+
+        return datePickerAttributes;
+    }
+}
+
+
+<div class="k-edit-label">
+    @(Html.LabelFor(model => model.Titulo))
+</div>
+<div data-container-for="title" class="k-edit-field">
+    @(Html.TextBoxFor(model => model.Titulo, new { @class = "k-textbox", data_bind = "value:Titulo" }))
+</div>
+
+
+<script>
+    $(".k-timezone-toggle").on("click", function () {
+        var isVisible = $(this).is(":checked");
+        var container = $(this).closest(".k-popup-edit-form");
+
+        var endTimezoneRow = container.find("label[for='EndTimezone']").parent().add(container.find("div[data-container-for='endTimezone']"));
+        endTimezoneRow.toggle(isVisible);
+
+        if (!isVisible) {
+            var uid = container.attr("data-uid");
+            var scheduler = $("\#scheduler").data("kendoScheduler");
+            var model = scheduler.dataSource.getByUid(uid);
+            model.set("endTimezone", null);
+        }
+    });
+
+    var endTimezone = '${data.endTimezone}';
+
+    if (!endTimezone || endTimezone == "null") {
+        $(".k-timezone-toggle").trigger('click');
+    }
+</script>

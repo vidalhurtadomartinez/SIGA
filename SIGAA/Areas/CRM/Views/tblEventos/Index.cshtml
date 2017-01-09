@@ -1,0 +1,71 @@
+﻿@using MapiriSoftCRM.Helpers
+@model IEnumerable<MapiriSoftCRM.Models.tblEvento>
+
+@{
+    ViewBag.Title = "Eventos";
+}
+
+<h2>Eventos</h2>
+
+
+<table class="table">
+    <tr>
+        @*<th>
+            <div class="pull-left">
+                @Html.NoEncodeActionLink("<span class='glyphicon glyphicon-plus'></span>", "Crear Nuevo", "Create", "tblEventos", routeValues: null, htmlAttributes: new { @class = "btn btn-primary" })
+            </div>
+        </th>*@
+        <th></th>
+        <th>
+            @Html.DisplayNameFor(model => model.dtFechaRegistro_dt)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lTipoEvento_id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Descripcion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dtFechaProgramada_dt)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lCliente_id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lNotificacion_id)
+        </th>                                 
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td style="width:68px">
+            <div class="pull-left" style="width:48px">
+                @*@Html.NoEncodeActionLink("<span class='glyphicon glyphicon-pencil'></span>", "Editar", "Edit", "tblEventos", routeValues: new { id = item.lEvento_id }, htmlAttributes: new { data_modal = "", @class = "glyphicon" })
+                &nbsp;*@
+                @Html.NoEncodeActionLink("<span class='glyphicon glyphicon-search'></span>", "Ver", "Details", "tblEventos", routeValues: new { id = item.lEvento_id }, htmlAttributes: new { data_modal = "", @class = "glyphicon" })
+                &nbsp;
+                @Html.NoEncodeActionLink("<span class='glyphicon glyphicon-remove-circle'></span>", "Anular", "Delete", "tblEventos", routeValues: new { id = item.lEvento_id }, htmlAttributes: new { data_modal = "", @class = "glyphicon" })
+            </div>
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.dtFechaRegistro_dt)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tblTipoEvento.Descripcion)
+        </td>     
+        <td>
+            @Html.DisplayFor(modelItem => item.Descripcion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.dtFechaProgramada_dt)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tblCliente.NombreCompleto)
+        </td>     
+        <td>
+            @Html.DisplayFor(modelItem => item.tblNotificacion.Descripcion)
+        </td>             
+    </tr>
+}
+
+</table>

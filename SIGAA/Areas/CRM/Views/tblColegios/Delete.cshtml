@@ -1,0 +1,64 @@
+﻿@model MapiriSoftCRM.Models.tblColegio
+
+@{
+    ViewBag.Title = "Eliminar";
+}
+
+<h2>Eliminar</h2>
+
+<h3>Esta seguro que desea eliminar el registro?</h3>
+<div>
+    <h4>Colegio</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.lTipoColegio_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblTipoColegio.Descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.lCiudad_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblCiudad.Descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.lProvincia_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblProvincia.Descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Activo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Activo)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Eliminar" class="btn btn-danger" /> |
+            @Html.ActionLink("Ir a Lista", "Index")
+        </div>
+    }
+</div>

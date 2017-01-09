@@ -1,0 +1,47 @@
+﻿@using MapiriSoftCRM.Helpers
+@model IEnumerable<MapiriSoftCRM.Models.tblMedioInformacion>
+
+@{
+    ViewBag.Title = "Medios de Informacion";
+}
+
+<h2>Medios de Informacion</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            <div class="pull-left">
+                @Html.NoEncodeActionLink("<span class='glyphicon glyphicon-plus'></span>", "Crear Nuevo", "Create", "tblMedioInformaciones", routeValues: null, htmlAttributes: new { @class = "btn btn-primary" })
+            </div>
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Descripcion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Activo)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td style="width:68px">
+            <div class="pull-left" style="width:68px">
+                @Html.NoEncodeActionLink("<span class='glyphicon glyphicon-pencil'></span>", "Editar", "Edit", "tblMedioInformaciones", routeValues: new { id = item.lMedioInformacion_id }, htmlAttributes: new { data_modal = "", @class = "glyphicon" })
+                &nbsp;
+                @Html.NoEncodeActionLink("<span class='glyphicon glyphicon-search'></span>", "Ver", "Details", "tblMedioInformaciones", routeValues: new { id = item.lMedioInformacion_id }, htmlAttributes: new { data_modal = "", @class = "glyphicon" })
+                &nbsp;
+                @Html.NoEncodeActionLink("<span class='glyphicon glyphicon-trash'></span>", "Eliminar", "Delete", "tblMedioInformaciones", routeValues: new { id = item.lMedioInformacion_id }, htmlAttributes: new { data_modal = "", @class = "glyphicon" })
+            </div>
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Descripcion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Activo)
+        </td>
+                
+    </tr>
+}
+
+</table>

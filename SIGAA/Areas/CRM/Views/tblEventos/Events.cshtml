@@ -1,0 +1,39 @@
+﻿@model IEnumerable<MapiriSoftCRM.Models.tblEvento>
+
+@{
+    ViewBag.Title = "Eventos";
+}
+
+<h2>Eventos</h2>
+
+@(Html.Kendo().Scheduler<MapiriSoftCRM.Models.tblEvento>()
+    .Name("schedulerJob")
+    .Date(new DateTime(2015, 8, 31))
+    .StartTime(new DateTime(2015, 8, 31, 7, 00, 00))
+    .Height(600)
+    .Views(views =>
+    {
+        views.TimelineView();
+    })
+    .Timezone("Etc/UTC")
+    .Group(group => group.Resources("Techs").Orientation(SchedulerGroupOrientation.Vertical))
+    .Resources(resource =>
+    {
+        resource.Add(m => m.TechName)
+            .Title("Techs")
+            .Name("Techs")
+            .DataTextField("emm_code")
+            .DataValueField("emm_code")
+            .DataSource(d => d.Read("Techs", "JOBS"));
+    })
+    .DataSource(d => d
+        .Model(m =>
+        {
+            m.Id(r => r.emm_code);
+        })
+        .Read("JobSchedule_Read", "JOBS")
+        .Create("JobSchedule_Create", "JOBS")
+        .Update("JobSchedule_Update", "JOBS")
+        .Destroy("JobSchedule_Delete", "JOBS")
+    )
+)

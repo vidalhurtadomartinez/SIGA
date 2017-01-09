@@ -1,0 +1,155 @@
+﻿@model IEnumerable<MapiriSoftCRM.Views.tblEventos.tEventoViewModel>
+
+@{
+    ViewBag.Title = "Eventos Pendientes";
+}
+
+<h2>Eventos Pendientes</h2>
+
+@*<p>
+    @Html.ActionLink("Responder", "GuardarEvento", "tblEventos", new { }, new { @class = "btn btn-success" })  
+</p>*@
+
+@(Html.Kendo().Scheduler<MapiriSoftCRM.Views.tblEventos.tEventoViewModel>()
+    .Name("scheduler")    
+    .Editable(editable => editable.Update(false)
+                                          .Create(false)
+                                          .Destroy(false)
+                     //optionally disable creating new events*/
+                     )
+    .Selectable(false)    
+    .Views(views => {
+        views.DayView(dayView => dayView.Selected(true)).ShowWorkHours();
+        views.WorkWeekView(wweekView => wweekView.Selected(false)).ShowWorkHours();
+        views.WeekView(weekView => weekView.Selected(false)).ShowWorkHours();
+        views.MonthView();
+        views.AgendaView();
+    })
+    .ShowWorkHours(true)
+    .WorkDayStart(8, 00, 0)
+    .WorkDayEnd(19, 00, 0)
+    .Editable(true)
+    .Timezone("Etc/UTC")
+    .DataSource(d => d
+        .Model(m =>
+        {
+            m.Id(f => f.lEvento_id);
+            m.Field(f => f.Title).DefaultValue("Sin Titulo");
+            m.Field(f => f.Description).DefaultValue("Sin Descripcion");
+            m.RecurrenceId(f => f.RecurrenceID);
+        })
+        .Read(read => read.Action("tEvento_Read", "Scheduler"))
+        .Create(create => create.Action("tEvento_Create", "Scheduler"))
+        .Update(update => update.Action("tEvento_Update", "Scheduler"))
+        .Destroy(destroy => destroy.Action("tEvento_Destroy", "Scheduler"))
+    )
+
+)
+
+@(Html.Kendo().Notification()
+    .Name("notification")
+    .Width("15em")
+    .Templates(t =>
+    {
+        //t.Add().Type("time").ClientTemplate("<div style='padding: .6em 1em'>Evento: <span class='timeWrap'>#: time #</span></div>");
+        t.Add().Type("time").ClientTemplate("<div class='movie-template'>" +
+                    "<h5>Evento pendiente</h5>" +
+                    "<h3>" +
+                    "<span class='timeWrap'>#: time #</span>" +
+                    "</h3>" +                    
+                "</div>");        
+    })
+)
+
+
+@(Html.Kendo().Window()
+        .Name("EmployeeStatus")
+        .Title("Employee Status")
+        .Draggable()
+
+        .Resizable()
+        .Width(500)
+        .Height(350)
+        .Modal(true)
+            // .Visible(false)
+            .Visible(!ViewData.ModelState.IsValid)
+)
+
+<style>
+    .movie-template img {
+        float: left;
+        margin: 0 8px;
+    }
+
+    .movie-template p {
+        margin: 5px 0 0;
+    }
+
+    .movie-template h3 {
+        padding: 0 8px 5px;
+        font-size: 12px;
+    }
+
+    .movie-template a {
+        color: #ffffff;
+        font-weight: bold;
+        text-decoration: none;
+    }
+
+        .k-state-hover .movie-template a,
+        .movie-template a:hover {
+            color: #000000;
+        }
+</style>
+
+
+<script>    
+    $("#scheduler").on("dblclick", '.k-event', function (e) {
+        var scheduler = $("#scheduler").getKendoScheduler();
+        var element = $(e.target).is(".k-event") ? $(e.target) : $(e.target).closest(".k-event");
+
+        var event = scheduler.occurrenceByUid(element.data("uid"));
+        var eventID = event.id;
+        
+        window.location.href = '@Url.Action("RegistrarEvento", "tblEventos")/' + eventID;
+    });
+
+    $(document).ready(function () {
+
+        var notification = $("#notification").data("kendoNotification");
+
+        function showNotification() {
+            var d = new Date();
+            notification.show({ time: kendo.toString(d, 'HH:MM:ss.') + kendo.toString(d.getMilliseconds(), "000000") }, "time");
+        }
+
+
+        setInterval(showNotification, 30000);
+
+        //$("#showNotification").click(function () {
+        //    var d = new Date();
+        //    notification.show({ time: kendo.toString(d, 'HH:MM:ss.') + kendo.toString(d.getMilliseconds(), "000") }, "time");
+        //});
+
+        $("#hideAllNotifications").click(function () {
+            notification.hide();
+        });
+    });
+</script>
+
+<script>
+
+    function scheduler_change(e) {
+
+
+        var b = e.events;
+        var a = e.start;
+
+            $.get("@Url.Content("~/Scheduler/GetPartialview")", { date: e.start, id: empID }, function (r) {
+                $("#EmployeeStatus").html(r)
+                e.preventDefault();
+                $("#EmployeeStatus").data("kendoWindow").center().open()
+            })
+        }
+
+</script>

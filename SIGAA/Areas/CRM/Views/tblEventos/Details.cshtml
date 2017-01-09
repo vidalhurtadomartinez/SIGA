@@ -1,0 +1,65 @@
+﻿@model MapiriSoftCRM.Models.tblEvento
+
+@{
+    ViewBag.Title = "Detalle";
+}
+
+<h2>Detalle</h2>
+
+<div>
+    <h4>Evento</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.dtFechaRegistro_dt)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dtFechaRegistro_dt)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.lTipoEvento_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblTipoEvento.Descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dtFechaProgramada_dt)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dtFechaProgramada_dt)
+        </dd>        
+
+        <dt>
+            @Html.DisplayNameFor(model => model.lCliente_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblCliente.NombreCompleto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.lNotificacion_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblNotificacion.Descripcion)
+        </dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.lEvento_id }, new { @class = "btn btn-warning" }) |
+    @Html.ActionLink("Ir a Lista", "Index")
+</p>

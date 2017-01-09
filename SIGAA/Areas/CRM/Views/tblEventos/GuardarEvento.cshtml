@@ -1,0 +1,145 @@
+﻿@model MapiriSoftCRM.Models.tblEvento
+
+@{
+    ViewBag.Title = "Nuevo";
+}
+
+<h2>Nuevo</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Evento</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.lCliente_id)
+
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.lCliente_id)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.tblCliente.NombreCompleto)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.tblCliente.Direccion)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.tblCliente.Direccion)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.tblCliente.Telefono)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.tblCliente.Telefono)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.tblCliente.Celular)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.tblCliente.Celular)
+                </dd>
+            </dl>
+            
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.dtFechaRegistro_dt, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @(Html.Kendo().DateTimePickerFor(model => model.dtFechaRegistro_dt)
+                    .HtmlAttributes(new { @readonly = "readonly" })
+                    )
+                    @*@Html.EditorFor(model => model.dtFechaRegistro_dt, new { htmlAttributes = new { @class = "form-control" } })*@
+                    @Html.ValidationMessageFor(model => model.dtFechaRegistro_dt, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.lTipoEvento_id, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("lTipoEvento_id", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.lTipoEvento_id, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.lTipoRespuesta_id, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("lTipoRespuesta_id", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.lTipoRespuesta_id, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Descripcion, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Descripcion, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Descripcion, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.dtFechaProgramada_dt, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.dtFechaProgramada_dt, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.dtFechaProgramada_dt, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.lNotificacion_id, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("lNotificacion_id", null, "Seleccionar Alerta", htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.lNotificacion_id, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            @*<div class="form-group">
+                @Html.LabelFor(model => model.lCliente_id, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("lCliente_id", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.lCliente_id, "", new { @class = "text-danger" })
+                </div>
+            </div>*@
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Guardar" class="btn btn-success" />
+                    @Html.ActionLink("Cancelar", "Index", "Scheduler", new { }, new { @class = "btn btn-warning" })
+                </div>
+            </div>
+</div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script type="text/javascript">
+        kendo.culture("es-ES");
+
+        $(document).ready(function () {
+            kendo.culture("es-ES");
+            $.validator.addMethod('date',
+                function (value, element) {
+                    var isValidDate = this.optional(element) || kendo.parseDate(value);
+
+                    return isValidDate
+                });
+        });
+
+        $(function () {
+            $("form").kendoValidator();
+        });
+
+        $.validator.setDefaults({ ignore: '' });
+
+    </script>
+}

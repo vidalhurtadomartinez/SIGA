@@ -1,0 +1,82 @@
+﻿@using MapiriSoftCRM.Helpers
+@model IEnumerable<MapiriSoftCRM.Models.tblAsesor>
+
+@{
+    ViewBag.Title = "Asesores/Vendedores";
+}
+
+<h2>Asesores/Vendedores</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            <div class="pull-left">
+                @Html.NoEncodeActionLink("<span class='glyphicon glyphicon-plus'></span>", "Crear Nuevo", "Create", "tblAsesores", routeValues: null, htmlAttributes: new { @class = "btn btn-primary" })
+            </div>
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dtFechaRegistro_dt)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nombres)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ApellidoPaterno)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ApellidoMaterno)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Direccion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Telefono)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Celular)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Comision)
+        </th>        
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td style="width:68px">
+            <div class="pull-left" style="width:68px">
+                @Html.NoEncodeActionLink("<span class='glyphicon glyphicon-pencil'></span>", "Editar", "Edit", "tblAsesores", routeValues: new { id = item.lAsesor_id }, htmlAttributes: new { data_modal = "", @class = "glyphicon" })
+                &nbsp;
+                @Html.NoEncodeActionLink("<span class='glyphicon glyphicon-search'></span>", "Ver", "Details", "tblAsesores", routeValues: new { id = item.lAsesor_id }, htmlAttributes: new { data_modal = "", @class = "glyphicon" })
+                &nbsp;
+                @Html.NoEncodeActionLink("<span class='glyphicon glyphicon-trash'></span>", "Eliminar", "Delete", "tblAsesores", routeValues: new { id = item.lAsesor_id }, htmlAttributes: new { data_modal = "", @class = "glyphicon" })
+            </div>
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.dtFechaRegistro_dt)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nombres)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ApellidoPaterno)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ApellidoMaterno)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Direccion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Telefono)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Celular)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Comision)
+        </td>        
+    </tr>
+}
+
+</table>

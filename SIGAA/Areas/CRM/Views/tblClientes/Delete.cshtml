@@ -1,0 +1,466 @@
+﻿@model MapiriSoftCRM.Models.tblCliente
+
+@{
+    ViewBag.Title = "Eliminar";
+}
+
+<h2>Eliminar</h2>
+
+<h3>Esta seguro que desea eliminar el registro?</h3>
+
+    <div>
+        <h4>Cliente</h4>
+        <hr />
+
+        <!-- Nav tabs -->
+        <ul id="myTab" class="nav nav-tabs" role="tablist" data-tabs="tabs">
+            <li role="presentation" class="active"><a href="#General" aria-controls="home" role="tab" data-toggle="tab">General</a></li>
+            <li role="presentation"><a href="#Personal" aria-controls="profile" role="tab" data-toggle="tab">Datos Personales</a></li>
+            <li role="presentation"><a href="#ActividadLaboral" aria-controls="profile" role="tab" data-toggle="tab">Actividad Laboral</a></li>
+            <li role="presentation"><a href="#AcademicoColegio" aria-controls="profile" role="tab" data-toggle="tab">Datos Academicos Colegio</a></li>
+            <li role="presentation"><a href="#AcademicoUniversidad" aria-controls="profile" role="tab" data-toggle="tab">Datos Academicos Universidad</a></li>
+        </ul>
+
+        <!-- Tab panes -->
+        <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active" id="General">
+                <div>
+                    <div class="panel-body">
+                        <dl class="dl-horizontal">
+                            <dt>
+                                @Html.DisplayNameFor(model => model.dtFechaRegistro_dt)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.dtFechaRegistro_dt)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.Nombres)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.Nombres)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.ApellidoPaterno)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.ApellidoPaterno)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.ApellidoMaterno)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.ApellidoMaterno)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.RecomendadoPorInterno)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.RecomendadoPorInterno)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.RecomendadoPorExterno)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.RecomendadoPorExterno)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.lAsesor_id)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.tblAsesor.NombreCompleto)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.lRelacionPostulante_id)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.tblRelacionPostulante.Descripcion)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.lFormaContacto_id)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.tblFormaContacto.Descripcion)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.lTipoColegio_id)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.tblTipoColegio.Descripcion)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.lMedioInformacion_id)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.tblMedioInformacion.Descripcion)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.InformacionAdicional)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.InformacionAdicional)
+                            </dd>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="Personal">
+                <div>
+                    <div class="panel-body">
+                        <dl class="dl-horizontal">
+                            <dt>
+                                @Html.DisplayNameFor(model => model.Direccion)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.Direccion)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.lPaisNacimiento_id)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.tblPaisNacimiento.Descripcion)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.lNacionalidad_id)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.tblPaisNacionalidad.Descripcion)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.lCiudad_id)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.tblCiudad.Descripcion)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.Telefono)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.Telefono)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.Celular)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.Celular)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.Referencia)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.Referencia)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.CorreoPrincipal)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.CorreoPrincipal)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.CorreoSecundario)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.CorreoSecundario)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.PaginaWeb)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.PaginaWeb)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.dtFechaNacimiento_dt)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.dtFechaNacimiento_dt)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.lTipoDocumento_id)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.tblTipoDocumento.Descripcion)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.NumeroDocumento)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.NumeroDocumento)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.lLugarExpedido_id)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.tblCiudadExpedido.Descripcion)
+                            </dd>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="ActividadLaboral">
+                <div>
+                    <div class="panel-body">
+                        <dl class="dl-horizontal">
+                            <dt>
+                                @Html.DisplayNameFor(model => model.lRubro_id)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.tblRubroActividad.Descripcion)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.lActividad_id)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.tblActividad.Descripcion)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.lCargo_id)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.tblCargo.Descripcion)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.lInstitucion_id)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.tblinstitucion.Descripcion)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.HorarioTrabajo)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.HorarioTrabajo)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.dtFechaInicioTrabajo_dt)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.dtFechaInicioTrabajo_dt)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.DireccionInstitucion)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.DireccionInstitucion)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.CorreoInstitucion)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.CorreoInstitucion)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.PaginaWebInstitucion)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.PaginaWebInstitucion)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.TelefonoInstitucion)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.TelefonoInstitucion)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.ContactoPrincipal)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.ContactoPrincipal)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.DatosAdicionalesInstitucion)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.DatosAdicionalesInstitucion)
+                            </dd>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="AcademicoColegio">
+                <div>
+                    <div class="panel-body">
+                        <dl class="dl-horizontal">
+                            <dt>
+                                @Html.DisplayNameFor(model => model.lColegio_id)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.tblColegio.Descripcion)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.tblColegio.lCiudad_id)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.tblColegio.tblCiudad.Descripcion)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.tblColegio.lProvincia_id)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.tblColegio.tblProvincia.Descripcion)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.AnioEgresoColegio)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.AnioEgresoColegio)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.DatosAdicionalesColegio)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.DatosAdicionalesColegio)
+                            </dd>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="AcademicoUniversidad">
+                <div>
+                    <div class="panel-body">
+                        <dl class="dl-horizontal">
+                            <dt>
+                                @Html.DisplayNameFor(model => model.lUniversidad_id)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.tblUniversidad.Descripcion)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.tblUniversidad.lCiudad_id)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.tblUniversidad.tblCiudad.Descripcion)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.lCarrera_id)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.tblCarrera.Descripcion)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.MateriasVencidas)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.MateriasVencidas)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.AnioEgresoUniversidad)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.AnioEgresoUniversidad)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.DatosAdicionalesUniversidad)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.DatosAdicionalesUniversidad)
+                            </dd>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-actions no-color">
+        <input type="submit" value="Eliminar" class="btn btn-danger" /> |
+        @Html.ActionLink("Ir a Lista", "Index")
+    </div>
+}
+    
+</div>

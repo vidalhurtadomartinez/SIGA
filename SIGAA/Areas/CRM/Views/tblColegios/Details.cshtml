@@ -1,0 +1,58 @@
+﻿@model MapiriSoftCRM.Models.tblColegio
+
+@{
+    ViewBag.Title = "Detalle";
+}
+
+<h2>Detalle</h2>
+
+<div>
+    <h4>Colegio</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.lTipoColegio_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblTipoColegio.Descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.lCiudad_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblCiudad.Descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.lProvincia_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblProvincia.Descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Activo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Activo)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.lColegio_id }, new { @class = "btn btn-warning" }) |
+    @Html.ActionLink("Ir a Lista", "Index")
+</p>
