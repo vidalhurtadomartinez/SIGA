@@ -647,6 +647,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\CambioContrasenaWiewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
+    <Compile Include="ViewModels\MetodoDeAccionViewModel.cs" />
+    <Compile Include="ViewModels\PermisoDenegadoPorRolViewModel.cs" />
+    <Compile Include="ViewModels\ProcesoViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\EGRE\Scripts\RecepcionTFGdeTribunal\AgregarDetalleCorrecciones.js" />

@@ -243,7 +243,6 @@ namespace SIGAA.Controllers
             modulo = ObtenerNombreModuloConNemonico(nemonico);
 
             permiso.Descripcion = nombreCompleto;
-           // permiso.Descripcion = metodoDeAccion;
             permiso.iConcurrencia_id = 1;
             permiso.iEliminado_fl = 1;
             permiso.iEstado_fl = true;

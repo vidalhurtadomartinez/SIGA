@@ -11,6 +11,7 @@ using SIGAA.Commons;
 using MvcFlash.Core;
 using MvcFlash.Core.Extensions;
 using SIGAA.Etiquetas;
+using SIGAA.ViewModels;
 
 namespace SIGAA.Controllers
 {
@@ -20,29 +21,75 @@ namespace SIGAA.Controllers
         private SeguridadContext db = new SeguridadContext();
 
         [Permiso(Permiso = RolesPermisos.SEGU_permisoDenegadoPorRol_puedeVerIndice)]
-        public ActionResult Index(string criterio = null)
-        {
-            var pdr = db.PermisoDenegadoPorRol.Where(p => p.iEliminado_fl == 1).Include(g => g.Rol).ToList();
-            var pdrFil = pdr.Where(t => criterio == null ||
-                                   t.Rol.Nombre.ToLower().Contains(criterio.ToLower()) ||
-                                   t.Permiso.Modulo.ToLower().Contains(criterio.ToLower()) ||
-                                   t.Permiso.Descripcion.ToString().ToLower().Contains(criterio.ToLower())
-                                   ).ToList();
-            var pdrFilFilOr = pdrFil.OrderBy(ef => ef.Rol.Nombre);
-            if (Request.IsAjaxRequest())
-            {
-                if (!String.IsNullOrWhiteSpace(criterio))
-                {
-                    Flash.Instance.Success("RESULTADO DE BUSQUEDA", "Se han encontrado " + pdrFilFilOr.Count() + " registros con los criterios especificados.");
-                }
-                return PartialView("_Index", pdrFilFilOr);
-            }
+        //public ActionResult Index(string criterio = null)
+        //{
+        //    var pdr = db.PermisoDenegadoPorRol.Where(p => p.iEliminado_fl == 1).Include(g => g.Rol).ToList();
+        //    var pdrFil = pdr.Where(t => criterio == null ||
+        //                           t.Rol.Nombre.ToLower().Contains(criterio.ToLower()) ||
+        //                           t.Permiso.Modulo.ToLower().Contains(criterio.ToLower()) ||
+        //                           t.Permiso.Descripcion.ToString().ToLower().Contains(criterio.ToLower())
+        //                           ).ToList();
+        //    var pdrFilFilOr = pdrFil.OrderBy(ef => ef.Rol.Nombre);
+        //    if (Request.IsAjaxRequest())
+        //    {
+        //        if (!String.IsNullOrWhiteSpace(criterio))
+        //        {
+        //            Flash.Instance.Success("RESULTADO DE BUSQUEDA", "Se han encontrado " + pdrFilFilOr.Count() + " registros con los criterios especificados.");
+        //        }
+        //        return PartialView("_Index", pdrFilFilOr);
+        //    }
 
-            if (!String.IsNullOrWhiteSpace(criterio))
-            {
-                Flash.Instance.Success("RESULTADO DE BUSQUEDA", "Se han encontrado " + pdrFilFilOr.Count() + " registros con los criterios especificados.");
-            }
-            return View(pdrFilFilOr);
+        //    if (!String.IsNullOrWhiteSpace(criterio))
+        //    {
+        //        Flash.Instance.Success("RESULTADO DE BUSQUEDA", "Se han encontrado " + pdrFilFilOr.Count() + " registros con los criterios especificados.");
+        //    }
+        //    return View(pdrFilFilOr);
+        //}
+
+        public ActionResult Index()
+        {
+            PermisoDenegadoPorRolViewModel pdprvw = new PermisoDenegadoPorRolViewModel();
+            var lmdavm = new List<MetodoDeAccionViewModel>();
+            lmdavm.Add(new MetodoDeAccionViewModel { iPermiso_id = 1, sNombreAccion = "ejemplo Nombre Accion", bEstadoSeleccionado = true });
+            lmdavm.Add(new MetodoDeAccionViewModel { iPermiso_id = 2, sNombreAccion = "ejemplo Nombre Accion2", bEstadoSeleccionado = false });
+
+            var pvmS = new List<ProcesoViewModel>();
+            var pvmE = new List<ProcesoViewModel>();
+            var pvmO = new List<ProcesoViewModel>();
+            var pvmC = new List<ProcesoViewModel>();
+            var pvmCR = new List<ProcesoViewModel>();
+
+            pvmS.Add(new ProcesoViewModel { sNombre = "proseso SEGU 1", bEstadoSeleccionado = true });
+            pvmS.Add(new ProcesoViewModel { sNombre = "proseso SEGU 2", bEstadoSeleccionado = false });
+            pvmS.Add(new ProcesoViewModel { sNombre = "proseso SEGU 3", bEstadoSeleccionado = true });
+
+            pvmE.Add(new ProcesoViewModel { sNombre = "proseso EGRE 1", bEstadoSeleccionado = true });
+            pvmE.Add(new ProcesoViewModel { sNombre = "proseso EGRE 2", bEstadoSeleccionado = false });
+            pvmE.Add(new ProcesoViewModel { sNombre = "proseso EGRE 3", bEstadoSeleccionado = true });
+
+            pvmO.Add(new ProcesoViewModel { sNombre = "proseso OYM 1", bEstadoSeleccionado = true });
+            pvmO.Add(new ProcesoViewModel { sNombre = "proseso OYM 2", bEstadoSeleccionado = false });
+            pvmO.Add(new ProcesoViewModel { sNombre = "proseso OYM 3", bEstadoSeleccionado = true });
+
+            pvmC.Add(new ProcesoViewModel { sNombre = "proseso CONV 1", bEstadoSeleccionado = true });
+            pvmC.Add(new ProcesoViewModel { sNombre = "proseso CONV 2", bEstadoSeleccionado = false });
+            pvmC.Add(new ProcesoViewModel { sNombre = "proseso CONV 3", bEstadoSeleccionado = true });
+
+            pvmCR.Add(new ProcesoViewModel { sNombre = "proseso CRM 1", bEstadoSeleccionado = true });
+            pvmCR.Add(new ProcesoViewModel { sNombre = "proseso CRM 2", bEstadoSeleccionado = false });
+            pvmCR.Add(new ProcesoViewModel { sNombre = "proseso CRM 3", bEstadoSeleccionado = true });
+
+
+            pdprvw.MetodosDeAccionDeProcesoSeleccionado = lmdavm;
+            pdprvw.ProcesosCONV = pvmC;
+            pdprvw.ProcesosSEGU = pvmS;
+            pdprvw.ProcesosEGRE = pvmE;
+            pdprvw.ProcesosCRM = pvmCR;
+            pdprvw.ProcesosOYM = pvmO;
+
+
+            ViewBag.iRol_id = new SelectList(db.Rol, "iRol_id", "Nombre");
+            return View(pdprvw);
         }
 
         [Permiso(Permiso = RolesPermisos.SEGU_permisoDenegadoPorRol_puedeVerDetalle)]
@@ -267,10 +314,159 @@ namespace SIGAA.Controllers
         public JsonResult PermisosPorRol(int rol_id)
         {
             var permisos = filtrarPermisoDenegadoPorRol(rol_id).Select(a => new { iPermiso_id = a.iPermiso_id.ToString(), Descripcion = a.Descripcion } ).ToList();
-            //var resultado = (from perm in permisos
-            //                 select new { iPermiso_id = perm.iPermiso_id.ToString(), Descripcion=perm.Descripcion }).ToList();
             return Json(permisos, JsonRequestBehavior.AllowGet);
         }
+
+
+        public JsonResult InsertarEnBloquePorModulo(int idRol, string nemonicoModulo) {
+            List<Permiso> permisos = db.Permiso.Where(p => p.Nemonico.ToUpper().Trim().Equals(nemonicoModulo.ToUpper().Trim())).ToList();
+            List<PermisoDenegadoPorRol> pdrs = new List<PermisoDenegadoPorRol>();
+            foreach (var permiso in permisos)
+            {
+                PermisoDenegadoPorRol pdr = new PermisoDenegadoPorRol();
+                pdr.iConcurrencia_id = 1;
+                pdr.iEliminado_fl = 1;
+                pdr.iEstado_fl = true;
+                pdr.iPermiso_id = permiso.iPermiso_id;
+                pdr.iRol_id = idRol;
+                pdr.sCreado_by = FrontUser.Get().usr_login;
+                if (ModelState.IsValid)
+                {
+                    db.PermisoDenegadoPorRol.Add(pdr);
+                    db.SaveChanges();
+                    ModelState.Clear();
+                    pdrs.Add(pdr);
+                }
+
+                Flash.Instance.Success("CORRECTO", string.Format("{0} {1} {2}", "La denegacion a los metodos de accion del Modulo ", nemonicoModulo.ToUpper(), "se estableció correctamente."));
+            }
+            return Json(pdrs, JsonRequestBehavior.AllowGet);
+        }
+        public JsonResult InsertarEnBloquePorProceso(int idRol, string nombreProceso)
+        {
+            List<Permiso> permisos = db.Permiso.Where(p => p.Proceso.ToLower().Equals(nombreProceso.ToLower())).ToList();
+            List<PermisoDenegadoPorRol> pdrs = new List<PermisoDenegadoPorRol>();
+            foreach (var permiso in permisos)
+            {
+                PermisoDenegadoPorRol pdr = new PermisoDenegadoPorRol();
+                pdr.iConcurrencia_id = 1;
+                pdr.iEliminado_fl = 1;
+                pdr.iEstado_fl = true;
+                pdr.iPermiso_id = permiso.iPermiso_id;
+                pdr.iRol_id = idRol;
+                pdr.sCreado_by = FrontUser.Get().usr_login;
+                if (ModelState.IsValid)
+                {
+
+                    db.PermisoDenegadoPorRol.Add(pdr);
+                    db.SaveChanges();
+                    ModelState.Clear();
+                    pdrs.Add(pdr);                 
+                }
+
+                Flash.Instance.Success("CORRECTO", string.Format("{0} {1} {2}", "La denegacion a los metodos de accion del proceso ", nombreProceso.ToUpper(),"se estableció correctamente."));
+            }
+            return Json(pdrs,JsonRequestBehavior.AllowGet);
+        }
+        public JsonResult InsertarUnMetodoDeAccion(int idRol, int permisoId)
+        {
+            PermisoDenegadoPorRol pdr = new PermisoDenegadoPorRol();
+            try
+            {               
+                pdr.iConcurrencia_id = 1;
+                pdr.iEliminado_fl = 1;
+                pdr.iEstado_fl = true;
+                pdr.iPermiso_id = (RolesPermisos)Enum.ToObject(typeof(RolesPermisos), permisoId);
+                pdr.iRol_id = idRol;
+                pdr.sCreado_by = FrontUser.Get().usr_login;
+                if (ModelState.IsValid)
+                {
+                    db.PermisoDenegadoPorRol.Add(pdr);
+                    db.SaveChanges();
+                    ModelState.Clear();
+                    Flash.Instance.Success("CORRECTO", "La denegacion al metodo de accion es correcto.");
+                }
+            }
+            catch (Exception ex)
+            {
+                Flash.Instance.Error("ERROR", "No se pudo Guardar el dato porque ha ocurrido el siguiente error " + ex.Message);
+                //return RedirectToAction("Index");
+            }
+            return Json(pdr,JsonRequestBehavior.AllowGet);
+        }
+
+        public JsonResult EliminarEnBloquePorModulo(int idRol, string nemonicoModulo)
+        {
+            List<Permiso> permisos = db.Permiso.Where(p => p.Nemonico.ToUpper().Trim().Equals(nemonicoModulo.ToUpper().Trim())).ToList();
+            List<PermisoDenegadoPorRol> pdrs = new List<PermisoDenegadoPorRol>();
+            foreach (var permiso in permisos)
+            {
+                PermisoDenegadoPorRol pdr = new PermisoDenegadoPorRol();
+                pdr.iConcurrencia_id = 1;
+                pdr.iEliminado_fl = 1;
+                pdr.iEstado_fl = true;
+                pdr.iPermiso_id = permiso.iPermiso_id;
+                pdr.iRol_id = idRol;
+                pdr.sCreado_by = FrontUser.Get().usr_login;
+
+                db.PermisoDenegadoPorRol.Remove(pdr);
+                db.SaveChanges();
+                pdrs.Add(pdr);               
+
+                Flash.Instance.Success("CORRECTO", string.Format("{0} {1} {2}", "La habilitación a los metodos de accion del Modulo ", nemonicoModulo.ToUpper(), "se estableció correctamente."));
+            }
+            return Json(pdrs, JsonRequestBehavior.AllowGet);
+        }
+        public JsonResult EliminarEnBloquePorProceso(int idRol, string nombreProceso)
+        {
+            List<Permiso> permisos = db.Permiso.Where(p => p.Proceso.ToLower().Equals(nombreProceso.ToLower())).ToList();
+            List<PermisoDenegadoPorRol> pdrs = new List<PermisoDenegadoPorRol>();
+            foreach (var permiso in permisos)
+            {
+                PermisoDenegadoPorRol pdr = new PermisoDenegadoPorRol();
+                pdr.iConcurrencia_id = 1;
+                pdr.iEliminado_fl = 1;
+                pdr.iEstado_fl = true;
+                pdr.iPermiso_id = permiso.iPermiso_id;
+                pdr.iRol_id = idRol;
+                pdr.sCreado_by = FrontUser.Get().usr_login;
+                if (ModelState.IsValid)
+                {
+                    db.PermisoDenegadoPorRol.Remove(pdr);
+                    db.SaveChanges();
+                    pdrs.Add(pdr);
+                }
+
+                Flash.Instance.Success("CORRECTO", string.Format("{0} {1} {2}", "La habilitación a los metodos de accion del proceso ", nombreProceso.ToUpper(), "se estableció correctamente."));
+            }
+            return Json(pdrs, JsonRequestBehavior.AllowGet);
+        }
+        public JsonResult EliminarUnMetodoDeAccion(int idRol, int permisoId)
+        {
+            PermisoDenegadoPorRol pdr = new PermisoDenegadoPorRol();
+            try
+            {
+                pdr.iConcurrencia_id = 1;
+                pdr.iEliminado_fl = 1;
+                pdr.iEstado_fl = true;
+                pdr.iPermiso_id = (RolesPermisos)Enum.ToObject(typeof(RolesPermisos), permisoId);
+                pdr.iRol_id = idRol;
+                pdr.sCreado_by = FrontUser.Get().usr_login;
+                if (ModelState.IsValid)
+                {
+                    db.PermisoDenegadoPorRol.Remove(pdr);
+                    db.SaveChanges();
+                    Flash.Instance.Success("CORRECTO", "La habilitación al metodo de accion es correcto.");
+                }
+            }
+            catch (Exception ex)
+            {
+                Flash.Instance.Error("ERROR", "No se pudo Guardar el dato porque ha ocurrido el siguiente error " + ex.Message);
+                //return RedirectToAction("Index");
+            }
+            return Json(pdr, JsonRequestBehavior.AllowGet);
+        }
+
 
         protected override void Dispose(bool disposing)
         {
