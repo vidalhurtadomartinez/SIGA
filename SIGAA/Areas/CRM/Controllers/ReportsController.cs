@@ -1,10 +1,13 @@
-namespace MapiriSoftCRM.Views.Reports.Controllers
+using System.IO;
+using System.Web;
+using Telerik.Reporting.Cache.File;
+using Telerik.Reporting.Services;
+using Telerik.Reporting.Services.WebApi;
+
+//namespace SIGAA.Areas.CRM.Views.Reports.Controllers
+namespace SIGAA.Areas.CRM.Controllers
 {
-    using System.IO;
-    using System.Web;
-    using Telerik.Reporting.Cache.File;
-    using Telerik.Reporting.Services;
-    using Telerik.Reporting.Services.WebApi;
+
 
 	//The class name determines the service URL. 
 	//ReportsController class name defines /api/report/ service URL.

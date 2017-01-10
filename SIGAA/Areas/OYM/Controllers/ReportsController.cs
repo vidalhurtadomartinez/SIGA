@@ -4,10 +4,9 @@ using Telerik.Reporting.Cache.File;
 using Telerik.Reporting.Services;
 using Telerik.Reporting.Services.WebApi;
 
-namespace MapiriSoftSeguimiento.Views.Reports.Controllers
+//namespace SIGAA.Areas.OYM.Views.Reports.Controllers
+namespace SIGAA.Areas.OYM.Controllers
 {
-
-
 	//The class name determines the service URL. 
 	//ReportsController class name defines /api/report/ service URL.
     public class ReportsController : ReportsControllerBase

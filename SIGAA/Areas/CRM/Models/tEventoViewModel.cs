@@ -10,7 +10,7 @@ using Kendo.Mvc.Extensions;
 using Kendo.Mvc.UI;
 using SIGAA.Areas.CRM.Models;
 
-namespace MapiriSoftCRM.Views.tblEventos
+namespace SIGAA.Areas.CRM.Models
 {
     public class tEventoViewModel: ISchedulerEvent
     {

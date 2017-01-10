@@ -17,7 +17,8 @@ namespace SIGAA.Areas.CRM
             context.MapRoute(
                 "CRM_default",
                 "CRM/{controller}/{action}/{id}",
-                new { action = "Index", id = UrlParameter.Optional }
+                new { action = "Index", id = UrlParameter.Optional },
+                namespaces: new[] { "SIGAA.Areas.CRM.Controllers" }
             );
         }
     }

@@ -1,4 +1,4 @@
-﻿@model IEnumerable<MapiriSoftCRM.Models.tblEvento>
+﻿@model IEnumerable<SIGAA.Areas.CRM.Models.tblEvento>
 
 @{
     ViewBag.Title = "Eventos";
@@ -6,7 +6,7 @@
 
 <h2>Eventos</h2>
 
-@(Html.Kendo().Scheduler<MapiriSoftCRM.Models.tblEvento>()
+@(Html.Kendo().Scheduler<SIGAA.Areas.CRM.Models.tblEvento>()
     .Name("schedulerJob")
     .Date(new DateTime(2015, 8, 31))
     .StartTime(new DateTime(2015, 8, 31, 7, 00, 00))

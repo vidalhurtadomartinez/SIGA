@@ -1,4 +1,5 @@
-﻿@model IEnumerable<MapiriSoftCRM.Views.tblEventos.tEventoViewModel>
+﻿@*@model IEnumerable<MapiriSoftCRM.Views.tblEventos.tEventoViewModel>*@
+@model IEnumerable<SIGAA.Areas.CRM.Models.tEventoViewModel>
 
 @{
     ViewBag.Title = "Eventos Pendientes";
@@ -10,7 +11,7 @@
     @Html.ActionLink("Responder", "GuardarEvento", "tblEventos", new { }, new { @class = "btn btn-success" })  
 </p>*@
 
-@(Html.Kendo().Scheduler<MapiriSoftCRM.Views.tblEventos.tEventoViewModel>()
+@(Html.Kendo().Scheduler<SIGAA.Areas.CRM.Models.tEventoViewModel>()
     .Name("scheduler")    
     .Editable(editable => editable.Update(false)
                                           .Create(false)
