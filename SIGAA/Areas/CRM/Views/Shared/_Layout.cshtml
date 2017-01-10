@@ -1,0 +1,178 @@
+﻿@using SIGAA.Areas.CRM.Helpers
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - CRM</title>
+    @*@Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/jqueryui")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Styles.Render("~/Content/kendo/css")
+
+    <link href="@Url.Content("~/Content/kendo/2016.1.112/kendo.common-bootstrap.min.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/kendo/2016.1.112/kendo.mobile.all.min.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/kendo/2016.1.112/kendo.dataviz.min.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/kendo/2016.1.112/kendo.bootstrap.min.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/kendo/2016.1.112/kendo.dataviz.bootstrap.min.css")" rel="stylesheet" type="text/css" />
+    <script src="@Url.Content("~/Scripts/kendo/2016.1.112/jquery.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/kendo/2016.1.112/jszip.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/kendo/2016.1.112/kendo.all.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/kendo/2016.1.112/kendo.timezones.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/kendo/2016.1.112/kendo.aspnetmvc.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/kendo.modernizr.custom.js")"></script>
+    <script src="@Url.Content("~/Scripts/kendo/2016.1.112/cultures/kendo.culture.es-ES.min.js")"></script>*@
+
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/kendo/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @*@Scripts.Render("~/bundles/jquery")*@
+    @Scripts.Render("~/bundles/kendo")
+    @Styles.Render("~/Content/jqueryui")
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("MP-CRM", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            Registros
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Calendario", "Index", "Scheduler", new { area = "CRM" },null)</li>
+                            <li role="menuitem" class="divider"></li>
+                            <li>@Html.ActionLink("Asesores/Vendedores", "Index", "tblAsesores", new { area = "CRM" },null)</li>
+                            <li role="menuitem" class="divider"></li>
+                            <li>@Html.ActionLink("Posibles Clientes", "Index", "tblClientes", new { area = "CRM" }, null)</li>
+                            <li>@Html.ActionLink("Eventos", "Index", "tblEventos", new { area = "CRM" }, null)</li>
+                            <li role="menuitem" class="divider"></li>
+                            <li>@Html.ActionLink("Reasignar Posibles Clientes", "Index", "tblEventos", new { area = "CRM" }, null)</li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            Parametros
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Tipos de Relacion de Postulantes", "Index", "tblRelacionPostulantes", new { area = "CRM" }, null)</li>
+                            <li>@Html.ActionLink("Formas de Contacto", "Index", "tblFormaContactos", new { area = "CRM" }, null)</li>
+                            <li>@Html.ActionLink("Categorias de Colegio", "Index", "tblCategoriaColegios", new { area = "CRM" }, null)</li>
+                            <li>@Html.ActionLink("Medios de Informacion", "Index", "tblMedioInformaciones", new { area = "CRM" }, null)</li>
+                            <li role="menuitem" class="divider"></li>
+                            <li>@Html.ActionLink("Paises", "Index", "tblPaises", new { area = "CRM" }, null)</li>
+                            <li>@Html.ActionLink("Ciudades", "Index", "tblCiudades", new { area = "CRM" }, null)</li>
+                            <li>@Html.ActionLink("Tipos de Documentos", "Index", "tblTipoDocumentos", new { area = "CRM" }, null)</li>
+                            <li role="menuitem" class="divider"></li>
+                            <li>@Html.ActionLink("Rubros de Actividades", "Index", "tblRubroActividades", new { area = "CRM" }, null)</li>
+                            <li>@Html.ActionLink("Actividades Laborales", "Index", "tblActividades", new { area = "CRM" }, null)</li>
+                            <li>@Html.ActionLink("Ocupaciones / Cargos", "Index", "tblCargos", new { area = "CRM" }, null)</li>
+                            <li>@Html.ActionLink("Instituciones", "Index", "tblInstituciones", new { area = "CRM" }, null)</li>
+                            <li role="menuitem" class="divider"></li>
+                            <li>@Html.ActionLink("Tipos de Colegio", "Index", "tblTipoColegios", new { area = "CRM" }, null)</li>
+                            <li>@Html.ActionLink("Colegios", "Index", "tblColegios", new { area = "CRM" }, null)</li>
+                            <li>@Html.ActionLink("Provincias", "Index", "tblProvincias", new { area = "CRM" }, null)</li>
+                            <li role="menuitem" class="divider"></li>
+                            <li>@Html.ActionLink("Tipos de Universidades", "Index", "tblTipoUniversidades", new { area = "CRM" }, null)</li>
+                            <li>@Html.ActionLink("Universidades", "Index", "tblUniversidades", new { area = "CRM" }, null)</li>
+                            <li>@Html.ActionLink("Carreras", "Index", "tblCarreras", new { area = "CRM" }, null)</li>
+                            <li role="menuitem" class="divider"></li>
+                            <li>@Html.ActionLink("Tipos de Respuestas", "Index", "tblTipoRespuestas", new { area = "CRM" }, null)</li>
+
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            Notificaciones
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Tipos de Evento", "Index", "tblTipoEventos", new { area = "CRM" }, null)</li>
+                            <li>@Html.ActionLink("Alertas", "Index", "tblNotificaciones", new { area = "CRM" }, null)</li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            Reportes
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Posibles Clientes", "PosiblesClientes", "Reportes", new { area = "CRM" }, new { target = "_blank" })</li>
+                            <li>@Html.ActionLink("Listado de Eventos", "Eventos", "Reportes",new { area = "CRM" }, new { target = "_blank" })</li>
+                            <li>@Html.ActionLink("Eventos por Clientes", "EventosPorCliente", "Reportes", new { area = "CRM" }, new { target = "_blank" })</li>
+                            <li role="menuitem" class="divider"></li>
+                            <li>@Html.ActionLink("Estadisticas de Eventos", "Index", "Reportes", new { area = "CRM" }, new { target = "_blank" })</li>
+                            <li>@Html.ActionLink("Estadisticas de Eventos por Tiempo", "Index", "Reportes", new { area = "CRM" }, new { target = "_blank" })</li>
+                        </ul>
+                    </li>
+                    @*<li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                Reportes
+                                <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>@Html.ActionLink("Documentos Por Tipo de Procesos", "DocumentoTipoProceso", "Reportes", null, new { target = "_blank" })</li>
+                                <li>@Html.ActionLink("Formularios Por Tipo de Procesos", "FormularioTipoProceso", "Reportes", null, new { target = "_blank" })</li>
+                                <li role="menuitem" class="divider"></li>
+                                <li>@Html.ActionLink("Promedio de Respuestas Por Procesos de Documentos", "DocumentoTiempoTipoProceso", "Reportes", null, new { target = "_blank" })</li>
+                                <li>@Html.ActionLink("Promedio de Respuestas Por Procesos de Formularios", "FormularioTiempoTipoProceso", "Reportes", null, new { target = "_blank" })</li>
+                                <li role="menuitem" class="divider"></li>
+                                <li>@Html.ActionLink("Detalle de Respuestas Por Procesos de Documentos", "DocumentoDetalleRespuestaTipoProceso", "Reportes", null, new { target = "_blank" })</li>
+                                <li>@Html.ActionLink("Detalle de Respuestas Por Procesos de Formularios", "FormularioDetalleRespuestaTipoProceso", "Reportes", null, new { target = "_blank" })</li>
+                            </ul>
+                        </li>*@
+                    @*<li>@Html.ActionLink("Acerca de", "About", "Home", new {area="CRM" },null)</li>
+                    <li>@Html.ActionLink("Contacto", "Contact", "Home")</li>*@
+                </ul>
+                @*@Html.Partial("_LoginPartial")*@
+            </div>
+
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Copyright by MapiriSoft</p>
+        </footer>
+    </div>
+
+
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/jqueryui")
+    @Scripts.Render("~/bundles/kendo")
+
+    @section HeadContent {
+        <script src="@Url.Content("~/Scripts/kendo/2016.1.112/cultures/kendo.culture.es-ES.min.js")"></script>
+    }
+    <script>
+        kendo.culture("es-ES");
+
+        $(function () {
+            $(".jqueryui-marker-datepicker").datepicker({
+                dateformat: "dd/MM/yyyy",
+                changeYear: true,
+                language: "es"
+                //showOn: "button"
+            }).css("display", "inline-block").next("button").button({
+                icons: { primary: "btn ui-icon-calendar" },
+                //label: "",
+                text: false
+            });
+        });
+    </script>
+    @RenderSection("scripts", required: false)
+</body>
+</html>
