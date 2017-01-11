@@ -11,6 +11,7 @@ using SIGAA.Commons;
 using MvcFlash.Core.Extensions;
 using MvcFlash.Core;
 using SIGAA.Etiquetas;
+using SIGAA.ViewModels;
 
 namespace SIGAA.Controllers
 {
@@ -20,29 +21,53 @@ namespace SIGAA.Controllers
         private SeguridadContext db = new SeguridadContext();
 
         [Permiso(Permiso = RolesPermisos.SEGU_permiso_puedeVerIndice)]
-        public ActionResult Index(string criterio = null)
-        {
-            var perm = db.Permiso.Where(p => p.iEliminado_fl == 1).ToList();
-            var permFil = perm.Where(t => criterio == null ||
-                                   t.Modulo.ToLower().Contains(criterio.ToLower()) ||
-                                   t.Nemonico.ToLower().Contains(criterio.ToLower()) ||
-                                   t.Descripcion.ToLower().Contains(criterio.ToLower())
-                                   ).ToList();
-            var permFilOr = permFil.OrderBy(ef => ef.Modulo);
-            if (Request.IsAjaxRequest())
-            {
-                if (!String.IsNullOrWhiteSpace(criterio))
-                {
-                    Flash.Instance.Success("RESULTADO DE BUSQUEDA", "Se han encontrado " + permFilOr.Count() + " registros con los criterios especificados.");
-                }
-                return PartialView("_Index", permFilOr);
-            }
+        //public ActionResult Index(string criterio = null)
+        //{
+        //    var perm = db.Permiso.Where(p => p.iEliminado_fl == 1).ToList();
+        //    var permFil = perm.Where(t => criterio == null ||
+        //                           t.Modulo.ToLower().Contains(criterio.ToLower()) ||
+        //                           t.Nemonico.ToLower().Contains(criterio.ToLower()) ||
+        //                           t.Descripcion.ToLower().Contains(criterio.ToLower())
+        //                           ).ToList();
+        //    var permFilOr = permFil.OrderBy(ef => ef.Modulo);
+        //    if (Request.IsAjaxRequest())
+        //    {
+        //        if (!String.IsNullOrWhiteSpace(criterio))
+        //        {
+        //            Flash.Instance.Success("RESULTADO DE BUSQUEDA", "Se han encontrado " + permFilOr.Count() + " registros con los criterios especificados.");
+        //        }
+        //        return PartialView("_Index", permFilOr);
+        //    }
 
-            if (!String.IsNullOrWhiteSpace(criterio))
-            {
-                Flash.Instance.Success("RESULTADO DE BUSQUEDA", "Se han encontrado " + permFilOr.Count() + " registros con los criterios especificados.");
-            }
-            return View(permFilOr);
+        //    if (!String.IsNullOrWhiteSpace(criterio))
+        //    {
+        //        Flash.Instance.Success("RESULTADO DE BUSQUEDA", "Se han encontrado " + permFilOr.Count() + " registros con los criterios especificados.");
+        //    }
+        //    return View(permFilOr);
+        //}
+
+        public ActionResult Index()
+        {
+            var permisoVM = new PermisoViewModel();
+            var permisoS = new List<Permiso>();
+            var permisoE = new List<Permiso>();
+            var permisoO = new List<Permiso>();
+            var permisoC = new List<Permiso>();
+            var permisoCR = new List<Permiso>();
+
+            permisoS = db.Permiso.Where(n => n.Nemonico.Equals("SEGU")).ToList();
+            permisoE = db.Permiso.Where(n => n.Nemonico.Equals("EGRE")).ToList();
+            permisoO = db.Permiso.Where(n => n.Nemonico.Equals("OYM")).ToList();
+            permisoC = db.Permiso.Where(n => n.Nemonico.Equals("CONV")).ToList();
+            permisoCR = db.Permiso.Where(n => n.Nemonico.Equals("CRM")).ToList();
+
+            permisoVM.PermisosSEGU = permisoS;
+            permisoVM.PermisosEGRE = permisoE;
+            permisoVM.PermisosOYM = permisoO;
+            permisoVM.PermisosCONV = permisoC;
+            permisoVM.PermisosCRM = permisoCR;
+
+            return View(permisoVM);
         }
 
         [Permiso(Permiso =RolesPermisos.SEGU_permiso_puedeVerDetalle)]

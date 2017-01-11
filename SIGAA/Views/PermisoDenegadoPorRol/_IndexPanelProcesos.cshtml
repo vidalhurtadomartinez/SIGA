@@ -1,0 +1,178 @@
+﻿@model SIGAA.ViewModels.PermisoDenegadoPorRolViewModel
+            <!-- Nav tabs -->
+<ul id="myTab" class="nav nav-tabs" role="tablist" data-tabs="tabs">
+    <li role="presentation" class="active"><a href="#SEGU" aria-controls="home" role="tab" data-toggle="tab">SEGU</a></li>
+    <li role="presentation"><a href="#EGRE" aria-controls="profile" role="tab" data-toggle="tab">EGRE</a></li>
+    <li role="presentation"><a href="#OYM" aria-controls="profile" role="tab" data-toggle="tab">OYM</a></li>
+    <li role="presentation"><a href="#CONV" aria-controls="profile" role="tab" data-toggle="tab">CONV</a></li>
+    <li role="presentation"><a href="#CRM" aria-controls="profile" role="tab" data-toggle="tab">CRM</a></li>
+</ul>
+
+<!-- Tab panes -->
+<div class="tab-content table-bordered">
+    <div role="tabpanel" class="tab-pane active" id="SEGU">
+        <div>
+            <div class="panel-body">
+                <!-- table -->
+                <table class="table small">
+                    <tr class="active">
+                        <th class="col-md-11">Proceso</th>
+                        <th class="col-md-1">Estado</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            SELECCIONAR TODO
+                        </td>
+                        <td>
+                            @Html.CheckBox("seleccionarTodo")
+                        </td>
+                    </tr>
+
+                    @foreach (var item in Model.ProcesosSEGU)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.sNombre)
+                            </td>
+                            <td>
+                                @Html.CheckBoxFor(modelItem => item.bEstadoSeleccionado)
+                            </td>
+                        </tr>
+                    }
+                </table>
+            </div>
+        </div>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="EGRE">
+        <div>
+            <div class="panel-body">
+                <!-- table -->
+                <table class="table small">
+                    <tr class="active">
+                        <th class="col-md-11">Proceso</th>
+                        <th class="col-md-1">Estado</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            SELECCIONAR TODO
+                        </td>
+                        <td>
+                            @Html.CheckBox("seleccionarTodo")
+                        </td>
+                    </tr>
+
+                    @foreach (var item in Model.ProcesosEGRE)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.sNombre)
+                            </td>
+                            <td>
+                                @Html.CheckBoxFor(modelItem => item.bEstadoSeleccionado)
+                            </td>
+                        </tr>
+                    }
+                </table>
+            </div>
+        </div>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="OYM">
+        <div>
+            <div class="panel-body">
+                <!-- table -->
+                <table class="table small">
+                    <tr class="active">
+                        <th class="col-md-11">Proceso</th>
+                        <th class="col-md-1">Estado</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            SELECCIONAR TODO
+                        </td>
+                        <td>
+                            @Html.CheckBox("seleccionarTodo")
+                        </td>
+                    </tr>
+
+                    @foreach (var item in Model.ProcesosOYM)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.sNombre)
+                            </td>
+                            <td>
+                                @Html.CheckBoxFor(modelItem => item.bEstadoSeleccionado)
+                            </td>
+                        </tr>
+                    }
+                </table>
+            </div>
+        </div>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="CONV">
+        <div>
+            <div class="panel-body">
+                <!-- table -->
+                <table class="table small">
+                    <tr class="active">
+                        <th class="col-md-11">Proceso</th>
+                        <th class="col-md-1">Estado</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            SELECCIONAR TODO
+                        </td>
+                        <td>
+                            @Html.CheckBox("seleccionarTodo")
+                        </td>
+                    </tr>
+
+                    @foreach (var item in Model.ProcesosCONV)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.sNombre)
+                            </td>
+                            <td>
+                                @Html.CheckBoxFor(modelItem => item.bEstadoSeleccionado)
+                            </td>
+                        </tr>
+                    }
+                </table>
+            </div>
+        </div>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="CRM">
+        <div>
+            <div class="panel-body">
+                <!-- table -->
+                <table class="table small">
+                    <tr class="active">
+                        <th class="col-md-11">Proceso</th>
+                        <th class="col-md-1">Estado</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            SELECCIONAR TODO
+                        </td>
+                        <td>
+                            @Html.CheckBox("seleccionarTodo")
+                        </td>
+                    </tr>
+
+                    @foreach (var item in Model.ProcesosCRM)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.sNombre)
+                            </td>
+                            <td>
+                                @Html.CheckBoxFor(modelItem => item.bEstadoSeleccionado)
+                            </td>
+                        </tr>
+                    }
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

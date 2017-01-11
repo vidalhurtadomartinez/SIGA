@@ -1,52 +1,285 @@
 ﻿@using MvcFlash.Core.Extensions
-@model IEnumerable<SIGAA.Models.Permiso>
+@model SIGAA.ViewModels.PermisoViewModel
 <div id="listaPermisos">
     @Html.Flash()
-    <table class="table small">
-        <tr class="active">
-            <th>Operaciones</th>
-            <th>
-                @Html.DisplayNameFor(model => model.Modulo)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Proceso)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Descripcion)
-            </th>     
-        </tr>
 
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @if (FrontUser.TienePermiso(RolesPermisos.SEGU_permiso_puedeEditar))
-                    {
-                    @*<a href="/Permiso/Edit/@item.iPermiso_id"><span class="glyphicon glyphicon-pencil" data-toggle="tooltip" data-original-title="Editar"></span></a>} |*@
-                    <a href=@Url.Action("Edit","Permiso",new {id=item.iPermiso_id})><span class="glyphicon glyphicon-pencil" data-toggle="tooltip" data-original-title="Editar"></span></a>} |
-                    @if (FrontUser.TienePermiso(RolesPermisos.SEGU_permiso_puedeVerDetalle)) {
-                    @*<a href="/Permiso/Details/@item.iPermiso_id"><span class="glyphicon glyphicon-eye-open" data-toggle="tooltip" data-original-title="Ver detalle"></span></a>} |*@
-                    <a href=@Url.Action("Edit","Permiso",new {id=item.iPermiso_id})><span class="glyphicon glyphicon-eye-open" data-toggle="tooltip" data-original-title="Ver detalle"></span></a>} |
+    <!-- Nav tabs -->
+    <ul id="myTab" class="nav nav-tabs" role="tablist" data-tabs="tabs">
+        <li role="presentation" class="active"><a href="#SEGU" aria-controls="home" role="tab" data-toggle="tab">SEGU</a></li>
+        <li role="presentation"><a href="#EGRE" aria-controls="profile" role="tab" data-toggle="tab">EGRE</a></li>
+        <li role="presentation"><a href="#OYM" aria-controls="profile" role="tab" data-toggle="tab">OYM</a></li>
+        <li role="presentation"><a href="#CONV" aria-controls="profile" role="tab" data-toggle="tab">CONV</a></li>
+        <li role="presentation"><a href="#CRM" aria-controls="profile" role="tab" data-toggle="tab">CRM</a></li>
+    </ul>
 
-                    @if (FrontUser.TienePermiso(RolesPermisos.SEGU_permiso_puedeEliminar))
-                    {
-                    @*<a href="/Permiso/Delete/@item.iPermiso_id"><span class="glyphicon glyphicon-trash" data-toggle="tooltip" data-original-title="Eliminar"></span></a>}*@
-                    <a href=@Url.Action("Edit","Permiso",new {id=item.iPermiso_id})><span class="glyphicon glyphicon-trash" data-toggle="tooltip" data-original-title="Eliminar"></span></a>}
+    <!-- Tab panes -->
+    <div class="tab-content table-bordered">
+        <div role="tabpanel" class="tab-pane active" id="SEGU">
+            <div>
+                <div class="panel-body">
+                    <!-- table -->
+                    <table class="table small">
+                        <tr class="active">
+                            <th>Operaciones</th>
+                            <th>
+                                @Html.DisplayName("Modulo")
+                            </th>
+                            <th>
+                                @Html.DisplayName("Proceso")
+                            </th>
+                            <th>
+                                @Html.DisplayName("Metodo de accion")
+                            </th>
+                        </tr>
 
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Modulo)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Proceso)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Descripcion)
-                </td>              
-            </tr>
-        }
+                        @foreach (var item in Model.PermisosSEGU)
+                        {
+                            <tr>
+                                <td>
+                                    @if (FrontUser.TienePermiso(RolesPermisos.SEGU_permiso_puedeEditar))
+                                    {
+                                        @*<a href="/Permiso/Edit/@item.iPermiso_id"><span class="glyphicon glyphicon-pencil" data-toggle="tooltip" data-original-title="Editar"></span></a>} |*@
+                                        <a href=@Url.Action("Edit","Permiso",new {id=item.iPermiso_id})><span class="glyphicon glyphicon-pencil" data-toggle="tooltip" data-original-title="Editar"></span></a>} |
+                                    @if (FrontUser.TienePermiso(RolesPermisos.SEGU_permiso_puedeVerDetalle))
+                                    {
+                                        @*<a href="/Permiso/Details/@item.iPermiso_id"><span class="glyphicon glyphicon-eye-open" data-toggle="tooltip" data-original-title="Ver detalle"></span></a>} |*@
+                                        <a href=@Url.Action("Edit","Permiso",new {id=item.iPermiso_id})><span class="glyphicon glyphicon-eye-open" data-toggle="tooltip" data-original-title="Ver detalle"></span></a>} |
 
-    </table>
+                                    @if (FrontUser.TienePermiso(RolesPermisos.SEGU_permiso_puedeEliminar))
+                                    {
+                                        @*<a href="/Permiso/Delete/@item.iPermiso_id"><span class="glyphicon glyphicon-trash" data-toggle="tooltip" data-original-title="Eliminar"></span></a>}*@
+                                        <a href=@Url.Action("Edit","Permiso",new {id=item.iPermiso_id})><span class="glyphicon glyphicon-trash" data-toggle="tooltip" data-original-title="Eliminar"></span></a>}
+
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Modulo)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Proceso)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Descripcion)
+                                </td>
+                            </tr>
+                        }
+
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="EGRE">
+            <div>
+                <div class="panel-body">
+                    <!-- table -->
+                    <table class="table small">
+                        <tr class="active">
+                            <th>Operaciones</th>
+                            <th>
+                                @Html.DisplayName("Modulo")
+                            </th>
+                            <th>
+                                @Html.DisplayName("Proceso")
+                            </th>
+                            <th>
+                                @Html.DisplayName("Metodo de accion")
+                            </th>
+                        </tr>
+
+                        @foreach (var item in Model.PermisosEGRE)
+                        {
+                            <tr>
+                                <td>
+                                    @if (FrontUser.TienePermiso(RolesPermisos.SEGU_permiso_puedeEditar))
+                                    {
+                                        @*<a href="/Permiso/Edit/@item.iPermiso_id"><span class="glyphicon glyphicon-pencil" data-toggle="tooltip" data-original-title="Editar"></span></a>} |*@
+                                        <a href=@Url.Action("Edit","Permiso",new {id=item.iPermiso_id})><span class="glyphicon glyphicon-pencil" data-toggle="tooltip" data-original-title="Editar"></span></a>} |
+                                    @if (FrontUser.TienePermiso(RolesPermisos.SEGU_permiso_puedeVerDetalle))
+                                    {
+                                        @*<a href="/Permiso/Details/@item.iPermiso_id"><span class="glyphicon glyphicon-eye-open" data-toggle="tooltip" data-original-title="Ver detalle"></span></a>} |*@
+                                        <a href=@Url.Action("Edit","Permiso",new {id=item.iPermiso_id})><span class="glyphicon glyphicon-eye-open" data-toggle="tooltip" data-original-title="Ver detalle"></span></a>} |
+
+                                    @if (FrontUser.TienePermiso(RolesPermisos.SEGU_permiso_puedeEliminar))
+                                    {
+                                        @*<a href="/Permiso/Delete/@item.iPermiso_id"><span class="glyphicon glyphicon-trash" data-toggle="tooltip" data-original-title="Eliminar"></span></a>}*@
+                                        <a href=@Url.Action("Edit","Permiso",new {id=item.iPermiso_id})><span class="glyphicon glyphicon-trash" data-toggle="tooltip" data-original-title="Eliminar"></span></a>}
+
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Modulo)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Proceso)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Descripcion)
+                                </td>
+                            </tr>
+                        }
+
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="OYM">
+            <div>
+                <div class="panel-body">
+                    <!-- table -->
+                    <table class="table small">
+                        <tr class="active">
+                            <th>Operaciones</th>
+                            <th>
+                                @Html.DisplayName("Modulo")
+                            </th>
+                            <th>
+                                @Html.DisplayName("Proceso")
+                            </th>
+                            <th>
+                                @Html.DisplayName("Metodo de accion")
+                            </th>
+                        </tr>
+
+                        @foreach (var item in Model.PermisosOYM)
+                        {
+                            <tr>
+                                <td>
+                                    @if (FrontUser.TienePermiso(RolesPermisos.SEGU_permiso_puedeEditar))
+                                    {
+                                        @*<a href="/Permiso/Edit/@item.iPermiso_id"><span class="glyphicon glyphicon-pencil" data-toggle="tooltip" data-original-title="Editar"></span></a>} |*@
+                                        <a href=@Url.Action("Edit","Permiso",new {id=item.iPermiso_id})><span class="glyphicon glyphicon-pencil" data-toggle="tooltip" data-original-title="Editar"></span></a>} |
+                                    @if (FrontUser.TienePermiso(RolesPermisos.SEGU_permiso_puedeVerDetalle))
+                                    {
+                                        @*<a href="/Permiso/Details/@item.iPermiso_id"><span class="glyphicon glyphicon-eye-open" data-toggle="tooltip" data-original-title="Ver detalle"></span></a>} |*@
+                                        <a href=@Url.Action("Edit","Permiso",new {id=item.iPermiso_id})><span class="glyphicon glyphicon-eye-open" data-toggle="tooltip" data-original-title="Ver detalle"></span></a>} |
+
+                                    @if (FrontUser.TienePermiso(RolesPermisos.SEGU_permiso_puedeEliminar))
+                                    {
+                                        @*<a href="/Permiso/Delete/@item.iPermiso_id"><span class="glyphicon glyphicon-trash" data-toggle="tooltip" data-original-title="Eliminar"></span></a>}*@
+                                        <a href=@Url.Action("Edit","Permiso",new {id=item.iPermiso_id})><span class="glyphicon glyphicon-trash" data-toggle="tooltip" data-original-title="Eliminar"></span></a>}
+
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Modulo)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Proceso)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Descripcion)
+                                </td>
+                            </tr>
+                        }
+
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="CONV">
+            <div>
+                <div class="panel-body">
+                    <!-- table -->
+                    <table class="table small">
+                        <tr class="active">
+                            <th>Operaciones</th>
+                            <th>
+                                @Html.DisplayName("Modulo")
+                            </th>
+                            <th>
+                                @Html.DisplayName("Proceso")
+                            </th>
+                            <th>
+                                @Html.DisplayName("Metodo de accion")
+                            </th>
+                        </tr>
+
+                        @foreach (var item in Model.PermisosCONV)
+                        {
+                            <tr>
+                                <td>
+                                    @if (FrontUser.TienePermiso(RolesPermisos.SEGU_permiso_puedeEditar))
+                                    {
+                                        @*<a href="/Permiso/Edit/@item.iPermiso_id"><span class="glyphicon glyphicon-pencil" data-toggle="tooltip" data-original-title="Editar"></span></a>} |*@
+                                        <a href=@Url.Action("Edit","Permiso",new {id=item.iPermiso_id})><span class="glyphicon glyphicon-pencil" data-toggle="tooltip" data-original-title="Editar"></span></a>} |
+                                    @if (FrontUser.TienePermiso(RolesPermisos.SEGU_permiso_puedeVerDetalle))
+                                    {
+                                        @*<a href="/Permiso/Details/@item.iPermiso_id"><span class="glyphicon glyphicon-eye-open" data-toggle="tooltip" data-original-title="Ver detalle"></span></a>} |*@
+                                        <a href=@Url.Action("Edit","Permiso",new {id=item.iPermiso_id})><span class="glyphicon glyphicon-eye-open" data-toggle="tooltip" data-original-title="Ver detalle"></span></a>} |
+
+                                    @if (FrontUser.TienePermiso(RolesPermisos.SEGU_permiso_puedeEliminar))
+                                    {
+                                        @*<a href="/Permiso/Delete/@item.iPermiso_id"><span class="glyphicon glyphicon-trash" data-toggle="tooltip" data-original-title="Eliminar"></span></a>}*@
+                                        <a href=@Url.Action("Edit","Permiso",new {id=item.iPermiso_id})><span class="glyphicon glyphicon-trash" data-toggle="tooltip" data-original-title="Eliminar"></span></a>}
+
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Modulo)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Proceso)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Descripcion)
+                                </td>
+                            </tr>
+                        }
+
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="CRM">
+            <div>
+                <div class="panel-body">
+                    <!-- table -->
+                    <table class="table small">
+                        <tr class="active">
+                            <th>Operaciones</th>
+                            <th>
+                                @Html.DisplayName("Modulo")
+                            </th>
+                            <th>
+                                @Html.DisplayName("Proceso")
+                            </th>
+                            <th>
+                                @Html.DisplayName("Metodo de accion")
+                            </th>
+                        </tr>
+
+                        @foreach (var item in Model.PermisosCRM)
+                        {
+                            <tr>
+                                <td>
+                                    @if (FrontUser.TienePermiso(RolesPermisos.SEGU_permiso_puedeEditar))
+                                    {
+                                        @*<a href="/Permiso/Edit/@item.iPermiso_id"><span class="glyphicon glyphicon-pencil" data-toggle="tooltip" data-original-title="Editar"></span></a>} |*@
+                                        <a href=@Url.Action("Edit","Permiso",new {id=item.iPermiso_id})><span class="glyphicon glyphicon-pencil" data-toggle="tooltip" data-original-title="Editar"></span></a>} |
+                                    @if (FrontUser.TienePermiso(RolesPermisos.SEGU_permiso_puedeVerDetalle))
+                                    {
+                                        @*<a href="/Permiso/Details/@item.iPermiso_id"><span class="glyphicon glyphicon-eye-open" data-toggle="tooltip" data-original-title="Ver detalle"></span></a>} |*@
+                                        <a href=@Url.Action("Edit","Permiso",new {id=item.iPermiso_id})><span class="glyphicon glyphicon-eye-open" data-toggle="tooltip" data-original-title="Ver detalle"></span></a>} |
+
+                                    @if (FrontUser.TienePermiso(RolesPermisos.SEGU_permiso_puedeEliminar))
+                                    {
+                                        @*<a href="/Permiso/Delete/@item.iPermiso_id"><span class="glyphicon glyphicon-trash" data-toggle="tooltip" data-original-title="Eliminar"></span></a>}*@
+                                        <a href=@Url.Action("Edit","Permiso",new {id=item.iPermiso_id})><span class="glyphicon glyphicon-trash" data-toggle="tooltip" data-original-title="Eliminar"></span></a>}
+
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Modulo)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Proceso)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Descripcion)
+                                </td>
+                            </tr>
+                        }
+
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div> 
 </div>
 <script type="text/javascript">
     $(document).ready(function () {

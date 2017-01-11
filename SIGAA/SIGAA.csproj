@@ -649,6 +649,7 @@
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\MetodoDeAccionViewModel.cs" />
     <Compile Include="ViewModels\PermisoDenegadoPorRolViewModel.cs" />
+    <Compile Include="ViewModels\PermisoViewModel.cs" />
     <Compile Include="ViewModels\ProcesoViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -1716,6 +1717,8 @@
     <Content Include="Scripts\kendo\kendo.all.min.js.map" />
     <Content Include="Views\HistorialCambioRolDeUsuario\Index.cshtml" />
     <Content Include="Views\HistorialCambioRolDeUsuario\_Index.cshtml" />
+    <Content Include="Views\PermisoDenegadoPorRol\_IndexPanelAcciones.cshtml" />
+    <Content Include="Views\PermisoDenegadoPorRol\_IndexPanelProcesos.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

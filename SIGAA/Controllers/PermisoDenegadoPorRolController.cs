@@ -48,47 +48,119 @@ namespace SIGAA.Controllers
 
         public ActionResult Index()
         {
+            Rol primerRol = db.Rol.FirstOrDefault();
             PermisoDenegadoPorRolViewModel pdprvw = new PermisoDenegadoPorRolViewModel();
-            var lmdavm = new List<MetodoDeAccionViewModel>();
-            lmdavm.Add(new MetodoDeAccionViewModel { iPermiso_id = 1, sNombreAccion = "ejemplo Nombre Accion", bEstadoSeleccionado = true });
-            lmdavm.Add(new MetodoDeAccionViewModel { iPermiso_id = 2, sNombreAccion = "ejemplo Nombre Accion2", bEstadoSeleccionado = false });
+            //modulos
+            var procesosS = new List<ProcesoViewModel>();
+            var procesosE = new List<ProcesoViewModel>();
+            var procesosO = new List<ProcesoViewModel>();
+            var procesosC = new List<ProcesoViewModel>();
+            var procesosCR = new List<ProcesoViewModel>();
+            
+            //modulo SEGURIDAD
+            var permisosS = TraerVarios_Permisos_PorModulo("SEGU");
+            var primerProcesoS = permisosS.LastOrDefault();
 
-            var pvmS = new List<ProcesoViewModel>();
-            var pvmE = new List<ProcesoViewModel>();
-            var pvmO = new List<ProcesoViewModel>();
-            var pvmC = new List<ProcesoViewModel>();
-            var pvmCR = new List<ProcesoViewModel>();
+            var pdrsS = TraerVarios_PDR_porModulo("SEGU");//se utilizara para ver si chequeamos el select all.
+            var nombresProcesosS = TraerVarios_NombreProcesos_PorModulo("SEGU");
+            foreach (var nombreProceso in nombresProcesosS)
+            {
+                var procesos = TraerVarios_Permisos_PorModuloYproceso("SEGU", nombreProceso);
+                var pdr = TraerVarios_PDR_porModuloYproceso("SEGU",nombreProceso);
 
-            pvmS.Add(new ProcesoViewModel { sNombre = "proseso SEGU 1", bEstadoSeleccionado = true });
-            pvmS.Add(new ProcesoViewModel { sNombre = "proseso SEGU 2", bEstadoSeleccionado = false });
-            pvmS.Add(new ProcesoViewModel { sNombre = "proseso SEGU 3", bEstadoSeleccionado = true });
+                ProcesoViewModel procesoVM = new ProcesoViewModel();
+                procesoVM.sNombre = nombreProceso;
+                procesoVM.bEstadoSeleccionado = pdr.Count < procesos.Count ? false : true;
 
-            pvmE.Add(new ProcesoViewModel { sNombre = "proseso EGRE 1", bEstadoSeleccionado = true });
-            pvmE.Add(new ProcesoViewModel { sNombre = "proseso EGRE 2", bEstadoSeleccionado = false });
-            pvmE.Add(new ProcesoViewModel { sNombre = "proseso EGRE 3", bEstadoSeleccionado = true });
+                procesosS.Add(procesoVM);
+            }
 
-            pvmO.Add(new ProcesoViewModel { sNombre = "proseso OYM 1", bEstadoSeleccionado = true });
-            pvmO.Add(new ProcesoViewModel { sNombre = "proseso OYM 2", bEstadoSeleccionado = false });
-            pvmO.Add(new ProcesoViewModel { sNombre = "proseso OYM 3", bEstadoSeleccionado = true });
+            //modulo EGRESADOS
+            var permisosE = TraerVarios_Permisos_PorModulo("EGRE");          
+            var pdrsE = TraerVarios_PDR_porModulo("EGRE");//se utilizara para ver si chequeamos el select all.
+            var nombresProcesosE = TraerVarios_NombreProcesos_PorModulo("EGRE");
+            foreach (var nombreProceso in nombresProcesosE)
+            {
+                var procesos = TraerVarios_Permisos_PorModuloYproceso("EGRE", nombreProceso);
+                var pdr = TraerVarios_PDR_porModuloYproceso("EGRE", nombreProceso);
 
-            pvmC.Add(new ProcesoViewModel { sNombre = "proseso CONV 1", bEstadoSeleccionado = true });
-            pvmC.Add(new ProcesoViewModel { sNombre = "proseso CONV 2", bEstadoSeleccionado = false });
-            pvmC.Add(new ProcesoViewModel { sNombre = "proseso CONV 3", bEstadoSeleccionado = true });
+                ProcesoViewModel procesoVM = new ProcesoViewModel();
+                procesoVM.sNombre = nombreProceso;
+                procesoVM.bEstadoSeleccionado = pdr.Count < procesos.Count ? false : true;
 
-            pvmCR.Add(new ProcesoViewModel { sNombre = "proseso CRM 1", bEstadoSeleccionado = true });
-            pvmCR.Add(new ProcesoViewModel { sNombre = "proseso CRM 2", bEstadoSeleccionado = false });
-            pvmCR.Add(new ProcesoViewModel { sNombre = "proseso CRM 3", bEstadoSeleccionado = true });
+                procesosE.Add(procesoVM);
+            }
+
+            //modulo OYM
+            var permisosO = TraerVarios_Permisos_PorModulo("OYM");
+            var pdrsO = TraerVarios_PDR_porModulo("OYM");//se utilizara para ver si chequeamos el select all.
+            var nombresProcesosO = TraerVarios_NombreProcesos_PorModulo("OYM");
+            foreach (var nombreProceso in nombresProcesosO)
+            {
+                var procesos = TraerVarios_Permisos_PorModuloYproceso("OYM", nombreProceso);
+                var pdr = TraerVarios_PDR_porModuloYproceso("OYM", nombreProceso);
+
+                ProcesoViewModel procesoVM = new ProcesoViewModel();
+                procesoVM.sNombre = nombreProceso;
+                procesoVM.bEstadoSeleccionado = pdr.Count < procesos.Count ? false : true;
+
+                procesosO.Add(procesoVM);
+            }
+
+            //modulo CONVALIDACIONES
+            var permisosC = TraerVarios_Permisos_PorModulo("CONV");
+            var pdrsC = TraerVarios_PDR_porModulo("CONV");//se utilizara para ver si chequeamos el select all.
+            var nombresProcesosC = TraerVarios_NombreProcesos_PorModulo("CONV");
+            foreach (var nombreProceso in nombresProcesosC)
+            {
+                var procesos = TraerVarios_Permisos_PorModuloYproceso("CONV", nombreProceso);
+                var pdr = TraerVarios_PDR_porModuloYproceso("CONV", nombreProceso);
+
+                ProcesoViewModel procesoVM = new ProcesoViewModel();
+                procesoVM.sNombre = nombreProceso;
+                procesoVM.bEstadoSeleccionado = pdr.Count < procesos.Count ? false : true;
+
+                procesosC.Add(procesoVM);
+            }
+
+            //modulo CRM
+            var permisosCr = TraerVarios_Permisos_PorModulo("CRM");
+            var pdrsCr = TraerVarios_PDR_porModulo("CRM");//se utilizara para ver si chequeamos el select all.
+            var nombresProcesosCr = TraerVarios_NombreProcesos_PorModulo("CRM");
+            foreach (var nombreProceso in nombresProcesosCr)
+            {
+                var procesos = TraerVarios_Permisos_PorModuloYproceso("CRM", nombreProceso);
+                var pdr = TraerVarios_PDR_porModuloYproceso("CRM", nombreProceso);
+
+                ProcesoViewModel procesoVM = new ProcesoViewModel();
+                procesoVM.sNombre = nombreProceso;
+                procesoVM.bEstadoSeleccionado = pdr.Count < procesos.Count ? false : true;
+
+                procesosCR.Add(procesoVM);
+            }
 
 
-            pdprvw.MetodosDeAccionDeProcesoSeleccionado = lmdavm;
-            pdprvw.ProcesosCONV = pvmC;
-            pdprvw.ProcesosSEGU = pvmS;
-            pdprvw.ProcesosEGRE = pvmE;
-            pdprvw.ProcesosCRM = pvmCR;
-            pdprvw.ProcesosOYM = pvmO;
+            var acciones = new List<MetodoDeAccionViewModel>();
+            var permisos = TraerVarios_Permisos_PorModuloYproceso("SEGU", primerProcesoS.Proceso);
+            foreach (var permiso in permisos)
+            {
+                MetodoDeAccionViewModel metodoAccion = new MetodoDeAccionViewModel();
+                metodoAccion.iPermiso_id = (int)permiso.iPermiso_id;
+                metodoAccion.sNombreAccion = permiso.Descripcion;
+                var pdr = TraerUno_PDR_porIdRolEidPermiso(primerRol.iRol_id, permiso.iPermiso_id);
+                metodoAccion.bEstadoSeleccionado = pdr == null ? false : true;
 
+                acciones.Add(metodoAccion);
+            }           
 
-            ViewBag.iRol_id = new SelectList(db.Rol, "iRol_id", "Nombre");
+            pdprvw.MetodosDeAccionDeProcesoSeleccionado = acciones;
+            pdprvw.ProcesosSEGU = procesosS;
+            pdprvw.ProcesosEGRE = procesosE;
+            pdprvw.ProcesosCONV = procesosC;
+            pdprvw.ProcesosCRM = procesosCR;
+            pdprvw.ProcesosOYM = procesosO;
+
+            ViewBag.iRol_id = new SelectList(db.Rol, "iRol_id", "Nombre",primerRol.iRol_id);
             return View(pdprvw);
         }
 
@@ -441,7 +513,7 @@ namespace SIGAA.Controllers
             }
             return Json(pdrs, JsonRequestBehavior.AllowGet);
         }
-        public JsonResult EliminarUnMetodoDeAccion(int idRol, int permisoId)
+        public JsonResult EliminarUno_PDR_PorIdRonEidPermiso(int idRol, int permisoId)
         {
             PermisoDenegadoPorRol pdr = new PermisoDenegadoPorRol();
             try
@@ -467,7 +539,96 @@ namespace SIGAA.Controllers
             return Json(pdr, JsonRequestBehavior.AllowGet);
         }
 
+        private List<Permiso> TraerVarios_Permisos_PorModulo(string nemonico) {
+            var permisos = new List<Permiso>();
+            permisos = db.Permiso.Where(e => e.iEliminado_fl ==1).Where(p => p.Nemonico.Trim().ToUpper().Contains(nemonico.Trim().ToUpper())).ToList();
+            return permisos;
+        }
+        private List<Permiso> TraerVarios_Permisos_PorProceso(string nombreProceso) {
+            var permisos = new List<Permiso>();
+            permisos = db.Permiso.Where(e => e.iEliminado_fl == 1).Where(p => p.Proceso.Trim().ToUpper().Contains(nombreProceso.Trim().ToUpper())).ToList();
+            return permisos;
+        }
+        private List<Permiso> TraerVarios_Permisos_PorModuloYproceso(string nemonico,string nombreProceso)
+        {
+            var permisosPorProcYnem = new List<Permiso>();
+            var perisosPorNemonico = TraerVarios_Permisos_PorModulo(nemonico);
+            permisosPorProcYnem = perisosPorNemonico.Where(p => p.Proceso.Trim().ToUpper().Contains(nombreProceso.Trim().ToUpper())).ToList();
 
+            return permisosPorProcYnem;
+        }
+
+        private List<PermisoDenegadoPorRol> TraerVarios_PDR_porModulo(string nemonico)
+        {
+            var pdr = new List<PermisoDenegadoPorRol>();
+            pdr = db.PermisoDenegadoPorRol.Where(e => e.iEliminado_fl == 1).Where(p => p.Permiso.Nemonico.Trim().ToUpper().Contains(nemonico.Trim().ToUpper())).ToList();
+            return pdr;
+        }
+        private List<PermisoDenegadoPorRol> TraerVarios_PDR_porProceso(string nombreProceso)
+        {
+            var pdr = new List<PermisoDenegadoPorRol>();
+            pdr = db.PermisoDenegadoPorRol.Where(e => e.iEliminado_fl == 1).Where(p => p.Permiso.Proceso.Trim().ToUpper().Contains(nombreProceso.Trim().ToUpper())).ToList();
+            return pdr;
+        }  
+        private List<PermisoDenegadoPorRol> TraerVarios_PDR_porModuloYproceso(string nemonico, string nombreProceso)
+        {
+            var pdrPorNemYproc = new List<PermisoDenegadoPorRol>();
+            var pdrPorNemonico = TraerVarios_PDR_porModulo(nemonico);
+            pdrPorNemYproc = pdrPorNemonico.Where(p => p.Permiso.Proceso.Trim().ToUpper().Contains(nombreProceso.Trim().ToUpper())).ToList();
+            return pdrPorNemYproc;
+        }
+        private PermisoDenegadoPorRol TraerUno_PDR_porIdRolEidPermiso(int idRol, RolesPermisos idPermiso)
+        {
+            var pdr = new PermisoDenegadoPorRol();
+            pdr = db.PermisoDenegadoPorRol.Where(r => r.iRol_id == idRol).Where(p => p.iPermiso_id == idPermiso).FirstOrDefault();
+            return pdr;
+        }
+
+
+        private List<string> TraerVarios_NombreNemonicosDeModulos() {
+            List<string>  modulos = new List<string>();
+            var result = db.Permiso.GroupBy(test => test.Nemonico)
+                   .Select(grp => grp.First())
+                   .ToList();
+            modulos = result.Select(se => se.Nemonico).ToList();
+
+            //var nemonicosUnicos = (from dbo in db.Permiso
+            //                    //where dbo.Property == true
+            //                    select dbo.Nemonico).Distinct().OrderBy(name => name);
+            return modulos;
+        }
+        private List<string> TraerVarios_NombreProcesos_PorModulo(string nemonicoModulo)
+        {
+            List<string> modulos = new List<string>();
+            //var result = db.Permiso.GroupBy(test => test.Proceso)
+            //       .Select(grp => grp.First())
+            //       .Where(e => e.Nemonico.Equals(nemonicoModulo))
+            //       .ToList();
+            //modulos = result.Select(se => se.Proceso).ToList();
+
+            modulos = (from perm in db.Permiso
+                                   where perm.Nemonico.Equals(nemonicoModulo)
+                                   select perm.Proceso).Distinct().OrderBy(name => name).ToList();
+            return modulos;
+
+
+        }
+        private List<string> TraerVarios_NombreAcciones_PorProcesoYmodulo(string nombreProceso,string nemonico)
+        {
+            List<string> acciones = new List<string>();
+            //var result = db.Permiso.GroupBy(test => test.Proceso)
+            //       .Select(grp => grp.First())
+            //       .Where(e => e.Nemonico.Equals(nemonicoModulo))
+            //       .ToList();
+            //modulos = result.Select(se => se.Proceso).ToList();
+
+            acciones = (from perm in db.Permiso
+                       where perm.Proceso.Equals(nombreProceso) && perm.Nemonico.Equals(nemonico)
+                       select perm.Descripcion).Distinct().OrderBy(name => name).ToList();
+            return acciones;
+
+
+        }
         protected override void Dispose(bool disposing)
         {
             if (disposing)

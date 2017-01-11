@@ -1,0 +1,31 @@
+﻿
+@model IEnumerable<SIGAA.ViewModels.MetodoDeAccionViewModel>
+
+<div class="panel panel-default">
+    <div class="panel-heading">Metodos de acción</div>
+    <div class="panel-body">
+
+        <!-- table -->
+        <table class="table small">
+            <tr class="active">
+                <th class="col-md-11">Acción</th>
+                <th class="col-md-1">Estado</th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.HiddenFor(modelItem => item.iPermiso_id)
+                        @Html.DisplayFor(modelItem => item.sNombreAccion)
+                        @*@if (FrontUser.TienePermiso(RolesPermisos.EGRE_recepcionTFGdelAlumno_puedeEditar))
+                            {<a href="/EGRE/EntregaTFG/Edit/@item.iEntrega_id"><span class="glyphicon glyphicon-pencil" data-toggle="tooltip" data-original-title="Editar"></span></a>}*@
+                    </td>
+                    <td>
+                        @Html.CheckBoxFor(modelItem => item.bEstadoSeleccionado)
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>
