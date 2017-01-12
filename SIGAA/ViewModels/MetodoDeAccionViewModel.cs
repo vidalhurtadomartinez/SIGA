@@ -7,6 +7,7 @@ namespace SIGAA.ViewModels
 {
     public class MetodoDeAccionViewModel
     {
+        public int iRol_id { get; set; }
         public int iPermiso_id { get; set; }
         public string  sNombreAccion { get; set; }
         public bool bEstadoSeleccionado { get; set; }

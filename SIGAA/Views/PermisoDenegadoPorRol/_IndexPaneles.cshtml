@@ -1,0 +1,13 @@
+﻿@model SIGAA.ViewModels.PermisoDenegadoPorRolViewModel
+<div id="Paneles">
+    <div class="row">
+        <div class="form-horizontal col-md-7">
+            @Html.Partial("_IndexPanelProcesos", Model)
+        </div>
+        <div class="form-horizontal col-md-5">
+            <br />
+            <br />
+            @Html.Partial("_IndexPanelAcciones", Model.MetodosDeAccionDeProcesoSeleccionado)
+        </div>
+    </div>
+</div>

@@ -31,8 +31,8 @@
                     @foreach (var item in Model.ProcesosSEGU)
                     {
                         <tr>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.sNombre)
+                            <td>                               
+                                @Ajax.ActionLink(item.sNombre, "TreerVarios_Acciones_PorProcesoYnemonico_json", new { idRol = Model.iRol_id, nemonico = "SEGU", nombreProceso = item.sNombre }, new AjaxOptions { UpdateTargetId = "tablaDeAcciones",HttpMethod = "GET", InsertionMode = InsertionMode.Replace, })
                             </td>
                             <td>
                                 @Html.CheckBoxFor(modelItem => item.bEstadoSeleccionado)
@@ -65,7 +65,7 @@
                     {
                         <tr>
                             <td>
-                                @Html.DisplayFor(modelItem => item.sNombre)
+                                @Ajax.ActionLink(item.sNombre, "TreerVarios_Acciones_PorProcesoYnemonico_json", new { idRol = Model.iRol_id, nemonico = "EGRE", nombreProceso = item.sNombre }, new AjaxOptions { UpdateTargetId = "tablaDeAcciones", HttpMethod = "GET", InsertionMode = InsertionMode.Replace, })
                             </td>
                             <td>
                                 @Html.CheckBoxFor(modelItem => item.bEstadoSeleccionado)
@@ -98,7 +98,7 @@
                     {
                         <tr>
                             <td>
-                                @Html.DisplayFor(modelItem => item.sNombre)
+                                @Ajax.ActionLink(item.sNombre, "TreerVarios_Acciones_PorProcesoYnemonico_json", new { idRol = Model.iRol_id, nemonico = "OYM", nombreProceso = item.sNombre }, new AjaxOptions { UpdateTargetId = "tablaDeAcciones", HttpMethod = "GET", InsertionMode = InsertionMode.Replace, })
                             </td>
                             <td>
                                 @Html.CheckBoxFor(modelItem => item.bEstadoSeleccionado)
@@ -131,7 +131,8 @@
                     {
                         <tr>
                             <td>
-                                @Html.DisplayFor(modelItem => item.sNombre)
+                                @Ajax.ActionLink(item.sNombre, "TreerVarios_Acciones_PorProcesoYnemonico_json", new { idRol = Model.iRol_id, nemonico = "CONV", nombreProceso = item.sNombre }, new AjaxOptions { UpdateTargetId = "tablaDeAcciones", HttpMethod = "GET", InsertionMode = InsertionMode.Replace, })
+
                             </td>
                             <td>
                                 @Html.CheckBoxFor(modelItem => item.bEstadoSeleccionado)
@@ -164,7 +165,7 @@
                     {
                         <tr>
                             <td>
-                                @Html.DisplayFor(modelItem => item.sNombre)
+                                @Ajax.ActionLink(item.sNombre, "TreerVarios_Acciones_PorProcesoYnemonico_json", new { idRol = Model.iRol_id, nemonico = "CRM", nombreProceso = item.sNombre }, new AjaxOptions { UpdateTargetId = "tablaDeAcciones", HttpMethod = "GET", InsertionMode = InsertionMode.Replace, })
                             </td>
                             <td>
                                 @Html.CheckBoxFor(modelItem => item.bEstadoSeleccionado)

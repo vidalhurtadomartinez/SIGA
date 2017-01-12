@@ -17,15 +17,8 @@
     </div>
 </div>
     <br />
-    @*<div class="form-group form-group-sm">
-            @Html.LabelFor(model => model.iPermiso_id, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-5">
-                @Html.DropDownListFor(model => model.iPermiso_id,null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.iPermiso_id, "", new { @class = "text-danger" })
-            </div>
-        </div>*@
-
-    <div class="row">
+@Html.Partial("_IndexPaneles", Model)
+    @*<div class="row">
         <div class="form-horizontal col-md-7">
             @Html.Partial("_IndexPanelProcesos",Model)       
         </div>
@@ -34,50 +27,31 @@
             <br />
             @Html.Partial("_IndexPanelAcciones",Model.MetodosDeAccionDeProcesoSeleccionado)
         </div>
+    </div>*@
 
+@*<script src="~/Scripts/general/marcaCamposRequeridos.js"></script>*@
 
-        @*<div class="form-group">
-                <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Guardar" class="btn btn-success" />
-                    @Html.ActionLink("Cancelar", "Index", new { }, new { @class = "btn btn-warning" })
-                </div>
-            </div>*@
-    </div>
-
-
-    <script src="~/Scripts/general/marcaCamposRequeridos.js"></script>
-
-
-
-
-
-
-    @*@model IEnumerable<SIGAA.Models.PermisoDenegadoPorRol>
-
-        @{
-            ViewBag.Title = "Index";
-        }
-        <h3><b>INDICE :</b>  Permisos denegados por Rol</h3>
-        <hr />
-        <div class="row">
-            <div class="col-md-6">
-                <div class="text-left">
-                    @if (FrontUser.TienePermiso(RolesPermisos.SEGU_permisoDenegadoPorRol_puedeCrearNuevo))
-                    {<a href=@Url.Action("Create","PermisoDenegadoPorRol") class="btn btn-primary"><span class="glyphicon glyphicon-plus-sign"></span> Nuevo</a>}
-                </div>
-            </div>
-            <div class="col-md-6">
-                @using (Ajax.BeginForm(new AjaxOptions { HttpMethod = "GET", InsertionMode = InsertionMode.Replace, UpdateTargetId = "ListaPermisosDenegadoPorRol" }))
-                {
-                    <div class="col-md-6 col-md-offset-6">
-                        <div class="input-group">
-                            <span class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span>
-                            <input type="text" class="form-control" placeholder="Buscar" name="criterio" autofocus>
-                        </div>
-                    </div>
-                }
-            </div>
-        </div>
-        <br />
-
-        @Html.Partial("_Index")*@
+<script type="text/javascript" language="javascript">
+        $(function () {
+            $('#iRol_id').change(function () {
+              
+                var rolID = parseInt($("#iRol_id").val());
+                if (!isNaN(rolID)) {
+                        $.ajax({
+                            url: "@Url.Action("Index_json", "PermisoDenegadoPorRol")",
+                            type: "GET",
+                            data: { idRol: rolID},
+                            dataType: "json",
+                            success: function (data) {
+                                alert("todo OK.")
+                                action = data.Action;
+                            },
+                            error: function () {
+                                alert("Error al recibir estados.")
+                            }
+                        });
+                    } else {
+                    }
+                });
+            })
+</script>
