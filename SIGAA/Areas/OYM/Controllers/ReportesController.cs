@@ -21,7 +21,7 @@ namespace SIGAA.Areas.OYM.Controllers
         [Permiso(Permiso = RolesPermisos.OYM_reportes_documentosPorTipoDeProceso)]
         public ActionResult DocumentoTipoProceso()
         {
-            ReportFollowUp.rptDocumentoTipoProceso report = new ReportFollowUp.rptDocumentoTipoProceso();
+            ReporteOYM.rptDocumentoTipoProceso report = new ReporteOYM.rptDocumentoTipoProceso();
             //report.ReportParameters["Proceso"].Value = 0;
 
             return View(report);
@@ -30,7 +30,7 @@ namespace SIGAA.Areas.OYM.Controllers
         [Permiso(Permiso = RolesPermisos.OYM_reportes_formulariosPorTipoDeProcesos)]
         public ActionResult FormularioTipoProceso()
         {
-            ReportFollowUp.rptFormularioTipoProceso report = new ReportFollowUp.rptFormularioTipoProceso();
+            ReporteOYM.rptFormularioTipoProceso report = new ReporteOYM.rptFormularioTipoProceso();
             //report.ReportParameters["Proceso"].Value = 0;
 
             return View(report);
@@ -39,7 +39,7 @@ namespace SIGAA.Areas.OYM.Controllers
         [Permiso(Permiso = RolesPermisos.OYM_reportes_promedioDeRespuestasPorProcesosDeDocumentos)]
         public ActionResult DocumentoTiempoTipoProceso()
         {
-            ReportFollowUp.rptDocumentoPromedioRespuesta report = new ReportFollowUp.rptDocumentoPromedioRespuesta();
+            ReporteOYM.rptDocumentoPromedioRespuesta report = new ReporteOYM.rptDocumentoPromedioRespuesta();
             //report.ReportParameters["Proceso"].Value = 0;
 
             return View(report);
@@ -48,7 +48,7 @@ namespace SIGAA.Areas.OYM.Controllers
         [Permiso(Permiso = RolesPermisos.OYM_reportes_promedioDeRespuestasPorProcesosDeFormularios)]
         public ActionResult FormularioTiempoTipoProceso()
         {
-            ReportFollowUp.rptFormularioPromedioRespuesta report = new ReportFollowUp.rptFormularioPromedioRespuesta();
+            ReporteOYM.rptFormularioPromedioRespuesta report = new ReporteOYM.rptFormularioPromedioRespuesta();
             //report.ReportParameters["Proceso"].Value = 0;
 
             return View(report);
@@ -57,7 +57,7 @@ namespace SIGAA.Areas.OYM.Controllers
         [Permiso(Permiso = RolesPermisos.OYM_reportes_DetalleDeRespuestasPorProcesosDeDocumentos)]
         public ActionResult DocumentoDetalleRespuestaTipoProceso()
         {
-            ReportFollowUp.rptDocumentoDetalleRespuesta report = new ReportFollowUp.rptDocumentoDetalleRespuesta();
+            ReporteOYM.rptDocumentoDetalleRespuesta report = new ReporteOYM.rptDocumentoDetalleRespuesta();
             //report.ReportParameters["Proceso"].Value = 0;
 
             return View(report);
@@ -66,7 +66,7 @@ namespace SIGAA.Areas.OYM.Controllers
         [Permiso(Permiso = RolesPermisos.OYM_reportes_DetalleDeRespuestasPorProcesosDeFormularios)]
         public ActionResult FormularioDetalleRespuestaTipoProceso()
         {
-            ReportFollowUp.rptFormularioDetalleRespuesta report = new ReportFollowUp.rptFormularioDetalleRespuesta();
+            ReporteOYM.rptFormularioDetalleRespuesta report = new ReporteOYM.rptFormularioDetalleRespuesta();
             //report.ReportParameters["Proceso"].Value = 0;
 
             return View(report);
@@ -80,7 +80,7 @@ namespace SIGAA.Areas.OYM.Controllers
             //ConvalidacionesReports.rptInformeFinal rpt = new ConvalidacionesReports.rptInformeFinal();
             //rpt.ReportParameters["ID"].Value = ID;
 
-            ReportFollowUp.rptDocumentoProceso rpt = new ReportFollowUp.rptDocumentoProceso();
+            ReporteOYM.rptDocumentoProceso rpt = new ReporteOYM.rptDocumentoProceso();
             //rpt.ReportParameters["Proceso"].Value = 0;
 
             instanceReportSource.ReportDocument = rpt;
@@ -108,7 +108,7 @@ namespace SIGAA.Areas.OYM.Controllers
             //ConvalidacionesReports.rptInformeFinal rpt = new ConvalidacionesReports.rptInformeFinal();
             //rpt.ReportParameters["ID"].Value = ID;
 
-            ReportFollowUp.rptFormularioProceso rpt = new ReportFollowUp.rptFormularioProceso();
+            ReporteOYM.rptFormularioProceso rpt = new ReporteOYM.rptFormularioProceso();
             //rpt.ReportParameters["Proceso"].Value = 0;
 
             instanceReportSource.ReportDocument = rpt;
@@ -136,7 +136,7 @@ namespace SIGAA.Areas.OYM.Controllers
             //ConvalidacionesReports.rptInformeFinal rpt = new ConvalidacionesReports.rptInformeFinal();
             //rpt.ReportParameters["ID"].Value = ID;
 
-            ReportFollowUp.rptDocumentoPromedio rpt = new ReportFollowUp.rptDocumentoPromedio();
+            ReporteOYM.rptDocumentoPromedio rpt = new ReporteOYM.rptDocumentoPromedio();
             //rpt.ReportParameters["Proceso"].Value = 0;
 
             instanceReportSource.ReportDocument = rpt;
@@ -164,7 +164,7 @@ namespace SIGAA.Areas.OYM.Controllers
             //ConvalidacionesReports.rptInformeFinal rpt = new ConvalidacionesReports.rptInformeFinal();
             //rpt.ReportParameters["ID"].Value = ID;
 
-            ReportFollowUp.rptDocumentoHistorico rpt = new ReportFollowUp.rptDocumentoHistorico();
+            ReporteOYM.rptDocumentoHistorico rpt = new ReporteOYM.rptDocumentoHistorico();
             //rpt.ReportParameters["Proceso"].Value = 0;
 
             instanceReportSource.ReportDocument = rpt;

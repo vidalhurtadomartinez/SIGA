@@ -1,4 +1,4 @@
-namespace ReportFollowUp
+namespace ReporteOYM
 {
     using System;
     using System.ComponentModel;

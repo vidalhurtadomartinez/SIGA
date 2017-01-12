@@ -1,4 +1,4 @@
-namespace ReportFollowUp
+namespace ReporteOYM
 {
     partial class rptDocumentoProceso
     {
