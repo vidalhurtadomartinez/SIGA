@@ -10,48 +10,14 @@
     <div class="form-group form-group-sm">
     @Html.LabelFor(model => model.iRol_id, htmlAttributes: new { @class = "control-label col-md-1" })
     <div class="col-md-5">
-        @Html.DropDownListFor(model => model.iRol_id, null, htmlAttributes: new { @class = "form-control" })
-        @Html.ValidationMessageFor(model => model.iRol_id, "", new { @class = "text-danger" })
+
+        @using (Ajax.BeginForm("Index_json", "PermisoDenegadoPorRol", new AjaxOptions { HttpMethod = "GET", InsertionMode = InsertionMode.Replace, UpdateTargetId = "Paneles" }))
+        {
+            @Html.DropDownList("iRol_id", @ViewBag.iRol_id as SelectList, new { onchange = "$(this.form).submit();", idRol = "dropdown-for-" + @Model.iRol_id, @class = "form-control" } )
+        }
     </div>
 </div>
     </div>
 </div>
     <br />
 @Html.Partial("_IndexPaneles", Model)
-    @*<div class="row">
-        <div class="form-horizontal col-md-7">
-            @Html.Partial("_IndexPanelProcesos",Model)       
-        </div>
-        <div class="form-horizontal col-md-5">
-            <br />
-            <br />
-            @Html.Partial("_IndexPanelAcciones",Model.MetodosDeAccionDeProcesoSeleccionado)
-        </div>
-    </div>*@
-
-@*<script src="~/Scripts/general/marcaCamposRequeridos.js"></script>*@
-
-<script type="text/javascript" language="javascript">
-        $(function () {
-            $('#iRol_id').change(function () {
-              
-                var rolID = parseInt($("#iRol_id").val());
-                if (!isNaN(rolID)) {
-                        $.ajax({
-                            url: "@Url.Action("Index_json", "PermisoDenegadoPorRol")",
-                            type: "GET",
-                            data: { idRol: rolID},
-                            dataType: "json",
-                            success: function (data) {
-                                alert("todo OK.")
-                                action = data.Action;
-                            },
-                            error: function () {
-                                alert("Error al recibir estados.")
-                            }
-                        });
-                    } else {
-                    }
-                });
-            })
-</script>
