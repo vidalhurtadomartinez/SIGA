@@ -77,7 +77,7 @@ namespace SIGAA.Areas.OYM.Controllers
             ReportProcessor reportProcessor = new ReportProcessor();
             Telerik.Reporting.InstanceReportSource instanceReportSource = new Telerik.Reporting.InstanceReportSource();
 
-            //ConvalidacionesReports.rptInformeFinal rpt = new ConvalidacionesReports.rptInformeFinal();
+            //ReporteConvalidaciones.rptInformeFinal rpt = new ReporteConvalidaciones.rptInformeFinal();
             //rpt.ReportParameters["ID"].Value = ID;
 
             ReporteOYM.rptDocumentoProceso rpt = new ReporteOYM.rptDocumentoProceso();
@@ -105,7 +105,7 @@ namespace SIGAA.Areas.OYM.Controllers
             ReportProcessor reportProcessor = new ReportProcessor();
             Telerik.Reporting.InstanceReportSource instanceReportSource = new Telerik.Reporting.InstanceReportSource();
 
-            //ConvalidacionesReports.rptInformeFinal rpt = new ConvalidacionesReports.rptInformeFinal();
+            //ReporteConvalidaciones.rptInformeFinal rpt = new ReporteConvalidaciones.rptInformeFinal();
             //rpt.ReportParameters["ID"].Value = ID;
 
             ReporteOYM.rptFormularioProceso rpt = new ReporteOYM.rptFormularioProceso();
@@ -133,7 +133,7 @@ namespace SIGAA.Areas.OYM.Controllers
             ReportProcessor reportProcessor = new ReportProcessor();
             Telerik.Reporting.InstanceReportSource instanceReportSource = new Telerik.Reporting.InstanceReportSource();
 
-            //ConvalidacionesReports.rptInformeFinal rpt = new ConvalidacionesReports.rptInformeFinal();
+            //ReporteConvalidaciones.rptInformeFinal rpt = new ReporteConvalidaciones.rptInformeFinal();
             //rpt.ReportParameters["ID"].Value = ID;
 
             ReporteOYM.rptDocumentoPromedio rpt = new ReporteOYM.rptDocumentoPromedio();
@@ -161,7 +161,7 @@ namespace SIGAA.Areas.OYM.Controllers
             ReportProcessor reportProcessor = new ReportProcessor();
             Telerik.Reporting.InstanceReportSource instanceReportSource = new Telerik.Reporting.InstanceReportSource();
 
-            //ConvalidacionesReports.rptInformeFinal rpt = new ConvalidacionesReports.rptInformeFinal();
+            //ReporteConvalidaciones.rptInformeFinal rpt = new ReporteConvalidaciones.rptInformeFinal();
             //rpt.ReportParameters["ID"].Value = ID;
 
             ReporteOYM.rptDocumentoHistorico rpt = new ReporteOYM.rptDocumentoHistorico();

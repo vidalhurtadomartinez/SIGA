@@ -1,4 +1,4 @@
-namespace ConvalidacionesReports
+namespace ReporteConvalidaciones
 {
     partial class srptDetalleOrigen
     {
@@ -65,7 +65,7 @@ namespace ConvalidacionesReports
             // 
             // sqlDataSourceLista
             // 
-            this.sqlDataSourceLista.ConnectionString = "ConvalidacionesReports.Properties.Settings.DBConvalidacionMVC3";
+            this.sqlDataSourceLista.ConnectionString = "ReporteConvalidaciones.Properties.Settings.DBConvalidacionMVC3";
             this.sqlDataSourceLista.Name = "sqlDataSourceLista";
             this.sqlDataSourceLista.Parameters.AddRange(new Telerik.Reporting.SqlDataSourceParameter[] {
             new Telerik.Reporting.SqlDataSourceParameter("@AnalisisID", System.Data.DbType.Int32, "= Parameters.AnalisisID.Value")});

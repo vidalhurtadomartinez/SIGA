@@ -14,7 +14,6 @@ D:\ROGER\Sistemas WEB\Repositorio MapiriSoft\SIGAA\bin\SIGAA.dll.config
 D:\ROGER\Sistemas WEB\Repositorio MapiriSoft\SIGAA\bin\SIGAA.dll
 D:\ROGER\Sistemas WEB\Repositorio MapiriSoft\SIGAA\bin\SIGAA.pdb
 D:\ROGER\Sistemas WEB\Repositorio MapiriSoft\SIGAA\bin\Antlr3.Runtime.dll
-D:\ROGER\Sistemas WEB\Repositorio MapiriSoft\SIGAA\bin\ConvalidacionesReports.dll
 D:\ROGER\Sistemas WEB\Repositorio MapiriSoft\SIGAA\bin\DocX.dll
 D:\ROGER\Sistemas WEB\Repositorio MapiriSoft\SIGAA\bin\EntityFramework.dll
 D:\ROGER\Sistemas WEB\Repositorio MapiriSoft\SIGAA\bin\EntityFramework.SqlServer.dll
@@ -56,7 +55,6 @@ D:\ROGER\Sistemas WEB\Repositorio MapiriSoft\SIGAA\bin\CrystalDecisions.ReportAp
 D:\ROGER\Sistemas WEB\Repositorio MapiriSoft\SIGAA\bin\CrystalDecisions.ReportAppServer.ObjectFactory.dll
 D:\ROGER\Sistemas WEB\Repositorio MapiriSoft\SIGAA\bin\CrystalDecisions.ReportAppServer.CommonControls.dll
 D:\ROGER\Sistemas WEB\Repositorio MapiriSoft\SIGAA\bin\stdole.dll
-D:\ROGER\Sistemas WEB\Repositorio MapiriSoft\SIGAA\bin\ConvalidacionesReports.pdb
 D:\ROGER\Sistemas WEB\Repositorio MapiriSoft\SIGAA\bin\Helper.pdb
 D:\ROGER\Sistemas WEB\Repositorio MapiriSoft\SIGAA\bin\ReporteOYM.pdb
 D:\ROGER\Sistemas WEB\Repositorio MapiriSoft\SIGAA\bin\Utilitario.pdb
@@ -100,3 +98,5 @@ D:\ROGER\Sistemas WEB\Repositorio MapiriSoft\SIGAA\bin\es\System.Web.WebPages.Ra
 D:\ROGER\Sistemas WEB\Repositorio MapiriSoft\SIGAA\obj\Debug\SIGAA.csprojResolveAssemblyReference.cache
 D:\ROGER\Sistemas WEB\Repositorio MapiriSoft\SIGAA\obj\Debug\SIGAA.dll
 D:\ROGER\Sistemas WEB\Repositorio MapiriSoft\SIGAA\obj\Debug\SIGAA.pdb
+D:\ROGER\Sistemas WEB\Repositorio MapiriSoft\SIGAA\bin\ReporteConvalidaciones.dll
+D:\ROGER\Sistemas WEB\Repositorio MapiriSoft\SIGAA\bin\ReporteConvalidaciones.pdb

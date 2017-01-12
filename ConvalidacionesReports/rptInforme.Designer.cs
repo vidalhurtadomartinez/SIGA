@@ -1,4 +1,4 @@
-namespace ConvalidacionesReports
+namespace ReporteConvalidaciones
 {
     partial class rptInforme
     {
@@ -42,7 +42,7 @@ namespace ConvalidacionesReports
             // 
             // sqlDataSourceConvalidacion
             // 
-            this.sqlDataSourceConvalidacion.ConnectionString = "ConvalidacionesReports.Properties.Settings.DBConvalidacionMVC3";
+            this.sqlDataSourceConvalidacion.ConnectionString = "ReporteConvalidaciones.Properties.Settings.DBConvalidacionMVC3";
             this.sqlDataSourceConvalidacion.Name = "sqlDataSourceConvalidacion";
             this.sqlDataSourceConvalidacion.Parameters.AddRange(new Telerik.Reporting.SqlDataSourceParameter[] {
             new Telerik.Reporting.SqlDataSourceParameter("@ConvalidacionID", System.Data.DbType.Int64, "= Parameters.ConvalidacionID.Value")});

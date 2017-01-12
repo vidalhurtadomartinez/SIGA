@@ -385,7 +385,7 @@ namespace SIGAA.Areas.CONV.Controllers
             //    ReportProcessor reportProcessor = new ReportProcessor();
             //    Telerik.Reporting.InstanceReportSource instanceReportSource = new Telerik.Reporting.InstanceReportSource();
 
-            //    ConvalidacionesReports.rptInformeFinal rpt = new ConvalidacionesReports.rptInformeFinal();
+            //    ReporteConvalidaciones.rptInformeFinal rpt = new ReporteConvalidaciones.rptInformeFinal();
             //    rpt.ReportParameters["ID"].Value = rptInformeConvalidacion.Id;
             //    rpt.ReportParameters["FechaConvalidacion"].Value = rptInformeConvalidacion.dtFechaConvalidacion_dt.ToString("dd/MM/yyyy");
 
@@ -410,7 +410,7 @@ namespace SIGAA.Areas.CONV.Controllers
             ReportProcessor reportProcessor = new ReportProcessor();
             Telerik.Reporting.InstanceReportSource instanceReportSource = new Telerik.Reporting.InstanceReportSource();
 
-            ConvalidacionesReports.rptInformeFinal rpt = new ConvalidacionesReports.rptInformeFinal();
+            ReporteConvalidaciones.rptInformeFinal rpt = new ReporteConvalidaciones.rptInformeFinal();
             rpt.ReportParameters["ID"].Value = rptInformeConvalidacion.Id;
             rpt.ReportParameters["FechaSolicitud"].Value = rptInformeConvalidacion.dtFechaSolicitud_dt.ToString("dd/MM/yyyy");
             rpt.ReportParameters["FechaConvalidacion"].Value = rptInformeConvalidacion.dtFechaConvalidacion_dt.ToString("dd/MM/yyyy");
@@ -436,7 +436,7 @@ namespace SIGAA.Areas.CONV.Controllers
             ReportProcessor reportProcessor = new ReportProcessor();
             Telerik.Reporting.InstanceReportSource instanceReportSource = new Telerik.Reporting.InstanceReportSource();
 
-            ConvalidacionesReports.rptInformeFinal rpt = new ConvalidacionesReports.rptInformeFinal();
+            ReporteConvalidaciones.rptInformeFinal rpt = new ReporteConvalidaciones.rptInformeFinal();
             rpt.ReportParameters["ID"].Value = ID;
             rpt.ReportParameters["FechaConvalidacion"].Value = Convert.ToDateTime(Request["dtFechaConvalidacion_dt"]).ToString("dd/MM/yyyy");
 
@@ -455,8 +455,8 @@ namespace SIGAA.Areas.CONV.Controllers
 
             //// reportToExport is the Assembly Qualified Name of the report
 
-            ////typeReportSource = ConvalidacionesReports.rptInformeConvalidacion;
-            //typeReportSource.TypeName = "ConvalidacionesReports.rptInformeConvalidacion";
+            ////typeReportSource = ReporteConvalidaciones.rptInformeConvalidacion;
+            //typeReportSource.TypeName = "ReporteConvalidaciones.rptInformeConvalidacion";
 
             //var result = reportProcessor.RenderReport("PDF", typeReportSource, null);
 

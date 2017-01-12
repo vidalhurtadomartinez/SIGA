@@ -177,7 +177,7 @@ namespace SIGAA.Areas.CONV.Controllers
             ReportProcessor reportProcessor = new ReportProcessor();
             Telerik.Reporting.InstanceReportSource instanceReportSource = new Telerik.Reporting.InstanceReportSource();
 
-            ConvalidacionesReports.rptProgramaAnalitico rpt = new ConvalidacionesReports.rptProgramaAnalitico();
+            ReporteConvalidaciones.rptProgramaAnalitico rpt = new ReporteConvalidaciones.rptProgramaAnalitico();
             rpt.ReportParameters["lprogramaID"].Value = ID;
 
             instanceReportSource.ReportDocument = rpt;

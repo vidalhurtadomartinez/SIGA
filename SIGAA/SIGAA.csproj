@@ -1738,9 +1738,9 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ConvalidacionesReports\ConvalidacionesReports.csproj">
+    <ProjectReference Include="..\ConvalidacionesReports\ReporteConvalidaciones.csproj">
       <Project>{cb74ca43-3781-4a93-8439-fcc7462707f3}</Project>
-      <Name>ConvalidacionesReports</Name>
+      <Name>ReporteConvalidaciones</Name>
     </ProjectReference>
     <ProjectReference Include="..\Helper\Helper.csproj">
       <Project>{99eaecdf-a49c-492f-add1-f3765c14f686}</Project>

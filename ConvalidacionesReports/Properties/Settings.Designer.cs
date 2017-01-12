@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ConvalidacionesReports.Properties {
+namespace ReporteConvalidaciones.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]

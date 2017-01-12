@@ -1,4 +1,4 @@
-namespace ConvalidacionesReports
+namespace ReporteConvalidaciones
 {
     partial class rptInformeFinal
     {
@@ -789,7 +789,7 @@ namespace ConvalidacionesReports
             // 
             // sqlDataSourceInforme
             // 
-            this.sqlDataSourceInforme.ConnectionString = "ConvalidacionesReports.Properties.Settings.DBConvalidacionMVC3";
+            this.sqlDataSourceInforme.ConnectionString = "ReporteConvalidaciones.Properties.Settings.DBConvalidacionMVC3";
             this.sqlDataSourceInforme.Name = "sqlDataSourceInforme";
             this.sqlDataSourceInforme.Parameters.AddRange(new Telerik.Reporting.SqlDataSourceParameter[] {
             new Telerik.Reporting.SqlDataSourceParameter("@ID", System.Data.DbType.Int32, "= Parameters.ID.Value")});
@@ -851,7 +851,7 @@ namespace ConvalidacionesReports
             // 
             // sqlDataSourceDetalle
             // 
-            this.sqlDataSourceDetalle.ConnectionString = "ConvalidacionesReports.Properties.Settings.DBConvalidacionMVC3";
+            this.sqlDataSourceDetalle.ConnectionString = "ReporteConvalidaciones.Properties.Settings.DBConvalidacionMVC3";
             this.sqlDataSourceDetalle.Name = "sqlDataSourceDetalle";
             this.sqlDataSourceDetalle.Parameters.AddRange(new Telerik.Reporting.SqlDataSourceParameter[] {
             new Telerik.Reporting.SqlDataSourceParameter("@ConvalidacionID", System.Data.DbType.Int64, "= Parameters.ID.Value")});

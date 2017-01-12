@@ -1,4 +1,4 @@
-namespace ConvalidacionesReports
+namespace ReporteConvalidaciones
 {
     using System;
     using System.ComponentModel;

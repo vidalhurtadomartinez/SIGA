@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Utilitario", "Utilitario\Ut
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReporteOYM", "ReportFollowUp\ReporteOYM.csproj", "{B4DF11ED-4BCB-4FEB-A644-7D58FA324951}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConvalidacionesReports", "ConvalidacionesReports\ConvalidacionesReports.csproj", "{CB74CA43-3781-4A93-8439-FCC7462707F3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReporteConvalidaciones", "ConvalidacionesReports\ReporteConvalidaciones.csproj", "{CB74CA43-3781-4A93-8439-FCC7462707F3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

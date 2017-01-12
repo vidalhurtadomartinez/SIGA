@@ -1,4 +1,4 @@
-namespace ConvalidacionesReports
+namespace ReporteConvalidaciones
 {
     partial class rptInformeFinalSub
     {
@@ -791,7 +791,7 @@ namespace ConvalidacionesReports
             // 
             // sqlDataSourceInforme
             // 
-            this.sqlDataSourceInforme.ConnectionString = "ConvalidacionesReports.Properties.Settings.DBConvalidacionMVC3";
+            this.sqlDataSourceInforme.ConnectionString = "ReporteConvalidaciones.Properties.Settings.DBConvalidacionMVC3";
             this.sqlDataSourceInforme.Name = "sqlDataSourceInforme";
             this.sqlDataSourceInforme.Parameters.AddRange(new Telerik.Reporting.SqlDataSourceParameter[] {
             new Telerik.Reporting.SqlDataSourceParameter("@ID", System.Data.DbType.Int32, "= Parameters.ID.Value")});
@@ -833,7 +833,7 @@ namespace ConvalidacionesReports
             this.subReport1.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Cm(8.1065549850463867D), Telerik.Reporting.Drawing.Unit.Cm(9.9315642728470266E-05D));
             this.subReport1.Name = "subReport1";
             typeReportSource1.Parameters.Add(new Telerik.Reporting.Parameter("AnalisisID", "= Fields.lAnalisisConvalidacionUnidad_id"));
-            typeReportSource1.TypeName = "ConvalidacionesReports.srptDetalleOrigen, ConvalidacionesReports, Version=1.0.0.0" +
+            typeReportSource1.TypeName = "ReporteConvalidaciones.srptDetalleOrigen, ReporteConvalidaciones, Version=1.0.0.0" +
     ", Culture=neutral, PublicKeyToken=null";
             this.subReport1.ReportSource = typeReportSource1;
             this.subReport1.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(9.32766056060791D), Telerik.Reporting.Drawing.Unit.Cm(0.69990074634552D));
@@ -848,7 +848,7 @@ namespace ConvalidacionesReports
             this.subReport2.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Cm(0D), Telerik.Reporting.Drawing.Unit.Cm(0D));
             this.subReport2.Name = "subReport2";
             typeReportSource2.Parameters.Add(new Telerik.Reporting.Parameter("AnalisisID", "= Fields.lAnalisisConvalidacionUnidad_id"));
-            typeReportSource2.TypeName = "ConvalidacionesReports.srptDetalleDestino, ConvalidacionesReports, Version=1.0.0." +
+            typeReportSource2.TypeName = "ReporteConvalidaciones.srptDetalleDestino, ReporteConvalidaciones, Version=1.0.0." +
     "0, Culture=neutral, PublicKeyToken=null";
             this.subReport2.ReportSource = typeReportSource2;
             this.subReport2.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(8.0908451080322266D), Telerik.Reporting.Drawing.Unit.Cm(0.70000004768371582D));
@@ -856,7 +856,7 @@ namespace ConvalidacionesReports
             // 
             // sqlDataSourceDetalle
             // 
-            this.sqlDataSourceDetalle.ConnectionString = "ConvalidacionesReports.Properties.Settings.DBConvalidacionMVC3";
+            this.sqlDataSourceDetalle.ConnectionString = "ReporteConvalidaciones.Properties.Settings.DBConvalidacionMVC3";
             this.sqlDataSourceDetalle.Name = "sqlDataSourceDetalle";
             this.sqlDataSourceDetalle.Parameters.AddRange(new Telerik.Reporting.SqlDataSourceParameter[] {
             new Telerik.Reporting.SqlDataSourceParameter("@ConvalidacionID", System.Data.DbType.Int64, "= Parameters.ID.Value")});
