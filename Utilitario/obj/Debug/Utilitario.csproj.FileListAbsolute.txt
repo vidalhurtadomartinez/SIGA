@@ -13,8 +13,3 @@ D:\ROGER\Sistemas WEB\Project GitLab\Source3\MP-SIGA\Utilitario\bin\Debug\Utilit
 D:\ROGER\Sistemas WEB\Project GitLab\Source3\MP-SIGA\Utilitario\obj\Debug\Utilitario.csprojResolveAssemblyReference.cache
 D:\ROGER\Sistemas WEB\Project GitLab\Source3\MP-SIGA\Utilitario\obj\Debug\Utilitario.dll
 D:\ROGER\Sistemas WEB\Project GitLab\Source3\MP-SIGA\Utilitario\obj\Debug\Utilitario.pdb
-D:\ROGER\Sistemas WEB\Repositorio MapiriSoft\Utilitario\bin\Debug\Utilitario.dll
-D:\ROGER\Sistemas WEB\Repositorio MapiriSoft\Utilitario\bin\Debug\Utilitario.pdb
-D:\ROGER\Sistemas WEB\Repositorio MapiriSoft\Utilitario\obj\Debug\Utilitario.csprojResolveAssemblyReference.cache
-D:\ROGER\Sistemas WEB\Repositorio MapiriSoft\Utilitario\obj\Debug\Utilitario.dll
-D:\ROGER\Sistemas WEB\Repositorio MapiriSoft\Utilitario\obj\Debug\Utilitario.pdb

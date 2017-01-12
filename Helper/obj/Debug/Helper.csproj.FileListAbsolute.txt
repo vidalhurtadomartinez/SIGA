@@ -38,8 +38,3 @@ D:\ROGER\Sistemas WEB\Project GitLab\Source3\MP-SIGA\Helper\bin\Debug\Helper.pdb
 D:\ROGER\Sistemas WEB\Project GitLab\Source3\MP-SIGA\Helper\obj\Debug\Helper.csprojResolveAssemblyReference.cache
 D:\ROGER\Sistemas WEB\Project GitLab\Source3\MP-SIGA\Helper\obj\Debug\Helper.dll
 D:\ROGER\Sistemas WEB\Project GitLab\Source3\MP-SIGA\Helper\obj\Debug\Helper.pdb
-D:\ROGER\Sistemas WEB\Repositorio MapiriSoft\Helper\bin\Debug\Helper.dll
-D:\ROGER\Sistemas WEB\Repositorio MapiriSoft\Helper\bin\Debug\Helper.pdb
-D:\ROGER\Sistemas WEB\Repositorio MapiriSoft\Helper\obj\Debug\Helper.csprojResolveAssemblyReference.cache
-D:\ROGER\Sistemas WEB\Repositorio MapiriSoft\Helper\obj\Debug\Helper.dll
-D:\ROGER\Sistemas WEB\Repositorio MapiriSoft\Helper\obj\Debug\Helper.pdb
