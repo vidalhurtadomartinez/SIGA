@@ -1746,9 +1746,9 @@
       <Project>{99eaecdf-a49c-492f-add1-f3765c14f686}</Project>
       <Name>Helper</Name>
     </ProjectReference>
-    <ProjectReference Include="..\ReportFollowUp\ReportFollowUp.csproj">
+    <ProjectReference Include="..\ReportFollowUp\ReporteOYM.csproj">
       <Project>{b4df11ed-4bcb-4feb-a644-7d58fa324951}</Project>
-      <Name>ReportFollowUp</Name>
+      <Name>ReporteOYM</Name>
     </ProjectReference>
     <ProjectReference Include="..\Utilitario\Utilitario.csproj">
       <Project>{b2bc614d-341f-4132-9051-63790420e952}</Project>

@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SIGAA", "SIGAA\SIGAA.csproj", "{572862A6-1FFC-4026-9A73-FA6E3473CCE1}"
 EndProject
@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Helper", "Helper\Helper.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Utilitario", "Utilitario\Utilitario.csproj", "{B2BC614D-341F-4132-9051-63790420E952}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReportFollowUp", "ReportFollowUp\ReportFollowUp.csproj", "{B4DF11ED-4BCB-4FEB-A644-7D58FA324951}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReporteOYM", "ReportFollowUp\ReporteOYM.csproj", "{B4DF11ED-4BCB-4FEB-A644-7D58FA324951}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConvalidacionesReports", "ConvalidacionesReports\ConvalidacionesReports.csproj", "{CB74CA43-3781-4A93-8439-FCC7462707F3}"
 EndProject
