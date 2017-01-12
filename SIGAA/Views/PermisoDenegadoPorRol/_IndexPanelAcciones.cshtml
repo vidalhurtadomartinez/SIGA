@@ -23,7 +23,7 @@
                                @*{<a href="/EGRE/EntregaTFG/Edit/@item.iEntrega_id"><span class="glyphicon glyphicon-pencil" data-toggle="tooltip" data-original-title="Editar"></span></a>}*@
                         </td>
                         <td>
-                            @Html.CheckBoxFor(modelItem => item.bEstadoSeleccionado)
+                            @Html.CheckBoxFor(modelItem => item.bEstadoSeleccionado, new { onclick = "ActualizarPermiso(this)" })
                         </td>
                     </tr>
                 }
@@ -31,3 +31,16 @@
         </div>
     </div>
 </div>
+
+<script>
+    function ActualizarPermiso(checkboxInput) {
+
+        $.ajax({
+          type: 'POST',
+          url: Your/Action,
+          data: { newValue: checkboxInput.checked },
+          success: success,
+          dataType: 'json'
+        });
+    }
+</script>

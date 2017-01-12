@@ -7,17 +7,18 @@
 <br />
 <div class="form-horizontal">
     <div class="well well-lg">
-    <div class="form-group form-group-sm">
-    @Html.LabelFor(model => model.iRol_id, htmlAttributes: new { @class = "control-label col-md-1" })
-    <div class="col-md-5">
+        <div class="form-group form-group-sm">
+            @Html.LabelFor(model => model.iRol_id, htmlAttributes: new { @class = "control-label col-md-1" })
+            <div class="col-md-5">
+                @using (Ajax.BeginForm("Index_json", "PermisoDenegadoPorRol", new AjaxOptions { HttpMethod = "GET", InsertionMode = InsertionMode.Replace, UpdateTargetId = "Paneles" }))
+                {
+                    @*@Html.DropDownList("iRol_id", @ViewBag.iRol_id as SelectList, new { onchange = "$(this.form).submit();", idRol = "dropdown-for-" + @Model.iRol_id, @class = "form-control" } )*@
+                    @Html.DropDownListFor(model => model.iRol_id, null, new { onchange = "$(this.form).submit();",  @class = "form-control" })
 
-        @using (Ajax.BeginForm("Index_json", "PermisoDenegadoPorRol", new AjaxOptions { HttpMethod = "GET", InsertionMode = InsertionMode.Replace, UpdateTargetId = "Paneles" }))
-        {
-            @Html.DropDownList("iRol_id", @ViewBag.iRol_id as SelectList, new { onchange = "$(this.form).submit();", idRol = "dropdown-for-" + @Model.iRol_id, @class = "form-control" } )
-        }
+                }
+            </div>
+        </div>
     </div>
 </div>
-    </div>
-</div>
-    <br />
+<br />
 @Html.Partial("_IndexPaneles", Model)
