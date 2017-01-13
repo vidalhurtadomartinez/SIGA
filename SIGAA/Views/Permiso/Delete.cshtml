@@ -11,6 +11,6 @@
     {
         @Html.AntiForgeryToken()
         <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-trash"></span> Eliminar</button>
-            <a href="/Permiso/Index" class="btn btn-default"><span class="glyphicon glyphicon-list"></span> Ir a Lista </a>
+        <a href=@Url.Action("Index","Permiso") class="btn btn-default"><span class="glyphicon glyphicon-list"></span> Ir a Lista </a>
     }
 </div>

@@ -8,6 +8,6 @@
 <div>
     @Html.Partial("_DetailsDelete", Model)
     @if (FrontUser.TienePermiso(RolesPermisos.SEGU_usuario_puedeEditar)) {
-    <a href="/Usuario/Edit/@Model.iUsuario_id" class="btn btn-primary"><span class="glyphicon glyphicon-pencil"></span> Editar </a>}
-    <a href="/Usuario/Index" class="btn btn-default"><span class="glyphicon glyphicon-list"></span> Ir a Lista </a>
+    <a href=@Url.Action("Edit","Usuario", new {id=Model.iUsuario_id}) class="btn btn-primary"><span class="glyphicon glyphicon-pencil"></span> Editar </a>}
+    <a href=@Url.Action("Index","Usuario") class="btn btn-default"><span class="glyphicon glyphicon-list"></span> Ir a Lista </a>
 </div>

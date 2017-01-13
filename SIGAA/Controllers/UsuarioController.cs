@@ -148,52 +148,7 @@ namespace SIGAA.Controllers
             }          
         }
 
-        //// GET: Usuario/Delete/5
-        //public ActionResult Delete(int? id)
-        //{
-        //    if (id == null)
-        //    {
-        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-        //    }
-        //    Usuario usuario = db.Usuario.Find(id);
-        //    if (usuario == null)
-        //    {
-        //        return HttpNotFound();
-        //    }
-        //    return View(usuario);
-        //}
-
-        //// POST: Usuario/Delete/5
-        //[HttpPost, ActionName("Delete")]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult DeleteConfirmed(int id)
-        //{
-        //    using (var transaccion = db.Database.BeginTransaction()) {
-        //        try
-        //        {
-        //            Usuario usuario = db.Usuario.Find(id);
-        //            usuario.iEstado_fl = false;
-        //            usuario.iEliminado_fl = 2;
-        //            usuario.sCreado_by = FrontUser.Get().usr_login;
-        //            usuario.iConcurrencia_id += 1;
-
-        //            db.Entry(usuario).State = EntityState.Modified;
-        //            db.SaveChanges();
-
-        //            db.Usuario.Remove(usuario);
-        //            db.SaveChanges();
-        //            Flash.Instance.Success("CORRECTO", "El dato ha sido eliminado correctamente.");
-        //            transaccion.Commit();
-        //            return RedirectToAction("Index");
-        //        }
-        //        catch (Exception ex)
-        //        {
-        //            Flash.Instance.Error("ERROR", "No se pudo eliminar el dato porque ha ocurrido el siguiente error: "+ex.Message);
-        //            transaccion.Rollback();
-        //            return RedirectToAction("Index");
-        //        }
-        //    }       
-        //}
+        
 
 
         [Permiso(Permiso = RolesPermisos.SEGU_usuario_puedeCambiarContrasena)]
