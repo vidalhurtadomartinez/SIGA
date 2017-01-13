@@ -12,9 +12,7 @@
             <div class="col-md-5">
                 @using (Ajax.BeginForm("Index_json", "PermisoDenegadoPorRol", new AjaxOptions { HttpMethod = "GET", InsertionMode = InsertionMode.Replace, UpdateTargetId = "Paneles" }))
                 {
-                    @*@Html.DropDownList("iRol_id", @ViewBag.iRol_id as SelectList, new { onchange = "$(this.form).submit();", idRol = "dropdown-for-" + @Model.iRol_id, @class = "form-control" } )*@
                     @Html.DropDownListFor(model => model.iRol_id, null, new { onchange = "$(this.form).submit();",  @class = "form-control" })
-
                 }
             </div>
         </div>

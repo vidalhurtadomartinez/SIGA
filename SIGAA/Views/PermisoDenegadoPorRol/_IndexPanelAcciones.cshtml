@@ -14,7 +14,7 @@
                 </tr>
 
                 @foreach (var item in Model)
-            {
+                {
                     <tr>
                         <td>
                             @Html.HiddenFor(modelItem => item.iRol_id)
@@ -23,7 +23,7 @@
                                @*{<a href="/EGRE/EntregaTFG/Edit/@item.iEntrega_id"><span class="glyphicon glyphicon-pencil" data-toggle="tooltip" data-original-title="Editar"></span></a>}*@
                         </td>
                         <td>
-                            @Html.CheckBoxFor(modelItem => item.bEstadoSeleccionado, new { onclick = "ActualizarPermiso(this)" })
+                            @Html.CheckBoxFor(modelItem => item.bEstadoSeleccionado, new { onclick = "ActualizarPermiso(this)", idRol= item.iRol_id, idPermiso= item.iPermiso_id })
                         </td>
                     </tr>
                 }
@@ -34,7 +34,7 @@
 
 <script>
     function ActualizarPermiso(checkboxInput) {
-
+        alert(checkboxInput.val());
         $.ajax({
           type: 'POST',
           url: Your/Action,
