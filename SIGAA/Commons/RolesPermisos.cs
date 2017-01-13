@@ -362,6 +362,16 @@ namespace SIGAA.Commons
         CONV_TipoCargaHoraria_CrearNuevo = 286,
 
         #endregion
+        
+        #region CRM
+        CONV_Solicitud_Nuevo = 205,
+        CONV_Solicitud_Buscar = 206,
+        CONV_Solicitud_Editar = 207,
+        CONV_Solicitud_Certificado = 208,
+        CONV_Solicitud_Ver = 209,
+        CONV_Solicitud_Eliminar = 210,
+        #endregion
+
 
 
     }
